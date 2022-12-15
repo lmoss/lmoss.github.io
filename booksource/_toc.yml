@@ -8,3 +8,6 @@ chapters:
 - file: primitive_recursion
 - file: self_writing
 - file: two_by_two
+- file: universal
+- file: coding
+- file: T_predicate
