@@ -1,0 +1,1476 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Primitive Recursion &#8212; Invitation to Computabitlity</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Self-Replicating Programs" href="self_writing.html" />
+    <link rel="prev" title="Programs for Arithmetic" href="arithmetic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Invitation to Computabitlity</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Invitation to Computability
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   <span style="color:blue">
+    Getting stared with 1#
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="halting.html">
+   How programs “halt”
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sanity.html">
+   Tools to help write programs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arithmetic.html">
+   Programs for Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Primitive Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="self_writing.html">
+   Self-Replicating Programs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two_by_two.html">
+   Two-by-Two Encoding
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/lmoss/Invitation to Computabitlity/main?urlpath=tree/docs/primitive_recursion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lmoss/Invitation to Computabitlity"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lmoss/Invitation to Computabitlity/issues/new?title=Issue%20on%20page%20%2Fprimitive_recursion.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/primitive_recursion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Primitive Recursion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primitive-recursive-terms-and-the-functions-which-they-denote">
+   Primitive recursive terms, and the functions which they denote
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-primitive-recursive-terms-and-functions">
+   Examples of primitive recursive terms and functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-functions-in-this-notebook">
+     Basic functions in this notebook
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-note-the-in-place-programs-in-this-notebook-do-not-halt-in-the-sense-of-the-course-instead-they-preserve-their-inputs-for-example-run-the-program-associated-with-add-below-as-shown-below-it-that-is-take-away-the-from-the-beginning-of-the-lines-after-the-definition-the-2-inputs-are-preserved-and-the-result-goes-in-register-3">
+       Special note: the in_place_programs in this notebook do not halt in the sense of the course.  Instead, they
+       <em>
+        preserve their inputs
+       </em>
+       .  For example, run the program associated with
+       <em>
+        add
+       </em>
+       below as shown below it.  (That is, take away the # from the beginning of the lines after the definition. The 2 inputs are preserved and the result goes in register 3.)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-check">
+     Syntax check
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#you-can-enter-a-line-like-the-ones-below-to-check-that-an-expression-really-is-a-term-or-to-find-an-error">
+       You can enter a line like the ones below to check that an expression really is a term, or to find an error.
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-output-can-be-long-because-the-function-syntax-check-is-recursive-and-thus-reports-information-about-all-the-subterms-of-whatever-you-enter">
+         The output can be long because the function
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           syntax_check
+          </span>
+         </code>
+         is recursive, and thus reports information about all the subterms of whatever you enter.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-run-insepct-the-terms-and-run-the-1-programs">
+     How to run insepct the terms and run the 1# programs.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-am-going-to-change-exercise-5-c-a-little">
+       I am going to change exercise 5(c) a little.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-the-prime-primitive-recursive-term">
+     Testing the ‘prime’ primitive recursive term
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Primitive Recursion</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Primitive Recursion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primitive-recursive-terms-and-the-functions-which-they-denote">
+   Primitive recursive terms, and the functions which they denote
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-of-primitive-recursive-terms-and-functions">
+   Examples of primitive recursive terms and functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-functions-in-this-notebook">
+     Basic functions in this notebook
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-note-the-in-place-programs-in-this-notebook-do-not-halt-in-the-sense-of-the-course-instead-they-preserve-their-inputs-for-example-run-the-program-associated-with-add-below-as-shown-below-it-that-is-take-away-the-from-the-beginning-of-the-lines-after-the-definition-the-2-inputs-are-preserved-and-the-result-goes-in-register-3">
+       Special note: the in_place_programs in this notebook do not halt in the sense of the course.  Instead, they
+       <em>
+        preserve their inputs
+       </em>
+       .  For example, run the program associated with
+       <em>
+        add
+       </em>
+       below as shown below it.  (That is, take away the # from the beginning of the lines after the definition. The 2 inputs are preserved and the result goes in register 3.)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-check">
+     Syntax check
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#you-can-enter-a-line-like-the-ones-below-to-check-that-an-expression-really-is-a-term-or-to-find-an-error">
+       You can enter a line like the ones below to check that an expression really is a term, or to find an error.
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-output-can-be-long-because-the-function-syntax-check-is-recursive-and-thus-reports-information-about-all-the-subterms-of-whatever-you-enter">
+         The output can be long because the function
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           syntax_check
+          </span>
+         </code>
+         is recursive, and thus reports information about all the subterms of whatever you enter.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-run-insepct-the-terms-and-run-the-1-programs">
+     How to run insepct the terms and run the 1# programs.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-am-going-to-change-exercise-5-c-a-little">
+       I am going to change exercise 5(c) a little.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-the-prime-primitive-recursive-term">
+     Testing the ‘prime’ primitive recursive term
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/primitive_recursion.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="primitive-recursion">
+<h1>Primitive Recursion<a class="headerlink" href="#primitive-recursion" title="Permalink to this headline">#</a></h1>
+<p>This notebook enables one to enter primitive recursive definitions and convert them to 1#.</p>
+<p>It is mainly under development, but one could play with it now.  In addition, you can find your homework problems solved at the bottom of this notebook.</p>
+<p>What I have here works: entering a primitive recursive term in the correct syntax, we can translate that term to a 1# program.   I did this for all the terms in the homework.  However, the work here is sub-optimal in the sense that the 1# program associated to a term uses way more registers than what seems to be necessary.  For example the program to determine whether or not an input number is prime uses 57 registers.</p>
+<p>I also wonder what it slowing down the run of the 1# programs.  My guess is that one or two optimizations to the Python algorithms should produce better 1# code.  But I don’t really know this.</p>
+<p>To start, enter the next few code cells below and then look at the definitions below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
+!python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
+from onesharp.interpreter.interpreter import onesharp, step_by_step
+from onesharp.tools.sanity import sanity
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (65.6.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/lmoss/onesharp.git@main
+  Cloning https://github.com/lmoss/onesharp.git (to revision main) to /tmp/pip-req-build-vd2t31bt
+  Running command git clone --filter=blob:none --quiet https://github.com/lmoss/onesharp.git /tmp/pip-req-build-vd2t31bt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Resolved https://github.com/lmoss/onesharp.git to commit 5a27fb04e0170a03fccb4db4cde0370b78d70d02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Installing backend dependencies ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hRequirement already satisfied: IPython in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (8.7.0)
+Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (1.23.5)
+Requirement already satisfied: pandas in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (1.5.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: matplotlib-inline in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.1.6)
+Requirement already satisfied: pygments&gt;=2.4.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (2.13.0)
+Requirement already satisfied: stack-data in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.6.2)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (3.0.36)
+Requirement already satisfied: pexpect&gt;4.3 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (4.8.0)
+Requirement already satisfied: jedi&gt;=0.16 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.18.2)
+Requirement already satisfied: backcall in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.2.0)
+Requirement already satisfied: traitlets&gt;=5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.7.1)
+Requirement already satisfied: decorator in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.1.1)
+Requirement already satisfied: pickleshare in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.7.5)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2022.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;onesharp==0.0.0) (0.8.3)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;onesharp==0.0.0) (0.7.0)
+Requirement already satisfied: wcwidth in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;IPython-&gt;onesharp==0.0.0) (0.2.5)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;onesharp==0.0.0) (1.16.0)
+Requirement already satisfied: executing&gt;=1.2.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (1.2.0)
+Requirement already satisfied: pure-eval in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (0.2.2)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (2.2.1)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;python -m pip install -U setuptools&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;python -m pip install -U git+https://github.com/lmoss/onesharp.git@main&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">onesharp.interpreter.interpreter</span> <span class="kn">import</span> <span class="n">onesharp</span><span class="p">,</span> <span class="n">step_by_step</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">onesharp.tools.sanity</span> <span class="kn">import</span> <span class="n">sanity</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;onesharp&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from onesharp.interpreter.interpreter import *
+from onesharp.tools.sanity import sanity
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next cell contains functions specific to this notebook, this time pertaining to primitive recursive terms themselves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from onesharp.tools.sanity import sanity
+
+def all_equal(list):
+  a = list[0]
+  b = [x == a for x in list]
+  return(all(b))
+
+
+def arity(t):
+  if t == &#39;s_prog&#39;:
+    return(1)
+  if t[0] == &#39;proj&#39;:
+    return(t[2])
+  if t == &#39;z&#39;:
+    return(1)
+  if t == &#39;z_empty&#39;:
+    return(0)
+  if t[0] == &#39;pr&#39;:
+    k = arity(t[1])
+    j = arity(t[2])
+    if j== 2 + k:
+      return(k+1)
+  if t[0] == &#39;comp&#39;:
+    f = t[1]
+    g_list = t[2:]
+    if arity(f)== len(g_list) and all_equal([arity(v) for v in g_list]):
+      return(arity(t[2]))   
+
+def new_program(t,n):
+  if t==&#39;s_prog&#39;:
+    return(copy_1_2_3+ successor_prog(2,3))
+  if t[0] == &#39;proj&#39;:
+    return(proj_prog(t[1],t[2]))
+  if t == &#39;z&#39;:
+    return(&#39;11##&#39;)
+  if t == &#39;z_empty&#39;:
+    return(&#39;1##&#39;) 
+  if t[0] == &#39;pr&#39;:
+    f = new_program(t[1],essentially_used(t))
+    g = new_program(t[2],essentially_used(t))
+    p = primitive_recursion(f, g, arity(t),essentially_used(t))
+    return(p)
+  if t[0] == &#39;comp&#39;:       
+    g = new_program(t[1],essentially_used(t))
+    hs = [new_program(u,essentially_used(t)) for u in t[2:]]
+    k = arity(t[2])
+    p = compose(g,hs,k, essentially_used(t))
+    return(p)
+
+def in_place_program(t):
+  if t==&#39;s_prog&#39;:
+    return(copy_1_2_3+ successor_prog(2,3))
+  if t[0] == &#39;proj&#39;:
+    return(proj_prog(t[1],t[2]))
+  if t == &#39;z&#39;:
+    return(&#39;11##&#39;)
+  if t == &#39;z_empty&#39;:
+    return(&#39;1##&#39;) 
+  if t[0] == &#39;pr&#39;:
+    f = in_place_program(t[1])
+    g = in_place_program(t[2])
+    p = primitive_recursion(f, g, arity(t),essentially_used(t))
+    return(p)
+  if t[0] == &#39;comp&#39;:       
+    g = in_place_program(t[1])
+    hs = [in_place_program(u) for u in t[2:]]
+    k = arity(t[2])
+    p = compose(g,hs,k, essentially_used(t))
+    return(p)
+
+def essentially_used(t):
+    if t==&#39;s_prog&#39;:
+      return(3)
+    if t[0]== &#39;proj&#39;:
+      return(t[2])
+    if t == &#39;z&#39;:
+      return(1)
+    if t == &#39;z_empty&#39;:
+      return(0)
+    if t[0] == &#39;comp&#39;:
+      outer = t[1]
+      n1 = essentially_used(outer) 
+      n2 = n1 + (len(t) -0)
+      n3 = max([essentially_used(u) for u in t[2:]])
+      n = max([n1,n2])+2
+      return(n)
+    if t[0] == &#39;pr&#39;:
+      g = t[1]
+      h = t[2]     
+      n1 = essentially_used(g)
+      n2 = essentially_used(h)
+      n = max([n1,n2]) +2
+      return(n)
+import sys
+def program(t):
+  n = arity(t)
+  first = in_place_program(t)
+  second = unparse([clear_prog(i) for i in range(1,n+1)])
+  third = move_prog(n+1,1)
+  return(first+second+third)
+
+#@title
+def syntax_check(t):
+  if t == &#39;s_prog&#39;:
+    return(&#39;True&#39;)
+  if t[0] == &#39;proj&#39;:
+    if t[1] &lt;= t[2]:
+      print(str(t))
+      print(&quot;is a good term, and its arity is &quot; + str(arity(t)))  
+      print()
+      return(&#39;True&#39;)
+    else:
+      print(&#39;Error in the expression below:&#39;)
+      print(t)
+      print()
+      return(False)
+  if t == &#39;z&#39;:
+    return(&#39;True&#39;)
+  if t == &#39;z_empty&#39;:
+    return(&#39;True&#39;)
+  if t[0] == &#39;pr&#39;:
+    bool1 = syntax_check(t[1])
+    bool2 = syntax_check(t[2])
+    boolean = bool1 and bool2
+    if boolean:
+       k = arity(t[1])
+       j = arity(t[2])
+       if j== 2 + k:
+          print(str(t))
+          print(&quot;is a good term, and its arity is &quot; + str(arity(t)))  
+          print()
+          return(True)
+       else:
+              print(&#39;Error in the primitive recursion (sub)term below:&#39;)
+              print(t)
+              print()
+              print(&#39;The arity of the first term is &#39; + str(k))
+              print(&#39;The arity of the second term is &#39; + str(j) +&#39;,&#39;)
+              print(&#39;and we need the second arity to exceed the first by 2.&#39;)
+              print()
+    else: 
+       print()
+       print(&#39;Thus, there is an error in the pr term&#39;)       
+       print(t)  
+  if t[0] == &#39;comp&#39;:
+    f = t[1]
+    b1 = syntax_check(t[1])
+    #print(&#39;b1: &#39; + str(b1))
+    if b1 == False:
+      print(&#39;Error in the sub-expression below:&#39;)
+      print(t[1])
+      return(False)
+    g_list = t[2:]
+    b2 = all_equal([syntax_check(v) for v in g_list])   
+    #print(&#39;b2: &#39; + str(b2)) 
+    if (b1 == True) and (b2 == False):
+      print(&#39;One of the expressions is not a term:&#39;)
+      print(g_list)
+      return(False)
+    else:
+      b3 = all_equal([arity(v) for v in g_list])
+      #print(&#39;b3: &#39; + str(b3)) 
+    if b3 == False:
+      print(&#39;The expressions below are terms, but their arities are not all equal:&#39;)
+      print(g_list)
+      return(False)
+    b4 = b2 and b3
+    #print(&#39;b4: &#39; + str(b4)) 
+    if b4 == True:
+      k = len(g_list)
+      b5 = (k == arity(f)) 
+      #print(&#39;b5: &#39; + str(b5)) 
+      if b5 == False:
+        print(&quot;Arity match error: The arity of &quot;)
+        print(str(f)) 
+        print(&#39;is &#39;+ str(arity(f)) + &#39;, and it &#39;)
+        print(&quot;should equal &quot; + str(k) + &quot;, the number of terms which follow it.&quot;)
+        return(False)  
+      else:
+        print(str(t))
+        print(&quot;is a good term, and its arity is &quot; + str(arity(t)))  
+        print()        
+        return(True)           
+
+   
+   
+pr = &#39;pr&#39;
+proj = &#39;proj&#39;
+comp = &#39;comp&#39;
+s = &#39;s_prog&#39;
+z = &#39;z&#39;
+z_empty = &#39;z_empty&#39;
+
+
+
+ddd = &#39;1#####111111###111111111###11#####11111111111###1111111111###111111####11#####111111111111111###111111###11111###11#####111###1111111111111####1###1#####111###11####111####11#####1111###11####111####1#&#39;
+## ddd is used in the compare program just below
+def compare_prog(a,b): #uses a+1, a+2, a+3
+  p = copy_prog(a,a+1,a+2) + copy_prog(b,a+2,a+3) +  bump(ddd,a) 
+  return(p)
+  # SHOULD ONLY BE USED WHEN b is not a+1 and not a+2
+  # checks if Register a and Register b have the same thing, 
+  # preserving them.   At the end, R(a+1) either has 
+  # 1 (if original Rn and Rm are the same) or is empty (if they aren&#39;t)
+  # This program also writes to R(a+2) and R(a+3).  So when it is 
+  # called, all of registers a+1, a+2, and a+3 should be empty
+
+def successor_prog(to_increment,to_use):
+  # gives a program to increment the register &#39;to_increment&#39; by 1, using 
+  # the register &#39;to_use&#39;
+   p = (ones(to_increment) + 
+     &#39;#####&#39; + 
+     &#39;111###&#39; +
+     &#39;111###&#39; +
+     &#39;1111111111111111111111111###&#39;+
+     &#39;1111111111111111111111111111111111111111###&#39; +
+     ones(to_use) + &#39;##&#39; + 
+     ones(to_increment) + &#39;#####&#39; + 
+     &#39;111###&#39; +
+     &#39;111111111111111111###&#39; +
+     &#39;1111111111111111111###&#39; +
+     ones(to_use) + &#39;#&#39; + 
+     ones(to_increment) + &#39;#####&#39; + 
+     &#39;111111###&#39; +
+     &#39;111###&#39; +
+     ones(to_use) + &#39;##&#39; + 
+     &#39;1111####&#39; +
+     ones(to_use) + &#39;#&#39; + 
+     &#39;111111####&#39; +
+     ones(to_use) + &#39;#####&#39; + 
+     &#39;111111###&#39; +
+     &#39;111###&#39; +
+     ones(to_increment) + &#39;##&#39; + 
+     &#39;1111####&#39; +
+     ones(to_increment) + &#39;#&#39; +  
+     &#39;111111####&#39; +
+     &#39;1111111111111111111###&#39;  +
+     ones(to_use) + &#39;##&#39; +  
+     &#39;111111111111111111111####&#39; +
+     ones(to_use) + &#39;#&#39; +  
+     ones(to_increment) + &#39;#####&#39; +  
+     &#39;111111###&#39; +
+     &#39;111###&#39; +
+     ones(to_use) + &#39;##&#39; +  
+     &#39;1111####&#39; +
+     ones(to_use) + &#39;#&#39; + 
+     &#39;111111####&#39; +
+     ones(to_use) + &#39;#####&#39; +  
+     &#39;111111###&#39; +
+     &#39;111###&#39; +
+     ones(to_increment) + &#39;##&#39; +  
+     &#39;1111####&#39; +
+     ones(to_increment) + &#39;#&#39; + 
+     &#39;111111####&#39; +
+     &#39;1###&#39;
+     )
+   return(p) 
+  
+z_prog = &#39;11##&#39;
+one_prog = &#39;11#&#39;
+#@title
+# s is an index of the successor function in bb
+successor = &#39;1#####111###111###1111111111111111111111111###1111111111111111111111111111111111111111###11##1#####111###111111111111111111###1111111111111111111###11#1#####111111###111###11##1111####11#111111####11#####111111###111###1##1111####1#111111####1111111111111111111###11##111111111111111111111####11#1#####111111###111###11##1111####11#111111####11#####111111###111###1##1111####1#111111####1###&#39;
+
+def maxie(l):
+  if l == []:
+    return(0)
+  else:
+    return(max(l))
+def height(tree):
+  n = maxie([height(u) +1 for u in tree.children])
+  return(n)
+def all_equal(list):
+  if (len(list)==0 or len(list)==1):
+    return(True)
+  else:
+    b = all_equal(list[1:])  
+    if b == False:
+      return(False)
+    else:
+      return(list[0]==list[1])
+
+def bump_instr(inst, amount):
+  if instruction_type(inst) in [&#39;forward&#39;,&#39;backward&#39;]:  
+    return(inst) 
+  elif instruction_type(inst) == &#39;add1&#39;:  
+    n = number_help(inst)
+    return(ones(n+amount)+&#39;#&#39;)
+  elif instruction_type(inst) == &#39;add#&#39;:  
+    n = number_help(inst)
+    return(ones(n+amount)+&#39;##&#39;)
+  elif instruction_type(inst) == &#39;cases&#39;:  
+    n = number_help(inst)
+    return(ones(n+amount)+&#39;#####&#39;)
+def bump(prog,amount):
+  par = parse(prog)
+  t = [bump_instr(instr,amount) for instr in par]
+  return(unparse(t))
+
+def clear_prog(n):
+   a = ones(n) + &#39;#####&#39;
+   b = &#39;111###&#39;
+   c = &#39;1###&#39;
+   d = &#39;111####&#39;
+   return(a+b+c+d)
+
+def move_prog(n,m):
+   a = ones(n) + &#39;#####&#39;
+   b = &#39;111111###&#39;
+   c = &#39;111###&#39;
+   d = ones(m)+&#39;##&#39;
+   e = &#39;1111####&#39;
+   f = ones(m)+&#39;#&#39;
+   g = &#39;111111####&#39;
+   return(a+b+c+d+e+f+g)
+
+def copy_prog(n,m,p):
+   a = ones(n) + &#39;#####&#39;
+   b = &#39;11111111###&#39;
+   c = &#39;1111###&#39;
+   d = ones(m)+&#39;##&#39;
+   d1 = ones(p) + &#39;##&#39;
+   e = &#39;11111####&#39;
+   f = ones(m)+&#39;#&#39;
+   f1 = ones(p) + &#39;#&#39;
+   g = &#39;11111111####&#39;
+   return(a+b+c+d+d1+e+f+f1+g+move_prog(p,n))  
+
+def proj_prog_official(ind,upper):
+  index = [k+1 for k in range(ind-1)]    
+  #print(index)
+  first_part = [clear_prog(j) for j in index]
+  #print(first_part)
+  if ind == 1:
+    middle = []
+  else: 
+    middle=[move_prog(ind,1)]
+  second_index =  [k+ind+1 for k in range(upper-ind)] 
+  #print(second_index)
+  last_part = [clear_prog(j) for j in second_index]   
+  together = first_part + middle + last_part
+  done = unparse(together)
+  if ind == 1 and upper==1:
+    return(&#39;1###&#39;)
+  else:
+    return(done)   
+
+def proj_prog(ind,upper):
+  return(copy_prog(ind,upper+1, upper+2))
+
+# the function below doesn&#39;t seem to be used
+def copy_all_forward(n,m):
+  # copies 1 to m, 2 to m+1, . . . n to m+n-1
+  a = [copy_prog(i,m+i-1, m+i) for i in range(1,n+1)]
+  return(unparse(a))
+
+
+def compose(outer_fn,proglist,argument_number,used_reg):
+  ## note that the outer_fn has to be &#39;in place&#39;!
+  k = len(proglist) # number of functions
+  # the outer_fn is k-ary
+  q = unparse([clear_prog(i) for i in range(1,k+1)])
+  outer_fn = outer_fn + q + move_prog(k+1,1)
+  arg = argument_number # = common arity in the proglist
+  max_list =   [max_register(p) for p in proglist]
+  m = maxie(max_list)
+  #free_reg = used_reg + 1
+  free_reg = m + 1
+  a = [proglist[i] + move_prog(arg+1,free_reg+i+1) for i in range(0,k)]
+  b = unparse(a)
+  c = [move_prog(free_reg+i+1,argument_number+i+1) for i in range(0,k)]
+  d = unparse(c)
+  f = bump(outer_fn,argument_number)
+  e = b + d + f   
+  return(e)
+
+# &lt;g,h&gt;(x-bar,0) = g(x-bar)
+# &lt;g,h&gt;(x-bar,n+1) = h(x-bar,n,&lt;g,h&gt;(x-bar,n))
+# k-1 is the number of xs, so the arity of &lt;g,h&gt; is k
+# k+1 is the number of arguments to g
+# k is the number of arguments to the function we are building
+#free is large enough so that neither g nor h use it or any larger register.
+# g and h are assumed to preserve their inputs
+def primitive_recursion(g,h,arity,used_reg):
+  free = max([max_register(g),max_register(h)])+1
+  #free = used_reg +1
+  free_plus_one = free + 1
+  plan = [[&#39;top&#39;,move_prog(arity,free) +
+               g + 
+               move_prog(arity,arity+1) + 
+               ones(arity) + &#39;##&#39; ],
+          [compare_prog(free,arity)],
+          [&#39;decision&#39;, &#39;cases&#39;, free_plus_one, &#39;main_loop&#39;,&#39;clear_out_free&#39;, &#39;end&#39; ],
+          [&#39;clear_out_free&#39;, clear_prog(free)],
+          [&#39;goto&#39;, &#39;end&#39;],
+          [&#39;main_loop&#39;,h + 
+               clear_prog(arity+1) + 
+               move_prog(arity+2,arity+1) + 
+               successor_prog(arity,free+2) +
+               compare_prog(free,arity)],
+          [&#39;goto&#39;, &#39;decision&#39;],
+        ]
+  trial = sanity(plan)
+  return(trial)   
+ 
+   
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="primitive-recursive-terms-and-the-functions-which-they-denote">
+<h1>Primitive recursive terms, and the functions which they denote<a class="headerlink" href="#primitive-recursive-terms-and-the-functions-which-they-denote" title="Permalink to this headline">#</a></h1>
+<p><em>Primitive recursive functions</em> are functions <span class="math notranslate nohighlight">\(N^k\to N\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the set of natural numbers.   So there are primitive functions of arity <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, etc.  There are also primitive recursive functions of arity <span class="math notranslate nohighlight">\(0\)</span> (for a technical reason.)</p>
+<p><em>Primitive recursive terms</em> are terms that denote primitive recursive functions.</p>
+<p>We start with <em>basic primitive recursive function terms</em>, as shown below:</p>
+<p><code class="docutils literal notranslate"><span class="pre">z</span></code> : this denotes the one-place function with value 0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">z_empty</span></code>: this denotes the zero-place function with value 0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">s</span></code> : this denotes the one-place successor function: <span class="math notranslate nohighlight">\(f(n) = n+1\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[proj,</span> <span class="pre">i,</span> <span class="pre">j]</span></code> with i &lt;= j: this is the ith projection on j variables.
+For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">proj</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="mf">7.</span> 
+</pre></div>
+</div>
+<p>Indeed, every primitive recursive term has an <em>arity</em>, and if <span class="math notranslate nohighlight">\(t\)</span> is of arity <span class="math notranslate nohighlight">\(k\)</span>, then <span class="math notranslate nohighlight">\(t\)</span> denotes a function <span class="math notranslate nohighlight">\(N^k\to N\)</span>.  Technically, we should distinguish between the terms and the functions which they denote, but we usually will not do this.</p>
+<p>The two term constructors are</p>
+<p><code class="docutils literal notranslate"><span class="pre">[comp,</span> <span class="pre">f,</span> <span class="pre">g_1,</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">,</span> <span class="pre">g_k]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[pr,</span> <span class="pre">f,</span> <span class="pre">g]</span></code></p>
+<p>In these, <code class="docutils literal notranslate"><span class="pre">comp</span></code> stands for composition, and <code class="docutils literal notranslate"><span class="pre">pr</span></code> stands for primitive recursion.</p>
+<p>In the composition term <code class="docutils literal notranslate"><span class="pre">[comp,</span> <span class="pre">f,</span> <span class="pre">g_1,</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">,</span> <span class="pre">g_k]</span></code>, all the terms <code class="docutils literal notranslate"><span class="pre">g_i</span></code> must have the same arity, say <span class="math notranslate nohighlight">\(n\)</span>.  The term <code class="docutils literal notranslate"><span class="pre">f</span></code> must have arity <span class="math notranslate nohighlight">\(k\)</span> (the number of <span class="math notranslate nohighlight">\(g\)</span>s).  The term <code class="docutils literal notranslate"><span class="pre">[comp,</span> <span class="pre">f,</span> <span class="pre">g_1,</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">,</span> <span class="pre">g_k]</span></code> has arity <span class="math notranslate nohighlight">\(n\)</span>.  The function which this term denotes is defined as follows.
+For numbers <span class="math notranslate nohighlight">\(\overline{x} = x_1\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(x_n\)</span>,
+$<span class="math notranslate nohighlight">\(
+[comp, f, g_1, . . . , g_k](\overline{x}) =
+f(g_1(\overline{x}), \ldots, g_k(\overline{x})).
+\)</span>$</p>
+<p>For the primitive recursive terms
+<code class="docutils literal notranslate"><span class="pre">[pr,</span> <span class="pre">f,</span> <span class="pre">g]</span></code>, we require that there is a number <span class="math notranslate nohighlight">\(n\)</span> such that
+the arity of <span class="math notranslate nohighlight">\(f\)</span> is <span class="math notranslate nohighlight">\(n-1\)</span> and the arity of <span class="math notranslate nohighlight">\(g\)</span> is <span class="math notranslate nohighlight">\(n+1\)</span>.  Then the
+arity of the term
+<code class="docutils literal notranslate"><span class="pre">[pr,</span> <span class="pre">f,</span> <span class="pre">g]</span></code> is <span class="math notranslate nohighlight">\(n\)</span>.  Its denotation is the function with the following properties:
+$<span class="math notranslate nohighlight">\(
+[pr, f, g](\overline{x},0) = f(\overline{x})\\
+[pr, f, g](\overline{x},m+1) = g(\overline{x},m,[pr, f, g](\overline{x},m))\\
+\)</span>$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="examples-of-primitive-recursive-terms-and-functions">
+<h1>Examples of primitive recursive terms and functions<a class="headerlink" href="#examples-of-primitive-recursive-terms-and-functions" title="Permalink to this headline">#</a></h1>
+<p>You can assign names to them, as shown below. The main functions in the notebook are</p>
+<p>You might look over the following example of terms before reading what to do with them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>add = [pr,[proj,1,1], [comp, s, [proj, 3,3]]]
+#onesharp(program(add), [&#39;11&#39;,&#39;#1#1&#39;])
+
+mul = [pr, z, [comp, add,[proj, 3,3],[proj, 1, 3]] ]
+q = program(mul)
+#onesharp(q, [&#39;11&#39;,&#39;1#1&#39;])
+
+exp = [pr, [comp, s, z], [comp, mul, [proj, 3,3],[proj, 1, 3]] ]
+pred = [pr, z_empty, [proj,1,2]]
+monus = [pr, [proj, 1,1], [comp, pred, [proj,3,3]]]
+
+two_place_fn_value_one = [comp, s,[comp,z,[proj,1,2]]]  
+zero_place_fn_value_one = [comp, s, z_empty]  
+
+sgn =[pr, z_empty,two_place_fn_value_one]
+sgn_bar =[pr, zero_place_fn_value_one, [comp,z,[proj,1,2]]]
+
+chi_greater = [comp,sgn, monus] ## characteristic function of &gt;
+chi_lesser_or_equal = [comp,sgn_bar, monus] #|characteristic function of (&gt; or =)
+chi_lesser = [comp,chi_greater,[proj,2,2],[proj,1,2]] ## characteristic function of &lt;
+chi_greater_or_equal = [comp, chi_lesser_or_equal,[proj,2,2],[proj,1,2]] ## characteristic function of &gt;=
+
+## solution to exercise 5a below
+chi_equals = [comp, mul, chi_lesser_or_equal, chi_greater_or_equal ]
+
+#print(arity(pred))
+#predProg = print(program(pred))
+#onesharp(program(exp),[&#39;1#1&#39;,&#39;11&#39;])
+#onesharp(program([comp, pred, [proj,2,2]]), [&#39;11&#39;,&#39;#1#1&#39;])
+#print(successor)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(program(exp),[&#39;111&#39;,&#39;111&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="basic-functions-in-this-notebook">
+<h2>Basic functions in this notebook<a class="headerlink" href="#basic-functions-in-this-notebook" title="Permalink to this headline">#</a></h2>
+<p>As you can see, you enter terms as ordinary Python strings.
+In particular, you can assign terms to variables, just as we have been doing with programs.</p>
+<p>Here are some other functions in this notebook:</p>
+<p><code class="docutils literal notranslate"><span class="pre">arity(t)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">program(t)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">in_place_program(t)</span></code></p>
+<section id="special-note-the-in-place-programs-in-this-notebook-do-not-halt-in-the-sense-of-the-course-instead-they-preserve-their-inputs-for-example-run-the-program-associated-with-add-below-as-shown-below-it-that-is-take-away-the-from-the-beginning-of-the-lines-after-the-definition-the-2-inputs-are-preserved-and-the-result-goes-in-register-3">
+<h3>Special note: the in_place_programs in this notebook do not halt in the sense of the course.  Instead, they <em>preserve their inputs</em>.  For example, run the program associated with <em>add</em> below as shown below it.  (That is, take away the # from the beginning of the lines after the definition. The 2 inputs are preserved and the result goes in register 3.)<a class="headerlink" href="#special-note-the-in-place-programs-in-this-notebook-do-not-halt-in-the-sense-of-the-course-instead-they-preserve-their-inputs-for-example-run-the-program-associated-with-add-below-as-shown-below-it-that-is-take-away-the-from-the-beginning-of-the-lines-after-the-definition-the-2-inputs-are-preserved-and-the-result-goes-in-register-3" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="syntax-check">
+<h2>Syntax check<a class="headerlink" href="#syntax-check" title="Permalink to this headline">#</a></h2>
+<p>###If you want to see a primitive recursive term written out “all the way”, you can just enter it.</p>
+<section id="you-can-enter-a-line-like-the-ones-below-to-check-that-an-expression-really-is-a-term-or-to-find-an-error">
+<h3>You can enter a line like the ones below to check that an expression really is a term, or to find an error.<a class="headerlink" href="#you-can-enter-a-line-like-the-ones-below-to-check-that-an-expression-really-is-a-term-or-to-find-an-error" title="Permalink to this headline">#</a></h3>
+<section id="the-output-can-be-long-because-the-function-syntax-check-is-recursive-and-thus-reports-information-about-all-the-subterms-of-whatever-you-enter">
+<h4>The output can be long because the function <code class="docutils literal notranslate"><span class="pre">syntax_check</span></code> is recursive, and thus reports information about all the subterms of whatever you enter.<a class="headerlink" href="#the-output-can-be-long-because-the-function-syntax-check-is-recursive-and-thus-reports-information-about-all-the-subterms-of-whatever-you-enter" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#print(exp)
+
+#syntax_check(mul)
+#syntax_check([comp, mul, mul])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="how-to-run-insepct-the-terms-and-run-the-1-programs">
+<h2>How to run insepct the terms and run the 1# programs.<a class="headerlink" href="#how-to-run-insepct-the-terms-and-run-the-1-programs" title="Permalink to this headline">#</a></h2>
+<p>The Python function <code class="docutils literal notranslate"><span class="pre">program(t)</span></code> compiles a primitive recursive term to a 1# program.  You can look at these by entering, e.g., <code class="docutils literal notranslate"><span class="pre">program(add)</span></code>.   Then you can run these programs just as we have been doing all along.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(program(chi_equals),[&#39;1#1&#39;,&#39;##1&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://github.com/lmoss/onesharp/blob/main/images/drum.png?raw=1" /></p>
+<img src="https://github.com/lmoss/onesharp/blob/main/drum.jpg?raw=1" width="200" height="160"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### exercise 5b below
+g = [comp, chi_equals, [proj,2,3], [comp, mul, [proj,1,3],[proj,3,3]]] 
+# g tells if first x third = second
+#print(arity(g))
+#print(onesharp(program(g),[&#39;11&#39;,&#39;1##1&#39;,&#39;11&#39;]))
+
+## for future use
+greater_than_one = [comp, chi_greater, [proj,1,1], [comp, s, z]]
+# gives output 1 if the input is &gt;1 and gives output 0 if the input is 0 or 1
+
+first_and_third_greater_than_one = [comp, mul,
+                                      [comp, greater_than_one, [proj,1, 3]],
+                                      [comp, greater_than_one, [proj,3, 3]]
+                                     ]
+
+first_third_second_proper = [comp, mul, g, first_and_third_greater_than_one]
+# g tells if first x third = second, and both the first and third are &gt;1
+
+#onesharp(program(first_third_second_proper),[&#39;11&#39;,&#39;#11&#39;,&#39;#1&#39;])
+
+#onesharp(program(first_third_second_proper),[&#39;#&#39;,&#39;#&#39;,&#39;#1&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="i-am-going-to-change-exercise-5-c-a-little">
+<h3>I am going to change exercise 5(c) a little.<a class="headerlink" href="#i-am-going-to-change-exercise-5-c-a-little" title="Permalink to this headline">#</a></h3>
+<p>I will get h_proper so that h_proper(m,p,n) = 1 if m &gt; 1 and for some q &lt;= n,
+q &gt; 1 and m q = p.   That is, I have changed h a litte so that it incorporates information about the “&gt;1” conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>## exercise 5c below
+
+
+g3 = [comp, g, [proj, 1, 2], [comp, z, [proj, 1, 2]], [proj, 2, 2]]
+p = program(g3)
+onesharp(p, [&#39;11&#39;,&#39;11111&#39;])
+k1 = [comp, add, [proj,4,4], 
+      [comp, first_third_second_proper, [proj,1,4], [proj,2,4], [comp,s, [proj,3,4]]]]
+k = [comp, sgn, k1] 
+
+h_proper = [pr, g3, k1]
+
+#onesharp(program(h_proper),[&#39;11&#39;,&#39;11&#39;,&#39;11&#39;])
+#onesharp(program(h_proper),[&#39;1#1&#39;,&#39;1111&#39;,&#39;11&#39;])
+## this asks if there is a number &lt;= 3 such that 
+## (a) the number is &gt; 1
+## and (b) if you multiply 5 by the number, you get 15.
+## Since there is such a number (namely 2), we output 1.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># exercise 5d and 5e
+
+proper_divisor = [comp, h_proper, [proj,1,2], [proj,2,2], [comp, pred, [proj,2,2]]]
+
+#print(arity(proper_divisor))
+#print(onesharp(program(proper_divisor),[&#39;11&#39;,&#39;11&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;11&#39;,&#39;#11&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;11&#39;,&#39;1##1&#39;]))
+
+#print(onesharp(program(proper_divisor),[&#39;1&#39;,&#39;111&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;#1&#39;,&#39;111&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;11&#39;,&#39;111&#39;]))
+
+#print(onesharp(program(proper_divisor),[&#39;##1&#39;,&#39;111&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;1#1&#39;,&#39;111&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;#11&#39;,&#39;111&#39;]))
+#print(onesharp(program(proper_divisor),[&#39;111&#39;,&#39;111&#39;]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+pd_inverse_zero = [comp, proper_divisor, [proj,2,2],[proj,1,2]]
+pd_inverse = [comp, mul, pd_inverse_zero, [comp, greater_than_one, [proj,2,2]]]
+
+running_total_of_pd_inverse = [pr, [comp, z, [proj, 1, 1]], 
+                                [comp, add, [proj, 3,3], 
+                                [comp, pd_inverse, [proj, 1, 3], [proj,2, 3]]]]
+#print(arity([comp, add, [proj, 2,2], pd_inverse]))                                  
+#print(arity(running_total_of_pd_inverse))
+
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(onesharp(program(running_total_of_pd_inverse),[&#39;1&#39;,&#39;1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;#1&#39;,&#39;#1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;11&#39;,&#39;11&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;##1&#39;,&#39;##1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;1#1&#39;,&#39;1#1&#39;]))
+
+print(onesharp(program(running_total_of_pd_inverse),[&#39;#11&#39;,&#39;#11&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;111&#39;,&#39;111&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;###1&#39;,&#39;###1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;1##1&#39;,&#39;1##1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;#1#1&#39;,&#39;#1#1&#39;]))
+print(onesharp(program(running_total_of_pd_inverse),[&#39;11#1&#39;,&#39;11#1&#39;]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># End of the work on prime(n)
+
+prime =[comp,sgn_bar, [comp, running_total_of_pd_inverse, [proj, 1,1], [proj, 1,1]]]
+prime_prog = program(prime)
+
+# Gives output 1 if the input is a prime,
+# and gives output # if the output is not a prime.
+
+</pre></div>
+</div>
+</div>
+</div>
+<img src="https://github.com/lmoss/onesharp/blob/main/drum.jpg?raw=1" width="200" height="160"></section>
+</section>
+<section id="testing-the-prime-primitive-recursive-term">
+<h2>Testing the ‘prime’ primitive recursive term<a class="headerlink" href="#testing-the-prime-primitive-recursive-term" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list = [&#39;1&#39;, &#39;#1&#39;, &#39;11&#39;, &#39;##1&#39;, 
+             &#39;1#1&#39;, &#39;#11&#39;, &#39;111&#39;, &#39;###1&#39;, 
+            &#39;1##1&#39;, &#39;#1#1&#39;, &#39;11#1&#39;, &#39;##11&#39;, 
+             &#39;1#11&#39;, &#39;#111&#39;, &#39;1111&#39;]
+for i in range(15):
+  x = list[i]
+  b = onesharp(prime_prog,[list[i]])
+  if b == &#39;1&#39;:
+    print(x + &#39; is prime&#39;)
+  else:
+    print(x + &#39; is not prime&#39;)  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ddd
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ones(5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>unparse(parse(diag))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>diag
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(&#39;1#&#39;,[])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>diag
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ddd
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>diag
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>moveprog(1,3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="arithmetic.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Programs for Arithmetic</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="self_writing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Self-Replicating Programs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lawrence S. Moss<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
