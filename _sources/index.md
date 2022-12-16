@@ -13,6 +13,16 @@ them on a hosting service like Cocalc, Binder, or Google Colab. At the present t
 the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top.
 :::
 
+
+## Status as of December 15, 2022
+
+I am in the process of adding materials to the book.  [The original source]{https://iulg.sitehost.iu.edu/trm/} for the course had 
+much of the material, and the centerpiece was the Javascript interpreter for 1# developed by my former PhD students Robert Rose and 
+David Sprunger. In 2022, I re-wrote the interpreter in Python and turned the website into notebooks.  The rest of the course exists 
+in lecture slides.  So much of what I am doing now is revising them and adding them here.
+
+
+
 ## Using the book
 
 There are a number of ways the book could be used in courses for students in several disciplines.  For computer science students,
