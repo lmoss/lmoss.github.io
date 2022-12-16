@@ -320,12 +320,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-book">
+   Using the book
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -337,6 +361,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-book">
+   Using the book
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -351,9 +388,21 @@ title="Print to PDF"
 <p>On the other hand, aspects of the presentation are new.  This is mainly due to the online format using Jupyter notebooks.  The first part of the course uses a variant of register machines using two symbols and a “programming language” using those same two symbols, called 1#.  This text comes with a Python interpreter for 1# and with tool support to enable students to learn to write programs.  In addition, it is posisble to write explicit universal programs, self-writing programs, and similar artifacts.  So the course is much more explicit than most treatments.   At the same time, it enables one to go further, showing the undecidability of tiling using 1#, and then deriving as a corollary Church’s Theorem that satisfiability in first-order logic is undecidable.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The chapters in the book are Jupyter notebooks.   So rather than simply read, they are intended to be <em>run</em>.
-One should start by opening them on Colab using the button at the top.</p>
+<p>Most of the chapters in the book are <a class="reference external" href="https://docs.jupyter.org/en/latest/index.html">Jupyter notebooks</a>.  So rather than simply
+read, they are intended to be <em>run</em>. One way to use them is to save them and then run them locally.  Alternatively, one could open
+them on a hosting service like Cocalc, Binder, or Google Colab. At the present time, I don’t have buttons to run it on Cocalc, and
+the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top.</p>
 </div>
+<section id="using-the-book">
+<h2>Using the book<a class="headerlink" href="#using-the-book" title="Permalink to this headline">#</a></h2>
+<p>There are a number of ways the book could be used in courses for students in several disciplines.  For computer science students,
+the subject is often taught as an end-of-semester topic in a theory course.  For this, one would need to select the topics
+judiciously and skip some of the beginning material. The book does not currently have much on complexity theory, but this might
+change. For mathematics courses aiming at undecidability results in logic, the book has a fair amount of advanced materaial, leading
+up to Church’s Theorem on the undecidability of first-order logic.  Overall, there is more than enough material for a course. At the
+same time, the topic of computability has many connections and developments, far too many for an “invitation” book. Instructors
+might prefer to use this book for some of their courses and to provide other material as well.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
