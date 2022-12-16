@@ -10,8 +10,15 @@ On the other hand, aspects of the presentation are new.  This is mainly due to t
 Most of the chapters in the book are [Jupyter notebooks](https://docs.jupyter.org/en/latest/index.html).  So rather than simply
 read, they are intended to be *run*. One way to use them is to save them and then run them locally.  Alternatively, one could open
 them on a hosting service like Cocalc, Binder, or Google Colab. At the present time, I don't have buttons to run it on Cocalc, and
-the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top.
+the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top of each page
 :::
+
+## Status as of December 15, 2022
+
+I am in the process of adding materials to the book.  [The original source]{https://iulg.sitehost.iu.edu/trm/} for the course had 
+much of the material, and the centerpiece was the Javascript interpreter for 1# developed by my former PhD students Robert Rose and 
+David Sprunger. In 2022, I re-wrote the interpreter in Python and turned the website into notebooks.  The rest of the course exists 
+in lecture slides.  So much of what I am doing now is revising them and adding them here.
 
 ## Using the book
 
