@@ -10,7 +10,7 @@ On the other hand, aspects of the presentation are new.  This is mainly due to t
 Most of the chapters in the book are [Jupyter notebooks](https://docs.jupyter.org/en/latest/index.html).  So rather than simply
 read, they are intended to be *run*. One way to use them is to save them and then run them locally.  Alternatively, one could open
 them on a hosting service like Cocalc, Binder, or Google Colab. At the present time, I don't have buttons to run it on Cocalc, and
-the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top of each page
+the berst option is to run them on Colab.  For this, one starts by clicking on the button at the top of each page.
 :::
 
 ## Status as of December 15, 2022
