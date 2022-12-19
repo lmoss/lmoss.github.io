@@ -121,8 +121,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="basic_programs.html">
-   Three simple programs
+  <a class="reference internal" href="move_copy_write.html">
+   Example: A simple loop
   </a>
  </li>
  <li class="toctree-l1">
@@ -494,381 +494,368 @@ title="Print to PDF"
 <h1>The T predicate<a class="headerlink" href="#the-t-predicate" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title
-import pandas as pd
-import numpy as np
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-def program_checker(str):
-    m = len(str)
-    x1 = str[m - 1] == &#39;#&#39;
-    x2 = all((str[i] == &#39;1&#39; or str[i] == &#39;#&#39;) for i in range(m))
-    x3 = (str.find(&#39;######&#39;) == -1)
-    if (x1 and x2 and x3):
-        flag = True
-    else:
-        flag = False
-        print(&#39;The input &#39; + str + &#39; is not a valid 1# program.&#39;)
-        print(&#39;It is not the concatenation of a sequence of instructions in the language.&#39;)
-        print(&#39;So what you are asking for is undefined.&#39;)
-    return (flag)
+<span class="k">def</span> <span class="nf">program_checker</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nb">str</span><span class="p">[</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="nb">all</span><span class="p">((</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;######&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x1</span> <span class="ow">and</span> <span class="n">x2</span> <span class="ow">and</span> <span class="n">x3</span><span class="p">):</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The input &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="o">+</span> <span class="s1">&#39; is not a valid 1# program.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is not the concatenation of a sequence of instructions in the language.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;So what you are asking for is undefined.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span>
 
-def one_or_sharp_check(letter):
-    if (letter==&quot;1&quot; or letter==&quot;#&quot;):
-        return(True)
-    else:
-        return(False)
+<span class="k">def</span> <span class="nf">one_or_sharp_check</span><span class="p">(</span><span class="n">letter</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">letter</span><span class="o">==</span><span class="s2">&quot;1&quot;</span> <span class="ow">or</span> <span class="n">letter</span><span class="o">==</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-def word_checker(strg):
-    answer = all([one_or_sharp_check(x)==True for x in strg])
-    return(answer)
+<span class="k">def</span> <span class="nf">word_checker</span><span class="p">(</span><span class="n">strg</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">one_or_sharp_check</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">strg</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
-def input_checker(input_seq):
-    seq = [word_checker(x) for x in input_seq]
-    flag = all([word_checker(x) for x in input_seq])
-    if not flag:
-        print(&#39;The input sequence contains words with characters other than 1 and #.&#39;)
-        print(&#39;So what you are asking for is undefined.&#39;)
-    return(flag)
+<span class="k">def</span> <span class="nf">input_checker</span><span class="p">(</span><span class="n">input_seq</span><span class="p">):</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_checker</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">input_seq</span><span class="p">]</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">word_checker</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">input_seq</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">flag</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The input sequence contains words with characters other than 1 and #.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;So what you are asking for is undefined.&#39;</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
                                                                                 
-class Augmented:
-    def __init__(self, string, remainders):
-        self.string = string
-        self.remainders = remainders
+<span class="k">class</span> <span class="nc">Augmented</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">remainders</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remainders</span> <span class="o">=</span> <span class="n">remainders</span>
 
-class Snapshot:
-    def __init__(self, instr_number, regs, proceed,verbose,
-                 program_length, step_number,display_formal_snapshot,partial_trace):
-        self.instr_number = instr_number
-        self.regs = regs
-        self.proceed = proceed
-        self.verbose = verbose
-        self.program_length = program_length
-        self.step_number = step_number
-        self.display_formal_snapshot = display_formal_snapshot
-        self.partial_trace = partial_trace
+<span class="k">class</span> <span class="nc">Snapshot</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instr_number</span><span class="p">,</span> <span class="n">regs</span><span class="p">,</span> <span class="n">proceed</span><span class="p">,</span><span class="n">verbose</span><span class="p">,</span>
+                 <span class="n">program_length</span><span class="p">,</span> <span class="n">step_number</span><span class="p">,</span><span class="n">display_formal_snapshot</span><span class="p">,</span><span class="n">partial_trace</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="n">instr_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regs</span> <span class="o">=</span> <span class="n">regs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proceed</span> <span class="o">=</span> <span class="n">proceed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">program_length</span> <span class="o">=</span> <span class="n">program_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_number</span> <span class="o">=</span> <span class="n">step_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_formal_snapshot</span> <span class="o">=</span> <span class="n">display_formal_snapshot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partial_trace</span> <span class="o">=</span> <span class="n">partial_trace</span>
         
-def preparse(xstr):
-    b = xstr.string.find(&#39;#1&#39;)
-    xstr.remainders = xstr.remainders + [xstr.string[:(b + 1)]]
-    xstr.string = xstr.string[(b + 1):]
-    return (xstr)
+<span class="k">def</span> <span class="nf">preparse</span><span class="p">(</span><span class="n">xstr</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">xstr</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#1&#39;</span><span class="p">)</span>
+    <span class="n">xstr</span><span class="o">.</span><span class="n">remainders</span> <span class="o">=</span> <span class="n">xstr</span><span class="o">.</span><span class="n">remainders</span> <span class="o">+</span> <span class="p">[</span><span class="n">xstr</span><span class="o">.</span><span class="n">string</span><span class="p">[:(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]]</span>
+    <span class="n">xstr</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">xstr</span><span class="o">.</span><span class="n">string</span><span class="p">[(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">xstr</span><span class="p">)</span>
 
 
 
-def parse(y):
-    tempx = Augmented(y, [])
-    while tempx.string.find(&#39;#1&#39;) &gt;= 0:
-        tempx = preparse(tempx)
-    return (tempx.remainders + [tempx.string])
+<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">tempx</span> <span class="o">=</span> <span class="n">Augmented</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">while</span> <span class="n">tempx</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#1&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">tempx</span> <span class="o">=</span> <span class="n">preparse</span><span class="p">(</span><span class="n">tempx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tempx</span><span class="o">.</span><span class="n">remainders</span> <span class="o">+</span> <span class="p">[</span><span class="n">tempx</span><span class="o">.</span><span class="n">string</span><span class="p">])</span>
 
-def unparse(p):
-    return (&#39;&#39;.join(p))
+<span class="k">def</span> <span class="nf">unparse</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 
-def instruction_type(instruction):
-    if instruction[-2:] == &#39;1#&#39;:
-        return (&#39;add1&#39;)
-    if instruction[-3:] == &#39;1##&#39;:
-        return (&#39;add#&#39;)
-    if instruction[-4:] == &#39;1###&#39;:
-        return (&#39;forward&#39;)
-    if instruction[-5:] == &#39;1####&#39;:
-        return (&#39;backward&#39;)
-    if instruction[-6:] == &#39;1#####&#39;:
-        return (&#39;cases&#39;)
+<span class="k">def</span> <span class="nf">instruction_type</span><span class="p">(</span><span class="n">instruction</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">instruction</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;1#&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;add1&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;1##&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;add#&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;1###&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;forward&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;1####&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;backward&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;1#####&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span>
 
-def tail(list):
-    return (list[1:])
+<span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 
-def one_step(p, snapshot): # p is parsed
-    truth_value = snapshot.display_formal_snapshot
-    i = snapshot.instr_number
-    r = snapshot.regs
-    instruction = p[-1 + i]
-    if snapshot.verbose:
-        print(&#39;Step &#39; + str(snapshot.step_number) + &#39;:&#39;)
-        print(&#39;Execute instruction &#39; + str(i) + &#39;:&#39; + &quot; &quot; +
-              instruction_gloss(instruction,i-1) 
-              + &#39;.&#39;)
-        if instruction_type(instruction)==&#39;cases&#39;:
-            billy= len(instruction) - 5
-            if snapshot.regs[billy-1] == &quot;&quot;:
-                print(&#39;The register is empty, so we go ahead 1 instruction.&#39;)
-            elif snapshot.regs[billy-1][0] == &quot;1&quot;:
-                print(&#39;The first symbol in that register is 1,&#39; +
-                      &#39; so we delete that symbol and go forward 2 instructions.&#39;)
-            elif snapshot.regs[billy-1][0] == &quot;#&quot;:
-                print(&#39;The first symbol in that register is #,&#39; +
-                      &#39; so we delete that symbol and go forward 3 instructions.&#39;)     
-    t = instruction_type(instruction)
-    if t == &#39;add1&#39;:
-        snapshot.instr_number = 1 + snapshot.instr_number
-        l = len(instruction)
-        reg = len(instruction[:(l - 1)])
-        snapshot.regs[reg - 1] = snapshot.regs[reg - 1] + &#39;1&#39;
-    if t == &#39;add#&#39;:
-        snapshot.instr_number = 1 + snapshot.instr_number
-        l = len(instruction)
-        reg = len(instruction[:(l - 2)])
-        snapshot.regs[reg - 1] = snapshot.regs[reg - 1] + &#39;#&#39;
-    if t == &#39;forward&#39;:
-        l = len(instruction)
-        offset = len(instruction[:(l - 3)])
-        snapshot.instr_number = offset + snapshot.instr_number
-    if t == &#39;backward&#39;:
-        l = len(instruction)
-        offset = len(instruction[:(l - 4)])
-        snapshot.instr_number = (-offset) + snapshot.instr_number
-    if t == &#39;cases&#39;:
-        l = len(instruction)
-        reg = len(instruction[:(l - 5)])
-        if snapshot.regs[reg - 1] == &#39;&#39;:
-            snapshot.instr_number = 1 + snapshot.instr_number
-        elif snapshot.regs[reg - 1][0] == &#39;1&#39;:
-            snapshot.instr_number = 2 + snapshot.instr_number
-            snapshot.regs[reg - 1] = tail(snapshot.regs[reg - 1])
-        elif snapshot.regs[reg - 1][0] == &#39;#&#39;:
-            snapshot.instr_number = 3 + snapshot.instr_number
-            snapshot.regs[reg - 1] = tail(snapshot.regs[reg - 1])
-    if 0&lt; snapshot.instr_number &lt;= len(p):
-        snapshot.proceed = True
-        if snapshot.verbose == True:
-            print_snapshot(snapshot,truth_value)
-    else:
-         snapshot.proceed = False
-    return (snapshot)
-
-
-def number_help(instr):
-    if instruction_type(instr) == &#39;add1&#39;:
-        return (len(instr) - 1)
-    if instruction_type(instr) == &#39;add#&#39;:
-        return (len(instr) - 2)
-    if instruction_type(instr) == &#39;cases&#39;:
-        return (len(instr)-5)
-    else:
-        return (0)
+<span class="k">def</span> <span class="nf">one_step</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">snapshot</span><span class="p">):</span> <span class="c1"># p is parsed</span>
+    <span class="n">truth_value</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">display_formal_snapshot</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span>
+    <span class="n">instruction</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Step &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">snapshot</span><span class="o">.</span><span class="n">step_number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execute instruction &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span>
+              <span class="n">instruction_gloss</span><span class="p">(</span><span class="n">instruction</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+              <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;cases&#39;</span><span class="p">:</span>
+            <span class="n">billy</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span>
+            <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">billy</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The register is empty, so we go ahead 1 instruction.&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">billy</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first symbol in that register is 1,&#39;</span> <span class="o">+</span>
+                      <span class="s1">&#39; so we delete that symbol and go forward 2 instructions.&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">billy</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first symbol in that register is #,&#39;</span> <span class="o">+</span>
+                      <span class="s1">&#39; so we delete that symbol and go forward 3 instructions.&#39;</span><span class="p">)</span>     
+    <span class="n">t</span> <span class="o">=</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;add1&#39;</span><span class="p">:</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">[:(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)])</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;1&#39;</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;add#&#39;</span><span class="p">:</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">[:(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)])</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;#&#39;</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;forward&#39;</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">[:(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)])</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;backward&#39;</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">[:(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)])</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;cases&#39;</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instruction</span><span class="p">[:(</span><span class="n">l</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+        <span class="k">elif</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+            <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tail</span><span class="p">(</span><span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">:</span>
+            <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+            <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tail</span><span class="p">(</span><span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="mi">0</span><span class="o">&lt;</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">snapshot</span><span class="o">.</span><span class="n">proceed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">print_snapshot</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span><span class="n">truth_value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+         <span class="n">snapshot</span><span class="o">.</span><span class="n">proceed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">)</span>
 
 
-def max_register(p):
-    return (max([number_help(instr) for instr in parse(p)]))
+<span class="k">def</span> <span class="nf">number_help</span><span class="p">(</span><span class="n">instr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;add1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;add#&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;cases&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 
-def pad(p, register_inputs):
-    n = len(register_inputs)
-    m = max_register(p)
-    extras = [&#39;&#39; for x in range(m - n)]
-    bigger = register_inputs + extras
-    return (bigger)
-
-def addones(word): ### needed to get out the formal snapshots: see print_snapshot below
-  if word == &#39;&#39;:
-    return(word)
-  else:
-    x = word[0]
-    y = &#39;1&#39;+ x
-    z = word[1:]
-    p = addones(z)
-    return(y + p)
-
-def word_representation(snapshot): ### needed to get out the formal snapshots: see print_snapshot below
-    i = snapshot.instr_number
-    r = snapshot.regs
-    registers = len(r)
-    a = ones(i)
-    b = [addones(snapshot.regs[i]) + &#39;##&#39; for i in range(registers)]
-    c = &quot;&quot;.join(b)
-    return(a+ &#39;##&#39; + c)
-
-def print_snapshot(snap,truth_value):
-    regdf = pd.DataFrame([[snap.regs[n]] for n in range(len(snap.regs))],columns=[&quot;contents&quot;])
-    regdf.index = np.arange(1, len(regdf) + 1)
-    def make_pretty(styler):
-        styler.set_properties(**{&#39;background-color&#39;: &#39;#FFFFCC&#39;})
-        styler.set_properties(**{&#39;text-align&#39;: &#39;left&#39;})
-        #styler.set_caption(&quot;at the start&quot;)
-        #styler.hide(axis=&#39;index&#39;)
-        return styler
-    display(regdf.style.pipe(make_pretty))  
-    if truth_value == True:
-        print()
-        w = word_representation(snap)
-        print(&#39;The formal snapshot is &#39; + w)
-        print()
-        snap.partial_trace = snap.partial_trace + w + &#39;#1&#39;
+<span class="k">def</span> <span class="nf">max_register</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="n">number_help</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="k">for</span> <span class="n">instr</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">p</span><span class="p">)]))</span>
 
 
-def step_by_step_with_snapshots(word_prog, register_inputs):
-    step_by_step_prelim(word_prog,register_inputs,True)
+<span class="k">def</span> <span class="nf">pad</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">register_inputs</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">max_register</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">extras</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span><span class="p">)]</span>
+    <span class="n">bigger</span> <span class="o">=</span> <span class="n">register_inputs</span> <span class="o">+</span> <span class="n">extras</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bigger</span><span class="p">)</span>
 
-def step_by_step(word_prog, register_inputs):
-    step_by_step_prelim(word_prog, register_inputs,False)
+<span class="k">def</span> <span class="nf">addones</span><span class="p">(</span><span class="n">word</span><span class="p">):</span> <span class="c1">### needed to get out the formal snapshots: see print_snapshot below</span>
+  <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="o">+</span> <span class="n">x</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">addones</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
 
-def step_by_step_prelim(word_prog, register_inputs,display_formal_snapshot):
-    truth_value = display_formal_snapshot
-    word_prog = word_prog.replace(&quot; &quot;, &quot;&quot;)
-    register_inputs = [word.replace(&quot; &quot;, &quot;&quot;) for word in register_inputs]
-    if program_checker(word_prog) and input_checker(register_inputs):
-        print(&#39;First, here is the program:&#39;)
-        parse_explain(word_prog)
-        print()
-        regs = pad(word_prog, register_inputs)
-        prog = parse(word_prog)
-        N = len(prog)
-        snap = Snapshot(1, regs,True,True,N,1,truth_value,&#39;&#39;)
-        print(&#39;The computation starts with the register contents shown below.&#39;)
-        print(&#39;The registers include those those which you entered as part of the input&#39;)
-        print(&#39;and also others mentioned in the input program.&#39;)
-        print_snapshot(snap,display_formal_snapshot)
-        print()
-        while 0 &lt; snap.instr_number &lt; N + 1:
-            snap = one_step(prog, snap)
-            snap.step_number = (snap.step_number) + 1
-        if snap.instr_number &lt;= 0:
-            print(
-                &#39;The computation has not halted properly &#39; +
-                &#39;because the control went above instruction 1 of the program.&#39;
-                 )
-        elif (snap.instr_number == (N + 1)) and all(
-                snap.regs[i] == &quot;&quot;
-                for i in range(1, len(snap.regs))):
-            print(
-                &#39;The computation then halts properly because&#39; +
-                &#39; the control is just below the last line of the program,&#39;)
-            print(&#39;and because all registers other than R1 are empty.&#39;)
-            print()
-            print_snapshot(snap,display_formal_snapshot)
-            print(&#39;The trace is shown below:&#39;) ##
-            print(snap.partial_trace) ##
-            print()
-            if snap.regs[0] == &quot;&quot;:
-                print(&#39;The output is the empty word.&#39;)
-            else:
-                print(&#39;The output is &#39; + snap.regs[0] + &#39;.&#39;)
-        else:
-            print(&#39;This computation does not halt.&#39;)
-            if snap.instr_number != N + 1:
-                print(&#39;This is because the program has &#39; + str(len(prog)) +
-                  &#39; instructions, and control at the end is not one line &#39; + 
-                   &#39;below the bottom of the program.&#39;)
-                print()
-            else:
-                not_blank = [
-                    i + 1 for i in range(1, len(snap.regs))
-                    if snap.regs[i] != &quot;&quot;
-                ]
-                print(&#39;Here is the list of registers whose contents &#39; +
-                      &#39;are not empty at this point, other than R1:&#39; +
-                      str(not_blank) + &#39;.&#39;)
-                print(&#39;The register contents at the end are shown above.&#39;)
+<span class="k">def</span> <span class="nf">word_representation</span><span class="p">(</span><span class="n">snapshot</span><span class="p">):</span> <span class="c1">### needed to get out the formal snapshots: see print_snapshot below</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span>
+    <span class="n">registers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">addones</span><span class="p">(</span><span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;##&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">registers</span><span class="p">)]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">a</span><span class="o">+</span> <span class="s1">&#39;##&#39;</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_snapshot</span><span class="p">(</span><span class="n">snap</span><span class="p">,</span><span class="n">truth_value</span><span class="p">):</span>
+    <span class="n">regdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">))],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;contents&quot;</span><span class="p">])</span>
+    <span class="n">regdf</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">regdf</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">make_pretty</span><span class="p">(</span><span class="n">styler</span><span class="p">):</span>
+        <span class="n">styler</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFFFCC&#39;</span><span class="p">})</span>
+        <span class="n">styler</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;text-align&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">})</span>
+        <span class="c1">#styler.set_caption(&quot;at the start&quot;)</span>
+        <span class="c1">#styler.hide(axis=&#39;index&#39;)</span>
+        <span class="k">return</span> <span class="n">styler</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">regdf</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">make_pretty</span><span class="p">))</span>  
+    <span class="k">if</span> <span class="n">truth_value</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">word_representation</span><span class="p">(</span><span class="n">snap</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The formal snapshot is &#39;</span> <span class="o">+</span> <span class="n">w</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="n">snap</span><span class="o">.</span><span class="n">partial_trace</span> <span class="o">=</span> <span class="n">snap</span><span class="o">.</span><span class="n">partial_trace</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="s1">&#39;#1&#39;</span>
 
 
-def onesharp(word_prog, register_inputs):
-    word_prog = word_prog.replace(&quot; &quot;, &quot;&quot;)
-    register_inputs = [word.replace(&quot; &quot;, &quot;&quot;) for word in register_inputs]  
-    if program_checker(word_prog) and input_checker(register_inputs):
-        register_inputs = [word.replace(&quot; &quot;, &quot;&quot;) for word in register_inputs]
-        regs = pad(word_prog, register_inputs)
-        prog = parse(word_prog)
-        N = len(prog)
-        snap = Snapshot(1, regs,True,False, N, 1,False,&#39;&#39;)
-        while snap.proceed:
-            snap = one_step(prog, snap)
-            snap.step_number = (snap.step_number)+1
-        if (snap.instr_number == (N + 1)) and all(
-                snap.regs[i] == &quot;&quot; for i in range(1, len(snap.regs))):
-            return ((snap.regs)[0])
-        else:            
-            print(&quot;This is undefined.&quot;)
-            print(&quot;The register contents at the end are shown below.&quot;)
-            print_snapshot(snap,False)
-    else:
-        return(&#39;undefined&#39;)
+<span class="k">def</span> <span class="nf">step_by_step_with_snapshots</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">):</span>
+    <span class="n">step_by_step_prelim</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span><span class="n">register_inputs</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">step_by_step</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">):</span>
+    <span class="n">step_by_step_prelim</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">step_by_step_prelim</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">,</span><span class="n">display_formal_snapshot</span><span class="p">):</span>
+    <span class="n">truth_value</span> <span class="o">=</span> <span class="n">display_formal_snapshot</span>
+    <span class="n">word_prog</span> <span class="o">=</span> <span class="n">word_prog</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">register_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">register_inputs</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">program_checker</span><span class="p">(</span><span class="n">word_prog</span><span class="p">)</span> <span class="ow">and</span> <span class="n">input_checker</span><span class="p">(</span><span class="n">register_inputs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First, here is the program:&#39;</span><span class="p">)</span>
+        <span class="n">parse_explain</span><span class="p">(</span><span class="n">word_prog</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="n">regs</span> <span class="o">=</span> <span class="n">pad</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">)</span>
+        <span class="n">prog</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">word_prog</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prog</span><span class="p">)</span>
+        <span class="n">snap</span> <span class="o">=</span> <span class="n">Snapshot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">regs</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">truth_value</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The computation starts with the register contents shown below.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The registers include those those which you entered as part of the input&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;and also others mentioned in the input program.&#39;</span><span class="p">)</span>
+        <span class="n">print_snapshot</span><span class="p">(</span><span class="n">snap</span><span class="p">,</span><span class="n">display_formal_snapshot</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">snap</span> <span class="o">=</span> <span class="n">one_step</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">snap</span><span class="p">)</span>
+            <span class="n">snap</span><span class="o">.</span><span class="n">step_number</span> <span class="o">=</span> <span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">step_number</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s1">&#39;The computation has not halted properly &#39;</span> <span class="o">+</span>
+                <span class="s1">&#39;because the control went above instruction 1 of the program.&#39;</span>
+                 <span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">))):</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s1">&#39;The computation then halts properly because&#39;</span> <span class="o">+</span>
+                <span class="s1">&#39; the control is just below the last line of the program,&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;and because all registers other than R1 are empty.&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="n">print_snapshot</span><span class="p">(</span><span class="n">snap</span><span class="p">,</span><span class="n">display_formal_snapshot</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The trace is shown below:&#39;</span><span class="p">)</span> <span class="c1">##</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">partial_trace</span><span class="p">)</span> <span class="c1">##</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The output is the empty word.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The output is &#39;</span> <span class="o">+</span> <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This computation does not halt.&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">!=</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is because the program has &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prog</span><span class="p">))</span> <span class="o">+</span>
+                  <span class="s1">&#39; instructions, and control at the end is not one line &#39;</span> <span class="o">+</span> 
+                   <span class="s1">&#39;below the bottom of the program.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">not_blank</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Here is the list of registers whose contents &#39;</span> <span class="o">+</span>
+                      <span class="s1">&#39;are not empty at this point, other than R1:&#39;</span> <span class="o">+</span>
+                      <span class="nb">str</span><span class="p">(</span><span class="n">not_blank</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The register contents at the end are shown above.&#39;</span><span class="p">)</span>
 
 
-def instruction_gloss(instr,line):
-    if instruction_type(instr) == &#39;add1&#39;:
-        return (&#39;add 1 to R&#39; + str(len(instr) - 1))
-    if instruction_type(instr) == &#39;add#&#39;:
-        return (&#39;add # to R&#39; + str(len(instr) - 2))
-    if instruction_type(instr) == &#39;forward&#39;:
-        w = len(instr) - 3
-        return (&#39;go forward &#39; + str(w) + &#39; to instruction &#39; + str(w+line+1))
-    if instruction_type(instr) == &#39;backward&#39;:
-        w = len(instr) - 4
-        return (&#39;go backward &#39; + str(w) + &#39; to instruction &#39; + str(line - w+1))
-    if instruction_type(instr) == &#39;cases&#39;:
-        return (&#39;cases on R&#39; + str(len(instr) - 5))
+<span class="k">def</span> <span class="nf">onesharp</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">):</span>
+    <span class="n">word_prog</span> <span class="o">=</span> <span class="n">word_prog</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">register_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">register_inputs</span><span class="p">]</span>  
+    <span class="k">if</span> <span class="n">program_checker</span><span class="p">(</span><span class="n">word_prog</span><span class="p">)</span> <span class="ow">and</span> <span class="n">input_checker</span><span class="p">(</span><span class="n">register_inputs</span><span class="p">):</span>
+        <span class="n">register_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">register_inputs</span><span class="p">]</span>
+        <span class="n">regs</span> <span class="o">=</span> <span class="n">pad</span><span class="p">(</span><span class="n">word_prog</span><span class="p">,</span> <span class="n">register_inputs</span><span class="p">)</span>
+        <span class="n">prog</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">word_prog</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prog</span><span class="p">)</span>
+        <span class="n">snap</span> <span class="o">=</span> <span class="n">Snapshot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">regs</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">snap</span><span class="o">.</span><span class="n">proceed</span><span class="p">:</span>
+            <span class="n">snap</span> <span class="o">=</span> <span class="n">one_step</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">snap</span><span class="p">)</span>
+            <span class="n">snap</span><span class="o">.</span><span class="n">step_number</span> <span class="o">=</span> <span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">step_number</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">))):</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>            
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is undefined.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The register contents at the end are shown below.&quot;</span><span class="p">)</span>
+            <span class="n">print_snapshot</span><span class="p">(</span><span class="n">snap</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span>
 
-def expanded(gorp):
-    pgorp = parse(gorp)
-    wwgorp = [[pgorp[x],instruction_gloss(pgorp[x],x)] for x in range(len(pgorp))]
-    return(wwgorp)
 
-def parse_explain(prog):
-    df = pd.DataFrame(expanded(prog),
-                      columns=[&quot;instruction&quot;, &#39;explanation&#39;])
-    df.index = np.arange(1, len(df) + 1)
-    def make_pretty(styler):
-                styler.set_properties(**{&#39;background-color&#39;: &#39;#C9DFEC&#39;})        
-                styler.set_properties(**{&#39;text-align&#39;: &#39;left&#39;})
-                return styler
-    display(df.style.pipe(make_pretty))
-    #display(df)
+<span class="k">def</span> <span class="nf">instruction_gloss</span><span class="p">(</span><span class="n">instr</span><span class="p">,</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;add1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;add 1 to R&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;add#&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;add # to R&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;forward&#39;</span><span class="p">:</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;go forward &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; to instruction &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="n">line</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;backward&#39;</span><span class="p">:</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;go backward &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; to instruction &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">line</span> <span class="o">-</span> <span class="n">w</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">instruction_type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;cases&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;cases on R&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span><span class="p">))</span>
 
-def ones(n):
-    w = [&#39;1&#39; for i in range(n)]
-    return(unparse(w)) 
+<span class="k">def</span> <span class="nf">expanded</span><span class="p">(</span><span class="n">gorp</span><span class="p">):</span>
+    <span class="n">pgorp</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">gorp</span><span class="p">)</span>
+    <span class="n">wwgorp</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pgorp</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">instruction_gloss</span><span class="p">(</span><span class="n">pgorp</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">x</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pgorp</span><span class="p">))]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">wwgorp</span><span class="p">)</span>
 
-clear_1 = &#39;1#####111###11####111####&#39;
+<span class="k">def</span> <span class="nf">parse_explain</span><span class="p">(</span><span class="n">prog</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">expanded</span><span class="p">(</span><span class="n">prog</span><span class="p">),</span>
+                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;instruction&quot;</span><span class="p">,</span> <span class="s1">&#39;explanation&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">make_pretty</span><span class="p">(</span><span class="n">styler</span><span class="p">):</span>
+                <span class="n">styler</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;#C9DFEC&#39;</span><span class="p">})</span>        
+                <span class="n">styler</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;text-align&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">})</span>
+                <span class="k">return</span> <span class="n">styler</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">make_pretty</span><span class="p">))</span>
+    <span class="c1">#display(df)</span>
 
-move_2_1 = &#39;11#####111111###111###1##1111####1#111111####&#39;
+<span class="k">def</span> <span class="nf">ones</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">unparse</span><span class="p">(</span><span class="n">w</span><span class="p">))</span> 
 
-copy_1_2_3 = &#39;1#####11111111###1111###11##111##11111####11#111#11111111####111#####111111###111###1##1111####1#111111####&#39;
+<span class="n">clear_1</span> <span class="o">=</span> <span class="s1">&#39;1#####111###11####111####&#39;</span>
 
-length = &#39;1#####1111111###11####11#1#####111###111111####111####11#####111111###111###1##1111####1#111111####&#39;
+<span class="n">move_2_1</span> <span class="o">=</span> <span class="s1">&#39;11#####111111###111###1##1111####1#111111####&#39;</span>
 
-write = &#39;1#####111111111###11111###11#11##11##111111####11#11##111111111####11#####111111###111###1##1111####1#111111####&#39;
+<span class="n">copy_1_2_3</span> <span class="o">=</span> <span class="s1">&#39;1#####11111111###1111###11##111##11111####11#111#11111111####111#####111111###111###1##1111####1#111111####&#39;</span>
 
-diag = &#39;1#####11111111111###111111###11##111#111##111##1111111####11#111#111##1111####111#####111111###111###1##1111####1#11####11#####111111###111###1##1111####1#11####&#39;
+<span class="n">length</span> <span class="o">=</span> <span class="s1">&#39;1#####1111111###11####11#1#####111###111111####111####11#####111111###111###1##1111####1#111111####&#39;</span>
 
-self = &#39;1#1##1##1##1##1##1#1#1#1#1#1#1#1#1#1#1#1##1##1##1#1#1#1#1#1#1##1##1##1#1#1##1##1#1#1#1##1#1#1#1##1##1#1#1#1##1##1#1#1#1#1#1#1#1##1##1##1##1#1#1##1#1#1#1##1#1#1#1##1##1#1#1#1#1##1##1##1##1#1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#####11111111111###111111###11##111#111##111##1111111####11#111#111##1111####111#####111111###111###1##1111####1#11####11#####111111###111###1##1111####1#11####&#39;
+<span class="n">write</span> <span class="o">=</span> <span class="s1">&#39;1#####111111111###11111###11#11##11##111111####11#11##111111111####11#####111111###111###1##1111####1#111111####&#39;</span>
 
-multiply = &#39;111##1111##11#####11111111###1111###11111##111111##11111####11111#111111#11111111####111111#####111111###111###11##1111####11#111111####111#####11111111###1111###111111##1111111##11111####111111#1111111#11111111####1111111#####111111###111###111##1111####111#111111####11111#####111111###111111111###111111#####11111111111###1111111111###111111####111111#####111111111111111###111111###11111###111111#####111###1111111111111####1###11111#####111###11####111####111111#####1111###11####111####11111#11111#####111###1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1#1#####11111111###1111###11111##111111##11111####11111#111111#11111111####111111#####111111###111###1##1111####1#111111####1111#####111111###111###111111##1111####111111#111111####11111#####111###111111###111111111###111111#####11111111111111111111111111111111111###11111111111111111111111111###111111111111111111111111111###111111#####11111111111111111111111###1111111111111111111111111111###111111111111111111111###111111#####111111111111111111111###111111111111111111###1111111111111111111###11111#####111###111111###111111111###111111#####11111111111###1111111111111111###111111111###111111#####1111111111111###1111111111###11111111111###111111#####111###11111111###1###1111111#111111111111111111111111111111111####1111111##11111111111111111111111111111111111####1111111#111111111111111111111####1111111##11111111111111111111111####1###1111111#####111111###111###11111##1111####11111#111111####11111#####111111###111###1111##1111####1111#111111####111#####1111111111111###1111111111###11111#111#####111111###111###11111##1111####11111#111111####1111###11111##1111111111111####11111#11111#####111111###111###111##1111####111#111111####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####1#####111###11####111####11#####111###11####111####111#####111###11####111####1111#####111111###111###1##1111####1#111111####&#39;
+<span class="n">diag</span> <span class="o">=</span> <span class="s1">&#39;1#####11111111111###111111###11##111#111##111##1111111####11#111#111##1111####111#####111111###111###1##1111####1#11####11#####111111###111###1##1111####1#11####&#39;</span>
 
-universal = &#39;1#####1###11###11####111111#1#####111###111111###1111111###11111#####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1###1####111#111111111####111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####111111111111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###111#11111#####1111111111###1###111#####111111###111###1111##1111####1111#111111####11111111111111111111111111111111111111111111111111111111111111####111#####1###11###1111###11111#1111#111111####11111##1111##111#####1111111###1111###1111##11111##11111####1111#1111111####111111111111111111111111111111111111111111111111111111111111111111111111111###111#####1###11###11111###11111#1111#111111#1111111####1111##111#####111111###111###1111##1111####1111#111111####11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####111#####1###11###1111###1111#11111#111111####11111#11111#1111##111#####111111###111###1111##1111####1111#111111####11111#####11111111###11###1###111111#####111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1###1###11111111####111111#####1111###111#11111#1111####111#####111###111111#111####1#####111111###111###111##1111####111#111111####1111#####111111###111###1##1111####1#111111####111#####111111###111###1##1111####1#111111####111111111111111111111111111111111111111111111111111111111####11#####111###11111###111111111111###11##11##111111####111#11#####1###111###111##11###111#11111111111111####111##11#####11111111111111111111111111111111111111111111111111111111111111111111###1###111##11111#####1###1111111111111111111111####11111#####1111111111111111111111111111###111111111111111111111111111###11111#####111###11###111111111111111111111111111111111111111111111###11#####111111111111111111###111111111###111#11#####1###1###111#111##111##111111111111111111111111111111111111111111111111111111111###111#11#####1###111###111##11###111#111111111111111111####111#111#1111111111111111111111111111111111111111111111###11#####111111111111111111###111111111###111#11#####1###1###111##111##111##11111111111111111111111111111111111###111#11#####1###111###111##11###111#111111111111111111####111#111##111111111111111111111111###11111#####1###1###11111#####1###1###11#####11111111111111111111111###111###111##1111111111111###11#####1###11111###1###11111#111111#111111###11111#11111#111111#111111#1###11#####111111###111###111##1111####111#111111####111#####111111###111###11##1111####11#111111####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####11#####1###1###11#####1###1###11#####11111111111111###11###11111111###11#####1###111###1#11111111####1##1111111111####11#####111###11####111####111111#####11###11####1111#####111###11####111####&#39;
+<span class="bp">self</span> <span class="o">=</span> <span class="s1">&#39;1#1##1##1##1##1##1#1#1#1#1#1#1#1#1#1#1#1##1##1##1#1#1#1#1#1#1##1##1##1#1#1##1##1#1#1#1##1#1#1#1##1##1#1#1#1##1##1#1#1#1#1#1#1#1##1##1##1##1#1#1##1#1#1#1##1#1#1#1##1##1#1#1#1#1##1##1##1##1#1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#####11111111111###111111###11##111#111##111##1111111####11#111#111##1111####111#####111111###111###1##1111####1#11####11#####111111###111###1##1111####1#11####&#39;</span>
 
-clear_2 = &#39;11#####111###11####111####&#39;
-clear_3 = &#39;111#####111###11####111####&#39;
-clear_4 = &#39;1111#####111###11####111####&#39;
-move_1_2= &#39;1#####111111###111###11##1111####11#111111####&#39;
-move_1_3= &#39;1#####111111###111###111##1111####111#111111####&#39;
-move_1_4= &#39;1#####111111###111###1111##1111####1111#111111####&#39;
-move_2_1= &#39;11#####111111###111###1##1111####1#111111####&#39;
-move_2_3= &#39;11#####111111###111###111##1111####111#111111####&#39;
-move_2_4= &#39;11#####111111###111###1111##1111####1111#111111####&#39;
-move_3_1= &#39;111#####111111###111###1##1111####1#111111####&#39;
-move_3_2= &#39;111#####111111###111###11##1111####11#111111####&#39;
-move_3_4= &#39;111#####111111###111###1111##1111####1111#111111####&#39;
-move_4_1= &#39;1111#####111111###111###1##1111####1#111111####&#39;
-move_4_2= &#39;1111#####111111###111###11##1111####11#111111####&#39;
-move_4_3= &#39;1111#####111111###111###111##1111####111#111111####&#39;
-copy_1_2_3 = &#39;1#####11111111###1111###11##111##11111####11#111#11111111####111#####111111###111###1##1111####1#111111####&#39;
-copy_1_2_4 =&#39;1#####11111111###1111###11##1111##11111####11#1111#11111111####1111#####111111###111###1##1111####1#111111####&#39;
-copy_1_3_4=&#39;1#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###1##1111####1#111111####&#39;
-copy_2_3_4 = &#39;11#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###11##1111####11#111111####&#39;
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#@title</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">program_checker</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+<span class="n">multiply</span> <span class="o">=</span> <span class="s1">&#39;111##1111##11#####11111111###1111###11111##111111##11111####11111#111111#11111111####111111#####111111###111###11##1111####11#111111####111#####11111111###1111###111111##1111111##11111####111111#1111111#11111111####1111111#####111111###111###111##1111####111#111111####11111#####111111###111111111###111111#####11111111111###1111111111###111111####111111#####111111111111111###111111###11111###111111#####111###1111111111111####1###11111#####111###11####111####111111#####1111###11####111####11111#11111#####111###1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1#1#####11111111###1111###11111##111111##11111####11111#111111#11111111####111111#####111111###111###1##1111####1#111111####1111#####111111###111###111111##1111####111111#111111####11111#####111###111111###111111111###111111#####11111111111111111111111111111111111###11111111111111111111111111###111111111111111111111111111###111111#####11111111111111111111111###1111111111111111111111111111###111111111111111111111###111111#####111111111111111111111###111111111111111111###1111111111111111111###11111#####111###111111###111111111###111111#####11111111111###1111111111111111###111111111###111111#####1111111111111###1111111111###11111111111###111111#####111###11111111###1###1111111#111111111111111111111111111111111####1111111##11111111111111111111111111111111111####1111111#111111111111111111111####1111111##11111111111111111111111####1###1111111#####111111###111###11111##1111####11111#111111####11111#####111111###111###1111##1111####1111#111111####111#####1111111111111###1111111111###11111#111#####111111###111###11111##1111####11111#111111####1111###11111##1111111111111####11111#11111#####111111###111###111##1111####111#111111####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####1#####111###11####111####11#####111###11####111####111#####111###11####111####1111#####111111###111###1##1111####1#111111####&#39;</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<span class="n">universal</span> <span class="o">=</span> <span class="s1">&#39;1#####1###11###11####111111#1#####111###111111###1111111###11111#####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1###1####111#111111111####111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####1111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111###111#11111#####111111111111111111111111111111111111111111111111111111###111111111###111##1#####1111###11###11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###111#11111#####1111111111###1###111#####111111###111###1111##1111####1111#111111####11111111111111111111111111111111111111111111111111111111111111####111#####1###11###1111###11111#1111#111111####11111##1111##111#####1111111###1111###1111##11111##11111####1111#1111111####111111111111111111111111111111111111111111111111111111111111111111111111111###111#####1###11###11111###11111#1111#111111#1111111####1111##111#####111111###111###1111##1111####1111#111111####11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####111#####1###11###1111###1111#11111#111111####11111#11111#1111##111#####111111###111###1111##1111####1111#111111####11111#####11111111###11###1###111111#####111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111###1###1###11111111####111111#####1111###111#11111#1111####111#####111###111111#111####1#####111111###111###111##1111####111#111111####1111#####111111###111###1##1111####1#111111####111#####111111###111###1##1111####1#111111####111111111111111111111111111111111111111111111111111111111####11#####111###11111###111111111111###11##11##111111####111#11#####1###111###111##11###111#11111111111111####111##11#####11111111111111111111111111111111111111111111111111111111111111111111###1###111##11111#####1###1111111111111111111111####11111#####1111111111111111111111111111###111111111111111111111111111###11111#####111###11###111111111111111111111111111111111111111111111###11#####111111111111111111###111111111###111#11#####1###1###111#111##111##111111111111111111111111111111111111111111111111111111111###111#11#####1###111###111##11###111#111111111111111111####111#111#1111111111111111111111111111111111111111111111###11#####111111111111111111###111111111###111#11#####1###1###111##111##111##11111111111111111111111111111111111###111#11#####1###111###111##11###111#111111111111111111####111#111##111111111111111111111111###11111#####1###1###11111#####1###1###11#####11111111111111111111111###111###111##1111111111111###11#####1###11111###1###11111#111111#111111###11111#11111#111111#111111#1###11#####111111###111###111##1111####111#111111####111#####111111###111###11##1111####11#111111####1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111####11#####1###1###11#####1###1###11#####11111111111111###11###11111111###11#####1###111###1#11111111####1##1111111111####11#####111###11####111####111111#####11###11####1111#####111###11####111####&#39;</span>
+
+<span class="n">clear_2</span> <span class="o">=</span> <span class="s1">&#39;11#####111###11####111####&#39;</span>
+<span class="n">clear_3</span> <span class="o">=</span> <span class="s1">&#39;111#####111###11####111####&#39;</span>
+<span class="n">clear_4</span> <span class="o">=</span> <span class="s1">&#39;1111#####111###11####111####&#39;</span>
+<span class="n">move_1_2</span><span class="o">=</span> <span class="s1">&#39;1#####111111###111###11##1111####11#111111####&#39;</span>
+<span class="n">move_1_3</span><span class="o">=</span> <span class="s1">&#39;1#####111111###111###111##1111####111#111111####&#39;</span>
+<span class="n">move_1_4</span><span class="o">=</span> <span class="s1">&#39;1#####111111###111###1111##1111####1111#111111####&#39;</span>
+<span class="n">move_2_1</span><span class="o">=</span> <span class="s1">&#39;11#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">move_2_3</span><span class="o">=</span> <span class="s1">&#39;11#####111111###111###111##1111####111#111111####&#39;</span>
+<span class="n">move_2_4</span><span class="o">=</span> <span class="s1">&#39;11#####111111###111###1111##1111####1111#111111####&#39;</span>
+<span class="n">move_3_1</span><span class="o">=</span> <span class="s1">&#39;111#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">move_3_2</span><span class="o">=</span> <span class="s1">&#39;111#####111111###111###11##1111####11#111111####&#39;</span>
+<span class="n">move_3_4</span><span class="o">=</span> <span class="s1">&#39;111#####111111###111###1111##1111####1111#111111####&#39;</span>
+<span class="n">move_4_1</span><span class="o">=</span> <span class="s1">&#39;1111#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">move_4_2</span><span class="o">=</span> <span class="s1">&#39;1111#####111111###111###11##1111####11#111111####&#39;</span>
+<span class="n">move_4_3</span><span class="o">=</span> <span class="s1">&#39;1111#####111111###111###111##1111####111#111111####&#39;</span>
+<span class="n">copy_1_2_3</span> <span class="o">=</span> <span class="s1">&#39;1#####11111111###1111###11##111##11111####11#111#11111111####111#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">copy_1_2_4</span> <span class="o">=</span><span class="s1">&#39;1#####11111111###1111###11##1111##11111####11#1111#11111111####1111#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">copy_1_3_4</span><span class="o">=</span><span class="s1">&#39;1#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###1##1111####1#111111####&#39;</span>
+<span class="n">copy_2_3_4</span> <span class="o">=</span> <span class="s1">&#39;11#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###11##1111####11#111111####&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -890,41 +877,41 @@ copy_2_3_4 = &#39;11#####11111111###1111###111##1111##11111####111#1111#11111111
 <h2>Here is a new interface for running program which includes a “mode” capability that includes the option of seeing all the snapshots and the overall trace.<a class="headerlink" href="#here-is-a-new-interface-for-running-program-which-includes-a-mode-capability-that-includes-the-option-of-seeing-all-the-snapshots-and-the-overall-trace" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title Text Register Machine &lt;br&gt; The entries for the program and registers must be words on the alphabet {1,#}, without quotes.
-def end_strip(list): ## removes the tail of empty registers
-  if list == []:
-    return(list)
-  elif list[-1] == &#39;&#39;:
-    return(end_strip(list[:-1]))
-  else:
-    return(list)
-def remove_multiple_blanks(my_str):
-   return(my_str.replace(&quot; &quot;, &quot;&quot;))
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Text Register Machine &lt;br&gt; The entries for the program and registers must be words on the alphabet {1,#}, without quotes.</span>
+<span class="k">def</span> <span class="nf">end_strip</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span> <span class="c1">## removes the tail of empty registers</span>
+  <span class="k">if</span> <span class="nb">list</span> <span class="o">==</span> <span class="p">[]:</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">end_strip</span><span class="p">(</span><span class="nb">list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_multiple_blanks</span><span class="p">(</span><span class="n">my_str</span><span class="p">):</span>
+   <span class="k">return</span><span class="p">(</span><span class="n">my_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 
 
-program = &#39;1#&#39; #@param {type:&quot;string&quot;}
-R1 = &#39;1#1#&#39; #@param {type:&quot;string&quot;}
-R2 = &#39;&#39; #@param {type:&quot;string&quot;}
-R3 = &#39;&#39; #@param {type:&quot;string&quot;}
+<span class="n">program</span> <span class="o">=</span> <span class="s1">&#39;1#&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">R1</span> <span class="o">=</span> <span class="s1">&#39;1#1#&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">R3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
 
-## For more registers, add lines here like
-## R4 = &#39;&#39; #@param {type:&quot;string&quot;}
-## You also must modify the definition of &#39;a&#39; below accordingly.
+<span class="c1">## For more registers, add lines here like</span>
+<span class="c1">## R4 = &#39;&#39; #@param {type:&quot;string&quot;}</span>
+<span class="c1">## You also must modify the definition of &#39;a&#39; below accordingly.</span>
 
-mode = &#39;step by step with snapshots and trace&#39; #@param [&quot;output only&quot;, &quot;step by step&quot;,&quot;step by step with snapshots and trace&quot;]
+<span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;step by step with snapshots and trace&#39;</span> <span class="c1">#@param [&quot;output only&quot;, &quot;step by step&quot;,&quot;step by step with snapshots and trace&quot;]</span>
 
-# First, we delete the last batch of empty registers
-# to simplify the output 
-a = [R1,R2,R3]
-a = [remove_multiple_blanks(x) for x in a]
+<span class="c1"># First, we delete the last batch of empty registers</span>
+<span class="c1"># to simplify the output </span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="p">,</span><span class="n">R3</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">remove_multiple_blanks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
 
-non_empty_registers = end_strip(a)
-if mode == &#39;output only&#39;:
-  onesharp(program,non_empty_registers)
-if mode == &#39;step by step&#39;:
-  step_by_step(program,non_empty_registers)
-if mode == &#39;step by step with snapshots and trace&#39;:
-  step_by_step_with_snapshots(program,non_empty_registers)
+<span class="n">non_empty_registers</span> <span class="o">=</span> <span class="n">end_strip</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;output only&#39;</span><span class="p">:</span>
+  <span class="n">onesharp</span><span class="p">(</span><span class="n">program</span><span class="p">,</span><span class="n">non_empty_registers</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;step by step&#39;</span><span class="p">:</span>
+  <span class="n">step_by_step</span><span class="p">(</span><span class="n">program</span><span class="p">,</span><span class="n">non_empty_registers</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;step by step with snapshots and trace&#39;</span><span class="p">:</span>
+  <span class="n">step_by_step_with_snapshots</span><span class="p">(</span><span class="n">program</span><span class="p">,</span><span class="n">non_empty_registers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1022,8 +1009,8 @@ The output is 1#1#1.
 <p>You can also run things in the notebook cells as we have been doing it.  See below for an example of how we would see the snapshots in a step_by_step execution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title
-step_by_step_with_snapshots(&#39;1#1#&#39;,[&#39;##&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<span class="n">step_by_step_with_snapshots</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,[</span><span class="s1">&#39;##&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1150,8 +1137,8 @@ The output is ##11.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title
-step_by_step_with_snapshots(diag,[&#39;1#&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<span class="n">step_by_step_with_snapshots</span><span class="p">(</span><span class="n">diag</span><span class="p">,[</span><span class="s1">&#39;1#&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1160,55 +1147,55 @@ step_by_step_with_snapshots(diag,[&#39;1#&#39;])
 <h3>We also want to check that various relations leading up to the T predicate are computable.  This part is work in progress, with the results obtained so far shown below.<a class="headerlink" href="#we-also-want-to-check-that-various-relations-leading-up-to-the-t-predicate-are-computable-this-part-is-work-in-progress-with-the-results-obtained-so-far-shown-below" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def snapshot_check(w):  ## tells True or False if the input is a snapshot
-  index = w.index(&#39;##&#39;)
-  front = w[:index] ## divide the string by the first occurrence of ##
-  back = w[index:]
-  first_truth_value = all([(x == &#39;1&#39;) for x in front]) 
-  ## first_truth_value tells if all symbols in the front are 1
-  j = len(back)
-  indices_of_sharp = [(2*i) for i in range(j//2) if back[2*i]==&#39;#&#39;]
-  second_truth_value = all([(back[1 + i] == &#39;#&#39;) for i in indices_of_sharp])
-  ## the second truth value tells the separators ## are done correctly 
-  return(first_truth_value and second_truth_value)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">snapshot_check</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>  <span class="c1">## tells True or False if the input is a snapshot</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;##&#39;</span><span class="p">)</span>
+  <span class="n">front</span> <span class="o">=</span> <span class="n">w</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="c1">## divide the string by the first occurrence of ##</span>
+  <span class="n">back</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">index</span><span class="p">:]</span>
+  <span class="n">first_truth_value</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([(</span><span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">front</span><span class="p">])</span> 
+  <span class="c1">## first_truth_value tells if all symbols in the front are 1</span>
+  <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">back</span><span class="p">)</span>
+  <span class="n">indices_of_sharp</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">back</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;#&#39;</span><span class="p">]</span>
+  <span class="n">second_truth_value</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([(</span><span class="n">back</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices_of_sharp</span><span class="p">])</span>
+  <span class="c1">## the second truth value tells the separators ## are done correctly </span>
+  <span class="k">return</span><span class="p">(</span><span class="n">first_truth_value</span> <span class="ow">and</span> <span class="n">second_truth_value</span><span class="p">)</span>
 
-def halting_snapshot_check(p,w):  
-  ## tells True or False if the input is a snapshot
-  # which suggests that the program p has halted properly
-  # So we check that p is a program, 
-  # that the number at the front of w is 1 + (the number of instructions in p),
-  # and that in w, all registers after R1 are empty
-  parsed_p = parse(p)
-  N = len(parsed_p)
-  #print(&#39;N =&#39; + str(N))
-  index = w.index(&#39;##&#39;)
-  front = w[:index] ## divide the string by the first occurrence of ##
-  #print(&#39;len front = &#39;+ str(len(front)))
-  length_check = (N + 1 == len(front))
-  #print(length_check)
-  back = w[index:]
-  first_truth_value = all([(x == &#39;1&#39;) for x in front]) 
-  ## first_truth_value tells if all symbols in the front are 1
-  j = len(back)
-  indices_of_sharp = [(2*i) for i in range(j//2) if back[2*i]==&#39;#&#39;]
-  second_truth_value = all([(back[1 + i] == &#39;#&#39;) for i in indices_of_sharp])
-  ## the second truth value tells the separators ## are done correctly 
-  w2 = back[2:]
-  #print(&#39;w2&#39; +w2)
-  index2 =w2.index(&#39;##&#39;) 
-  #print(index2)
-  back2 = w2[index2:]
-  #print(back2)
-  emptiness_check = all(x==&#39;#&#39; for x in back2)
-  #print(emptiness_check)
-  return(first_truth_value and second_truth_value and length_check and emptiness_check)
+<span class="k">def</span> <span class="nf">halting_snapshot_check</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>  
+  <span class="c1">## tells True or False if the input is a snapshot</span>
+  <span class="c1"># which suggests that the program p has halted properly</span>
+  <span class="c1"># So we check that p is a program, </span>
+  <span class="c1"># that the number at the front of w is 1 + (the number of instructions in p),</span>
+  <span class="c1"># and that in w, all registers after R1 are empty</span>
+  <span class="n">parsed_p</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+  <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parsed_p</span><span class="p">)</span>
+  <span class="c1">#print(&#39;N =&#39; + str(N))</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;##&#39;</span><span class="p">)</span>
+  <span class="n">front</span> <span class="o">=</span> <span class="n">w</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="c1">## divide the string by the first occurrence of ##</span>
+  <span class="c1">#print(&#39;len front = &#39;+ str(len(front)))</span>
+  <span class="n">length_check</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">front</span><span class="p">))</span>
+  <span class="c1">#print(length_check)</span>
+  <span class="n">back</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">index</span><span class="p">:]</span>
+  <span class="n">first_truth_value</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([(</span><span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">front</span><span class="p">])</span> 
+  <span class="c1">## first_truth_value tells if all symbols in the front are 1</span>
+  <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">back</span><span class="p">)</span>
+  <span class="n">indices_of_sharp</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">back</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;#&#39;</span><span class="p">]</span>
+  <span class="n">second_truth_value</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([(</span><span class="n">back</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices_of_sharp</span><span class="p">])</span>
+  <span class="c1">## the second truth value tells the separators ## are done correctly </span>
+  <span class="n">w2</span> <span class="o">=</span> <span class="n">back</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+  <span class="c1">#print(&#39;w2&#39; +w2)</span>
+  <span class="n">index2</span> <span class="o">=</span><span class="n">w2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;##&#39;</span><span class="p">)</span> 
+  <span class="c1">#print(index2)</span>
+  <span class="n">back2</span> <span class="o">=</span> <span class="n">w2</span><span class="p">[</span><span class="n">index2</span><span class="p">:]</span>
+  <span class="c1">#print(back2)</span>
+  <span class="n">emptiness_check</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="s1">&#39;#&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">back2</span><span class="p">)</span>
+  <span class="c1">#print(emptiness_check)</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">first_truth_value</span> <span class="ow">and</span> <span class="n">second_truth_value</span> <span class="ow">and</span> <span class="n">length_check</span> <span class="ow">and</span> <span class="n">emptiness_check</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>snapshot_check(&#39;111##1#11#1111##&#39;)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">snapshot_check</span><span class="p">(</span><span class="s1">&#39;111##1#11#1111##&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1220,9 +1207,9 @@ def halting_snapshot_check(p,w):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print([0,1,2,3,4,5][2:])
-print(parse(&#39;1#1#&#39;))
-halting_snapshot_check(&#39;1#1#&#39;,&#39;111##1#1#1111##1###&#39;)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">][</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">))</span>
+<span class="n">halting_snapshot_check</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,</span><span class="s1">&#39;111##1#1#1111##1###&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1238,41 +1225,41 @@ halting_snapshot_check(&#39;1#1#&#39;,&#39;111##1#1#1111##1###&#39;)
 </div>
 <img src="https://github.com/lmoss/onesharp/blob/main/pianotrumpet.jpg?raw=1" width="200" height="160"><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-def log2int(x):
-  return(math.frexp(x)[1] - 1)
+<span class="k">def</span> <span class="nf">log2int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">frexp</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
-def length(n):
-  return(log2int(n+1))
+<span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">log2int</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 
-def index(n,m): ## this is what I write as (n)_m
-  a = (n+1)%(2**(m+1))
-  b = 2**m
-  if a &lt; b:
-    return(0)
-  else:
-    return(1)
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">):</span> <span class="c1">## this is what I write as (n)_m</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">m</span>
+  <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-def convert_numeral_to_onesharp(x):
-   if x == 0:
-     return(&#39;#&#39;)
-   else:
-     return(&#39;1&#39;)    
+<span class="k">def</span> <span class="nf">convert_numeral_to_onesharp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+     <span class="k">return</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>    
 
-def s(n):
-  k = length(n)  
-  s = [convert_numeral_to_onesharp(index(n,k-i-1)) for i in range(k)] 
-  t = &quot;&quot;.join(s) 
-  return(t)
+<span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">k</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  
+  <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">convert_numeral_to_onesharp</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> 
+  <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
+  <span class="k">return</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
-def s_inverse(w):
-  n = len(w)
-  a = (2**n - 1)
-  b = [(2** (n-i-1)) for i in range(n) if (w[i] == &#39;1&#39;)]
-  c = sum(b)
-  d = c+a
-  return(d)
+<span class="k">def</span> <span class="nf">s_inverse</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="o">**</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">)]</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="o">+</span><span class="n">a</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1280,7 +1267,7 @@ def s_inverse(w):
 <p>We can check that <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s_inverse</span></code> really are inverses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s(s_inverse(&#39;##111##1&#39;))
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="n">s_inverse</span><span class="p">(</span><span class="s1">&#39;##111##1&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1292,7 +1279,7 @@ def s_inverse(w):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s_inverse(s(4234))
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">4234</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1304,8 +1291,8 @@ def s_inverse(w):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for n in range(256):
-  print((n,s(n), s_inverse(s(n))))
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
  
 </pre></div>
 </div>
@@ -1313,7 +1300,7 @@ def s_inverse(w):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s(55)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1325,13 +1312,13 @@ def s_inverse(w):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [&#39;1#&#39;,&#39;&#39;,&#39;1&#39;,&#39;&#39;,&#39;&#39;]
-first_index = a.index(&#39;&#39;)
-reversed_list = a[::-1]
-first_index_in_reversed = reversed_list.index(&#39;&#39;)
-last_index = len(a) -1 - first_index_in_reversed
-last_index
-print(a[:last_index-1])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">first_index</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">reversed_list</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">first_index_in_reversed</span> <span class="o">=</span> <span class="n">reversed_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">last_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">first_index_in_reversed</span>
+<span class="n">last_index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="n">last_index</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1343,16 +1330,16 @@ print(a[:last_index-1])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [&#39;1#1#&#39;, &#39;11&#39;, &#39;&#39;,&#39;#&#39;,&#39;&#39;]
-print(a)
-first_index = a.index(&#39;&#39;)
-reversed_list = a[::-1]
-print(reversed_list)
-first_index_in_reversed = reversed_list.index(&#39;&#39;)
-last_index = len(a) -1 - first_index_in_reversed
-print(last_index)
-non_empty_registers = a[:last_index]
-print(non_empty_registers)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">first_index</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">reversed_list</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reversed_list</span><span class="p">)</span>
+<span class="n">first_index_in_reversed</span> <span class="o">=</span> <span class="n">reversed_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">last_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">first_index_in_reversed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_index</span><span class="p">)</span>
+<span class="n">non_empty_registers</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="n">last_index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">non_empty_registers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

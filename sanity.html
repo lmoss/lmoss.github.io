@@ -124,8 +124,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="basic_programs.html">
-   Three simple programs
+  <a class="reference internal" href="move_copy_write.html">
+   Example: A simple loop
   </a>
  </li>
  <li class="toctree-l1">
@@ -427,109 +427,23 @@ This tool makes it easier for someone to organize 1# programs and to write them 
 <p>To start, run the next code cell to install the 1# Python package in your Colab environment. Then run the second code cell to import the functions from the 1# package which are used in this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
 !python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (65.6.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/lmoss/onesharp.git@main
-  Cloning https://github.com/lmoss/onesharp.git (to revision main) to /tmp/pip-req-build-umrer4d7
-  Running command git clone --filter=blob:none --quiet https://github.com/lmoss/onesharp.git /tmp/pip-req-build-umrer4d7
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Resolved https://github.com/lmoss/onesharp.git to commit 289c091460c598aad00ba9e160e9eb7a5d8b3025
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Installing backend dependencies ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25hRequirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (1.24.0)
-Requirement already satisfied: IPython in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (8.7.0)
-Requirement already satisfied: pandas in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from onesharp==0.0.0) (1.5.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: backcall in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.2.0)
-Requirement already satisfied: pickleshare in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.7.5)
-Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (3.0.36)
-Requirement already satisfied: matplotlib-inline in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.1.6)
-Requirement already satisfied: decorator in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.1.1)
-Requirement already satisfied: pexpect&gt;4.3 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (4.8.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jedi&gt;=0.16 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.18.2)
-Requirement already satisfied: traitlets&gt;=5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.8.0)
-Requirement already satisfied: stack-data in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.6.2)
-Requirement already satisfied: pygments&gt;=2.4.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (2.13.0)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2022.7)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2.8.2)
-Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;onesharp==0.0.0) (0.8.3)
-Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;onesharp==0.0.0) (0.7.0)
-Requirement already satisfied: wcwidth in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;IPython-&gt;onesharp==0.0.0) (0.2.5)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;onesharp==0.0.0) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pure-eval in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (0.2.2)
-Requirement already satisfied: executing&gt;=1.2.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (1.2.0)
-Requirement already satisfied: asttokens&gt;=2.1.0 in /opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (2.2.1)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from onesharp.interpreter.interpreter import onesharp
-from onesharp.tools.sanity import sanity
-from onesharp.tools.ones import ones
-from onesharp.programs.clear import clear
-from onesharp.programs.move import move
-from onesharp.programs.copy import copy
-from onesharp.programs.successor import successor
-from onesharp.programs.compare import compare
-from onesharp.programs.add import add
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">onesharp.interpreter.interpreter</span> <span class="kn">import</span> <span class="n">onesharp</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">onesharp.tools.sanity</span> <span class="kn">import</span> <span class="n">sanity</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">onesharp.tools.ones</span> <span class="kn">import</span> <span class="n">ones</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;onesharp&#39;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">onesharp.interpreter.interpreter</span> <span class="kn">import</span> <span class="n">onesharp</span>
+<span class="kn">from</span> <span class="nn">onesharp.tools.sanity</span> <span class="kn">import</span> <span class="n">sanity</span>
+<span class="kn">from</span> <span class="nn">onesharp.tools.ones</span> <span class="kn">import</span> <span class="n">ones</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.clear</span> <span class="kn">import</span> <span class="n">clear</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.move</span> <span class="kn">import</span> <span class="n">move</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.successor</span> <span class="kn">import</span> <span class="n">successor</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.compare</span> <span class="kn">import</span> <span class="n">compare</span>
+<span class="kn">from</span> <span class="nn">onesharp.programs.add</span> <span class="kn">import</span> <span class="n">add</span>
 </pre></div>
 </div>
 </div>
@@ -543,16 +457,16 @@ Once we have gone through the original <span class="math notranslate nohighlight
 <p>With this in mind, have a look at the following array ‘reverse_idea’, itself containing 8 arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reverse_idea = [
-    [&#39;top&#39;, &#39;cases&#39;, 1, &#39;move_back&#39;, &#39;found_a_one&#39;, &#39;found_a_sharp&#39;],
-    [&#39;found_a_one&#39;,&#39;111#&#39;],
-    [&#39;goto&#39;, &#39;move_phase&#39;],
-    [&#39;found_a_sharp&#39;,  &#39;111##&#39;],
-    [&#39;goto&#39;, &#39;move_phase&#39;],
-    [&#39;move_phase&#39;, move(2,3) + move(3,2)],
-    [&#39;goto&#39;, &#39;top&#39;],
-    [&#39;move_back&#39;, move(2,1)]
-]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reverse_idea</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;move_back&#39;</span><span class="p">,</span> <span class="s1">&#39;found_a_one&#39;</span><span class="p">,</span> <span class="s1">&#39;found_a_sharp&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;found_a_one&#39;</span><span class="p">,</span><span class="s1">&#39;111#&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;move_phase&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;found_a_sharp&#39;</span><span class="p">,</span>  <span class="s1">&#39;111##&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;move_phase&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;move_phase&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">move</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)],</span>
+    <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;move_back&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -561,11 +475,11 @@ Once we have gone through the original <span class="math notranslate nohighlight
 <p>Here is how these lines are used:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rev = sanity(reverse_idea)
-# This run &#39;sanity&#39; on &#39;reverse_idea&#39;, calling the result &#39;rev&#39;.
-# We can refer to it in the rest of this notebook by &#39;rev&#39;.
-# For example we can display our new program
-rev
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rev</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">reverse_idea</span><span class="p">)</span>
+<span class="c1"># This run &#39;sanity&#39; on &#39;reverse_idea&#39;, calling the result &#39;rev&#39;.</span>
+<span class="c1"># We can refer to it in the rest of this notebook by &#39;rev&#39;.</span>
+<span class="c1"># For example we can display our new program</span>
+<span class="n">rev</span>
 </pre></div>
 </div>
 </div>
@@ -578,7 +492,7 @@ rev
 <p>Now the program which we just constructed can be run, as usual:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(rev,[&#39;1####&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">rev</span><span class="p">,[</span><span class="s1">&#39;1####&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -590,13 +504,13 @@ rev
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Here is a way to write the program &#39;clear_1&#39;:
-sanity([
-    [&#39;top&#39;, &#39;cases&#39;,1,&#39;empty&#39;, &#39;one&#39;,&#39;hash&#39;],
-    [&#39;empty&#39;, &#39;goto&#39;, &#39;end&#39;],
-    [&#39;one&#39;,&#39;goto&#39;, &#39;top&#39;],
-    [&#39;hash&#39;, &#39;goto&#39;, &#39;top&#39;],
-])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is a way to write the program &#39;clear_1&#39;:</span>
+<span class="n">sanity</span><span class="p">([</span>
+    <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;hash&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;hash&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">],</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -613,25 +527,25 @@ Indeed, ‘end’ is a special string in this program.   We can use ‘end’ in
 <p>Other things to know: instead of (for example) 11#, we can write it in words as in the third line below.   Finally, all numbers in this program must be entered without quotes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = [
-    [&#39;top&#39;,&#39;cases&#39;,1,&#39;empty&#39;, &#39;one&#39;,&#39;hash&#39;],
-    [&#39;empty&#39;, &#39;goto&#39;, &#39;moveback&#39;],
-    [&#39;one&#39;, &#39;add1&#39;, 2],
-    [&#39;111#111##&#39;],
-    [&#39;goto&#39;, &#39;top&#39;],
-    [&#39;hash&#39;, &#39;add#&#39;, 2],
-    [&#39;111#111##111##&#39;],
-    [&#39;goto&#39;, &#39;top&#39;],
-    [&#39;moveback&#39;, move(3,1)+move(2,1)] 
-]
-dg = sanity(d)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="s1">&#39;cases&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;hash&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;moveback&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;add1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;111#111##&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;hash&#39;</span><span class="p">,</span> <span class="s1">&#39;add#&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;111#111##111##&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;moveback&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> 
+<span class="p">]</span>
+<span class="n">dg</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(dg,[&#39;11#&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">dg</span><span class="p">,[</span><span class="s1">&#39;11#&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -667,34 +581,34 @@ must have a number and then three labels.</p>
 <h2>Two more example Sane programs<a class="headerlink" href="#two-more-example-sane-programs" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># This code cell contains a Sane program which multiplies the contents of
-#   registers one and two and stores the product back into register one
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code cell contains a Sane program which multiplies the contents of</span>
+<span class="c1">#   registers one and two and stores the product back into register one</span>
 
-sane_multiply = [
-  [move(1,4)],
-  [&#39;1##&#39;],
-  [copy(2,5,10)],
-  [&#39;111##&#39;],
-  [copy(3,6,10)],
-  [compare(2,3)],
-  [&#39;multiply_loop&#39;, &#39;cases&#39;, 2, &#39;empty&#39;, &#39;one&#39;, &#39;sharp&#39;],
-    [&#39;empty&#39;, copy(4,7,10)],
-      [add(1,4,10)],
-      [move(7,4)],
-      [copy(5,2,10)],
-      [successor(6,10)],
-      [copy(6,3,10)],
-      [compare(2,3)],
-      [&#39;goto&#39;, &#39;multiply_loop&#39;],
-    [&#39;one&#39;, &#39;goto&#39;, &#39;epilogue&#39;],
-    [&#39;sharp&#39;, &#39;goto&#39;, &#39;end&#39;], # We shouldn&#39;t reach here because cmp shold never
-                              #   write sharp into register two
-  [&#39;epilogue&#39;, clear(4)],
-    [clear(5)],
-    [clear(6)]
-]
-onesharp_multiply = sanity(sane_multiply)
-onesharp(onesharp_multiply, [&#39;11&#39;, &#39;1#1&#39;]) # 11*1#1 = 1111 &lt;==&gt; 3*5 = 15
+<span class="n">sane_multiply</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)],</span>
+  <span class="p">[</span><span class="s1">&#39;1##&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+  <span class="p">[</span><span class="s1">&#39;111##&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+  <span class="p">[</span><span class="n">compare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)],</span>
+  <span class="p">[</span><span class="s1">&#39;multiply_loop&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;sharp&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="n">copy</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">successor</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">compare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)],</span>
+      <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;multiply_loop&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;epilogue&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sharp&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span> <span class="c1"># We shouldn&#39;t reach here because cmp shold never</span>
+                              <span class="c1">#   write sharp into register two</span>
+  <span class="p">[</span><span class="s1">&#39;epilogue&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="p">(</span><span class="mi">4</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">clear</span><span class="p">(</span><span class="mi">5</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">clear</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="p">]</span>
+<span class="n">onesharp_multiply</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">sane_multiply</span><span class="p">)</span>
+<span class="n">onesharp</span><span class="p">(</span><span class="n">onesharp_multiply</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;1#1&#39;</span><span class="p">])</span> <span class="c1"># 11*1#1 = 1111 &lt;==&gt; 3*5 = 15</span>
 </pre></div>
 </div>
 </div>
@@ -706,38 +620,38 @@ onesharp(onesharp_multiply, [&#39;11&#39;, &#39;1#1&#39;]) # 11*1#1 = 1111 &lt;=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># This code cell contains a Sane program which exponentiates the contents of
-#   register one to the power of the contents of register two and stores the
-#   result back into register one
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code cell contains a Sane program which exponentiates the contents of</span>
+<span class="c1">#   register one to the power of the contents of register two and stores the</span>
+<span class="c1">#   result back into register one</span>
 
-sane_exponentiate = [
-  [move(1,14)],
-  [ones(11)+&#39;#&#39;],
-  [move(2,12)],
-  [copy(12,15,20)],
-  [ones(13)+&#39;##&#39;],
-  [copy(13,16,20)],
-  [compare(12,13)],
-  [&#39;exponentiate_loop&#39;, &#39;cases&#39;, 12, &#39;empty&#39;, &#39;one&#39;, &#39;sharp&#39;],
-    [&#39;empty&#39;, move(11,1)],
-      [copy(14,2,20)],
-      [onesharp_multiply],
-      [move(1,11)],
-      [copy(15,12,20)],
-      [successor(16,20)],
-      [copy(16,13,20)],
-      [compare(12,13)],
-      [&#39;goto&#39;, &#39;exponentiate_loop&#39;],
-    [&#39;one&#39;, &#39;goto&#39;, &#39;epilogue&#39;],
-    [&#39;sharp&#39;, &#39;goto&#39;, &#39;end&#39;], # We shouldn&#39;t reach here because cmp shold never
-                              #   write sharp into register two
-  [&#39;epilogue&#39;, move(11,1)],
-    [clear(14)],
-    [clear(15)],
-    [clear(16)]
-]
-onesharp_exponentiate = sanity(sane_exponentiate)
-onesharp(onesharp_exponentiate, [&#39;11&#39;, &#39;1#1&#39;]) # 11^1#1 = 11##1111 &lt;==&gt; 3^5 = 243
+<span class="n">sane_exponentiate</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">)],</span>
+  <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">)],</span>
+  <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+  <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;##&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+  <span class="p">[</span><span class="n">compare</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">)],</span>
+  <span class="p">[</span><span class="s1">&#39;exponentiate_loop&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;sharp&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">onesharp_multiply</span><span class="p">],</span>
+      <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">successor</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">copy</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">compare</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">)],</span>
+      <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;exponentiate_loop&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;epilogue&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sharp&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span> <span class="c1"># We shouldn&#39;t reach here because cmp shold never</span>
+                              <span class="c1">#   write sharp into register two</span>
+  <span class="p">[</span><span class="s1">&#39;epilogue&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">clear</span><span class="p">(</span><span class="mi">14</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">clear</span><span class="p">(</span><span class="mi">15</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">clear</span><span class="p">(</span><span class="mi">16</span><span class="p">)]</span>
+<span class="p">]</span>
+<span class="n">onesharp_exponentiate</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">sane_exponentiate</span><span class="p">)</span>
+<span class="n">onesharp</span><span class="p">(</span><span class="n">onesharp_exponentiate</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;1#1&#39;</span><span class="p">])</span> <span class="c1"># 11^1#1 = 11##1111 &lt;==&gt; 3^5 = 243</span>
 </pre></div>
 </div>
 </div>
@@ -749,8 +663,8 @@ onesharp(onesharp_exponentiate, [&#39;11&#39;, &#39;1#1&#39;]) # 11^1#1 = 11##11
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(onesharp_exponentiate, [&#39;11&#39;, &#39;###1&#39;]) # 11^###1 = 1####1#11##11 &lt;==&gt; 3^8 = 6561
-# 6561 base 2 is 1100110100001
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">onesharp_exponentiate</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;###1&#39;</span><span class="p">])</span> <span class="c1"># 11^###1 = 1####1#11##11 &lt;==&gt; 3^8 = 6561</span>
+<span class="c1"># 6561 base 2 is 1100110100001</span>
 </pre></div>
 </div>
 </div>
@@ -762,31 +676,31 @@ onesharp(onesharp_exponentiate, [&#39;11&#39;, &#39;1#1&#39;]) # 11^1#1 = 11##11
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pre_pred = [
-   [&#39;top&#39;, &#39;cases&#39;, 1, &#39;first_end&#39;, &#39;first_one&#39;, &#39;first_hash&#39;],
-   [&#39;first_one&#39;, &#39;cases&#39;, 1, &#39;hash_is_it&#39;, &#39;returnA&#39;,&#39;returnB&#39;],
-   [&#39;hash_is_it&#39;, &#39;1##&#39;],
-   [&#39;goto&#39;, &#39;second_end&#39;],
-   [&#39;returnA&#39;, &#39;11#11#&#39;],
-   [move(1,2) + move(2,1)],
-   [&#39;goto&#39;, &#39;end&#39;], 
-   [&#39;returnB&#39;, &#39;11#11##&#39;],
-   [move(1,2) + move(2,1)],
-   [&#39;goto&#39;, &#39;end&#39;], 
-   [&#39;first_hash&#39;, &#39;cases&#39;, 1, &#39;first_end&#39;, &#39;hash_one&#39;, &#39;hash_hash&#39;],
-   [&#39;hash_one&#39;,&#39;11##&#39;],
-   [&#39;hash_hash&#39;,&#39;1###&#39;],
-   [&#39;second_end&#39;, &#39;1111#&#39;],
-   [&#39;goto&#39;, &#39;end&#39;],
-   [&#39;first_end&#39;, &#39;111#&#39;]
- ]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pre_pred</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;first_end&#39;</span><span class="p">,</span> <span class="s1">&#39;first_one&#39;</span><span class="p">,</span> <span class="s1">&#39;first_hash&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;first_one&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hash_is_it&#39;</span><span class="p">,</span> <span class="s1">&#39;returnA&#39;</span><span class="p">,</span><span class="s1">&#39;returnB&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;hash_is_it&#39;</span><span class="p">,</span> <span class="s1">&#39;1##&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;second_end&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;returnA&#39;</span><span class="p">,</span> <span class="s1">&#39;11#11#&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+   <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span> 
+   <span class="p">[</span><span class="s1">&#39;returnB&#39;</span><span class="p">,</span> <span class="s1">&#39;11#11##&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+   <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span> 
+   <span class="p">[</span><span class="s1">&#39;first_hash&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;first_end&#39;</span><span class="p">,</span> <span class="s1">&#39;hash_one&#39;</span><span class="p">,</span> <span class="s1">&#39;hash_hash&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;hash_one&#39;</span><span class="p">,</span><span class="s1">&#39;11##&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;hash_hash&#39;</span><span class="p">,</span><span class="s1">&#39;1###&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;second_end&#39;</span><span class="p">,</span> <span class="s1">&#39;1111#&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+   <span class="p">[</span><span class="s1">&#39;first_end&#39;</span><span class="p">,</span> <span class="s1">&#39;111#&#39;</span><span class="p">]</span>
+ <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(sanity(pre_pred), [&#39;#1&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">sanity</span><span class="p">(</span><span class="n">pre_pred</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;#1&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -831,53 +745,53 @@ The register contents at the end are shown below.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pred = [
-     [&#39;top&#39;,&#39;cases&#39;, 1, &#39;a&#39;, &#39;b&#39;,&#39;c&#39;],   
-     [&#39;a&#39;, &#39;goto&#39;, &#39;end&#39;],
-     [&#39;b&#39;, &#39;cases&#39;, 1, &#39;oe&#39;, &#39;oo&#39;, &#39;oh&#39;],
-     [&#39;oe&#39;, &#39;1##&#39;],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;oo&#39;, &#39;11#11#&#39;+move(1,2)+move(2,1)],
-     [&#39;goto&#39;, &#39;main&#39;],
-     [&#39;oh&#39;, &#39;11#11##&#39;+move(1,2)+move(2,1)],
-     [&#39;goto&#39;, &#39;main&#39;],
-     [&#39;c&#39;, &#39;cases&#39;, 1, &#39;he&#39;, &#39;ho&#39;, &#39;hh&#39;],
-     [&#39;he&#39;, &#39;1##&#39;],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;ho&#39;, &#39;11##11#&#39;+move(1,2)+move(2,1)],
-     [&#39;goto&#39;, &#39;main&#39;],
-     [&#39;hh&#39;, &#39;11##11##&#39;+move(1,2)+move(2,1)],
-     [&#39;goto&#39;, &#39;main&#39;],    
-     [&#39;main&#39;, &#39;cases&#39;, 1, &#39;empty&#39;, &#39;one&#39;,&#39;hash&#39;],
-     [&#39;empty&#39;, move(2,1)],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;one&#39;, &#39;11##&#39;],
-     [move(1,2) + move(2,1)],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;hash&#39;, &#39;11#&#39;],
-     [&#39;borrowing&#39;, &#39;cases&#39;, 1, &#39;borrowing_empty&#39;, &#39;borrowing_one&#39;, &#39;borrowing_hash&#39;],
-     [&#39;borrowing_empty&#39;, move(2,1)],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;borrowing_one&#39;, &#39;11##&#39;],
-     [move(1,2) + move(2,1)],
-     [&#39;goto&#39;, &#39;end&#39;],
-     [&#39;borrowing_hash&#39;, &#39;11#&#39;],
-     [&#39;goto&#39;,&#39;borrowing&#39;]
-]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>   
+     <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;oe&#39;</span><span class="p">,</span> <span class="s1">&#39;oo&#39;</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;oe&#39;</span><span class="p">,</span> <span class="s1">&#39;1##&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;oo&#39;</span><span class="p">,</span> <span class="s1">&#39;11#11#&#39;</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;oh&#39;</span><span class="p">,</span> <span class="s1">&#39;11#11##&#39;</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;ho&#39;</span><span class="p">,</span> <span class="s1">&#39;hh&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;1##&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;ho&#39;</span><span class="p">,</span> <span class="s1">&#39;11##11#&#39;</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;hh&#39;</span><span class="p">,</span> <span class="s1">&#39;11##11##&#39;</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">],</span>    
+     <span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;hash&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;11##&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;hash&#39;</span><span class="p">,</span> <span class="s1">&#39;11#&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;borrowing&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;borrowing_empty&#39;</span><span class="p">,</span> <span class="s1">&#39;borrowing_one&#39;</span><span class="p">,</span> <span class="s1">&#39;borrowing_hash&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;borrowing_empty&#39;</span><span class="p">,</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;borrowing_one&#39;</span><span class="p">,</span> <span class="s1">&#39;11##&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;borrowing_hash&#39;</span><span class="p">,</span> <span class="s1">&#39;11#&#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span><span class="s1">&#39;borrowing&#39;</span><span class="p">]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p1 = sanity(pred)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(p1,[&#39;1#&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">p1</span><span class="p">,[</span><span class="s1">&#39;1#&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -889,24 +803,24 @@ The register contents at the end are shown below.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>id = [ [&#39;all_h&#39;, &#39;cases&#39;, 1, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
-       [&#39;a&#39;, &#39;1##&#39;+clear(2)],
-       [&#39;goto&#39;, &#39;end&#39;],
-       [&#39;b&#39;, &#39;11#&#39;],
-       [move(1,2)+move(2,1)],
-       [&#39;goto&#39;, &#39;end&#39;],
-       [&#39;c&#39;, &#39;11##&#39;],
-       [&#39;goto&#39;, &#39;all_h&#39;]
-      ]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;all_h&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
+       <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;1##&#39;</span><span class="o">+</span><span class="n">clear</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span>
+       <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+       <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;11#&#39;</span><span class="p">],</span>
+       <span class="p">[</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span>
+       <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">],</span>
+       <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;11##&#39;</span><span class="p">],</span>
+       <span class="p">[</span><span class="s1">&#39;goto&#39;</span><span class="p">,</span> <span class="s1">&#39;all_h&#39;</span><span class="p">]</span>
+      <span class="p">]</span>
 
-rectify=sanity(id)
+<span class="n">rectify</span><span class="o">=</span><span class="n">sanity</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(rectify,[&#39;##1&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">rectify</span><span class="p">,[</span><span class="s1">&#39;##1&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -918,14 +832,14 @@ rectify=sanity(id)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pr = p1 + rectify
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pr</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">+</span> <span class="n">rectify</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(pr,[&#39;1##&#39;])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="n">pr</span><span class="p">,[</span><span class="s1">&#39;1##&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -937,7 +851,7 @@ rectify=sanity(id)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pr
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pr</span>
 </pre></div>
 </div>
 </div>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Three simple programs &#8212; Invitation to Computabitlity</title>
+    <title>Example: A simple loop &#8212; Invitation to Computabitlity</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How programs “halt”" href="halting.html" />
+    <link rel="prev" title="Getting stared with 1#" href="getting_started.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
    <span style="color:blue">
@@ -119,8 +121,8 @@ const thebe_selector_output = ".output, .cell_output"
    </span>
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="move_copy_write.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Example: A simple loop
   </a>
  </li>
@@ -228,7 +230,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/basic_programs.ipynb"
+        <a href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/move_copy_write.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -288,7 +290,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fbasic_programs.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fmove_copy_write.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -316,7 +318,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/basic_programs.ipynb"
+        <a href="_sources/move_copy_write.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -376,11 +378,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#move">
-   Move
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modifying-our-simple-loop">
    Modifying our simple loop
   </a>
@@ -398,11 +395,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-7">
      Exercise 7
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-8">
-     Exercise 8
     </a>
    </li>
   </ul>
@@ -416,7 +408,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Three simple programs</h1>
+                <h1>Example: A simple loop</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -426,11 +418,6 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#move">
-   Move
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modifying-our-simple-loop">
    Modifying our simple loop
@@ -449,11 +436,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-7">
      Exercise 7
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-8">
-     Exercise 8
     </a>
    </li>
   </ul>
@@ -468,19 +450,45 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/lmoss.github.io/blob/main/basic_programs.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="three-simple-programs">
-<h1>Three simple programs<a class="headerlink" href="#three-simple-programs" title="Permalink to this headline">#</a></h1>
-<p>We have seen the syntax of commands of 1# in
-<span class="xref myst">a previous notebook</span>.  Now we present some of the simplest programs in the language, programs which we will see again and again in what follows.</p>
-<section id="move">
-<h2>Move<a class="headerlink" href="#move" title="Permalink to this headline">#</a></h2>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/move_copy_write.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="example-a-simple-loop">
+<h1>Example: A simple loop<a class="headerlink" href="#example-a-simple-loop" title="Permalink to this headline">#</a></h1>
+<p>We have seen the syntax of 1# instructions <span class="xref myst">in a previous notebook</span>.</p>
 <p>A good way to learn about the different commands is to examine simple programs.  Among these is a program called <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code>.   It is designed to move the contents of R2 onto the end of R1, emptying out R2 in the process.  Written out in full it is</p>
 <p><code class="docutils literal notranslate"><span class="pre">11#####111111###111###1##1111####1#111111####</span></code></p>
 <p>You can try the program out by (a) moving the interprer down, using the appropriate commands in the notebook; (b) entering <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> as the program and some random words in R1 and R2 and then running <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> on those inputs.</p>
 <p>Since it is hard to understand a program of 1#, we have tools to help.  First, we can <em>parse</em> the program.  Parsing means dividing the program into instructions.</p>
-<p>The program move_2_1 is a loop, and we can further add to the explanations in the chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Example: A simple loop
+
+A good way to learn about the different commands is to examine simple programs.  Among these is a program called ```move_2_1```.   It is designed to move the contents of R2 onto the end of R1, emptying out R2 in the process.  Written out in full it is 
+
+```11#####111111###111###1##1111####1#111111####```
+
+You can try the program out by (a) moving the interprer down, using the appropriate commands in the notebook; (b) entering ```move_2_1``` as the program and some random words in R1 and R2 and then running ```move_2_1``` on those inputs.
+
+Since it is hard to understand a program of 1#, we have tools to help.  First, we can *parse* the program.  Parsing means dividing the program into instructions.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span><span class="p">(</span><span class="n">move_2_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Even better, we can get an parse with glosses, as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parse_explain</span><span class="p">(</span><span class="n">move_2_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The program <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> is a loop, and we can further add to the explanations in the chart.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
@@ -515,11 +523,9 @@ title="Print to PDF"
 <p>If the first symbol of R2 is a #, then we delete that # and go three steps forward, to line 4.  This part of the program would then add a # to R1 and return to the very beginning of the program.</p>
 <p>The point is that by going around loop repeatedly, we transfer the contents of R2 symbol-by-symbol to R1.
 Similarly, whenever m and n are different numbers, we can build a program <code class="docutils literal notranslate"><span class="pre">move_m_n</span></code>. This program would write the contents of Rm onto the end of Rn, emptying Rm in the process.</p>
-</section>
 <section id="modifying-our-simple-loop">
 <h2>Modifying our simple loop<a class="headerlink" href="#modifying-our-simple-loop" title="Permalink to this headline">#</a></h2>
-<p>Suppose we want to modify <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> to get <code class="docutils literal notranslate"><span class="pre">move_3_4</span></code>, a program which would copy the contents of R3 onto the end of R4 (and empty R4) in the process.
-Here is a way to do this which shows off some command-line tools that are part of the working environment of this course.</p>
+<p>Suppose we want to modify move_2_1 to get move_3_4, a program which would copy the contents of R3 onto the end of R4 (and empty R4) in the process. Here is a way to do this which shows off some command-line tools that are part of the working environment of this course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parse</span><span class="p">(</span><span class="n">move_2_1</span><span class="p">)</span>
@@ -527,7 +533,7 @@ Here is a way to do this which shows off some command-line tools that are part o
 </div>
 </div>
 </div>
-<p>pre_program = [‘111#####’, ‘111111###’, ‘111###’, ‘1111##’, ‘1111####’, ‘1111#’, ‘111111####’]</p>
+<p>When you enter the cell above, you get the program <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> as a Python <em>list</em> of instructions. We have seen the explanation of this parse above.  What we want to do in <code class="docutils literal notranslate"><span class="pre">move_3_4</span></code> is to change the overall “case” instruction in the beginning from <code class="docutils literal notranslate"><span class="pre">11#####</span></code> to <code class="docutils literal notranslate"><span class="pre">111#####</span></code>.   And each time our program writes to a register, we want that register to be R4, not R1.  So we make two changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unparse</span><span class="p">(</span><span class="n">pre_program</span><span class="p">)</span>
@@ -547,10 +553,21 @@ Here is a way to do this which shows off some command-line tools that are part o
 <section id="exercise-7">
 <h3>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this headline">#</a></h3>
 <p>Write a program that clears R3 and then swaps the contents of R1 and R2 (using the now-empty R3).</p>
-</section>
-<section id="exercise-8">
-<h3>Exercise 8<a class="headerlink" href="#exercise-8" title="Permalink to this headline">#</a></h3>
-<p>Write a program p that adds a 1 to the <em>beginning</em> of R1, assuming that R2 is empty.  (For example, if R1 has <code class="docutils literal notranslate"><span class="pre">##1</span></code> to start, then running p would result in R1 having <code class="docutils literal notranslate"><span class="pre">1##1</span></code>.)   Of course, your program may use R2!</p>
+<p>Exercise 8
+Write a program p that adds a 1 to the beginning of R1, assuming that R2 is empty. (For example, if R1 has ##1 to start, then running p would result in R1 having 1##1.) Of course, your program may use R2!</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Here’s my dropdown<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">And here’s my dropdown content</p>
+</div>
+</details><div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>The note body will be hidden!</p>
+</div>
 </section>
 </section>
 </section>
@@ -582,6 +599,20 @@ Here is a way to do this which shows off some command-line tools that are part o
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="getting_started.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span style="color:blue">Getting stared with 1#</span></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="halting.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How programs “halt”</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
