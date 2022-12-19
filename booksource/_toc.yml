@@ -4,6 +4,7 @@ chapters:
 - file: getting_started
 - file: move_copy_write
 - file: halting
+- file: tidy
 - file: sanity
 - file: arithmetic
 - file: primitive_recursion
