@@ -2,7 +2,7 @@ format: jb-book
 root: index.md
 chapters:
 - file: getting_started
-- file: basic_programs
+- file: move_copy_write
 - file: halting
 - file: sanity
 - file: arithmetic

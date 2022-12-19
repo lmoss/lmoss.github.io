@@ -13,7 +13,7 @@ logo                        : logo.png #was logo.png  # A path to the book logo
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: auto # this had been force
+  execute_notebooks: off # this had been 'force', and I also tried 'auto'
 
 # Define the name of the latex output file for PDF builds
 latex:
