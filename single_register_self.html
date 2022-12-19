@@ -88,6 +88,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Invitation to Computabitlity</h1>
@@ -751,12 +756,12 @@ onesharp(self1,[]) == self1
 <span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="k">if</span> <span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">241</span>         <span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">snap</span><span class="o">.</span><span class="n">regs</span><span class="p">))):</span>
 
-<span class="nn">Cell In[1], line 133,</span> in <span class="ni">one_step</span><span class="nt">(p, snapshot)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span>         <span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tail</span><span class="p">(</span><span class="n">snapshot</span><span class="o">.</span><span class="n">regs</span><span class="p">[</span><span class="n">reg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-<span class="ne">--&gt; </span><span class="mi">133</span> <span class="k">if</span> <span class="mi">0</span><span class="o">&lt;</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="nn">Cell In[1], line 135,</span> in <span class="ni">one_step</span><span class="nt">(p, snapshot)</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="k">if</span> <span class="mi">0</span><span class="o">&lt;</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">instr_number</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">snapshot</span><span class="o">.</span><span class="n">proceed</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="k">if</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="n">print_snapshot</span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="k">else</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
