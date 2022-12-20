@@ -15,9 +15,11 @@ logo                        : logo.png #was logo.png  # A path to the book logo
 execute:
   execute_notebooks: off # this had been 'force', and I also tried 'auto'
 
-sphinx:
-  extra_extensions:
-    - sphinx_exercise
+
+#sphinx:
+#  extra_extensions:
+#    - sphinx_exercise
+
 
 # Define the name of the latex output file for PDF builds
 latex:
