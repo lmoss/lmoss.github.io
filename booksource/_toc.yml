@@ -9,7 +9,7 @@ parts:
     - file: halting
     - file: tidy
 - caption: More Programs
-  chapers:
+  chapters:
   - file: sanity
   - file: arithmetic
   - file: primitive_recursion
