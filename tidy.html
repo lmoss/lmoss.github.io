@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tidy programs &#8212; Invitation to Computabitlity</title>
+    <title>&lt;no title&gt; &#8212; Invitation to Computabitlity</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tools to help write programs" href="sanity.html" />
@@ -115,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
    <span style="color:blue">
@@ -125,17 +123,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="move_copy_write.html">
-   Example: A simple loop
+   Three simple programs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="halting.html">
    How programs “halt”
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Tidy programs
   </a>
  </li>
  <li class="toctree-l1">
@@ -362,23 +355,50 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tidy programs</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -386,10 +406,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/lmoss.github.io/blob/main/tidy.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="tidy-programs">
-<h1>Tidy programs<a class="headerlink" href="#tidy-programs" title="Permalink to this headline">#</a></h1>
-<p>A line in a 1# program <em>points to</em> a second line if the first is a forward or backward “goto” instruction, and the second is “where one goes” from the first.   For example, if line 37 is 111####, then line 37 points to line 34.   A problem with a 1# program <code class="docutils literal notranslate"><span class="pre">p</span></code> is that a given line k might ``point to’’ a line outside of <code class="docutils literal notranslate"><span class="pre">p</span></code> itself.  This is not a problem if line j points to a line which is “one below the bottom” of <code class="docutils literal notranslate"><span class="pre">p</span></code>.  In all other cases, what we have is potentially a problem that we want to avoid.  (See below for a statement of exactly what the problem is.) A 1# program is <em>tidy</em> if none of the “goto” instructions 1^k #^3 or <code class="docutils literal notranslate"><span class="pre">1^k</span> <span class="pre">#^4</span></code> points to a line ouside of <span class="math notranslate nohighlight">\(p\)</span> itself, except they such a line might point to one below the bottom of <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/tidy.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
@@ -463,7 +480,6 @@ Successfully installed jedi-0.18.2 onesharp-0.0.0
 </div>
 </div>
 </div>
-</section>
 
     <script type="text/x-thebe-config">
     {
