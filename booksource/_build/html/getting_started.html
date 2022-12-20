@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How programs “halt”" href="halting.html" />
+    <link rel="next" title="Simple programs" href="move_copy_write.html" />
     <link rel="prev" title="Invitation to Computability" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -121,6 +121,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="move_copy_write.html">
+   Simple programs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="halting.html">
    How programs “halt”
   </a>
@@ -143,11 +148,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="self_writing.html">
    Self-Replicating Programs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="two_by_two.html">
-   Two-by-Two Encoding
   </a>
  </li>
  <li class="toctree-l1">
@@ -575,7 +575,7 @@ title="Print to PDF"
 <h1><span style="color:blue">Getting stared with 1#</span><a class="headerlink" href="#span-style-color-blue-getting-stared-with-1-span" title="Permalink to this headline">#</a></h1>
 <p>Lawrence S. Moss,
 Indiana University</p>
-<p>To start, click on the triangle below.</p>
+<p>To start, click on ‘Open in Colab’, and then click on the triangle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
@@ -1083,48 +1083,60 @@ What happens in each register if we run the same program p from Exercise 2 above
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-#T_06ce0622_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row0_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row1_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row2_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row2_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row3_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row3_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row4_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row4_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row5_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row5_col1,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row6_col0,#T_06ce0622_7cba_11ed_96e3_1e0062143c78row6_col1{
-            background-color:  #C9DFEC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06ce0622_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >11#####</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row0_col1" class="data row0 col1" >cases on R2</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >111111###</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row1_col1" class="data row1 col1" >go forward 6 to instruction 8</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row2_col0" class="data row2 col0" >111###</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row2_col1" class="data row2 col1" >go forward 3 to instruction 6</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row3" class="row_heading level0 row3" >4</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row3_col0" class="data row3 col0" >1##</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row3_col1" class="data row3 col1" >add # to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row4" class="row_heading level0 row4" >5</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row4_col0" class="data row4 col0" >1111####</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row4_col1" class="data row4 col1" >go backward 4 to instruction 1</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row5" class="row_heading level0 row5" >6</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row5_col0" class="data row5 col0" >1#</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row5_col1" class="data row5 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06ce0622_7cba_11ed_96e3_1e0062143c78level0_row6" class="row_heading level0 row6" >7</th>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row6_col0" class="data row6 col0" >111111####</td>
-                        <td id="T_06ce0622_7cba_11ed_96e3_1e0062143c78row6_col1" class="data row6 col1" >go backward 6 to instruction 1</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+#T_0bec2_row0_col0, #T_0bec2_row0_col1, #T_0bec2_row1_col0, #T_0bec2_row1_col1, #T_0bec2_row2_col0, #T_0bec2_row2_col1, #T_0bec2_row3_col0, #T_0bec2_row3_col1, #T_0bec2_row4_col0, #T_0bec2_row4_col1, #T_0bec2_row5_col0, #T_0bec2_row5_col1, #T_0bec2_row6_col0, #T_0bec2_row6_col1 {
+  background-color: #C9DFEC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_0bec2_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_0bec2_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_0bec2_row0_col0" class="data row0 col0" >11#####</td>
+      <td id="T_0bec2_row0_col1" class="data row0 col1" >cases on R2</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_0bec2_row1_col0" class="data row1 col0" >111111###</td>
+      <td id="T_0bec2_row1_col1" class="data row1 col1" >go forward 6 to instruction 8</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_0bec2_row2_col0" class="data row2 col0" >111###</td>
+      <td id="T_0bec2_row2_col1" class="data row2 col1" >go forward 3 to instruction 6</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_0bec2_row3_col0" class="data row3 col0" >1##</td>
+      <td id="T_0bec2_row3_col1" class="data row3 col1" >add # to R1</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row4" class="row_heading level0 row4" >5</th>
+      <td id="T_0bec2_row4_col0" class="data row4 col0" >1111####</td>
+      <td id="T_0bec2_row4_col1" class="data row4 col1" >go backward 4 to instruction 1</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row5" class="row_heading level0 row5" >6</th>
+      <td id="T_0bec2_row5_col0" class="data row5 col0" >1#</td>
+      <td id="T_0bec2_row5_col1" class="data row5 col1" >add 1 to R1</td>
+    </tr>
+    <tr>
+      <th id="T_0bec2_level0_row6" class="row_heading level0 row6" >7</th>
+      <td id="T_0bec2_row6_col0" class="data row6 col0" >111111####</td>
+      <td id="T_0bec2_row6_col1" class="data row6 col1" >go backward 6 to instruction 1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>The program <code class="docutils literal notranslate"><span class="pre">move_2_1</span></code> is a loop, and we can further add to the explanations in the chart.</p>
 <div class="cell docutils container">
@@ -1156,50 +1168,64 @@ What happens in each register if we run the same program p from Exercise 2 above
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-#T_06d00486_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row0_col1,#T_06d00486_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row1_col1,#T_06d00486_7cba_11ed_96e3_1e0062143c78row2_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row2_col1{
-            background-color:  #FFFFCC;
-        }#T_06d00486_7cba_11ed_96e3_1e0062143c78row3_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row3_col1,#T_06d00486_7cba_11ed_96e3_1e0062143c78row4_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row4_col1{
-            background-color:  #B0E0E6;
-        }#T_06d00486_7cba_11ed_96e3_1e0062143c78row5_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row5_col1,#T_06d00486_7cba_11ed_96e3_1e0062143c78row6_col0,#T_06d00486_7cba_11ed_96e3_1e0062143c78row6_col1{
-            background-color:  #D4B48C;
-        }</style><table id="T_06d00486_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >11#####</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row0_col1" class="data row0 col1" >cases on R2</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >111111###</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row1_col1" class="data row1 col1" >register 2 is empty: go forward 6 to instruction 8 (we're done)</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row2_col0" class="data row2 col0" >111###</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row2_col1" class="data row2 col1" >first symbol is a 1: go forward 3 to instruction 6 (to the tan section)</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row3" class="row_heading level0 row3" >4</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row3_col0" class="data row3 col0" >1##</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row3_col1" class="data row3 col1" >first symbol is a #: add # to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row4" class="row_heading level0 row4" >5</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row4_col0" class="data row4 col0" >1111####</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row4_col1" class="data row4 col1" >go backward 4 to instruction 1 (to the top)</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row5" class="row_heading level0 row5" >6</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row5_col0" class="data row5 col0" >1#</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row5_col1" class="data row5 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d00486_7cba_11ed_96e3_1e0062143c78level0_row6" class="row_heading level0 row6" >7</th>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row6_col0" class="data row6 col0" >111111####</td>
-                        <td id="T_06d00486_7cba_11ed_96e3_1e0062143c78row6_col1" class="data row6 col1" >go backward 6 to instruction 1 (to the top)</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+#T_a40d3_row0_col0, #T_a40d3_row0_col1, #T_a40d3_row1_col0, #T_a40d3_row1_col1, #T_a40d3_row2_col0, #T_a40d3_row2_col1 {
+  background-color: #FFFFCC;
+}
+#T_a40d3_row3_col0, #T_a40d3_row3_col1, #T_a40d3_row4_col0, #T_a40d3_row4_col1 {
+  background-color: #B0E0E6;
+}
+#T_a40d3_row5_col0, #T_a40d3_row5_col1, #T_a40d3_row6_col0, #T_a40d3_row6_col1 {
+  background-color: #D4B48C;
+}
+</style>
+<table id="T_a40d3_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a40d3_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_a40d3_row0_col0" class="data row0 col0" >11#####</td>
+      <td id="T_a40d3_row0_col1" class="data row0 col1" >cases on R2</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_a40d3_row1_col0" class="data row1 col0" >111111###</td>
+      <td id="T_a40d3_row1_col1" class="data row1 col1" >register 2 is empty: go forward 6 to instruction 8 (we're done)</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_a40d3_row2_col0" class="data row2 col0" >111###</td>
+      <td id="T_a40d3_row2_col1" class="data row2 col1" >first symbol is a 1: go forward 3 to instruction 6 (to the tan section)</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_a40d3_row3_col0" class="data row3 col0" >1##</td>
+      <td id="T_a40d3_row3_col1" class="data row3 col1" >first symbol is a #: add # to R1</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row4" class="row_heading level0 row4" >5</th>
+      <td id="T_a40d3_row4_col0" class="data row4 col0" >1111####</td>
+      <td id="T_a40d3_row4_col1" class="data row4 col1" >go backward 4 to instruction 1 (to the top)</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row5" class="row_heading level0 row5" >6</th>
+      <td id="T_a40d3_row5_col0" class="data row5 col0" >1#</td>
+      <td id="T_a40d3_row5_col1" class="data row5 col1" >add 1 to R1</td>
+    </tr>
+    <tr>
+      <th id="T_a40d3_level0_row6" class="row_heading level0 row6" >7</th>
+      <td id="T_a40d3_row6_col0" class="data row6 col0" >111111####</td>
+      <td id="T_a40d3_row6_col1" class="data row6 col1" >go backward 6 to instruction 1 (to the top)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>If R2 is empty, it goes to line 8.  Since the program itself only has 7 lines, this means that we have transferred <em>out</em> of the program.  We say that the program <em>halts</em> at that point.</p>
 <p>If the first symbol of R2 is a 1, then the second instruction after the case instruction at the top transfers us down to line 6. This part of the program would then add a 1 to R1 and return to the very beginning of the program.</p>
@@ -1285,89 +1311,134 @@ Here is a way to do this which shows off some command-line tools that are part o
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d343ee_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row0_col1,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row1_col1,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row2_col0,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row2_col1,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row3_col0,#T_06d343ee_7cba_11ed_96e3_1e0062143c78row3_col1{
-            background-color:  #C9DFEC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d343ee_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d343ee_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row0_col1" class="data row0 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d343ee_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >11#####</td>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row1_col1" class="data row1 col1" >cases on R2</td>
-            </tr>
-            <tr>
-                        <th id="T_06d343ee_7cba_11ed_96e3_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row2_col0" class="data row2 col0" >1###</td>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row2_col1" class="data row2 col1" >go forward 1 to instruction 4</td>
-            </tr>
-            <tr>
-                        <th id="T_06d343ee_7cba_11ed_96e3_1e0062143c78level0_row3" class="row_heading level0 row3" >4</th>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row3_col0" class="data row3 col0" >1###</td>
-                        <td id="T_06d343ee_7cba_11ed_96e3_1e0062143c78row3_col1" class="data row3 col1" >go forward 1 to instruction 5</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
+<div class="output text_html"><style type="text/css">
+#T_0ba65_row0_col0, #T_0ba65_row0_col1, #T_0ba65_row1_col0, #T_0ba65_row1_col1, #T_0ba65_row2_col0, #T_0ba65_row2_col1, #T_0ba65_row3_col0, #T_0ba65_row3_col1 {
+  background-color: #C9DFEC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_0ba65_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_0ba65_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_0ba65_row0_col0" class="data row0 col0" >1#</td>
+      <td id="T_0ba65_row0_col1" class="data row0 col1" >add 1 to R1</td>
+    </tr>
+    <tr>
+      <th id="T_0ba65_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_0ba65_row1_col0" class="data row1 col0" >11#####</td>
+      <td id="T_0ba65_row1_col1" class="data row1 col1" >cases on R2</td>
+    </tr>
+    <tr>
+      <th id="T_0ba65_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_0ba65_row2_col0" class="data row2 col0" >1###</td>
+      <td id="T_0ba65_row2_col1" class="data row2 col1" >go forward 1 to instruction 4</td>
+    </tr>
+    <tr>
+      <th id="T_0ba65_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_0ba65_row3_col0" class="data row3 col0" >1###</td>
+      <td id="T_0ba65_row3_col1" class="data row3 col1" >go forward 1 to instruction 5</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
 The registers include those those which you entered as part of the input
 and also others mentioned in the input program.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d3be8c_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d3be8c_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d3be8c_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d3be8c_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d3be8c_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1#1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d3be8c_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d3be8c_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
+<div class="output text_html"><style type="text/css">
+#T_edf6c_row0_col0, #T_edf6c_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_edf6c_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_edf6c_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_edf6c_row0_col0" class="data row0 col0" >1#1</td>
+    </tr>
+    <tr>
+      <th id="T_edf6c_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_edf6c_row1_col0" class="data row1 col0" >#</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
 Execute instruction 1: add 1 to R1.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d43204_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d43204_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d43204_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d43204_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d43204_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1#11</td>
-            </tr>
-            <tr>
-                        <th id="T_06d43204_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d43204_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 2:
+<div class="output text_html"><style type="text/css">
+#T_cac66_row0_col0, #T_cac66_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_cac66_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_cac66_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_cac66_row0_col0" class="data row0 col0" >1#11</td>
+    </tr>
+    <tr>
+      <th id="T_cac66_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_cac66_row1_col0" class="data row1 col0" >#</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 2:
 Execute instruction 2: cases on R2.
 The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d499ba_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d499ba_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d499ba_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d499ba_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d499ba_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1#11</td>
-            </tr>
-            <tr>
-                        <th id="T_06d499ba_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d499ba_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation then halts properly because the control is just below the last line of the program,
+<div class="output text_html"><style type="text/css">
+#T_e907b_row0_col0, #T_e907b_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_e907b_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_e907b_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_e907b_row0_col0" class="data row0 col0" >1#11</td>
+    </tr>
+    <tr>
+      <th id="T_e907b_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_e907b_row1_col0" class="data row1 col0" ></td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation then halts properly because the control is just below the last line of the program,
 and because all registers other than R1 are empty.
 The output is 1#11.
 </pre></div>
@@ -1397,63 +1468,97 @@ The output is 1#11.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d5d014_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d5d014_7cba_11ed_96e3_1e0062143c78row0_col1{
-            background-color:  #C9DFEC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d5d014_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d5d014_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d5d014_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-                        <td id="T_06d5d014_7cba_11ed_96e3_1e0062143c78row0_col1" class="data row0 col1" >add 1 to R1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
+<div class="output text_html"><style type="text/css">
+#T_10ded_row0_col0, #T_10ded_row0_col1 {
+  background-color: #C9DFEC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_10ded_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_10ded_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_10ded_row0_col0" class="data row0 col0" >1#</td>
+      <td id="T_10ded_row0_col1" class="data row0 col1" >add 1 to R1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
 The registers include those those which you entered as part of the input
 and also others mentioned in the input program.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d652c8_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d652c8_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06d652c8_7cba_11ed_96e3_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d652c8_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d652c8_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d652c8_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >#1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d652c8_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d652c8_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >#1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d652c8_7cba_11ed_96e3_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_06d652c8_7cba_11ed_96e3_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
+<div class="output text_html"><style type="text/css">
+#T_14127_row0_col0, #T_14127_row1_col0, #T_14127_row2_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_14127_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_14127_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_14127_row0_col0" class="data row0 col0" >#1</td>
+    </tr>
+    <tr>
+      <th id="T_14127_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_14127_row1_col0" class="data row1 col0" >#1</td>
+    </tr>
+    <tr>
+      <th id="T_14127_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_14127_row2_col0" class="data row2 col0" >1#</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
 Execute instruction 1: add 1 to R1.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >#11</td>
-            </tr>
-            <tr>
-                        <th id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >#1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_06d6c4e2_7cba_11ed_96e3_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This computation does not halt.
+<div class="output text_html"><style type="text/css">
+#T_849d8_row0_col0, #T_849d8_row1_col0, #T_849d8_row2_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_849d8_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_849d8_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_849d8_row0_col0" class="data row0 col0" >#11</td>
+    </tr>
+    <tr>
+      <th id="T_849d8_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_849d8_row1_col0" class="data row1 col0" >#1</td>
+    </tr>
+    <tr>
+      <th id="T_849d8_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_849d8_row2_col0" class="data row2 col0" >1#</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This computation does not halt.
 Here is the list of registers whose contents are not empty at this point, other than R1:[2, 3].
 The register contents at the end are shown above.
 </pre></div>
@@ -1473,78 +1578,123 @@ The register contents at the end are shown above.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d7fd26_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d7fd26_7cba_11ed_96e3_1e0062143c78row0_col1,#T_06d7fd26_7cba_11ed_96e3_1e0062143c78row1_col0,#T_06d7fd26_7cba_11ed_96e3_1e0062143c78row1_col1{
-            background-color:  #C9DFEC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >1##</td>
-                        <td id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78row0_col1" class="data row0 col1" >add # to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >11#</td>
-                        <td id="T_06d7fd26_7cba_11ed_96e3_1e0062143c78row1_col1" class="data row1 col1" >add 1 to R2</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
+<div class="output text_html"><style type="text/css">
+#T_fb33d_row0_col0, #T_fb33d_row0_col1, #T_fb33d_row1_col0, #T_fb33d_row1_col1 {
+  background-color: #C9DFEC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_fb33d_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_fb33d_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_fb33d_row0_col0" class="data row0 col0" >1##</td>
+      <td id="T_fb33d_row0_col1" class="data row0 col1" >add # to R1</td>
+    </tr>
+    <tr>
+      <th id="T_fb33d_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_fb33d_row1_col0" class="data row1 col0" >11#</td>
+      <td id="T_fb33d_row1_col1" class="data row1 col1" >add 1 to R2</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
 The registers include those those which you entered as part of the input
 and also others mentioned in the input program.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d86f36_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d86f36_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d86f36_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d86f36_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d86f36_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_06d86f36_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d86f36_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
+<div class="output text_html"><style type="text/css">
+#T_19155_row0_col0, #T_19155_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_19155_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_19155_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_19155_row0_col0" class="data row0 col0" ></td>
+    </tr>
+    <tr>
+      <th id="T_19155_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_19155_row1_col0" class="data row1 col0" ></td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1:
 Execute instruction 1: add # to R1.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d8d3f4_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d8d3f4_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d8d3f4_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d8d3f4_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d8d3f4_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_06d8d3f4_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d8d3f4_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 2:
+<div class="output text_html"><style type="text/css">
+#T_522fa_row0_col0, #T_522fa_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_522fa_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_522fa_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_522fa_row0_col0" class="data row0 col0" >#</td>
+    </tr>
+    <tr>
+      <th id="T_522fa_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_522fa_row1_col0" class="data row1 col0" ></td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 2:
 Execute instruction 2: add 1 to R2.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_06d936be_7cba_11ed_96e3_1e0062143c78row0_col0,#T_06d936be_7cba_11ed_96e3_1e0062143c78row1_col0{
-            background-color:  #FFFFCC;
-            color:  black;
-            text-align:  left;
-        }</style><table id="T_06d936be_7cba_11ed_96e3_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_06d936be_7cba_11ed_96e3_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_06d936be_7cba_11ed_96e3_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_06d936be_7cba_11ed_96e3_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_06d936be_7cba_11ed_96e3_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This computation does not halt.
+<div class="output text_html"><style type="text/css">
+#T_64c17_row0_col0, #T_64c17_row1_col0 {
+  background-color: #FFFFCC;
+  color: black;
+  text-align: left;
+}
+</style>
+<table id="T_64c17_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_64c17_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_64c17_row0_col0" class="data row0 col0" >#</td>
+    </tr>
+    <tr>
+      <th id="T_64c17_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_64c17_row1_col0" class="data row1 col0" >1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This computation does not halt.
 Here is the list of registers whose contents are not empty at this point, other than R1:[2].
 The register contents at the end are shown above.
 </pre></div>
@@ -1680,10 +1830,10 @@ Registers are processed as queues: symbols enter on the right and exit on the le
             <p class="prev-next-title">Invitation to Computability</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="halting.html" title="next page">
+    <a class='right-next' id="next-link" href="move_copy_write.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How programs “halt”</p>
+        <p class="prev-next-title">Simple programs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

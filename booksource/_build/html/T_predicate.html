@@ -120,6 +120,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="move_copy_write.html">
+   Simple programs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="halting.html">
    How programs “halt”
   </a>
@@ -142,11 +147,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="self_writing.html">
    Self-Replicating Programs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="two_by_two.html">
-   Two-by-Two Encoding
   </a>
  </li>
  <li class="toctree-l1">
@@ -488,7 +488,7 @@ title="Print to PDF"
 <h1>The T predicate<a class="headerlink" href="#the-t-predicate" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -871,7 +871,7 @@ title="Print to PDF"
 <h2>Here is a new interface for running program which includes a “mode” capability that includes the option of seeing all the snapshots and the overall trace.<a class="headerlink" href="#here-is-a-new-interface-for-running-program-which-includes-a-mode-capability-that-includes-the-option-of-seeing-all-the-snapshots-and-the-overall-trace" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Text Register Machine &lt;br&gt; The entries for the program and registers must be words on the alphabet {1,#}, without quotes.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Text Register Machine &lt;br&gt; The entries for the program and registers must be words on the alphabet {1,#}, without quotes.</span>
 <span class="k">def</span> <span class="nf">end_strip</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span> <span class="c1">## removes the tail of empty registers</span>
   <span class="k">if</span> <span class="nb">list</span> <span class="o">==</span> <span class="p">[]:</span>
     <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
@@ -913,31 +913,54 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_5336bf3a_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5336bf3a_7cc0_11ed_9659_1e0062143c78row0_col1{
-            background-color:  #C9DFEC;
-            text-align:  left;
-        }</style><table id="T_5336bf3a_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5336bf3a_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5336bf3a_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-                        <td id="T_5336bf3a_7cc0_11ed_9659_1e0062143c78row0_col1" class="data row0 col1" >add 1 to R1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
+<div class="output text_html"><style type="text/css">
+#T_4d406_row0_col0, #T_4d406_row0_col1 {
+  background-color: #C9DFEC;
+  text-align: left;
+}
+</style>
+<table id="T_4d406_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_4d406_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_4d406_row0_col0" class="data row0 col0" >1#</td>
+      <td id="T_4d406_row0_col1" class="data row0 col1" >add 1 to R1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
 The registers include those those which you entered as part of the input
 and also others mentioned in the input program.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_533746ee_7cc0_11ed_9659_1e0062143c78row0_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533746ee_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533746ee_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533746ee_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##111#111###
+<div class="output text_html"><style type="text/css">
+#T_90296_row0_col0 {
+  background-color: #FFFFCC;
+  text-align: left;
+}
+</style>
+<table id="T_90296_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_90296_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_90296_row0_col0" class="data row0 col0" >1#1#</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##111#111###
 
 
 Step 1:
@@ -946,16 +969,27 @@ The computation then halts properly because the control is just below the last l
 and because all registers other than R1 are empty.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_5337b00c_7cc0_11ed_9659_1e0062143c78row0_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5337b00c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5337b00c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5337b00c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1#1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11##111#111#11##
+<div class="output text_html"><style type="text/css">
+#T_803e5_row0_col0 {
+  background-color: #FFFFCC;
+  text-align: left;
+}
+</style>
+<table id="T_803e5_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_803e5_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_803e5_row0_col0" class="data row0 col0" >1#1#1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11##111#111#11##
 
 The trace is shown below:
 1##111#111####111##111#111#11###1
@@ -969,7 +1003,7 @@ The output is 1#1#1.
 <p>You can also run things in the notebook cells as we have been doing it.  See below for an example of how we would see the snapshots in a step_by_step execution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
 <span class="n">step_by_step_with_snapshots</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,[</span><span class="s1">&#39;##&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -978,52 +1012,86 @@ The output is 1#1#1.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_5338db08_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5338db08_7cc0_11ed_9659_1e0062143c78row0_col1,#T_5338db08_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5338db08_7cc0_11ed_9659_1e0062143c78row1_col1{
-            background-color:  #C9DFEC;
-            text-align:  left;
-        }</style><table id="T_5338db08_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5338db08_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5338db08_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-                        <td id="T_5338db08_7cc0_11ed_9659_1e0062143c78row0_col1" class="data row0 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_5338db08_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5338db08_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-                        <td id="T_5338db08_7cc0_11ed_9659_1e0062143c78row1_col1" class="data row1 col1" >add 1 to R1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
+<div class="output text_html"><style type="text/css">
+#T_1490e_row0_col0, #T_1490e_row0_col1, #T_1490e_row1_col0, #T_1490e_row1_col1 {
+  background-color: #C9DFEC;
+  text-align: left;
+}
+</style>
+<table id="T_1490e_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_1490e_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_1490e_row0_col0" class="data row0 col0" >1#</td>
+      <td id="T_1490e_row0_col1" class="data row0 col1" >add 1 to R1</td>
+    </tr>
+    <tr>
+      <th id="T_1490e_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_1490e_row1_col0" class="data row1 col0" >1#</td>
+      <td id="T_1490e_row1_col1" class="data row1 col1" >add 1 to R1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
 The registers include those those which you entered as part of the input
 and also others mentioned in the input program.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_53395d6c_7cc0_11ed_9659_1e0062143c78row0_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53395d6c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53395d6c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53395d6c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##1#1###
+<div class="output text_html"><style type="text/css">
+#T_3f42c_row0_col0 {
+  background-color: #FFFFCC;
+  text-align: left;
+}
+</style>
+<table id="T_3f42c_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_3f42c_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_3f42c_row0_col0" class="data row0 col0" >##</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##1#1###
 
 
 Step 1:
 Execute instruction 1: add 1 to R1.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_5339d9d6_7cc0_11ed_9659_1e0062143c78row0_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5339d9d6_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5339d9d6_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5339d9d6_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >##1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11##1#1#11##
+<div class="output text_html"><style type="text/css">
+#T_6dc66_row0_col0 {
+  background-color: #FFFFCC;
+  text-align: left;
+}
+</style>
+<table id="T_6dc66_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_6dc66_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_6dc66_row0_col0" class="data row0 col0" >##1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11##1#1#11##
 
 Step 2:
 Execute instruction 2: add 1 to R1.
@@ -1031,16 +1099,27 @@ The computation then halts properly because the control is just below the last l
 and because all registers other than R1 are empty.
 </pre></div>
 </div>
-<div class="output text_html"><style  type="text/css" >
-#T_533a5e60_7cc0_11ed_9659_1e0062143c78row0_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533a5e60_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533a5e60_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533a5e60_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >##11</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111##1#1#1111##
+<div class="output text_html"><style type="text/css">
+#T_42e43_row0_col0 {
+  background-color: #FFFFCC;
+  text-align: left;
+}
+</style>
+<table id="T_42e43_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_42e43_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_42e43_row0_col0" class="data row0 col0" >##11</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111##1#1#1111##
 
 The trace is shown below:
 1##1#1####111##1#1#11###1111##1#1#1111###1
@@ -1052,1251 +1131,8 @@ The output is ##11.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
 <span class="n">step_by_step_with_snapshots</span><span class="p">(</span><span class="n">diag</span><span class="p">,[</span><span class="s1">&#39;1#&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First, here is the program:
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533b8344_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row0_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row1_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row2_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row2_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row3_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row3_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row4_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row4_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row5_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row5_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row6_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row6_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row7_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row7_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row8_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row8_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row9_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row9_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row10_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row10_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row11_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row11_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row12_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row12_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row13_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row13_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row14_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row14_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row15_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row15_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row16_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row16_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row17_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row17_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row18_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row18_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row19_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row19_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row20_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row20_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row21_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row21_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row22_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row22_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row23_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row23_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row24_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row24_col1,#T_533b8344_7cc0_11ed_9659_1e0062143c78row25_col0,#T_533b8344_7cc0_11ed_9659_1e0062143c78row25_col1{
-            background-color:  #C9DFEC;
-            text-align:  left;
-        }</style><table id="T_533b8344_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row0_col1" class="data row0 col1" >cases on R1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >11111111111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row1_col1" class="data row1 col1" >go forward 11 to instruction 13</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >111111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row2_col1" class="data row2 col1" >go forward 6 to instruction 9</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row3" class="row_heading level0 row3" >4</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row3_col0" class="data row3 col0" >11##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row3_col1" class="data row3 col1" >add # to R2</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row4" class="row_heading level0 row4" >5</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row4_col0" class="data row4 col0" >111#</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row4_col1" class="data row4 col1" >add 1 to R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row5" class="row_heading level0 row5" >6</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row5_col0" class="data row5 col0" >111##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row5_col1" class="data row5 col1" >add # to R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row6" class="row_heading level0 row6" >7</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row6_col0" class="data row6 col0" >111##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row6_col1" class="data row6 col1" >add # to R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row7" class="row_heading level0 row7" >8</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row7_col0" class="data row7 col0" >1111111####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row7_col1" class="data row7 col1" >go backward 7 to instruction 1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row8" class="row_heading level0 row8" >9</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row8_col0" class="data row8 col0" >11#</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row8_col1" class="data row8 col1" >add 1 to R2</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row9" class="row_heading level0 row9" >10</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row9_col0" class="data row9 col0" >111#</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row9_col1" class="data row9 col1" >add 1 to R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row10" class="row_heading level0 row10" >11</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row10_col0" class="data row10 col0" >111##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row10_col1" class="data row10 col1" >add # to R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row11" class="row_heading level0 row11" >12</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row11_col0" class="data row11 col0" >1111####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row11_col1" class="data row11 col1" >go backward 4 to instruction 8</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row12" class="row_heading level0 row12" >13</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row12_col0" class="data row12 col0" >111#####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row12_col1" class="data row12 col1" >cases on R3</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row13" class="row_heading level0 row13" >14</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row13_col0" class="data row13 col0" >111111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row13_col1" class="data row13 col1" >go forward 6 to instruction 20</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row14" class="row_heading level0 row14" >15</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row14_col0" class="data row14 col0" >111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row14_col1" class="data row14 col1" >go forward 3 to instruction 18</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row15" class="row_heading level0 row15" >16</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row15_col0" class="data row15 col0" >1##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row15_col1" class="data row15 col1" >add # to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row16" class="row_heading level0 row16" >17</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row16_col0" class="data row16 col0" >1111####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row16_col1" class="data row16 col1" >go backward 4 to instruction 13</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row17" class="row_heading level0 row17" >18</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row17_col0" class="data row17 col0" >1#</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row17_col1" class="data row17 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row18" class="row_heading level0 row18" >19</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row18_col0" class="data row18 col0" >11####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row18_col1" class="data row18 col1" >go backward 2 to instruction 17</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row19" class="row_heading level0 row19" >20</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row19_col0" class="data row19 col0" >11#####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row19_col1" class="data row19 col1" >cases on R2</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row20" class="row_heading level0 row20" >21</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row20_col0" class="data row20 col0" >111111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row20_col1" class="data row20 col1" >go forward 6 to instruction 27</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row21" class="row_heading level0 row21" >22</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row21_col0" class="data row21 col0" >111###</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row21_col1" class="data row21 col1" >go forward 3 to instruction 25</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row22" class="row_heading level0 row22" >23</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row22_col0" class="data row22 col0" >1##</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row22_col1" class="data row22 col1" >add # to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row23" class="row_heading level0 row23" >24</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row23_col0" class="data row23 col0" >1111####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row23_col1" class="data row23 col1" >go backward 4 to instruction 20</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row24" class="row_heading level0 row24" >25</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row24_col0" class="data row24 col0" >1#</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row24_col1" class="data row24 col1" >add 1 to R1</td>
-            </tr>
-            <tr>
-                        <th id="T_533b8344_7cc0_11ed_9659_1e0062143c78level0_row25" class="row_heading level0 row25" >26</th>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row25_col0" class="data row25 col0" >11####</td>
-                        <td id="T_533b8344_7cc0_11ed_9659_1e0062143c78row25_col1" class="data row25 col1" >go backward 2 to instruction 24</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The computation starts with the register contents shown below.
-The registers include those those which you entered as part of the input
-and also others mentioned in the input program.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533c3730_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533c3730_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533c3730_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533c3730_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533c3730_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533c3730_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_533c3730_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533c3730_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_533c3730_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533c3730_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##111#######
-
-
-Step 1:
-Execute instruction 1: cases on R1.
-The first symbol in that register is 1, so we delete that symbol and go forward 2 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533c9ce8_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533c9ce8_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533c9ce8_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533c9ce8_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111##1#######
-
-Step 2:
-Execute instruction 3: go forward 6 to instruction 9.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533d0782_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533d0782_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533d0782_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533d0782_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533d0782_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533d0782_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533d0782_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533d0782_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_533d0782_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533d0782_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111##1#######
-
-Step 3:
-Execute instruction 9: add 1 to R2.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533d69e8_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533d69e8_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533d69e8_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533d69e8_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533d69e8_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533d69e8_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533d69e8_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533d69e8_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533d69e8_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533d69e8_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111##1###11####
-
-Step 4:
-Execute instruction 10: add 1 to R3.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533dd7d4_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533dd7d4_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533dd7d4_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533dd7d4_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111##1###11##11##
-
-Step 5:
-Execute instruction 11: add # to R3.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533e3ef4_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533e3ef4_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533e3ef4_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533e3ef4_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111##1###11##111###
-
-Step 6:
-Execute instruction 12: go backward 4 to instruction 8.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533ea54c_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533ea54c_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533ea54c_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533ea54c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533ea54c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533ea54c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533ea54c_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533ea54c_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533ea54c_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533ea54c_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111##1###11##111###
-
-Step 7:
-Execute instruction 8: go backward 7 to instruction 1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533f0fe6_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533f0fe6_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533f0fe6_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533f0fe6_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1##1###11##111###
-
-Step 8:
-Execute instruction 1: cases on R1.
-The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533f729c_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533f729c_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533f729c_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533f729c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533f729c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533f729c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_533f729c_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533f729c_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_533f729c_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533f729c_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111####11##111###
-
-Step 9:
-Execute instruction 4: add # to R2.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_533fd976_7cc0_11ed_9659_1e0062143c78row0_col0,#T_533fd976_7cc0_11ed_9659_1e0062143c78row1_col0,#T_533fd976_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_533fd976_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_533fd976_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_533fd976_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_533fd976_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_533fd976_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_533fd976_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_533fd976_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111####111###111###
-
-Step 10:
-Execute instruction 5: add 1 to R3.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53404320_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53404320_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53404320_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53404320_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53404320_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53404320_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_53404320_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53404320_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53404320_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53404320_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111####111###111#11##
-
-Step 11:
-Execute instruction 6: add # to R3.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5340aa04_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5340aa04_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5340aa04_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5340aa04_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5340aa04_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5340aa04_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_5340aa04_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5340aa04_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5340aa04_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5340aa04_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111####111###111#111###
-
-Step 12:
-Execute instruction 7: add # to R3.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5341130e_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5341130e_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5341130e_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5341130e_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5341130e_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5341130e_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_5341130e_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5341130e_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5341130e_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5341130e_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111####111###111#111#1###
-
-Step 13:
-Execute instruction 8: go backward 7 to instruction 1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53417cc2_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53417cc2_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53417cc2_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53417cc2_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53417cc2_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53417cc2_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_53417cc2_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53417cc2_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53417cc2_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53417cc2_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1####111###111#111#1###
-
-Step 14:
-Execute instruction 1: cases on R1.
-The register is empty, so we go ahead 1 instruction.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5341e25c_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5341e25c_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5341e25c_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5341e25c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5341e25c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5341e25c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_5341e25c_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5341e25c_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5341e25c_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5341e25c_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11####111###111#111#1###
-
-Step 15:
-Execute instruction 2: go forward 11 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534243b4_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534243b4_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534243b4_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534243b4_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534243b4_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534243b4_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_534243b4_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534243b4_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534243b4_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534243b4_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111####111###111#111#1###
-
-Step 16:
-Execute instruction 13: cases on R3.
-The first symbol in that register is 1, so we delete that symbol and go forward 2 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5342ac0a_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5342ac0a_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5342ac0a_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5342ac0a_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111####111###1#111#1###
-
-Step 17:
-Execute instruction 15: go forward 3 to instruction 18.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53430ce0_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53430ce0_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53430ce0_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53430ce0_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53430ce0_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53430ce0_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_53430ce0_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53430ce0_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53430ce0_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53430ce0_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111####111###1#111#1###
-
-Step 18:
-Execute instruction 18: add 1 to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53437482_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53437482_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53437482_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53437482_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53437482_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53437482_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_53437482_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53437482_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53437482_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53437482_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111111##11##111###1#111#1###
-
-Step 19:
-Execute instruction 19: go backward 2 to instruction 17.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5343dcd8_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5343dcd8_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5343dcd8_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5343dcd8_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111##11##111###1#111#1###
-
-Step 20:
-Execute instruction 17: go backward 4 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534441e6_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534441e6_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534441e6_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534441e6_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534441e6_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534441e6_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_534441e6_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534441e6_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534441e6_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534441e6_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111##11##111###1#111#1###
-
-Step 21:
-Execute instruction 13: cases on R3.
-The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5344a960_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5344a960_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5344a960_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5344a960_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5344a960_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5344a960_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_5344a960_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5344a960_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5344a960_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5344a960_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111##11##111###111#1###
-
-Step 22:
-Execute instruction 16: add # to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53451d96_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53451d96_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53451d96_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53451d96_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53451d96_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53451d96_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53451d96_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53451d96_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53451d96_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53451d96_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111##111###111###111#1###
-
-Step 23:
-Execute instruction 17: go backward 4 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534597e4_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534597e4_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534597e4_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534597e4_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534597e4_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534597e4_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534597e4_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534597e4_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534597e4_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534597e4_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >1##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111##111###111###111#1###
-
-Step 24:
-Execute instruction 13: cases on R3.
-The first symbol in that register is 1, so we delete that symbol and go forward 2 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5346045e_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5346045e_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5346045e_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5346045e_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5346045e_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5346045e_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5346045e_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5346045e_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5346045e_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5346045e_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111##111###111###1#1###
-
-Step 25:
-Execute instruction 15: go forward 3 to instruction 18.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53467402_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53467402_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53467402_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53467402_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53467402_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53467402_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53467402_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53467402_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53467402_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53467402_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111##111###111###1#1###
-
-Step 26:
-Execute instruction 18: add 1 to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5346fb0c_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5346fb0c_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5346fb0c_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1</td>
-            </tr>
-            <tr>
-                        <th id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5346fb0c_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111111##111#11##111###1#1###
-
-Step 27:
-Execute instruction 19: go backward 2 to instruction 17.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534793fa_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534793fa_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534793fa_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534793fa_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534793fa_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534793fa_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1</td>
-            </tr>
-            <tr>
-                        <th id="T_534793fa_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534793fa_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534793fa_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534793fa_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111##111#11##111###1#1###
-
-Step 28:
-Execute instruction 17: go backward 4 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5347fbd8_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5347fbd8_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5347fbd8_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1</td>
-            </tr>
-            <tr>
-                        <th id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5347fbd8_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >##</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111##111#11##111###1#1###
-
-Step 29:
-Execute instruction 13: cases on R3.
-The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53487f36_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53487f36_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53487f36_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53487f36_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53487f36_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53487f36_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1</td>
-            </tr>
-            <tr>
-                        <th id="T_53487f36_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53487f36_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53487f36_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53487f36_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111##111#11##111###1###
-
-Step 30:
-Execute instruction 16: add # to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5348f1b4_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5348f1b4_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5348f1b4_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5348f1b4_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111##111#111###111###1###
-
-Step 31:
-Execute instruction 17: go backward 4 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534956ae_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534956ae_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534956ae_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534956ae_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534956ae_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534956ae_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534956ae_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534956ae_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534956ae_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534956ae_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" >#</td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111##111#111###111###1###
-
-Step 32:
-Execute instruction 13: cases on R3.
-The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_5349b9dc_7cc0_11ed_9659_1e0062143c78row0_col0,#T_5349b9dc_7cc0_11ed_9659_1e0062143c78row1_col0,#T_5349b9dc_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5349b9dc_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111##111#111###111#####
-
-Step 33:
-Execute instruction 16: add # to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534a262e_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534a262e_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534a262e_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534a262e_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534a262e_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534a262e_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534a262e_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534a262e_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534a262e_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534a262e_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111##111#111#1###111#####
-
-Step 34:
-Execute instruction 17: go backward 4 to instruction 13.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534aa112_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534aa112_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534aa112_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534aa112_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534aa112_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534aa112_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534aa112_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534aa112_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534aa112_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534aa112_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111##111#111#1###111#####
-
-Step 35:
-Execute instruction 13: cases on R3.
-The register is empty, so we go ahead 1 instruction.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534b4f90_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534b4f90_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534b4f90_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534b4f90_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534b4f90_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534b4f90_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534b4f90_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534b4f90_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534b4f90_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534b4f90_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111##111#111#1###111#####
-
-Step 36:
-Execute instruction 14: go forward 6 to instruction 20.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534bd302_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534bd302_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534bd302_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534bd302_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534bd302_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534bd302_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534bd302_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534bd302_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534bd302_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534bd302_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111111##111#111#1###111#####
-
-Step 37:
-Execute instruction 20: cases on R2.
-The first symbol in that register is 1, so we delete that symbol and go forward 2 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534c9490_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534c9490_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534c9490_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534c9490_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534c9490_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534c9490_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534c9490_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534c9490_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_534c9490_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534c9490_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111111111##111#111#1###1#####
-
-Step 38:
-Execute instruction 22: go forward 3 to instruction 25.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534d0aba_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534d0aba_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534d0aba_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534d0aba_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534d0aba_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534d0aba_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##</td>
-            </tr>
-            <tr>
-                        <th id="T_534d0aba_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534d0aba_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_534d0aba_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534d0aba_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 1111111111111111111111111##111#111#1###1#####
-
-Step 39:
-Execute instruction 25: add 1 to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534d7176_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534d7176_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534d7176_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534d7176_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534d7176_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534d7176_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1</td>
-            </tr>
-            <tr>
-                        <th id="T_534d7176_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534d7176_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_534d7176_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534d7176_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111111111111##111#111#1#11##1#####
-
-Step 40:
-Execute instruction 26: go backward 2 to instruction 24.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534e0a32_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534e0a32_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534e0a32_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534e0a32_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534e0a32_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534e0a32_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1</td>
-            </tr>
-            <tr>
-                        <th id="T_534e0a32_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534e0a32_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_534e0a32_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534e0a32_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111111111##111#111#1#11##1#####
-
-Step 41:
-Execute instruction 24: go backward 4 to instruction 20.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534e88ae_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534e88ae_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534e88ae_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534e88ae_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534e88ae_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534e88ae_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1</td>
-            </tr>
-            <tr>
-                        <th id="T_534e88ae_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534e88ae_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" >#</td>
-            </tr>
-            <tr>
-                        <th id="T_534e88ae_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534e88ae_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111111##111#111#1#11##1#####
-
-Step 42:
-Execute instruction 20: cases on R2.
-The first symbol in that register is #, so we delete that symbol and go forward 3 instructions.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534ef276_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534ef276_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534ef276_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534ef276_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534ef276_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534ef276_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1</td>
-            </tr>
-            <tr>
-                        <th id="T_534ef276_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534ef276_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_534ef276_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534ef276_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111111111##111#111#1#11######
-
-Step 43:
-Execute instruction 23: add # to R1.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534f5702_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534f5702_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534f5702_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534f5702_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534f5702_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534f5702_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534f5702_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534f5702_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_534f5702_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534f5702_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111111111##111#111#1#111#######
-
-Step 44:
-Execute instruction 24: go backward 4 to instruction 20.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_534fb77e_7cc0_11ed_9659_1e0062143c78row0_col0,#T_534fb77e_7cc0_11ed_9659_1e0062143c78row1_col0,#T_534fb77e_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_534fb77e_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_534fb77e_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_534fb77e_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1#</td>
-            </tr>
-            <tr>
-                        <th id="T_534fb77e_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_534fb77e_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_534fb77e_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_534fb77e_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 11111111111111111111##111#111#1#111#######
-
-Step 45:
-Execute instruction 20: cases on R2.
-The register is empty, so we go ahead 1 instruction.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53501ac0_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53501ac0_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53501ac0_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53501ac0_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53501ac0_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53501ac0_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53501ac0_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53501ac0_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_53501ac0_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53501ac0_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111111##111#111#1#111#######
-
-Step 46:
-Execute instruction 21: go forward 6 to instruction 27.
-The computation then halts properly because the control is just below the last line of the program,
-and because all registers other than R1 are empty.
-</pre></div>
-</div>
-<div class="output text_html"><style  type="text/css" >
-#T_53508fc8_7cc0_11ed_9659_1e0062143c78row0_col0,#T_53508fc8_7cc0_11ed_9659_1e0062143c78row1_col0,#T_53508fc8_7cc0_11ed_9659_1e0062143c78row2_col0{
-            background-color:  #FFFFCC;
-            text-align:  left;
-        }</style><table id="T_53508fc8_7cc0_11ed_9659_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >contents</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_53508fc8_7cc0_11ed_9659_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_53508fc8_7cc0_11ed_9659_1e0062143c78row0_col0" class="data row0 col0" >1#1##1#</td>
-            </tr>
-            <tr>
-                        <th id="T_53508fc8_7cc0_11ed_9659_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_53508fc8_7cc0_11ed_9659_1e0062143c78row1_col0" class="data row1 col0" ></td>
-            </tr>
-            <tr>
-                        <th id="T_53508fc8_7cc0_11ed_9659_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_53508fc8_7cc0_11ed_9659_1e0062143c78row2_col0" class="data row2 col0" ></td>
-            </tr>
-    </tbody></table></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The formal snapshot is 111111111111111111111111111##111#111#1#111#######
-
-The trace is shown below:
-1##111########1111##1########1111111111##1########11111111111##1###11#####111111111111##1###11##11###1111111111111##1###11##111####111111111##1###11##111####11##1###11##111####11111####11##111####111111####111###111####1111111####111###111#11###11111111####111###111#111####111111111####111###111#111#1####11####111###111#111#1####111####111###111#111#1####11111111111111####111###111#111#1####1111111111111111####111###1#111#1####1111111111111111111####111###1#111#1####11111111111111111111##11##111###1#111#1####111111111111111111##11##111###1#111#1####11111111111111##11##111###1#111#1####11111111111111111##11##111###111#1####111111111111111111##111###111###111#1####11111111111111##111###111###111#1####1111111111111111##111###111###1#1####1111111111111111111##111###111###1#1####11111111111111111111##111#11##111###1#1####111111111111111111##111#11##111###1#1####11111111111111##111#11##111###1#1####11111111111111111##111#11##111###1####111111111111111111##111#111###111###1####11111111111111##111#111###111###1####11111111111111111##111#111###111######111111111111111111##111#111#1###111######11111111111111##111#111#1###111######111111111111111##111#111#1###111######111111111111111111111##111#111#1###111######11111111111111111111111##111#111#1###1######11111111111111111111111111##111#111#1###1######111111111111111111111111111##111#111#1#11##1######1111111111111111111111111##111#111#1#11##1######111111111111111111111##111#111#1#11##1######111111111111111111111111##111#111#1#11#######1111111111111111111111111##111#111#1#111########111111111111111111111##111#111#1#111########1111111111111111111111##111#111#1#111########1111111111111111111111111111##111#111#1#111########1
-
-The output is 1#1##1#.
 </pre></div>
 </div>
 </div>
@@ -2305,7 +1141,7 @@ The output is 1#1##1#.
 <h3>We also want to check that various relations leading up to the T predicate are computable.  This part is work in progress, with the results obtained so far shown below.<a class="headerlink" href="#we-also-want-to-check-that-various-relations-leading-up-to-the-t-predicate-are-computable-this-part-is-work-in-progress-with-the-results-obtained-so-far-shown-below" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">snapshot_check</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>  <span class="c1">## tells True or False if the input is a snapshot</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">snapshot_check</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>  <span class="c1">## tells True or False if the input is a snapshot</span>
   <span class="n">index</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;##&#39;</span><span class="p">)</span>
   <span class="n">front</span> <span class="o">=</span> <span class="n">w</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="c1">## divide the string by the first occurrence of ##</span>
   <span class="n">back</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">index</span><span class="p">:]</span>
@@ -2353,7 +1189,7 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">snapshot_check</span><span class="p">(</span><span class="s1">&#39;111##1#11#1111##&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">snapshot_check</span><span class="p">(</span><span class="s1">&#39;111##1#11#1111##&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2365,7 +1201,7 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">][</span><span class="mi">2</span><span class="p">:])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">][</span><span class="mi">2</span><span class="p">:])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">))</span>
 <span class="n">halting_snapshot_check</span><span class="p">(</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,</span><span class="s1">&#39;111##1#1#1111##1###&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2383,7 +1219,7 @@ The output is 1#1##1#.
 </div>
 <img src="https://github.com/lmoss/onesharp/blob/main/pianotrumpet.jpg?raw=1" width="200" height="160"><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">log2int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
   <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">frexp</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -2425,7 +1261,7 @@ The output is 1#1##1#.
 <p>We can check that <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s_inverse</span></code> really are inverses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="n">s_inverse</span><span class="p">(</span><span class="s1">&#39;##111##1&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="n">s_inverse</span><span class="p">(</span><span class="s1">&#39;##111##1&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2437,7 +1273,7 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">4234</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">4234</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2449,280 +1285,16 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
   <span class="nb">print</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
  
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, &#39;&#39;, 0)
-(1, &#39;#&#39;, 1)
-(2, &#39;1&#39;, 2)
-(3, &#39;##&#39;, 3)
-(4, &#39;#1&#39;, 4)
-(5, &#39;1#&#39;, 5)
-(6, &#39;11&#39;, 6)
-(7, &#39;###&#39;, 7)
-(8, &#39;##1&#39;, 8)
-(9, &#39;#1#&#39;, 9)
-(10, &#39;#11&#39;, 10)
-(11, &#39;1##&#39;, 11)
-(12, &#39;1#1&#39;, 12)
-(13, &#39;11#&#39;, 13)
-(14, &#39;111&#39;, 14)
-(15, &#39;####&#39;, 15)
-(16, &#39;###1&#39;, 16)
-(17, &#39;##1#&#39;, 17)
-(18, &#39;##11&#39;, 18)
-(19, &#39;#1##&#39;, 19)
-(20, &#39;#1#1&#39;, 20)
-(21, &#39;#11#&#39;, 21)
-(22, &#39;#111&#39;, 22)
-(23, &#39;1###&#39;, 23)
-(24, &#39;1##1&#39;, 24)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25, &#39;1#1#&#39;, 25)
-(26, &#39;1#11&#39;, 26)
-(27, &#39;11##&#39;, 27)
-(28, &#39;11#1&#39;, 28)
-(29, &#39;111#&#39;, 29)
-(30, &#39;1111&#39;, 30)
-(31, &#39;#####&#39;, 31)
-(32, &#39;####1&#39;, 32)
-(33, &#39;###1#&#39;, 33)
-(34, &#39;###11&#39;, 34)
-(35, &#39;##1##&#39;, 35)
-(36, &#39;##1#1&#39;, 36)
-(37, &#39;##11#&#39;, 37)
-(38, &#39;##111&#39;, 38)
-(39, &#39;#1###&#39;, 39)
-(40, &#39;#1##1&#39;, 40)
-(41, &#39;#1#1#&#39;, 41)
-(42, &#39;#1#11&#39;, 42)
-(43, &#39;#11##&#39;, 43)
-(44, &#39;#11#1&#39;, 44)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45, &#39;#111#&#39;, 45)
-(46, &#39;#1111&#39;, 46)
-(47, &#39;1####&#39;, 47)
-(48, &#39;1###1&#39;, 48)
-(49, &#39;1##1#&#39;, 49)
-(50, &#39;1##11&#39;, 50)
-(51, &#39;1#1##&#39;, 51)
-(52, &#39;1#1#1&#39;, 52)
-(53, &#39;1#11#&#39;, 53)
-(54, &#39;1#111&#39;, 54)
-(55, &#39;11###&#39;, 55)
-(56, &#39;11##1&#39;, 56)
-(57, &#39;11#1#&#39;, 57)
-(58, &#39;11#11&#39;, 58)
-(59, &#39;111##&#39;, 59)
-(60, &#39;111#1&#39;, 60)
-(61, &#39;1111#&#39;, 61)
-(62, &#39;11111&#39;, 62)
-(63, &#39;######&#39;, 63)
-(64, &#39;#####1&#39;, 64)
-(65, &#39;####1#&#39;, 65)
-(66, &#39;####11&#39;, 66)
-(67, &#39;###1##&#39;, 67)
-(68, &#39;###1#1&#39;, 68)
-(69, &#39;###11#&#39;, 69)
-(70, &#39;###111&#39;, 70)
-(71, &#39;##1###&#39;, 71)
-(72, &#39;##1##1&#39;, 72)
-(73, &#39;##1#1#&#39;, 73)
-(74, &#39;##1#11&#39;, 74)
-(75, &#39;##11##&#39;, 75)
-(76, &#39;##11#1&#39;, 76)
-(77, &#39;##111#&#39;, 77)
-(78, &#39;##1111&#39;, 78)
-(79, &#39;#1####&#39;, 79)
-(80, &#39;#1###1&#39;, 80)
-(81, &#39;#1##1#&#39;, 81)
-(82, &#39;#1##11&#39;, 82)
-(83, &#39;#1#1##&#39;, 83)
-(84, &#39;#1#1#1&#39;, 84)
-(85, &#39;#1#11#&#39;, 85)
-(86, &#39;#1#111&#39;, 86)
-(87, &#39;#11###&#39;, 87)
-(88, &#39;#11##1&#39;, 88)
-(89, &#39;#11#1#&#39;, 89)
-(90, &#39;#11#11&#39;, 90)
-(91, &#39;#111##&#39;, 91)
-(92, &#39;#111#1&#39;, 92)
-(93, &#39;#1111#&#39;, 93)
-(94, &#39;#11111&#39;, 94)
-(95, &#39;1#####&#39;, 95)
-(96, &#39;1####1&#39;, 96)
-(97, &#39;1###1#&#39;, 97)
-(98, &#39;1###11&#39;, 98)
-(99, &#39;1##1##&#39;, 99)
-(100, &#39;1##1#1&#39;, 100)
-(101, &#39;1##11#&#39;, 101)
-(102, &#39;1##111&#39;, 102)
-(103, &#39;1#1###&#39;, 103)
-(104, &#39;1#1##1&#39;, 104)
-(105, &#39;1#1#1#&#39;, 105)
-(106, &#39;1#1#11&#39;, 106)
-(107, &#39;1#11##&#39;, 107)
-(108, &#39;1#11#1&#39;, 108)
-(109, &#39;1#111#&#39;, 109)
-(110, &#39;1#1111&#39;, 110)
-(111, &#39;11####&#39;, 111)
-(112, &#39;11###1&#39;, 112)
-(113, &#39;11##1#&#39;, 113)
-(114, &#39;11##11&#39;, 114)
-(115, &#39;11#1##&#39;, 115)
-(116, &#39;11#1#1&#39;, 116)
-(117, &#39;11#11#&#39;, 117)
-(118, &#39;11#111&#39;, 118)
-(119, &#39;111###&#39;, 119)
-(120, &#39;111##1&#39;, 120)
-(121, &#39;111#1#&#39;, 121)
-(122, &#39;111#11&#39;, 122)
-(123, &#39;1111##&#39;, 123)
-(124, &#39;1111#1&#39;, 124)
-(125, &#39;11111#&#39;, 125)
-(126, &#39;111111&#39;, 126)
-(127, &#39;#######&#39;, 127)
-(128, &#39;######1&#39;, 128)
-(129, &#39;#####1#&#39;, 129)
-(130, &#39;#####11&#39;, 130)
-(131, &#39;####1##&#39;, 131)
-(132, &#39;####1#1&#39;, 132)
-(133, &#39;####11#&#39;, 133)
-(134, &#39;####111&#39;, 134)
-(135, &#39;###1###&#39;, 135)
-(136, &#39;###1##1&#39;, 136)
-(137, &#39;###1#1#&#39;, 137)
-(138, &#39;###1#11&#39;, 138)
-(139, &#39;###11##&#39;, 139)
-(140, &#39;###11#1&#39;, 140)
-(141, &#39;###111#&#39;, 141)
-(142, &#39;###1111&#39;, 142)
-(143, &#39;##1####&#39;, 143)
-(144, &#39;##1###1&#39;, 144)
-(145, &#39;##1##1#&#39;, 145)
-(146, &#39;##1##11&#39;, 146)
-(147, &#39;##1#1##&#39;, 147)
-(148, &#39;##1#1#1&#39;, 148)
-(149, &#39;##1#11#&#39;, 149)
-(150, &#39;##1#111&#39;, 150)
-(151, &#39;##11###&#39;, 151)
-(152, &#39;##11##1&#39;, 152)
-(153, &#39;##11#1#&#39;, 153)
-(154, &#39;##11#11&#39;, 154)
-(155, &#39;##111##&#39;, 155)
-(156, &#39;##111#1&#39;, 156)
-(157, &#39;##1111#&#39;, 157)
-(158, &#39;##11111&#39;, 158)
-(159, &#39;#1#####&#39;, 159)
-(160, &#39;#1####1&#39;, 160)
-(161, &#39;#1###1#&#39;, 161)
-(162, &#39;#1###11&#39;, 162)
-(163, &#39;#1##1##&#39;, 163)
-(164, &#39;#1##1#1&#39;, 164)
-(165, &#39;#1##11#&#39;, 165)
-(166, &#39;#1##111&#39;, 166)
-(167, &#39;#1#1###&#39;, 167)
-(168, &#39;#1#1##1&#39;, 168)
-(169, &#39;#1#1#1#&#39;, 169)
-(170, &#39;#1#1#11&#39;, 170)
-(171, &#39;#1#11##&#39;, 171)
-(172, &#39;#1#11#1&#39;, 172)
-(173, &#39;#1#111#&#39;, 173)
-(174, &#39;#1#1111&#39;, 174)
-(175, &#39;#11####&#39;, 175)
-(176, &#39;#11###1&#39;, 176)
-(177, &#39;#11##1#&#39;, 177)
-(178, &#39;#11##11&#39;, 178)
-(179, &#39;#11#1##&#39;, 179)
-(180, &#39;#11#1#1&#39;, 180)
-(181, &#39;#11#11#&#39;, 181)
-(182, &#39;#11#111&#39;, 182)
-(183, &#39;#111###&#39;, 183)
-(184, &#39;#111##1&#39;, 184)
-(185, &#39;#111#1#&#39;, 185)
-(186, &#39;#111#11&#39;, 186)
-(187, &#39;#1111##&#39;, 187)
-(188, &#39;#1111#1&#39;, 188)
-(189, &#39;#11111#&#39;, 189)
-(190, &#39;#111111&#39;, 190)
-(191, &#39;1######&#39;, 191)
-(192, &#39;1#####1&#39;, 192)
-(193, &#39;1####1#&#39;, 193)
-(194, &#39;1####11&#39;, 194)
-(195, &#39;1###1##&#39;, 195)
-(196, &#39;1###1#1&#39;, 196)
-(197, &#39;1###11#&#39;, 197)
-(198, &#39;1###111&#39;, 198)
-(199, &#39;1##1###&#39;, 199)
-(200, &#39;1##1##1&#39;, 200)
-(201, &#39;1##1#1#&#39;, 201)
-(202, &#39;1##1#11&#39;, 202)
-(203, &#39;1##11##&#39;, 203)
-(204, &#39;1##11#1&#39;, 204)
-(205, &#39;1##111#&#39;, 205)
-(206, &#39;1##1111&#39;, 206)
-(207, &#39;1#1####&#39;, 207)
-(208, &#39;1#1###1&#39;, 208)
-(209, &#39;1#1##1#&#39;, 209)
-(210, &#39;1#1##11&#39;, 210)
-(211, &#39;1#1#1##&#39;, 211)
-(212, &#39;1#1#1#1&#39;, 212)
-(213, &#39;1#1#11#&#39;, 213)
-(214, &#39;1#1#111&#39;, 214)
-(215, &#39;1#11###&#39;, 215)
-(216, &#39;1#11##1&#39;, 216)
-(217, &#39;1#11#1#&#39;, 217)
-(218, &#39;1#11#11&#39;, 218)
-(219, &#39;1#111##&#39;, 219)
-(220, &#39;1#111#1&#39;, 220)
-(221, &#39;1#1111#&#39;, 221)
-(222, &#39;1#11111&#39;, 222)
-(223, &#39;11#####&#39;, 223)
-(224, &#39;11####1&#39;, 224)
-(225, &#39;11###1#&#39;, 225)
-(226, &#39;11###11&#39;, 226)
-(227, &#39;11##1##&#39;, 227)
-(228, &#39;11##1#1&#39;, 228)
-(229, &#39;11##11#&#39;, 229)
-(230, &#39;11##111&#39;, 230)
-(231, &#39;11#1###&#39;, 231)
-(232, &#39;11#1##1&#39;, 232)
-(233, &#39;11#1#1#&#39;, 233)
-(234, &#39;11#1#11&#39;, 234)
-(235, &#39;11#11##&#39;, 235)
-(236, &#39;11#11#1&#39;, 236)
-(237, &#39;11#111#&#39;, 237)
-(238, &#39;11#1111&#39;, 238)
-(239, &#39;111####&#39;, 239)
-(240, &#39;111###1&#39;, 240)
-(241, &#39;111##1#&#39;, 241)
-(242, &#39;111##11&#39;, 242)
-(243, &#39;111#1##&#39;, 243)
-(244, &#39;111#1#1&#39;, 244)
-(245, &#39;111#11#&#39;, 245)
-(246, &#39;111#111&#39;, 246)
-(247, &#39;1111###&#39;, 247)
-(248, &#39;1111##1&#39;, 248)
-(249, &#39;1111#1#&#39;, 249)
-(250, &#39;1111#11&#39;, 250)
-(251, &#39;11111##&#39;, 251)
-(252, &#39;11111#1&#39;, 252)
-(253, &#39;111111#&#39;, 253)
-(254, &#39;1111111&#39;, 254)
-(255, &#39;########&#39;, 255)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2734,7 +1306,7 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">first_index</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">reversed_list</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">first_index_in_reversed</span> <span class="o">=</span> <span class="n">reversed_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -2752,7 +1324,7 @@ The output is 1#1##1#.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1#1#&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">first_index</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">reversed_list</span> <span class="o">=</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>

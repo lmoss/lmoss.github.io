@@ -121,6 +121,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="move_copy_write.html">
+   Simple programs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="halting.html">
    How programs “halt”
   </a>
@@ -143,11 +148,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="self_writing.html">
    Self-Replicating Programs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="two_by_two.html">
-   Two-by-Two Encoding
   </a>
  </li>
  <li class="toctree-l1">
@@ -375,25 +375,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#shortlex-ordering-on-words">
    Shortlex ordering on words
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-are-definitions-of-the-length-function-on-numbers-we-also-have-the-function-s-n-giving-the-nth-word-in-the-shortlex-order-on-words-starting-with-n-0-we-have-the-inverse-of-s-also">
-     Here are definitions of the length function on numbers. We also have the function
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       s(n)
-      </span>
-     </code>
-     giving the nth word in the shortlex order on words, starting with n = 0.  We have the inverse of
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       s
-      </span>
-     </code>
-     also.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -418,25 +399,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#shortlex-ordering-on-words">
    Shortlex ordering on words
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-are-definitions-of-the-length-function-on-numbers-we-also-have-the-function-s-n-giving-the-nth-word-in-the-shortlex-order-on-words-starting-with-n-0-we-have-the-inverse-of-s-also">
-     Here are definitions of the length function on numbers. We also have the function
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       s(n)
-      </span>
-     </code>
-     giving the nth word in the shortlex order on words, starting with n = 0.  We have the inverse of
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       s
-      </span>
-     </code>
-     also.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -453,12 +415,12 @@ title="Print to PDF"
 <h1>Coding words by numbers<a class="headerlink" href="#coding-words-by-numbers" title="Permalink to this headline">#</a></h1>
 <div class="section" id="shortlex-ordering-on-words">
 <h2>Shortlex ordering on words<a class="headerlink" href="#shortlex-ordering-on-words" title="Permalink to this headline">#</a></h2>
-<div class="section" id="here-are-definitions-of-the-length-function-on-numbers-we-also-have-the-function-s-n-giving-the-nth-word-in-the-shortlex-order-on-words-starting-with-n-0-we-have-the-inverse-of-s-also">
-<h3>Here are definitions of the length function on numbers. We also have the function <code class="docutils literal notranslate"><span class="pre">s(n)</span></code> giving the nth word in the shortlex order on words, starting with n = 0.  We have the inverse of <code class="docutils literal notranslate"><span class="pre">s</span></code> also.<a class="headerlink" href="#here-are-definitions-of-the-length-function-on-numbers-we-also-have-the-function-s-n-giving-the-nth-word-in-the-shortlex-order-on-words-starting-with-n-0-we-have-the-inverse-of-s-also" title="Permalink to this headline">#</a></h3>
+<p>Here are definitions of the length function on numbers. We also have the function <code class="docutils literal notranslate"><span class="pre">s(n)</span></code> giving the nth word in the shortlex order on words, starting with n = 0.  We have the inverse of <code class="docutils literal notranslate"><span class="pre">s</span></code> also.</p>
 <p>We can check that <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s_inverse</span></code> really are inverses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">log2int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
   <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">frexp</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -499,295 +461,24 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">4234</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4234
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">4234</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="n">s_inverse</span><span class="p">(</span><span class="s1">&#39;##111##1&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;##111##1&#39;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="n">s_inverse</span><span class="p">(</span><span class="s1">&#39;##111##1&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
   <span class="nb">print</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">s_inverse</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
  
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, &#39;&#39;, 0)
-(1, &#39;#&#39;, 1)
-(2, &#39;1&#39;, 2)
-(3, &#39;##&#39;, 3)
-(4, &#39;#1&#39;, 4)
-(5, &#39;1#&#39;, 5)
-(6, &#39;11&#39;, 6)
-(7, &#39;###&#39;, 7)
-(8, &#39;##1&#39;, 8)
-(9, &#39;#1#&#39;, 9)
-(10, &#39;#11&#39;, 10)
-(11, &#39;1##&#39;, 11)
-(12, &#39;1#1&#39;, 12)
-(13, &#39;11#&#39;, 13)
-(14, &#39;111&#39;, 14)
-(15, &#39;####&#39;, 15)
-(16, &#39;###1&#39;, 16)
-(17, &#39;##1#&#39;, 17)
-(18, &#39;##11&#39;, 18)
-(19, &#39;#1##&#39;, 19)
-(20, &#39;#1#1&#39;, 20)
-(21, &#39;#11#&#39;, 21)
-(22, &#39;#111&#39;, 22)
-(23, &#39;1###&#39;, 23)
-(24, &#39;1##1&#39;, 24)
-(25, &#39;1#1#&#39;, 25)
-(26, &#39;1#11&#39;, 26)
-(27, &#39;11##&#39;, 27)
-(28, &#39;11#1&#39;, 28)
-(29, &#39;111#&#39;, 29)
-(30, &#39;1111&#39;, 30)
-(31, &#39;#####&#39;, 31)
-(32, &#39;####1&#39;, 32)
-(33, &#39;###1#&#39;, 33)
-(34, &#39;###11&#39;, 34)
-(35, &#39;##1##&#39;, 35)
-(36, &#39;##1#1&#39;, 36)
-(37, &#39;##11#&#39;, 37)
-(38, &#39;##111&#39;, 38)
-(39, &#39;#1###&#39;, 39)
-(40, &#39;#1##1&#39;, 40)
-(41, &#39;#1#1#&#39;, 41)
-(42, &#39;#1#11&#39;, 42)
-(43, &#39;#11##&#39;, 43)
-(44, &#39;#11#1&#39;, 44)
-(45, &#39;#111#&#39;, 45)
-(46, &#39;#1111&#39;, 46)
-(47, &#39;1####&#39;, 47)
-(48, &#39;1###1&#39;, 48)
-(49, &#39;1##1#&#39;, 49)
-(50, &#39;1##11&#39;, 50)
-(51, &#39;1#1##&#39;, 51)
-(52, &#39;1#1#1&#39;, 52)
-(53, &#39;1#11#&#39;, 53)
-(54, &#39;1#111&#39;, 54)
-(55, &#39;11###&#39;, 55)
-(56, &#39;11##1&#39;, 56)
-(57, &#39;11#1#&#39;, 57)
-(58, &#39;11#11&#39;, 58)
-(59, &#39;111##&#39;, 59)
-(60, &#39;111#1&#39;, 60)
-(61, &#39;1111#&#39;, 61)
-(62, &#39;11111&#39;, 62)
-(63, &#39;######&#39;, 63)
-(64, &#39;#####1&#39;, 64)
-(65, &#39;####1#&#39;, 65)
-(66, &#39;####11&#39;, 66)
-(67, &#39;###1##&#39;, 67)
-(68, &#39;###1#1&#39;, 68)
-(69, &#39;###11#&#39;, 69)
-(70, &#39;###111&#39;, 70)
-(71, &#39;##1###&#39;, 71)
-(72, &#39;##1##1&#39;, 72)
-(73, &#39;##1#1#&#39;, 73)
-(74, &#39;##1#11&#39;, 74)
-(75, &#39;##11##&#39;, 75)
-(76, &#39;##11#1&#39;, 76)
-(77, &#39;##111#&#39;, 77)
-(78, &#39;##1111&#39;, 78)
-(79, &#39;#1####&#39;, 79)
-(80, &#39;#1###1&#39;, 80)
-(81, &#39;#1##1#&#39;, 81)
-(82, &#39;#1##11&#39;, 82)
-(83, &#39;#1#1##&#39;, 83)
-(84, &#39;#1#1#1&#39;, 84)
-(85, &#39;#1#11#&#39;, 85)
-(86, &#39;#1#111&#39;, 86)
-(87, &#39;#11###&#39;, 87)
-(88, &#39;#11##1&#39;, 88)
-(89, &#39;#11#1#&#39;, 89)
-(90, &#39;#11#11&#39;, 90)
-(91, &#39;#111##&#39;, 91)
-(92, &#39;#111#1&#39;, 92)
-(93, &#39;#1111#&#39;, 93)
-(94, &#39;#11111&#39;, 94)
-(95, &#39;1#####&#39;, 95)
-(96, &#39;1####1&#39;, 96)
-(97, &#39;1###1#&#39;, 97)
-(98, &#39;1###11&#39;, 98)
-(99, &#39;1##1##&#39;, 99)
-(100, &#39;1##1#1&#39;, 100)
-(101, &#39;1##11#&#39;, 101)
-(102, &#39;1##111&#39;, 102)
-(103, &#39;1#1###&#39;, 103)
-(104, &#39;1#1##1&#39;, 104)
-(105, &#39;1#1#1#&#39;, 105)
-(106, &#39;1#1#11&#39;, 106)
-(107, &#39;1#11##&#39;, 107)
-(108, &#39;1#11#1&#39;, 108)
-(109, &#39;1#111#&#39;, 109)
-(110, &#39;1#1111&#39;, 110)
-(111, &#39;11####&#39;, 111)
-(112, &#39;11###1&#39;, 112)
-(113, &#39;11##1#&#39;, 113)
-(114, &#39;11##11&#39;, 114)
-(115, &#39;11#1##&#39;, 115)
-(116, &#39;11#1#1&#39;, 116)
-(117, &#39;11#11#&#39;, 117)
-(118, &#39;11#111&#39;, 118)
-(119, &#39;111###&#39;, 119)
-(120, &#39;111##1&#39;, 120)
-(121, &#39;111#1#&#39;, 121)
-(122, &#39;111#11&#39;, 122)
-(123, &#39;1111##&#39;, 123)
-(124, &#39;1111#1&#39;, 124)
-(125, &#39;11111#&#39;, 125)
-(126, &#39;111111&#39;, 126)
-(127, &#39;#######&#39;, 127)
-(128, &#39;######1&#39;, 128)
-(129, &#39;#####1#&#39;, 129)
-(130, &#39;#####11&#39;, 130)
-(131, &#39;####1##&#39;, 131)
-(132, &#39;####1#1&#39;, 132)
-(133, &#39;####11#&#39;, 133)
-(134, &#39;####111&#39;, 134)
-(135, &#39;###1###&#39;, 135)
-(136, &#39;###1##1&#39;, 136)
-(137, &#39;###1#1#&#39;, 137)
-(138, &#39;###1#11&#39;, 138)
-(139, &#39;###11##&#39;, 139)
-(140, &#39;###11#1&#39;, 140)
-(141, &#39;###111#&#39;, 141)
-(142, &#39;###1111&#39;, 142)
-(143, &#39;##1####&#39;, 143)
-(144, &#39;##1###1&#39;, 144)
-(145, &#39;##1##1#&#39;, 145)
-(146, &#39;##1##11&#39;, 146)
-(147, &#39;##1#1##&#39;, 147)
-(148, &#39;##1#1#1&#39;, 148)
-(149, &#39;##1#11#&#39;, 149)
-(150, &#39;##1#111&#39;, 150)
-(151, &#39;##11###&#39;, 151)
-(152, &#39;##11##1&#39;, 152)
-(153, &#39;##11#1#&#39;, 153)
-(154, &#39;##11#11&#39;, 154)
-(155, &#39;##111##&#39;, 155)
-(156, &#39;##111#1&#39;, 156)
-(157, &#39;##1111#&#39;, 157)
-(158, &#39;##11111&#39;, 158)
-(159, &#39;#1#####&#39;, 159)
-(160, &#39;#1####1&#39;, 160)
-(161, &#39;#1###1#&#39;, 161)
-(162, &#39;#1###11&#39;, 162)
-(163, &#39;#1##1##&#39;, 163)
-(164, &#39;#1##1#1&#39;, 164)
-(165, &#39;#1##11#&#39;, 165)
-(166, &#39;#1##111&#39;, 166)
-(167, &#39;#1#1###&#39;, 167)
-(168, &#39;#1#1##1&#39;, 168)
-(169, &#39;#1#1#1#&#39;, 169)
-(170, &#39;#1#1#11&#39;, 170)
-(171, &#39;#1#11##&#39;, 171)
-(172, &#39;#1#11#1&#39;, 172)
-(173, &#39;#1#111#&#39;, 173)
-(174, &#39;#1#1111&#39;, 174)
-(175, &#39;#11####&#39;, 175)
-(176, &#39;#11###1&#39;, 176)
-(177, &#39;#11##1#&#39;, 177)
-(178, &#39;#11##11&#39;, 178)
-(179, &#39;#11#1##&#39;, 179)
-(180, &#39;#11#1#1&#39;, 180)
-(181, &#39;#11#11#&#39;, 181)
-(182, &#39;#11#111&#39;, 182)
-(183, &#39;#111###&#39;, 183)
-(184, &#39;#111##1&#39;, 184)
-(185, &#39;#111#1#&#39;, 185)
-(186, &#39;#111#11&#39;, 186)
-(187, &#39;#1111##&#39;, 187)
-(188, &#39;#1111#1&#39;, 188)
-(189, &#39;#11111#&#39;, 189)
-(190, &#39;#111111&#39;, 190)
-(191, &#39;1######&#39;, 191)
-(192, &#39;1#####1&#39;, 192)
-(193, &#39;1####1#&#39;, 193)
-(194, &#39;1####11&#39;, 194)
-(195, &#39;1###1##&#39;, 195)
-(196, &#39;1###1#1&#39;, 196)
-(197, &#39;1###11#&#39;, 197)
-(198, &#39;1###111&#39;, 198)
-(199, &#39;1##1###&#39;, 199)
-(200, &#39;1##1##1&#39;, 200)
-(201, &#39;1##1#1#&#39;, 201)
-(202, &#39;1##1#11&#39;, 202)
-(203, &#39;1##11##&#39;, 203)
-(204, &#39;1##11#1&#39;, 204)
-(205, &#39;1##111#&#39;, 205)
-(206, &#39;1##1111&#39;, 206)
-(207, &#39;1#1####&#39;, 207)
-(208, &#39;1#1###1&#39;, 208)
-(209, &#39;1#1##1#&#39;, 209)
-(210, &#39;1#1##11&#39;, 210)
-(211, &#39;1#1#1##&#39;, 211)
-(212, &#39;1#1#1#1&#39;, 212)
-(213, &#39;1#1#11#&#39;, 213)
-(214, &#39;1#1#111&#39;, 214)
-(215, &#39;1#11###&#39;, 215)
-(216, &#39;1#11##1&#39;, 216)
-(217, &#39;1#11#1#&#39;, 217)
-(218, &#39;1#11#11&#39;, 218)
-(219, &#39;1#111##&#39;, 219)
-(220, &#39;1#111#1&#39;, 220)
-(221, &#39;1#1111#&#39;, 221)
-(222, &#39;1#11111&#39;, 222)
-(223, &#39;11#####&#39;, 223)
-(224, &#39;11####1&#39;, 224)
-(225, &#39;11###1#&#39;, 225)
-(226, &#39;11###11&#39;, 226)
-(227, &#39;11##1##&#39;, 227)
-(228, &#39;11##1#1&#39;, 228)
-(229, &#39;11##11#&#39;, 229)
-(230, &#39;11##111&#39;, 230)
-(231, &#39;11#1###&#39;, 231)
-(232, &#39;11#1##1&#39;, 232)
-(233, &#39;11#1#1#&#39;, 233)
-(234, &#39;11#1#11&#39;, 234)
-(235, &#39;11#11##&#39;, 235)
-(236, &#39;11#11#1&#39;, 236)
-(237, &#39;11#111#&#39;, 237)
-(238, &#39;11#1111&#39;, 238)
-(239, &#39;111####&#39;, 239)
-(240, &#39;111###1&#39;, 240)
-(241, &#39;111##1#&#39;, 241)
-(242, &#39;111##11&#39;, 242)
-(243, &#39;111#1##&#39;, 243)
-(244, &#39;111#1#1&#39;, 244)
-(245, &#39;111#11#&#39;, 245)
-(246, &#39;111#111&#39;, 246)
-(247, &#39;1111###&#39;, 247)
-(248, &#39;1111##1&#39;, 248)
-(249, &#39;1111#1#&#39;, 249)
-(250, &#39;1111#11&#39;, 250)
-(251, &#39;11111##&#39;, 251)
-(252, &#39;11111#1&#39;, 252)
-(253, &#39;111111#&#39;, 253)
-(254, &#39;1111111&#39;, 254)
-(255, &#39;########&#39;, 255)
-</pre></div>
-</div>
 </div>
 </div>
 </div>

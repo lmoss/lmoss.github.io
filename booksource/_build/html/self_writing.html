@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Two-by-Two Encoding" href="two_by_two.html" />
+    <link rel="next" title="Universal Programs" href="universal.html" />
     <link rel="prev" title="Primitive Recursion" href="primitive_recursion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -123,6 +123,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="move_copy_write.html">
+   Simple programs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="halting.html">
    How programs “halt”
   </a>
@@ -145,11 +150,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Self-Replicating Programs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="two_by_two.html">
-   Two-by-Two Encoding
   </a>
  </li>
  <li class="toctree-l1">
@@ -569,112 +569,9 @@ At first blush it seems paradoxical that such programs would exist: there is no 
 <p>At the root of our work is something we’ve seen in the last lesson: the ability of <code class="docutils literal notranslate"><span class="pre">1#</span></code> programs to write and modify other programs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pip install -U setuptools
-<span class="o">!</span>python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
-<span class="kn">from</span> <span class="nn">onesharp.interpreter.interpreter</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already up-to-date: setuptools in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (65.6.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.1.1; however, version 22.3.1 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/bin/python -m pip install --upgrade pip&#39; command.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/lmoss/onesharp.git@main
-  Cloning https://github.com/lmoss/onesharp.git (to revision main) to /private/var/folders/kt/458_ttf57hvdmjpsh88m1fzh0000gp/T/pip-req-build-5lmvpahl
-  Running command git clone -q https://github.com/lmoss/onesharp.git /private/var/folders/kt/458_ttf57hvdmjpsh88m1fzh0000gp/T/pip-req-build-5lmvpahl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l- done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Installing backend dependencies ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h    Preparing wheel metadata ... ?25l- done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: pandas in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from onesharp==0.0.0) (1.5.2)
-Requirement already satisfied, skipping upgrade: numpy in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from onesharp==0.0.0) (1.23.5)
-Requirement already satisfied, skipping upgrade: IPython in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from onesharp==0.0.0) (8.7.0)
-Requirement already satisfied, skipping upgrade: python-dateutil&gt;=2.8.1 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2.8.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: pytz&gt;=2020.1 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from pandas-&gt;onesharp==0.0.0) (2022.6)
-Requirement already satisfied, skipping upgrade: appnope; sys_platform == &quot;darwin&quot; in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.1.3)
-Requirement already satisfied, skipping upgrade: jedi&gt;=0.16 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.18.2)
-Requirement already satisfied, skipping upgrade: traitlets&gt;=5 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.7.1)
-Requirement already satisfied, skipping upgrade: backcall in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.2.0)
-Requirement already satisfied, skipping upgrade: pickleshare in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.7.5)
-Requirement already satisfied, skipping upgrade: matplotlib-inline in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.1.6)
-Requirement already satisfied, skipping upgrade: pygments&gt;=2.4.0 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (2.13.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: stack-data in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (0.6.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: pexpect&gt;4.3; sys_platform != &quot;win32&quot; in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (4.8.0)
-Requirement already satisfied, skipping upgrade: decorator in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (5.1.1)
-Requirement already satisfied, skipping upgrade: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from IPython-&gt;onesharp==0.0.0) (3.0.36)
-Requirement already satisfied, skipping upgrade: six&gt;=1.5 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;onesharp==0.0.0) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: parso&lt;0.9.0,&gt;=0.8.0 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;onesharp==0.0.0) (0.8.3)
-Requirement already satisfied, skipping upgrade: executing&gt;=1.2.0 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (1.2.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: asttokens&gt;=2.1.0 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (2.2.1)
-Requirement already satisfied, skipping upgrade: pure-eval in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from stack-data-&gt;IPython-&gt;onesharp==0.0.0) (0.2.2)
-Requirement already satisfied, skipping upgrade: ptyprocess&gt;=0.5 in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from pexpect&gt;4.3; sys_platform != &quot;win32&quot;-&gt;IPython-&gt;onesharp==0.0.0) (0.7.0)
-Requirement already satisfied, skipping upgrade: wcwidth in /Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/lib/python3.8/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;IPython-&gt;onesharp==0.0.0) (0.2.5)
-Building wheels for collected packages: onesharp
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for onesharp (PEP 517) ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for onesharp: filename=onesharp-0.0.0-py3-none-any.whl size=4718 sha256=c1c3bd50b562c477769969dfb3d7a4ed860e899d3a21790a2e0a8150daf52890
-  Stored in directory: /private/var/folders/kt/458_ttf57hvdmjpsh88m1fzh0000gp/T/pip-ephem-wheel-cache-es6c1r18/wheels/cb/13/1a/64ec8142ccf1600c3b99118b5de1c9a0658745edd091e426e7
-Successfully built onesharp
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: onesharp
-  Attempting uninstall: onesharp
-    Found existing installation: onesharp 0.0.0
-    Uninstalling onesharp-0.0.0:
-      Successfully uninstalled onesharp-0.0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed onesharp-0.0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.1.1; however, version 22.3.1 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/lsm/Dropbox/invitationBook/lmoss.github.io/.venv/bin/python -m pip install --upgrade pip&#39; command.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
+!python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
+from onesharp.interpreter.interpreter import *
 </pre></div>
 </div>
 </div>
@@ -691,7 +588,7 @@ is defined.</p>
 <p>Here is the program <code class="docutils literal notranslate"><span class="pre">diag</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
 <span class="n">j</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;1#####&#39;</span><span class="p">,</span> <span class="s1">&#39;cases on R1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
  <span class="p">[</span><span class="s1">&#39;11111111111###&#39;</span><span class="p">,</span> <span class="s1">&#39;go forward 11 to instruction 13 (the start of move_3_1)&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
  <span class="p">[</span><span class="s1">&#39;111111###&#39;</span><span class="p">,</span> <span class="s1">&#39;go forward 6 to instruction 9 (the tan part)&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
@@ -725,103 +622,119 @@ is defined.</p>
                <span class="p">[</span><span class="s2">&quot;background-color: #B0E0E6&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">n</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> 
                <span class="k">else</span> <span class="p">[</span><span class="s2">&quot;background-color: tan&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">n</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span>
                <span class="k">else</span> <span class="p">[</span><span class="s2">&quot;background-color: #FFFFCC&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col2{
-            background-color:  #FFFFCC;
-        }#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col2{
-            background-color:  #B0E0E6;
-        }#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col2,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col0,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col1,#T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col2{
-            background-color:  tan;
-        }</style><table id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >instruction</th>        <th class="col_heading level0 col1" >explanation</th>        <th class="col_heading level0 col2" >number</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col0" class="data row0 col0" >1#####</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col1" class="data row0 col1" >cases on R1</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row0_col2" class="data row0 col2" >0</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col0" class="data row1 col0" >11111111111###</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col1" class="data row1 col1" >go forward 11 to instruction 13 (the start of move_3_1)</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row1_col2" class="data row1 col2" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col0" class="data row2 col0" >111111###</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col1" class="data row2 col1" >go forward 6 to instruction 9 (the tan part)</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row2_col2" class="data row2 col2" >2</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row3" class="row_heading level0 row3" >4</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col0" class="data row3 col0" >11##</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col1" class="data row3 col1" >R1 started with #: add # to R2</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row3_col2" class="data row3 col2" >3</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row4" class="row_heading level0 row4" >5</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col0" class="data row4 col0" >111#</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col1" class="data row4 col1" >add 1 to R3</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row4_col2" class="data row4 col2" >4</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row5" class="row_heading level0 row5" >6</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col0" class="data row5 col0" >111##</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col1" class="data row5 col1" >add # to R3</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row5_col2" class="data row5 col2" >5</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row6" class="row_heading level0 row6" >7</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col0" class="data row6 col0" >111##</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col1" class="data row6 col1" >add # to R3</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row6_col2" class="data row6 col2" >6</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row7" class="row_heading level0 row7" >8</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col0" class="data row7 col0" >1111111####</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col1" class="data row7 col1" >go backward 7 to instruction 1</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row7_col2" class="data row7 col2" >7</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row8" class="row_heading level0 row8" >9</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col0" class="data row8 col0" >11#</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col1" class="data row8 col1" >R1 started with 1: add 1 to R2</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row8_col2" class="data row8 col2" >8</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row9" class="row_heading level0 row9" >10</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col0" class="data row9 col0" >111#</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col1" class="data row9 col1" >add 1 to R3</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row9_col2" class="data row9 col2" >9</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row10" class="row_heading level0 row10" >11</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col0" class="data row10 col0" >111##</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col1" class="data row10 col1" >add # to R3</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row10_col2" class="data row10 col2" >10</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row11" class="row_heading level0 row11" >12</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col0" class="data row11 col0" >1111####</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col1" class="data row11 col1" >go backward 4 to instruction 8</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row11_col2" class="data row11 col2" >11</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row12" class="row_heading level0 row12" >13</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col0" class="data row12 col0" >111#####</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col1" class="data row12 col1" >move_3_1 (from the first lesson)</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row12_col2" class="data row12 col2" >12</td>
-            </tr>
-            <tr>
-                        <th id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78level0_row13" class="row_heading level0 row13" >14</th>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col0" class="data row13 col0" >111#####</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col1" class="data row13 col1" >move_2_1 (from the first lesson)</td>
-                        <td id="T_6e645ee8_7cbb_11ed_9adf_1e0062143c78row13_col2" class="data row13 col2" >13</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+#T_e9946_row0_col0, #T_e9946_row0_col1, #T_e9946_row0_col2, #T_e9946_row1_col0, #T_e9946_row1_col1, #T_e9946_row1_col2, #T_e9946_row2_col0, #T_e9946_row2_col1, #T_e9946_row2_col2, #T_e9946_row12_col0, #T_e9946_row12_col1, #T_e9946_row12_col2, #T_e9946_row13_col0, #T_e9946_row13_col1, #T_e9946_row13_col2 {
+  background-color: #FFFFCC;
+}
+#T_e9946_row3_col0, #T_e9946_row3_col1, #T_e9946_row3_col2, #T_e9946_row4_col0, #T_e9946_row4_col1, #T_e9946_row4_col2, #T_e9946_row5_col0, #T_e9946_row5_col1, #T_e9946_row5_col2, #T_e9946_row6_col0, #T_e9946_row6_col1, #T_e9946_row6_col2, #T_e9946_row7_col0, #T_e9946_row7_col1, #T_e9946_row7_col2 {
+  background-color: #B0E0E6;
+}
+#T_e9946_row8_col0, #T_e9946_row8_col1, #T_e9946_row8_col2, #T_e9946_row9_col0, #T_e9946_row9_col1, #T_e9946_row9_col2, #T_e9946_row10_col0, #T_e9946_row10_col1, #T_e9946_row10_col2, #T_e9946_row11_col0, #T_e9946_row11_col1, #T_e9946_row11_col2 {
+  background-color: tan;
+}
+</style>
+<table id="T_e9946_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >instruction</th>
+      <th class="col_heading level0 col1" >explanation</th>
+      <th class="col_heading level0 col2" >number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_e9946_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_e9946_row0_col0" class="data row0 col0" >1#####</td>
+      <td id="T_e9946_row0_col1" class="data row0 col1" >cases on R1</td>
+      <td id="T_e9946_row0_col2" class="data row0 col2" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_e9946_row1_col0" class="data row1 col0" >11111111111###</td>
+      <td id="T_e9946_row1_col1" class="data row1 col1" >go forward 11 to instruction 13 (the start of move_3_1)</td>
+      <td id="T_e9946_row1_col2" class="data row1 col2" >1</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_e9946_row2_col0" class="data row2 col0" >111111###</td>
+      <td id="T_e9946_row2_col1" class="data row2 col1" >go forward 6 to instruction 9 (the tan part)</td>
+      <td id="T_e9946_row2_col2" class="data row2 col2" >2</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_e9946_row3_col0" class="data row3 col0" >11##</td>
+      <td id="T_e9946_row3_col1" class="data row3 col1" >R1 started with #: add # to R2</td>
+      <td id="T_e9946_row3_col2" class="data row3 col2" >3</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row4" class="row_heading level0 row4" >5</th>
+      <td id="T_e9946_row4_col0" class="data row4 col0" >111#</td>
+      <td id="T_e9946_row4_col1" class="data row4 col1" >add 1 to R3</td>
+      <td id="T_e9946_row4_col2" class="data row4 col2" >4</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row5" class="row_heading level0 row5" >6</th>
+      <td id="T_e9946_row5_col0" class="data row5 col0" >111##</td>
+      <td id="T_e9946_row5_col1" class="data row5 col1" >add # to R3</td>
+      <td id="T_e9946_row5_col2" class="data row5 col2" >5</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row6" class="row_heading level0 row6" >7</th>
+      <td id="T_e9946_row6_col0" class="data row6 col0" >111##</td>
+      <td id="T_e9946_row6_col1" class="data row6 col1" >add # to R3</td>
+      <td id="T_e9946_row6_col2" class="data row6 col2" >6</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row7" class="row_heading level0 row7" >8</th>
+      <td id="T_e9946_row7_col0" class="data row7 col0" >1111111####</td>
+      <td id="T_e9946_row7_col1" class="data row7 col1" >go backward 7 to instruction 1</td>
+      <td id="T_e9946_row7_col2" class="data row7 col2" >7</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row8" class="row_heading level0 row8" >9</th>
+      <td id="T_e9946_row8_col0" class="data row8 col0" >11#</td>
+      <td id="T_e9946_row8_col1" class="data row8 col1" >R1 started with 1: add 1 to R2</td>
+      <td id="T_e9946_row8_col2" class="data row8 col2" >8</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row9" class="row_heading level0 row9" >10</th>
+      <td id="T_e9946_row9_col0" class="data row9 col0" >111#</td>
+      <td id="T_e9946_row9_col1" class="data row9 col1" >add 1 to R3</td>
+      <td id="T_e9946_row9_col2" class="data row9 col2" >9</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row10" class="row_heading level0 row10" >11</th>
+      <td id="T_e9946_row10_col0" class="data row10 col0" >111##</td>
+      <td id="T_e9946_row10_col1" class="data row10 col1" >add # to R3</td>
+      <td id="T_e9946_row10_col2" class="data row10 col2" >10</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row11" class="row_heading level0 row11" >12</th>
+      <td id="T_e9946_row11_col0" class="data row11 col0" >1111####</td>
+      <td id="T_e9946_row11_col1" class="data row11 col1" >go backward 4 to instruction 8</td>
+      <td id="T_e9946_row11_col2" class="data row11 col2" >11</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row12" class="row_heading level0 row12" >13</th>
+      <td id="T_e9946_row12_col0" class="data row12 col0" >111#####</td>
+      <td id="T_e9946_row12_col1" class="data row12 col1" >move_3_1 (from the first lesson)</td>
+      <td id="T_e9946_row12_col2" class="data row12 col2" >12</td>
+    </tr>
+    <tr>
+      <th id="T_e9946_level0_row13" class="row_heading level0 row13" >14</th>
+      <td id="T_e9946_row13_col0" class="data row13 col0" >111#####</td>
+      <td id="T_e9946_row13_col1" class="data row13 col1" >move_2_1 (from the first lesson)</td>
+      <td id="T_e9946_row13_col2" class="data row13 col2" >13</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>The three branches of the case instruction at the top take us to move3,1 (if R1 is empty), to the blue sub-program if the first symbol of R1 is a 1, and to the brown sub-program if that symbol is a #. Note that we have a big loop that takes symbols off of R1 and writes the same thing in R2 and some related words in R3. The way that the words in R3 are related to the original input in R1 is as follows: each time a 1 is removed from R1, what goes into R3 is the program which would write a 1 in R1 (this is 1#). And each time a # is removed from R1, what goes into R3 is the program which would write a # in R1 (this is 1##).</p>
 <p>It might help to say things a bit differently on this. So here is an informal description of what diag is doing:
@@ -848,7 +761,7 @@ But running <code class="docutils literal notranslate"><span class="pre">diag</s
 <p><span class="math notranslate nohighlight">\([\![\mbox{self}]\!]( \ ) = [\![ \mbox{diag} ]\!(\mbox{diag}) = \mbox{self}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span>
 </pre></div>
 </div>
 </div>
@@ -860,24 +773,14 @@ But running <code class="docutils literal notranslate"><span class="pre">diag</s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="bp">self</span><span class="p">,[])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1#1##1##1##1##1##1#1#1#1#1#1#1#1#1#1#1#1##1##1##1#1#1#1#1#1#1##1##1##1#1#1##1##1#1#1#1##1#1#1#1##1##1#1#1#1##1##1#1#1#1#1#1#1#1##1##1##1##1#1#1##1#1#1#1##1#1#1#1##1##1#1#1#1#1##1##1##1##1#1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#1#1##1##1##1##1##1#1#1#1#1#1#1##1##1##1#1#1#1##1##1##1#1##1##1#1#1#1#1##1##1##1##1#1##1#1#1##1##1##1##1#####11111111111###111111###11##111#111##111##1111111####11#111#111##1111####111#####111111###111###1##1111####1#11####11#####111111###111###1##1111####1#11####&#39;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="bp">self</span><span class="p">,[])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="bp">self</span><span class="p">,[])</span><span class="o">==</span> <span class="bp">self</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="bp">self</span><span class="p">,[])</span><span class="o">==</span> <span class="bp">self</span>
 </pre></div>
 </div>
 </div>
@@ -1026,10 +929,10 @@ R1.</p>
             <p class="prev-next-title">Primitive Recursion</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="two_by_two.html" title="next page">
+    <a class='right-next' id="next-link" href="universal.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Two-by-Two Encoding</p>
+        <p class="prev-next-title">Universal Programs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

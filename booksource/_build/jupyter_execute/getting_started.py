@@ -7,7 +7,7 @@
 # Lawrence S. Moss,
 # Indiana University
 # 
-# To start, click on the triangle below.  
+# To start, click on 'Open in Colab', and then click on the triangle.
 
 # In[1]:
 
@@ -335,7 +335,7 @@ copy_2_3_4 = '11#####11111111###1111###111##1111##11111####111#1111#11111111####
 
 # To begin, here is an *interpreter* for 1#.  Even before learning how the language works, we want to see how to run programs by entering them into the interpreter along with inputs.
 
-# In[2]:
+# In[3]:
 
 
 def end_strip(list): ## removes the tail of empty registers
@@ -475,7 +475,7 @@ onesharp(program,a)
 # 
 # Since it is hard to understand a program of 1#, we have tools to help.  First, we can *parse* the program.  Parsing means dividing the program into instructions.
 
-# In[3]:
+# In[ ]:
 
 
 parse(move_2_1)
@@ -483,7 +483,7 @@ parse(move_2_1)
 
 # Even better, we can get an parse with glosses, as follows:
 
-# In[4]:
+# In[ ]:
 
 
 parse_explain(move_2_1)
@@ -492,7 +492,7 @@ parse_explain(move_2_1)
 # The program ```move_2_1``` is a loop, and we can further add to the explanations in the chart.
 # 
 
-# In[5]:
+# In[ ]:
 
 
 #@title
@@ -540,7 +540,7 @@ df.style.apply(lambda x:
 # Suppose we want to modify ```move_2_1``` to get ```move_3_4```, a program which would copy the contents of R3 onto the end of R4 (and empty R4) in the process.
 # Here is a way to do this which shows off some command-line tools that are part of the working environment of this course.
 
-# In[6]:
+# In[ ]:
 
 
 parse(move_2_1)
@@ -548,7 +548,7 @@ parse(move_2_1)
 
 # When you enter the cell above, you get the program ```move_2_1``` as a Python *list* of instructions. We have seen the explanation of this parse above.  What we want to do in ```move_3_4``` is to change the overall "case" instruction in the beginning from ```11#####``` to ```111#####```.   And each time our program writes to a register, we want that register to be R4, not R1.  So we make two changes.
 
-# In[7]:
+# In[ ]:
 
 
 pre_program = ['111#####', '111111###', '111###', '1111##', '1111####', '1111#', '111111####']
@@ -556,7 +556,7 @@ pre_program = ['111#####', '111111###', '111###', '1111##', '1111####', '1111#',
 
 # To turn this into a program, we have a tool called "unparse".
 
-# In[8]:
+# In[ ]:
 
 
 unparse(pre_program)
@@ -594,13 +594,13 @@ unparse(pre_program)
 # There are two programs that do this.  They are 
 # ```step_by_step``` and ```onesharp```.  These are illustrated in the next two cells.  Both of these programs are written in Python, not in 1#.  They both require as inputs a 1# program followed by a sequence of register words.
 
-# In[9]:
+# In[ ]:
 
 
 onesharp('1#11#####1###1###',['1#1','#'])
 
 
-# In[10]:
+# In[ ]:
 
 
 step_by_step('1#11#####1###1###',['1#1','#'])
@@ -631,7 +631,7 @@ step_by_step('1#11#####1###1###',['1#1','#'])
 # 
 # 
 
-# In[11]:
+# In[ ]:
 
 
 p= '1#'
@@ -639,7 +639,7 @@ q = '#1'
 step_by_step(p,[q,q,p])
 
 
-# In[12]:
+# In[ ]:
 
 
 step_by_step(p+q+p,[])
@@ -650,7 +650,7 @@ step_by_step(p+q+p,[])
 
 # So far in this notebook, we have only seen the function ```step_by_step```.   If we want to run things "in one fell swoop", we could use the function ```onesharp(p,[r1,r2, . . ., rn])```.   It also takes two arguments, the first a program and the second a (possibly-empty) sequence of input words.
 
-# In[13]:
+# In[ ]:
 
 
 clear_1 = '1##### 111### 11#### 111####'
