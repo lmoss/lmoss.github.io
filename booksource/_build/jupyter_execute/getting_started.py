@@ -3,11 +3,9 @@
 
 # <a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/getting_started.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# # <span style="color:blue">Getting stared with 1#</span> 
-# Lawrence S. Moss,
-# Indiana University
+# # Getting stared with 1#
 # 
-# To start, click on 'Open in Colab', and then click on the triangle.
+# To start, either download this notebook and run it locally, or else click on 'Open in Colab' above.  Then click on the triangle below.  
 
 # In[ ]:
 
@@ -394,7 +392,7 @@ onesharp(program,a)
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/drum.jpg?raw=1" width="200" height="160">
 
-# # The 1# instruction set
+# ## The 1# instruction set
 # 
 # So far, we have seen two *programs* of 1#. Programs are composed of *instructions*. In fact, programs are just sequences of instructions run together. There are only five kinds of 1# instructions.  Now is the time to introduce them.
 # 
@@ -465,7 +463,7 @@ onesharp(program,a)
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/harp.jpg?raw=1" width="200" height="160">
 
-# # Example: A simple loop
+# ## Example: A simple loop
 # 
 # A good way to learn about the different commands is to examine simple programs.  Among these is a program called ```move_2_1```.   It is designed to move the contents of R2 onto the end of R1, emptying out R2 in the process.  Written out in full it is 
 # 
@@ -535,7 +533,7 @@ df.style.apply(lambda x:
 # 
 # 
 
-# # Modifying our simple loop
+# ## Modifying our simple loop
 # 
 # Suppose we want to modify ```move_2_1``` to get ```move_3_4```, a program which would copy the contents of R3 onto the end of R4 (and empty R4) in the process.
 # Here is a way to do this which shows off some command-line tools that are part of the working environment of this course.
@@ -587,7 +585,7 @@ unparse(pre_program)
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/basses.jpg?raw=1" width="200" height="160">
 
-# # Running programs in notebook cells rather than in an interpreter
+# ## Running programs in notebook cells rather than in an interpreter
 # 
 # Because notebooks like this are composed of cells, we also want to run programs in a command-line fashion.
 # 
@@ -661,7 +659,7 @@ onesharp(clear_1,['1111###1111##########'])
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/pianotrumpet.jpg?raw=1" width="200" height="160">
 
-# # Summary
+# ## Summary
 # 
 # ### Here is the full set of instructions of 1#:
 # 

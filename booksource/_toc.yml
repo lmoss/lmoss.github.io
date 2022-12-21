@@ -17,7 +17,7 @@ parts:
   chapters:
   - file: coding
   - file: T_predicate
-  - file: tileUnd
+  - file: tileUnd.md
 - caption: Self-Writing Programs and the Recursion Theorem
   chapters:
   - file: self_writing
