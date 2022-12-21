@@ -14,9 +14,11 @@ parts:
   - file: primitive_recursion
   - file: universal
 - caption: The Enumeration Theorem
+  chapters:
   - file: coding
   - file: T_predicate
 - caption: Self-Writing Programs and the Recursion Theorem
+  chapters:
   - file: self_writing
   #- flle: two_by_two
 
