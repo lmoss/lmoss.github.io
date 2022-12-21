@@ -3,7 +3,6 @@ jupytext
 matplotlib
 numpy
 ghp-import
-
-
+sphinx-exercises
 
 
