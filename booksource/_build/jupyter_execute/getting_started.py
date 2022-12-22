@@ -710,3 +710,22 @@ onesharp(clear_1,['1111###1111##########'])
 # 7. Delete a cell.
 # 
 # 8. Open a new notebook.  
+
+# <iframe width="100%" height="800" src="https://github.com/lmoss/onesharp/blob/main/tilingPdfs/tilingdiag1.pdf">
+
+# <iframe width="100%" height="200" src="https://github.com/lmoss/onesharp/blob/main/tilingPdfs/tilingdiag1.pdf">
+# 
+
+# In[ ]:
+
+
+
+
+
+#  <embed src="https://github.com/lmoss/onesharp/blob/main/tilingPdfs/tilingdiag1.pdf" type="application/pdf" width="90%" height="600px" />
+
+# In[ ]:
+
+
+
+
