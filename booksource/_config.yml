@@ -17,9 +17,11 @@ execute:
 
 
 sphinx:
+  config:
+     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   extra_extensions:
     - sphinx_exercise
-
+    - sphinx_proof
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -47,3 +49,4 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - deflist
+    - amsmath
