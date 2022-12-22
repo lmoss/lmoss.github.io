@@ -5,7 +5,7 @@ parts:
   chapters:
   - file: getting_started
   - file: move_copy_write
-  - file: halting
+  - file: haltDef
   - file: tidy
 - caption: More Programs
   chapters:
