@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting stared with 1#" href="getting_started.html" />
@@ -473,32 +471,6 @@ change. For mathematics courses aiming at undecidability results in logic, the b
 up to Church’s Theorem on the undecidability of first-order logic.  Overall, there is more than enough material for a course. At the
 same time, the topic of computability has many connections and developments, far too many for an “invitation” book. Instructors
 might prefer to use this book for some of their courses and to provide other material as well.</p>
-<div class="proof theorem admonition" id="my-theorem">
-<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Orthogonal-Projection-Theorem)</p>
-<div class="theorem-content section" id="proof-content">
-<p>Given <span class="math notranslate nohighlight">\(y \in \mathbb R^n\)</span> and linear subspace <span class="math notranslate nohighlight">\(S \subset \mathbb R^n\)</span>,
-there exists a unique solution to the minimization problem</p>
-<div class="math notranslate nohighlight">
-\[\hat y := \argmin_{z \in S} \|y - z\|\]</div>
-<p>The minimizer <span class="math notranslate nohighlight">\(\hat y\)</span> is the unique vector in <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> that satisfies</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\hat y \in S\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(y - \hat y \perp S\)</span></p></li>
-</ul>
-<p>The vector <span class="math notranslate nohighlight">\(\hat y\)</span> is called the <strong>orthogonal projection</strong> of <span class="math notranslate nohighlight">\(y\)</span> onto <span class="math notranslate nohighlight">\(S\)</span>.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. We’ll omit the full proof.</p>
-<p>But we will prove sufficiency of the asserted conditions.</p>
-<p>To this end, let <span class="math notranslate nohighlight">\(y \in \mathbb R^n\)</span> and let <span class="math notranslate nohighlight">\(S\)</span> be a linear subspace of <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(\hat y\)</span> be a vector in <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> such that <span class="math notranslate nohighlight">\(\hat y \in S\)</span> and <span class="math notranslate nohighlight">\(y - \hat y \perp S\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(z\)</span> be any other point in <span class="math notranslate nohighlight">\(S\)</span> and use the fact that <span class="math notranslate nohighlight">\(S\)</span> is a linear subspace to deduce</p>
-<div class="math notranslate nohighlight">
-\[\| y - z \|^2
-= \| (y - \hat y) + (\hat y - z) \|^2
-= \| y - \hat y \|^2  + \| \hat y - z  \|^2\]</div>
-<p>Hence <span class="math notranslate nohighlight">\(\| y - z \| \geq \| y - \hat y \|\)</span>, which completes the proof.</p>
-</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
