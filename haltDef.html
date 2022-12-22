@@ -299,6 +299,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#halting-the-formal-definitions">
+   Halting: the formal definitions
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -311,6 +324,19 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#halting-the-formal-definitions">
+   Halting: the formal definitions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -328,6 +354,41 @@
 <p>To see the difference, consider the following two programs: 11### and 1#</p>
 <p>The first says “Go forward 2,” and the second “Add 1 to R1.”</p>
 <p>The first halts, while the second stops improperly.</p>
+<div class="exercise admonition" id="haltDef-exercise-0">
+
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<div class="section" id="exercise-content">
+<p>Which of the following programs halt when run on all empty registers? Which stop improperly? Why?</p>
+<ol class="simple">
+<li><p>11###111###1####</p></li>
+<li><p>11###111###11####</p></li>
+<li><p>11###111###111####</p></li>
+<li><p>1111###1111###1####11###11####</p></li>
+</ol>
+<p>[It would be better to try to solve this problem without running the programs.]</p>
+</div>
+</div>
+<div class="exercise admonition" id="haltDef-exercise-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<div class="section" id="exercise-content">
+<p>Exercise 1 was concerned with programs run on all empty registers.  Find a program $p$ and words $w_1$, $w_2$, and $w_3$ so that</p>
+<p>(a) When started with $w_1$ in R1, $p$ halts improperly.</p>
+<p>(b) When started with $w_2$ in R1, $p$ halts improperly.</p>
+<p>(c) When started with $w_3$ in R1, $p$ goes into an infinite loop inside $p$.</p>
+</div>
+</div>
+<div class="section" id="halting-the-formal-definitions">
+<h2>Halting: the formal definitions<a class="headerlink" href="#halting-the-formal-definitions" title="Permalink to this headline">¶</a></h2>
+<p>There are five ways that p could halt.</p>
+<ol class="simple">
+<li><p>Instruction n of p (the last instruction) is of the form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">##</span></code>, and at some point in the run of p, we reach this last instruction.</p></li>
+<li><p>Some instruction of p, say instruction number i, is of the form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">###</span></code>; and also i + k = n + 1; and finally that at some point in the run of p, we reach instruction i.</p></li>
+<li><p>Instruction n of p (the last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of p, we reach this last instruction with Rk empty.</p></li>
+<li><p>Instruction n-1 of p (the next-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of p, we reach this instruction with Rk containing a word beginning with 1.</p></li>
+<li><p>Instruction n-2 of p (the second-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup>$k$</sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>,and at some point in the run of p, we reach this instruction with Rk containing a word beginning with #.</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
