@@ -3,6 +3,8 @@
 # See the documentation for help and more options: 
 # https://jupyterbook.org/customize/config.html
 
+# see also  https://jupyterbook.org/en/stable/customize/config.html
+
 #######################################################################################
 # Book settings
 title                       : Invitation to Computabitlity  # The title of the book. Will be placed in the left navbar.
@@ -27,7 +29,8 @@ sphinx:
 latex:
   latex_documents:
     targetname: book.tex
-
+  latex_engine    : pdflatex
+  use_jupyterbook_latex    : true  # 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
