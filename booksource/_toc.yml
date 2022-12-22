@@ -20,7 +20,7 @@ parts:
   - file: t_predicate
   - file: tileUnd.md
 - caption: Undecidability
-  - file: HaltUnd
+  - file: haltUnd
 - caption: Self-Writing Programs and the Recursion Theorem
   chapters:
   - file: self_writing
