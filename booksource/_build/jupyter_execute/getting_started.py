@@ -385,11 +385,9 @@ onesharp(program,a)
 # The overall point is that the program ```11#####111111###111###1##1111####1#111111####``` may be run on words which are input in the registers. This program does not change when we run it, but the contents of the registers do change. Our first order of business is to understand programs like the one we've just seen. It turns out that this program is composed of seven instructions. We'll get to the instructions soon, but first we have an exercise for you to try.
 
 # ```{exercise}
-# 
 # Here is another 1# program. It takes its input from the first two registers. Enter some words in R1 and R2 input boxes, and then run the program. Your job is to try to figure out what the program does.
 # 
 # ```1##### 11111111### 1111### 111## 1111## 11111#### 111# 1111# 11111111#### 111##### 111111### 111### 1## 1111#### 1# 111111#### 1111##### 111111### 111### 1## 1111#### 1# 111111#### 11##### 111111### 111### 1## 1111#### 1# 111111####```
-# 
 # ```
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/drum.jpg?raw=1" width="200" height="160">
@@ -454,7 +452,6 @@ onesharp(program,a)
 # ```
 
 # ```{exercise}
-# 
 # As before, start with 1 in R1 and R2, 1# in R3, and the other registers empty.
 # What happens in each register if we run the same program p from Exercise 2 above?
 # ```

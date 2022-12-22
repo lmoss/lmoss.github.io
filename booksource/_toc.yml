@@ -16,7 +16,7 @@ parts:
 - caption: The Enumeration Theorem
   chapters:
   - file: coding
-  - file: T_predicate
+  - file: t_predicate
   - file: tileUnd.md
 - caption: Self-Writing Programs and the Recursion Theorem
   chapters:
