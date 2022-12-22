@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to your Jupyter Book &#8212; Invitation to Computabitlity</title>
+    <title>When does a program halt? &#8212; Invitation to Computabitlity</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,6 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tidy programs" href="tidy.html" />
+    <link rel="prev" title="Simple programs" href="move_copy_write.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -104,7 +106,7 @@
   Text Register Machine Programs
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
    Getting stared with 1#
@@ -115,8 +117,8 @@
    Simple programs
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="haltDef.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    When does a program halt?
   </a>
  </li>
@@ -239,9 +241,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/haltDef.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -259,7 +261,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2FhaltDef.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -275,6 +277,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/haltDef.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -287,7 +306,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Welcome to your Jupyter Book</h1>
+                <h1>When does a program halt?</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -298,13 +317,17 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/haltDef.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="when-does-a-program-halt">
+<h1>When does a program halt?<a class="headerlink" href="#when-does-a-program-halt" title="Permalink to this headline">¶</a></h1>
+<p>1# has programs with infinite loops such as</p>
+<p>1###1####</p>
+<p>This program never finishes. Most of the time, we are interested in programs which do finish. Actually, we are interested in programs which finish in a special way.</p>
+<p>We say that a program p halts if at some point during the execution of p, the control transfers to right below the last instruction of p. In more detail, suppose that p has n instructions. The formal definition is given below, after we discuss the remaining types of instructions.</p>
+<p>In contrast, we say that p stops improperly if at some point during the execution of p, the control tranfers either to a point before the beginning of p or to points more than one instruction beyond the last instruction of p.</p>
+<p>To see the difference, consider the following two programs: 11### and 1#</p>
+<p>The first says “Go forward 2,” and the second “Add 1 to R1.”</p>
+<p>The first halts, while the second stops improperly.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -331,7 +354,21 @@ It does not go in-depth into any particular topic - check out <a class="referenc
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="move_copy_write.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Simple programs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tidy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tidy programs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
