@@ -18,6 +18,9 @@ execute:
 sphinx:
   extra_extensions:
     - sphinx_exercise
+  config:
+    html_theme_options:
+      show_navbar_depth: 1
 
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
