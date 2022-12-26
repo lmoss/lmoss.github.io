@@ -322,6 +322,88 @@ copy_1_3_4='1#####11111111###1111###111##1111##11111####111#1111#11111111####111
 copy_2_3_4 = '11#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###11##1111####11#111111####'
 
 
+# ```{math}
+# \newcommand{\hash}{\mbox{\tt \#}}
+# \renewcommand{\one}{\mbox{\tt 1}}
+# \newcommand{\diag}{\texttt{diag}}
+# \newcommand{\writeprog}{\texttt{write}}
+# \renewcommand{\phi}{\varphi}
+# \newcommand{\set}[1]{\{ #1 \}}
+# \newcommand{\semantics}[1]{[\![ #1]\!]}
+# \newcommand{\pair}[1]{\langle #1 \rangle}
+# \newcommand\N{\mathbb{N}}
+# \newcommand\floor[1]{\lfloor#1\rfloor}
+# \newcommand{\bmat}{\left[\begin{array}}
+# \newcommand{\emat}{\end{array}\right]}
+# \usepackage{tikz}
+# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
+# ```
+
+# $K = \set{p : \phi_p(x)\!\!\downarrow}$
+# 
+# $\phi_{\diag}(x) = \phi_{\writeprog}(x) + x$
+# 
+# $\semantics{\diag}(x) = \semantics{\writeprog}(x) + x$.
+# 
+# \newcommand{\tile}[4]
+# {
+#  \begin{tikzpicture}
+# \foreach \x in {0}
+# \foreach \y in {0}
+# {
+# \draw (\x, \y)    rectangle ++(2,2);
+# };
+# \draw  (1,1.7) node{\protect{$#1$}};  %% north
+# \draw (1.6,1) node{\protect{$#4$}}; %% east
+# \draw  (1,.3) node{\protect{$#2$}};  %% south
+# \draw (.4,1) node{\protect{$#3$}};%% west
+# \end{tikzpicture}
+# }
+# 
+# $\tile{1}{2}{3}{4}$
+
+# \(
+#  \newcommand{\hash}{\mbox{\tt \#}}
+# \renewcommand{\one}{\mbox{\tt 1}}
+# \newcommand{\diag}{\texttt{diag}}
+# \newcommand{\writeprog}{\texttt{write}}
+# \renewcommand{\phi}{\varphi}
+# \newcommand{\set}[1]{\{ #1 \}}
+# \newcommand{\semantics}[1]{[\![ #1]\!]}
+# \newcommand{\pair}[1]{\langle #1 \rangle}
+# \newcommand\N{\mathbb{N}}
+# \newcommand\floor[1]{\lfloor#1\rfloor}
+# \newcommand{\bmat}{\left[\begin{array}}
+# \newcommand{\emat}{\end{array}\right]}
+# \usepackage{tikz}
+# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
+# \)
+
+# $\hash$
+
+# \(
+# \newcommand{\hash}{\mbox{\tt \#}}
+# \renewcommand{\one}{\mbox{\tt 1}}
+# \newcommand{\diag}{\texttt{diag}}
+# \newcommand{\writeprog}{\texttt{write}}
+# \renewcommand{\phi}{\varphi}
+# \newcommand{\set}[1]{\{ #1 \}}
+# \newcommand{\semantics}[1]{[\![ #1]\!]}
+# \newcommand{\pair}[1]{\langle #1 \rangle}
+# \newcommand\N{\mathbb{N}}
+# \newcommand\floor[1]{\lfloor#1\rfloor}
+# \newcommand{\bmat}{\left[\begin{array}}
+# \newcommand{\emat}{\end{array}\right]}
+# \usepackage{tikz}
+# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
+# \)
+
+# In[1]:
+
+
+
+
+
 # Welcome to our first tutorial lesson on 1#. You will learn the basics of the language here and also see some small programs.
 # 
 # This lesson is written on a lower level than the lessons which come after it. The only abstract concept comes at the end, as does the only and mathematical notation. The rest of the lesson is a concrete introduction to 1#.
