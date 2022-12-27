@@ -3,7 +3,7 @@
 
 # <a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/getting_started.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# # Getting stared with 1#
+# ## Getting stared with 1#
 # 
 # To start, either download this notebook and run it locally, or else click on 'Open in Colab' above.  Then click on the triangle below.  
 
@@ -673,9 +673,3 @@ onesharp(clear_1,['1111###1111##########'])
 # 7. Delete a cell.
 # 
 # 8. Open a new notebook.  
-
-# In[ ]:
-
-
-
-
