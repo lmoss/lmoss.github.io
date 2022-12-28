@@ -8,6 +8,7 @@ parts:
   - file: move_copy_write
   - file: haltDef
   - file: tidy
+  - file: functions
 - caption: More Programs
   chapters:
   - file: sanity

@@ -3,7 +3,22 @@
 
 # <a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/getting_started.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# ## Getting stared with 1#
+# ```{math}
+# \newcommand{\hash}{\texttt{#}}
+# \renewcommand{\one}{\texttt{1}}
+# \newcommand{\diag}{\texttt{diag}}
+# \newcommand{\writeprog}{\texttt{write}}
+# \renewcommand{\phi}{\varphi}
+# \newcommand{\set}[1]{\{ #1 \}}
+# \newcommand{\semantics}[1]{[\![ #1]\!]}
+# \newcommand{\pair}[1]{\langle #1 \rangle}
+# \newcommand\N{\mathbb{N}}
+# \newcommand\floor[1]{\lfloor#1\rfloor}
+# \newcommand{\bmat}{\left[\begin{array}}
+# \newcommand{\emat}{\end{array}\right]}
+# ```
+
+# ## Getting started with 1#
 # 
 # To start, either download this notebook and run it locally, or else click on 'Open in Colab' above.  Then click on the triangle below.  
 
@@ -322,98 +337,16 @@ copy_1_3_4='1#####11111111###1111###111##1111##11111####111#1111#11111111####111
 copy_2_3_4 = '11#####11111111###1111###111##1111##11111####111#1111#11111111####1111#####111111###111###11##1111####11#111111####'
 
 
-# ```{math}
-# \newcommand{\hash}{\mbox{\tt \#}}
-# \renewcommand{\one}{\mbox{\tt 1}}
-# \newcommand{\diag}{\texttt{diag}}
-# \newcommand{\writeprog}{\texttt{write}}
-# \renewcommand{\phi}{\varphi}
-# \newcommand{\set}[1]{\{ #1 \}}
-# \newcommand{\semantics}[1]{[\![ #1]\!]}
-# \newcommand{\pair}[1]{\langle #1 \rangle}
-# \newcommand\N{\mathbb{N}}
-# \newcommand\floor[1]{\lfloor#1\rfloor}
-# \newcommand{\bmat}{\left[\begin{array}}
-# \newcommand{\emat}{\end{array}\right]}
-# \usepackage{tikz}
-# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
-# ```
-
-# $K = \set{p : \phi_p(x)\!\!\downarrow}$
+# Welcome to our first tutorial lesson on $\one\hash$. You will learn the basics of the language here and also see some small programs.
 # 
-# $\phi_{\diag}(x) = \phi_{\writeprog}(x) + x$
-# 
-# $\semantics{\diag}(x) = \semantics{\writeprog}(x) + x$.
-# 
-# \newcommand{\tile}[4]
-# {
-#  \begin{tikzpicture}
-# \foreach \x in {0}
-# \foreach \y in {0}
-# {
-# \draw (\x, \y)    rectangle ++(2,2);
-# };
-# \draw  (1,1.7) node{\protect{$#1$}};  %% north
-# \draw (1.6,1) node{\protect{$#4$}}; %% east
-# \draw  (1,.3) node{\protect{$#2$}};  %% south
-# \draw (.4,1) node{\protect{$#3$}};%% west
-# \end{tikzpicture}
-# }
-# 
-# $\tile{1}{2}{3}{4}$
-
-# \(
-#  \newcommand{\hash}{\mbox{\tt \#}}
-# \renewcommand{\one}{\mbox{\tt 1}}
-# \newcommand{\diag}{\texttt{diag}}
-# \newcommand{\writeprog}{\texttt{write}}
-# \renewcommand{\phi}{\varphi}
-# \newcommand{\set}[1]{\{ #1 \}}
-# \newcommand{\semantics}[1]{[\![ #1]\!]}
-# \newcommand{\pair}[1]{\langle #1 \rangle}
-# \newcommand\N{\mathbb{N}}
-# \newcommand\floor[1]{\lfloor#1\rfloor}
-# \newcommand{\bmat}{\left[\begin{array}}
-# \newcommand{\emat}{\end{array}\right]}
-# \usepackage{tikz}
-# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
-# \)
-
-# $\hash$
-
-# \(
-# \newcommand{\hash}{\mbox{\tt \#}}
-# \renewcommand{\one}{\mbox{\tt 1}}
-# \newcommand{\diag}{\texttt{diag}}
-# \newcommand{\writeprog}{\texttt{write}}
-# \renewcommand{\phi}{\varphi}
-# \newcommand{\set}[1]{\{ #1 \}}
-# \newcommand{\semantics}[1]{[\![ #1]\!]}
-# \newcommand{\pair}[1]{\langle #1 \rangle}
-# \newcommand\N{\mathbb{N}}
-# \newcommand\floor[1]{\lfloor#1\rfloor}
-# \newcommand{\bmat}{\left[\begin{array}}
-# \newcommand{\emat}{\end{array}\right]}
-# \usepackage{tikz}
-# \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}
-# \)
-
-# In[ ]:
-
-
-
-
-
-# Welcome to our first tutorial lesson on 1#. You will learn the basics of the language here and also see some small programs.
-# 
-# This lesson is written on a lower level than the lessons which come after it. The only abstract concept comes at the end, as does the only and mathematical notation. The rest of the lesson is a concrete introduction to 1#.
+# This lesson is written on a lower level than the lessons which come after it. The only abstract concept comes at the end, as does the only and mathematical notation. The rest of the lesson is a concrete introduction to $\one\hash$.
 # 
 # If you are familiar with any machine model in the theory of computations, such as Turing Machines, or classical register machines, you probably will want to skim through this lesson quickly.
 # 
 # But this introductory lesson is really intended for people with no background on these matters. If this is you, please work slowly, doing the exercises as you go.
 # 
 
-# To begin, here is an *interpreter* for 1#.  Even before learning how the language works, we want to see how to run programs by entering them into the interpreter along with inputs.
+# To begin, here is an *interpreter* for $\one\hash$.  Even before learning how the language works, we want to see how to run programs by entering them into the interpreter along with inputs.
 
 # In[ ]:
 
@@ -446,7 +379,7 @@ a = [remove_multiple_blanks(x) for x in a]
 onesharp(program,a)
 
 
-# Please copy the following *program* of 1# into the program line of the interpreter above.
+# Please copy the following *program* of $\one\hash$ into the program line of the interpreter above.
 # 
 # ```11#####111111###111###1##1111####1#111111####```
 # 
@@ -476,7 +409,7 @@ onesharp(program,a)
 
 # ## The 1# instruction set
 # 
-# So far, we have seen two *programs* of 1#. Programs are composed of *instructions*. In fact, programs are just sequences of instructions run together. There are only five kinds of 1# instructions.  Now is the time to introduce them.
+# So far, we have seen two *programs* of $\one\hash$. Programs are composed of *instructions*. In fact, programs are just sequences of instructions run together. There are only five kinds of $\one\hash$ instructions.  Now is the time to introduce them.
 # 
 # We begin our journey with the first two types of instructions of the language.
 # 
@@ -487,7 +420,7 @@ onesharp(program,a)
 # | 111#   | Add 1 to R3      |
 # 
 # 
-# These instructions add a 1 to the end of the word (the right end, as in English words) in the specified register.
+# These instructions add a $\one$ to the end of the word (the right end, as in English words) in the specified register.
 # 
 # 
 # | Instruction      | Meaning |
@@ -497,14 +430,14 @@ onesharp(program,a)
 # | 111##   | Add # to R3      |
 # 		
 # 
-# These add a # to the end (again, this means the right side) of the word in the specified register.  We can summarize the two kinds of instructions which we have seen, and also extend them:
+# These add a $\hash$ to the end (again, this means the right side) of the word in the specified register.  We can summarize the two kinds of instructions which we have seen, and also extend them:
 # 
 # | Instruction      | Meaning |
 # | ----------- | ----------- |
 # | 1^n #      | Add 1 to Rn       |
 # | 1^n ##   | Add # to Rn      |
 # 
-# The programs of 1# are just sequences of instructions run together.  There is no punctuation between the instructions.  To move around in a program, we have two other kinds of instructions
+# The programs of $\one\hash$ are just sequences of instructions run together.  There is no punctuation between the instructions.  To move around in a program, we have two other kinds of instructions
 # 
 # | Instruction      | Meaning |
 # | ----------- | ----------- |
@@ -521,35 +454,35 @@ onesharp(program,a)
 # 
 # If Rn is empty, we go to the very next instruction.
 # 
-# If the first symbol of Rn is 1, we delete that symbol and go to the second instruction after the case instruction.
+# If the first symbol of Rn is $\one$, we delete that symbol and go to the second instruction after the case instruction.
 # 
-# If the first symbol of Rn is #, we delete that symbol and go to the third instruction after the case instruction.
+# If the first symbol of Rn is $\hash$, we delete that symbol and go to the third instruction after the case instruction.
 # 
 # The 'cases' instructions are the most complex to understand, and it will help to look an example in detail.   But first we have some exercises on the 1^n# and 1^n## instructions.
 
 # ```{exercise}
-# Again, start with 1 in R1 and R2, 1# in R3, and the other registers empty.
-# What happens in each register if we run 111##?
+# Again, start with $\one$ in R1 and R2, $\one\hash$ in R3, and the other registers empty.
+# What happens in each register if we run $\one\one\one\hash\hash$?
 # Try to figure this out for yourself, and then check your work by actually running the program.
 # ```
 
 # ```{exercise}
-# As before, start with 1 in R1 and R2, 1# in R3, and the other registers empty.
-# What happens in each register if we run the same program p from Exercise 2 above?
+# As before, start with $\one$ in R1 and R2, $\one\hash$ in R3, and the other registers empty.
+# What happens in each register if we run the same program $p$ from Exercise 2 above?
 # ```
 
 # ```{exercise}
-# Write a program which, when started with all registers empty, gives 1 in R1 and R2, 1# in R3, and the other registers empty.
+# Write a program which, when started with all registers empty, gives $\one$ in R1 and R2, $\one\hash$ in R3, and the other registers empty.
 # ```
 
 # <img src="https://github.com/lmoss/onesharp/blob/main/harp.jpg?raw=1" width="200" height="160">
 
-# ## Running programs in notebook cells rather than in an interpreter
+# ## Running programs in notebook cells
 # 
 # Because notebooks like this are composed of cells, we also want to run programs in a command-line fashion.
 # 
 # There are two programs that do this.  They are 
-# ```step_by_step``` and ```onesharp```.  These are illustrated in the next two cells.  Both of these programs are written in Python, not in 1#.  They both require as inputs a 1# program followed by a sequence of register words.
+# ```step_by_step``` and ```onesharp```.  These are illustrated in the next two cells.  Both of these programs are written in Python, not in $\one\hash$.  They both require as inputs a $\one\hash$ program followed by a sequence of register words.
 
 # In[ ]:
 
@@ -563,11 +496,11 @@ onesharp('1#11#####1###1###',['1#1','#'])
 step_by_step('1#11#####1###1###',['1#1','#'])
 
 
-# The last computation started with two inputs.  Try changing those inputs to see what happens.  As practice with the definition of *halt*, you might try yourself to predict what will happen before running it.  You can add the symbols 1 or #, and you also can delete symbols.  But you should not delete the quote marks.  Also, you can change the program the same way.   The idea is that you should explore this function *step_by_step* by trying it out on simple inputs.  
+# The last computation started with two inputs.  Try changing those inputs to see what happens.  As practice with the definition of *halt*, you might try yourself to predict what will happen before running it.  You can add the symbols $\one$ or $\hash$, and you also can delete symbols.  But you should not delete the quote marks.  Also, you can change the program the same way.   The idea is that you should explore this function *step_by_step* by trying it out on simple inputs.  
 
 # Here is an explanation of the form of the command ```step_by_step``` that we have been using.   
 # 
-# The first argument could be a 1# program surrounded by single quotes or double-quotes.   If you use single quotes, you need to be sure to use the correct ones; on my screen they look straight, not slanted.   You could also use a concatenation of quoted expressions (see below).  But if you forget the quotes, you will get an error because the Python program that is running all of this will balk at 1# expressions without quotes around them.
+# The first argument could be a $\one\hash$ program surrounded by single quotes or double-quotes.   If you use single quotes, you need to be sure to use the correct ones; on my screen they look straight, not slanted.   You could also use a concatenation of quoted expressions (see below).  But if you forget the quotes, you will get an error because the Python program that is running all of this will balk at $\one\hash$ expressions without quotes around them.
 # 
 # In addition, you can name expressions ahead of time using assignment statements like 
 # 
@@ -580,7 +513,7 @@ step_by_step('1#11#####1###1###',['1#1','#'])
 # 
 # ---
 # 
-# The program ```step_by_step``` begins with a parse of your program, and so if you input a word that is not a sequence of 1# expressions, it will stop without further ado.
+# The program ```step_by_step``` begins with a parse of your program, and so if you input a word that is not a sequence of $\one\hash$ expressions, it will stop without further ado.
 # 
 # The second argument to ```step_by_step``` is a list of words.   A list in Python is enclosed by square brackets \[ and \], not by parentheses.  The words that go in the list are used in R1, R2, . . . in that order.  It is understood that any register not represented by any input starts with the empty string.   You can also represent the empty string by ' '.  And the empty list  of registers is denoted by two square brackets with nothing inside,  [  ].
 # 
@@ -620,7 +553,7 @@ onesharp(clear_1,['1111###1111##########'])
 
 # ## Summary
 # 
-# ### Here is the full set of instructions of 1#:
+# ### The full set of instructions of 1#
 # 
 # 
 # | Instruction      | Meaning |
@@ -640,9 +573,9 @@ onesharp(clear_1,['1111###1111##########'])
 # 
 # If Rn is empty, we go to the very next instruction.
 # 
-# If the first symbol of Rn is 1, we delete that symbol and go to the second instruction after the case instruction.
+# If the first symbol of Rn is $\one$, we delete that symbol and go to the second instruction after the case instruction.
 # 
-# If the first symbol of Rn is #, we delete that symbol and go to the third instruction after the case instruction.
+# If the first symbol of Rn is $\hash$, we delete that symbol and go to the third instruction after the case instruction.
 # 
 
 # ### Useful command-line tools
