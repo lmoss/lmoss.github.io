@@ -111,7 +111,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
-   Getting stared with 1#
+   Getting started with 1#
   </a>
  </li>
  <li class="toctree-l1">
@@ -127,6 +127,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="tidy.html">
    Tidy programs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Functions defined by programs
   </a>
  </li>
 </ul>
@@ -352,8 +357,8 @@
                 
   <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/haltDef.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="math notranslate nohighlight">
-\[\newcommand{\hash}{\mbox{\tt \#}}
-\renewcommand{\one}{\mbox{\tt 1}}
+\[\newcommand{\hash}{\texttt{#}}
+\renewcommand{\one}{\texttt{1}}
 \newcommand{\diag}{\texttt{diag}}
 \newcommand{\writeprog}{\texttt{write}}
 \renewcommand{\phi}{\varphi}
@@ -363,12 +368,10 @@
 \newcommand\N{\mathbb{N}}
 \newcommand\floor[1]{\lfloor#1\rfloor}
 \newcommand{\bmat}{\left[\begin{array}}
-\newcommand{\emat}{\end{array}\right]}
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri}\]</div>
+\newcommand{\emat}{\end{array}\right]}\]</div>
 <div class="section" id="when-does-a-program-halt">
 <h1>When does a program halt?<a class="headerlink" href="#when-does-a-program-halt" title="Permalink to this headline">¶</a></h1>
-<p>1# has programs which contain <em>infinite loops</em> such as</p>
+<p><span class="math notranslate nohighlight">\(\one\hash\)</span> has programs which contain <em>infinite loops</em> such as</p>
 <p>1###1####</p>
 <p>This program never finishes. Most of the time, we are interested in programs which do finish. Actually, we are interested in programs which finish in a special way.</p>
 <p>This last example had nothing to do with the words in the input registers before we ran the program.  But usually the input registers make a difference to whether the program halts or not.</p>
