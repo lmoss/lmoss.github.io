@@ -35,6 +35,9 @@ html_title = 'Invitation to Computabitlity'
 jupyter_cache = ''
 jupyter_execute_notebooks = 'off'
 latex_engine = 'pdflatex'
+latex_elements = {
+'preamble': r'\input{latex_macros.sty.txt}',
+}
 myst_enable_extensions = ['colon_fence', 'dollarmath', 'linkify', 'substitution', 'tasklist']
 myst_url_schemes = ['mailto', 'http', 'https']
 nb_output_stderr = 'show'
