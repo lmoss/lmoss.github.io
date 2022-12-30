@@ -518,28 +518,28 @@ Successfully installed jedi-0.18.1 onesharp-0.0.0
 </div>
 </div>
 </div>
-<div class="proof definition admonition" id="definition-0">
+<div class="proof definition admonition" id="my-definition">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
 <div class="definition-content section" id="proof-content">
-<p>label: my-definition</p>
 <p>A word <span class="math notranslate nohighlight">\(u\)</span> is <em>universal</em> if the following holds:
 Let <span class="math notranslate nohighlight">\(p\)</span> be any
-program of 1#, or indeed any word on {1,#}. Let x be any word on {1,#},
-including possibly the empty word. Then the following are equivalent: <ol></p>
-<li> If p is started with all empty registers, then eventually we halt
-with x in R1. <li> If <i>u</i> is started with p in R1 and all other
-registers are empty, then eventually we halt with x in R1. </ol> <br> <p>
-<p>
-This means that <i>if</i> running p on all empty registers
+program of
+<span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span>, or indeed any word on <span class="math notranslate nohighlight">\(\{\mathtt{1},\mathtt{\#}\}\)</span>. Let <span class="math notranslate nohighlight">\(x\)</span> be any word on <span class="math notranslate nohighlight">\(\{\mathtt{1},\mathtt{\#}\}\)</span>,
+including possibly the empty word. Then the following two conditions are equivalent:</p>
+<p>(A) If <span class="math notranslate nohighlight">\(p\)</span> is started with all empty registers, then eventually we halt
+with <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
+<p>(B)  If <span class="math notranslate nohighlight">\(u\)</span> is started with <span class="math notranslate nohighlight">\(p\)</span> in R1 and all other
+registers are empty, then eventually we halt with <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
+<p>This means that <i>if</i> running <span class="math notranslate nohighlight">\(p\)</span> on all empty registers
 eventually gives some output in R1 (and all other registers empty),
-then that same output would be the result of running <i>u</i> with p
+then that same output would be the result of running <span class="math notranslate nohighlight">\(u\)</span> with <span class="math notranslate nohighlight">\(p\)</span>
 in R1 and all other registers empty.
-And in the other direction, <i>if</i> running p with
-all empty registers gives some output, say x,
- in R1 (and all registers 
+And in the other direction, <i>if</i> running <span class="math notranslate nohighlight">\(p\)</span> with
+all empty registers gives some output, say <span class="math notranslate nohighlight">\(x\)</span>,
+in R1 (and all registers
 empty
-at the end), then we would get the same output x in R1 
-when we run <i>u</i> with p in R1 and all other registers empty.
+at the end), then we would get the same output <span class="math notranslate nohighlight">\(x\)</span> in R1
+when we run <span class="math notranslate nohighlight">\(u\)</span> with <span class="math notranslate nohighlight">\(p\)</span> in R1 and all other registers empty.</p>
 </div>
 </div><p>Here is a specific example of this. Try running <i>u</i> with 1# 1## in
 R1.  The result is 1#, and this is what happens when we run 1# 1## on all
@@ -604,15 +604,14 @@ In more detail:
 <p>Let <span class="math notranslate nohighlight">\(p\)</span> be any
 program of <span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span> which only uses R1, R2, and R3.
 Let <span class="math notranslate nohighlight">\(x\)</span> be any word on our alphabet <span class="math notranslate nohighlight">\(\{\mathtt{1},\mathtt{\#}\}\)</span>,
-including possibly the empty word. Then the following are equivalent: <ol>
-\begin{enumerate}
-\item If <span class="math notranslate nohighlight">\(p\)</span> is started with all empty registers, then eventually we halt
-with <span class="math notranslate nohighlight">\(x\)</span> in R1.
-\item If <span class="math notranslate nohighlight">\(u\)</span> is started with <span class="math notranslate nohighlight">\(p\)</span> in R1 and with the empty word
+including possibly the empty word. Then the following are equivalent:</p>
+<p>(A’)
+If <span class="math notranslate nohighlight">\(p\)</span> is started with all empty registers, then eventually we halt
+with <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
+<p>(B’) If <span class="math notranslate nohighlight">\(u\)</span> is started with <span class="math notranslate nohighlight">\(p\)</span> in R1 and with the empty word
 in all other
-registers, then eventually we halt with <span class="math notranslate nohighlight">\(x\)</span> in R1.
-\end{enumerate}
-Once again, the work of this section sketches a construction of
+registers, then eventually we halt with <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
+<p>Once again, the work of this section sketches a construction of
 such a program <span class="math notranslate nohighlight">\(u\)</span>.   You will need to do much of the work yourself
 in actually getting the program from the sketch.  And even when we
 have <span class="math notranslate nohighlight">\(u\)</span>, it will not be quite what we want for this lesson overall,
@@ -1317,11 +1316,11 @@ someone else in the class.</p>
 <p>You should try it out to make sure that it works right. Some good test cases would include the case when R4 is empty, as it would be in the beginning of a run.</p>
 <p>So far, we have described how add# instructions would be implemented in a universal program. All of the same work goes for add1 instructions, of course, with just a few changes.</p>
 <p>It would take a bit more work to handle the case instructions, but again, this is pretty similar.</p>
-<img src="https://github.com/lmoss/onesharp/blob/main/pianotrumpet.jpg?raw=1" width="200" height="160"></div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="universal-programs-of-more-than-one-argument">
 <h1>Universal programs of more than one argument<a class="headerlink" href="#universal-programs-of-more-than-one-argument" title="Permalink to this headline">¶</a></h1>
-<img src="https://github.com/lmoss/onesharp/blob/main/basses.jpg?raw=1" width="200" height="160"><div class="exercise admonition" id="universal-exercise-1">
+<div class="exercise admonition" id="universal-exercise-1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
 <div class="section" id="exercise-content">
