@@ -637,8 +637,8 @@ Successfully installed jedi-0.18.1 onesharp-0.0.0
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>label: my-definition</p>
-<p>A word <i>u</i> is <em>universal</em> if the following holds:
-Let p be any
+<p>A word <span class="math notranslate nohighlight">\(u\)</span> is <em>universal</em> if the following holds:
+Let <span class="math notranslate nohighlight">\(p\)</span> be any
 program of 1#, or indeed any word on {1,#}. Let x be any word on {1,#},
 including possibly the empty word. Then the following are equivalent: <ol></p>
 <li> If p is started with all empty registers, then eventually we halt
@@ -717,8 +717,8 @@ We'll write a program $u$ that acts like a universal
 program, but only for programs which use only R1, R2, and R3.
 In more detail:
 <p>Let <span class="math notranslate nohighlight">\(p\)</span> be any
-program of <span class="math notranslate nohighlight">\(\one\hash\)</span> which only uses R1, R2, and R3.
-Let <span class="math notranslate nohighlight">\(x\)</span> be any word on our alphabet <span class="math notranslate nohighlight">\(\set{\one,\hash}\)</span>,
+program of <span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span> which only uses R1, R2, and R3.
+Let <span class="math notranslate nohighlight">\(x\)</span> be any word on our alphabet <span class="math notranslate nohighlight">\(\{\mathtt{1},\mathtt{\#}\}\)</span>,
 including possibly the empty word. Then the following are equivalent: <ol>
 \begin{enumerate}
 \item If <span class="math notranslate nohighlight">\(p\)</span> is started with all empty registers, then eventually we halt
@@ -754,8 +754,8 @@ write a universal program subject to this simplification.</p>
 </center>
 <br><p>
 That is, we are going to <strong>simulate</strong> the 
-computation of a register machine on a program p by
-using six registers.   Our universal program <i>u</i> is 
+computation of a register machine on a program $p$ by
+using six registers.   Our universal program $u$ is 
 what does the simulation, and it works step-by-step.  That is,
 $u$ mimics what a register machine would really do.
 The only difference is that one step of a real register machine
@@ -776,7 +776,7 @@ large chart.   This chart shows just one example
 of how a universal program could work, when we take
 <span class="math notranslate nohighlight">\(p\)</span>
 to be the prorgram <center>
-1##  + <i>write </i></p>
+<span class="math notranslate nohighlight">\(\mathtt{1\#\#}\)</span>  + <i>write </i></p>
 </center>
 <br>
 <p>
@@ -835,7 +835,7 @@ the instruction numbers above them:
 <p>
 What we are going to show is tables of what the various
 registers show after different parts of a run of a universal program
-<i>u</i> on this program 1## + <i>write</i>.
+<i>u</i> on this program $\mathtt{1\#\#}$ + <i>write</i>.
 We hasten to add that the universal program exhibited above
 does <i>not</i> conform to the tables. (This is because
 registers work differently in it.  Also,  the program
@@ -1440,9 +1440,8 @@ someone else in the class.</p>
 
 <p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
 <div class="section" id="exercise-content">
-<p>What is <span class="math notranslate nohighlight">\(\varphi_u(\textit{self})\)</span>?</p>
-<p>Incidentally, running u on self takes 22,376,608 steps, whereas running self on empty registers takes 3,322.
-‘’’</p>
+<p>What happens if we run the universal program <span class="math notranslate nohighlight">\(u\)</span> on the self-writing program <code class="docutils literal notranslate"><span class="pre">self</span></code>?</p>
+<p>Incidentally, running <span class="math notranslate nohighlight">\(u\)</span> on <code class="docutils literal notranslate"><span class="pre">self</span></code> takes 22,376,608 steps, whereas running <code class="docutils literal notranslate"><span class="pre">self</span></code> on empty registers takes 3,322.</p>
 </div>
 </div>
 <div class="exercise admonition" id="universal-exercise-2">
@@ -1458,7 +1457,8 @@ someone else in the class.</p>
 
 <p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
 <div class="section" id="exercise-content">
-<p>Write a program <code class="docutils literal notranslate"><span class="pre">self1</span></code> which writes itself to R1 but only uses that register. That is, self1 does not use any register besides R1.</p>
+<p>Write a program <code class="docutils literal notranslate"><span class="pre">self1</span></code> which writes itself to R1 but only uses R1 itself (no other registers).
+This exercise requires a trick, since there is no program like <code class="docutils literal notranslate"><span class="pre">diag</span></code> which only uses one register.</p>
 <p>[Hint: you will need the technique of coding several registers into R1.]</p>
 </div>
 </div>
