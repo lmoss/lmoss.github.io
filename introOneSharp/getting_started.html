@@ -432,9 +432,9 @@
 <p>To start, either download this notebook and run it locally, or else click on ‘Open in Colab’ above.  Then click on the triangle below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
-!python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
-from onesharp.interpreter.interpreter import *
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>setuptools
+<span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/lmoss/onesharp.git@main
+<span class="kn">from</span> <span class="nn">onesharp.interpreter.interpreter</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -446,32 +446,32 @@ from onesharp.interpreter.interpreter import *
 <p>To begin, here is an <em>interpreter</em> for <span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span>.  Even before learning how the language works, we want to see how to run programs by entering them into the interpreter along with inputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def end_strip(list): ## removes the tail of empty registers
-  if list == []:
-    return(list)
-  elif list[-1] == &#39;&#39;:
-    return(end_strip(list[:-1]))
-  else:
-    return(list)
-def remove_multiple_blanks(my_str):
-   return(my_str.replace(&quot; &quot;, &quot;&quot;))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">end_strip</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span> <span class="c1">## removes the tail of empty registers</span>
+  <span class="k">if</span> <span class="nb">list</span> <span class="o">==</span> <span class="p">[]:</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">end_strip</span><span class="p">(</span><span class="nb">list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">remove_multiple_blanks</span><span class="p">(</span><span class="n">my_str</span><span class="p">):</span>
+   <span class="k">return</span><span class="p">(</span><span class="n">my_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 
 
-program = &#39;11#####111111###111###1##1111####1#111111####&#39; #@param {type:&quot;string&quot;}
-R1 = &#39;#11###1&#39; #@param {type:&quot;string&quot;}
-R2 = &#39;11111#&#39; #@param {type:&quot;string&quot;}
-#R3 = &#39;&#39; #@param {type:&quot;string&quot;}
+<span class="n">program</span> <span class="o">=</span> <span class="s1">&#39;11#####111111###111###1##1111####1#111111####&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">R1</span> <span class="o">=</span> <span class="s1">&#39;#11###1&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="s1">&#39;11111#&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="c1">#R3 = &#39;&#39; #@param {type:&quot;string&quot;}</span>
 
-## For more registers, add lines here like
-## R4 = &#39;&#39; #@param {type:&quot;string&quot;}
-## You also must modify the definition of &#39;a&#39; below accordingly.
+<span class="c1">## For more registers, add lines here like</span>
+<span class="c1">## R4 = &#39;&#39; #@param {type:&quot;string&quot;}</span>
+<span class="c1">## You also must modify the definition of &#39;a&#39; below accordingly.</span>
 
-# First, we delete the last batch of empty registers
-# to simplify the output 
-a = [R1,R2]
-a = [remove_multiple_blanks(x) for x in a]
+<span class="c1"># First, we delete the last batch of empty registers</span>
+<span class="c1"># to simplify the output </span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">R1</span><span class="p">,</span><span class="n">R2</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">remove_multiple_blanks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
 
-onesharp(program,a)
+<span class="n">onesharp</span><span class="p">(</span><span class="n">program</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -658,7 +658,7 @@ and  <span class="math notranslate nohighlight">\(\one^k \hash^5\)</span> is an 
 <code class="docutils literal notranslate"><span class="pre">step_by_step</span></code> and <code class="docutils literal notranslate"><span class="pre">onesharp</span></code>.  These are illustrated in the next two cells.  Both of these programs are written in Python, not in <span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span>.  They both require as inputs a <span class="math notranslate nohighlight">\(\mathtt{1\#}\)</span> program followed by a sequence of register words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>onesharp(&#39;1#11#####1###1###&#39;,[&#39;1#1&#39;,&#39;#&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onesharp</span><span class="p">(</span><span class="s1">&#39;1#11#####1###1###&#39;</span><span class="p">,[</span><span class="s1">&#39;1#1&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -670,7 +670,7 @@ and  <span class="math notranslate nohighlight">\(\one^k \hash^5\)</span> is an 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>step_by_step(&#39;1#11#####1###1###&#39;,[&#39;1#1&#39;,&#39;#&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">step_by_step</span><span class="p">(</span><span class="s1">&#39;1#11#####1###1###&#39;</span><span class="p">,[</span><span class="s1">&#39;1#1&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -825,9 +825,9 @@ The output is 1#11.
 <p>All in all, the examples below show different formats for the input to our function step_by_step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p= &#39;1#&#39;
-q = &#39;#1&#39;
-step_by_step(p,[q,q,p])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span> <span class="s1">&#39;1#&#39;</span>
+<span class="n">q</span> <span class="o">=</span> <span class="s1">&#39;#1&#39;</span>
+<span class="n">step_by_step</span><span class="p">(</span><span class="n">p</span><span class="p">,[</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -934,10 +934,10 @@ The register contents at the end are shown above.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>step_by_step(p+q+p,[])
-# This is a comment.
-# the symbol + is used for concatenation of strings in Python.
-# Since p and q are strings, we can concatenate them
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">step_by_step</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">q</span><span class="o">+</span><span class="n">p</span><span class="p">,[])</span>
+<span class="c1"># This is a comment.</span>
+<span class="c1"># the symbol + is used for concatenation of strings in Python.</span>
+<span class="c1"># Since p and q are strings, we can concatenate them</span>
 </pre></div>
 </div>
 </div>
@@ -1071,10 +1071,10 @@ The register contents at the end are shown above.
 <p>So far in this notebook, we have only seen the function <code class="docutils literal notranslate"><span class="pre">step_by_step</span></code>.   If we want to run things “in one fell swoop”, we could use the function <code class="docutils literal notranslate"><span class="pre">onesharp(p,[r1,r2,</span> <span class="pre">.</span> <span class="pre">.</span> <span class="pre">.,</span> <span class="pre">rn])</span></code>.   It also takes two arguments, the first a program and the second a (possibly-empty) sequence of input words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>clear_1 = &#39;1##### 111### 11#### 111####&#39;
-onesharp(clear_1,[&#39;1111###1111##########&#39;])
-# You can also run the line above slowly by running
-# step_by_step(clear_1,[&#39;1111###1111##########&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clear_1</span> <span class="o">=</span> <span class="s1">&#39;1##### 111### 11#### 111####&#39;</span>
+<span class="n">onesharp</span><span class="p">(</span><span class="n">clear_1</span><span class="p">,[</span><span class="s1">&#39;1111###1111##########&#39;</span><span class="p">])</span>
+<span class="c1"># You can also run the line above slowly by running</span>
+<span class="c1"># step_by_step(clear_1,[&#39;1111###1111##########&#39;])</span>
 </pre></div>
 </div>
 </div>
