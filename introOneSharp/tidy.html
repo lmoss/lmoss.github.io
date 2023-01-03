@@ -111,7 +111,10 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
-   Getting started with 1#
+   Getting started with
+   <span class="math notranslate nohighlight">
+    \(\one\hash\)
+   </span>
   </a>
  </li>
  <li class="toctree-l1">
@@ -373,13 +376,17 @@ from onesharp.interpreter.interpreter import *
 </div>
 <p>Here are some examples of what we are after.  if the last line of a program <span class="math notranslate nohighlight">\(p\)</span> is <code class="docutils literal notranslate"><span class="pre">1#</span></code>, then that line transfers control outside of <span class="math notranslate nohighlight">\(p\)</span>, but only one line below the end. On the other hand, if a program <span class="math notranslate nohighlight">\(q\)</span> has exactly <span class="math notranslate nohighlight">\(10\)</span> lines, then we do not want line <span class="math notranslate nohighlight">\(8\)</span> to be <code class="docutils literal notranslate"><span class="pre">1111###</span></code>, since executing this line would take us to “line 12”.  So a run of <span class="math notranslate nohighlight">\(q\)</span> which reached line <span class="math notranslate nohighlight">\(8\)</span> would not halt.
 We would prefer to rewrite <span class="math notranslate nohighlight">\(q\)</span> to point to an infinite loop inside of the program.
-(There are reasons that we prefer programs to have explicit infinite loops instead of pointing to unwanted places.  One such reason appears in Exercise 4 below.  Other reasons for this preference will be revealed in due course.) What we are after here is a formal definition of tidiness, something that we will frequently use.</p>
-<p>We say that a program <span class="math notranslate nohighlight">\(p\)</span> is <em>tidy</em> if no instruction can possibly take us outside the program, except for going “one instruction below the end” of <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>Here is the formal definition:  Suppose that <span class="math notranslate nohighlight">\(p\)</span> has <span class="math notranslate nohighlight">\(N\)</span> lines.  Here are the requirements for <span class="math notranslate nohighlight">\(p\)</span> to be tidy:</p>
+(There are reasons that we prefer programs to have explicit infinite loops instead of pointing to unwanted places.  One such reason appears in <span class="xref std std-ref">on-tidiness</span> below.  Other reasons for this preference will be revealed in due course.)</p>
+<p>Informally, we say that a program <span class="math notranslate nohighlight">\(p\)</span> is <em>tidy</em> if no instruction can possibly take us outside the program, except for going “one instruction below the end” of <span class="math notranslate nohighlight">\(p\)</span>.<br />
+What we are after here is a formal definition of tidiness.</p>
+<div class="attention admonition">
+<p class="admonition-title">Definition</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is a program with <span class="math notranslate nohighlight">\(N\)</span> lines.  Here are the requirements for <span class="math notranslate nohighlight">\(p\)</span> to be tidy:</p>
 <p>(a) If line <span class="math notranslate nohighlight">\(i\)</span> is a forward transfer instruction
 <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">###</span></code>, then <span class="math notranslate nohighlight">\(i +k \leq N+1\)</span>.</p>
 <p>(b) If line <span class="math notranslate nohighlight">\(i\)</span> is a backward transfer instruction <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">####</span></code>, then <span class="math notranslate nohighlight">\(i-k \geq 1\)</span>.</p>
 <p>(c) If line <span class="math notranslate nohighlight">\(i\)</span> is a case instruction <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, then <span class="math notranslate nohighlight">\(k+2 \leq N\)</span>.</p>
+</div>
 <p>Here is a comment on condition (c).
 Suppose that <span class="math notranslate nohighlight">\(p\)</span> had <span class="math notranslate nohighlight">\(N\)</span> lines, and line <span class="math notranslate nohighlight">\(N\)</span> were a case instruction
 <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>. If Rk stared with a <code class="docutils literal notranslate"><span class="pre">#</span></code>, then executing <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code> would take us to line <span class="math notranslate nohighlight">\(N+3\)</span>, and there is no such line.
@@ -399,7 +406,7 @@ For the same reason, lines <span class="math notranslate nohighlight">\(N-1\)</s
 <p>Prove this proposition. (Alternatively, write a program in either Python or 1# which found a tidy version of an input program.)</p>
 </div>
 </div>
-<div class="exercise admonition" id="introOneSharp/tidy-exercise-2">
+<div class="exercise admonition" id="tidiness">
 
 <p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
 <div class="section" id="exercise-content">
