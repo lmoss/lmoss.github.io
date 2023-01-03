@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Self-Replicating Programs" href="../self_writing.html" />
+    <link rel="next" title="The Busy Beaver Problem" href="busyBeaver.html" />
     <link rel="prev" title="The T predicate" href="../t_predicate.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -193,6 +193,11 @@
    The halting problem
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="busyBeaver.html">
+   The Busy Beaver Problem
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -304,6 +309,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The halting problem
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corollaries">
+   Corollaries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improvement-for-one-register-programs">
+   Improvement for one-register programs
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -316,6 +344,29 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The halting problem
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#corollaries">
+   Corollaries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improvement-for-one-register-programs">
+   Improvement for one-register programs
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -367,7 +418,8 @@ q \quadeq \copyprog_{1,2,3} + p +
  + \one^2 \hash^3  
  + \one^{k + 2} \hash^4 
 \]</div>
-<p>But now, take <span class="math notranslate nohighlight">\(a\)</span> to be <span class="math notranslate nohighlight">\(q\)</span>.
+<p>Then <span class="math notranslate nohighlight">\(q\)</span> has the property that we want.
+But now, take <span class="math notranslate nohighlight">\(a\)</span> to be <span class="math notranslate nohighlight">\(q\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
 \[
@@ -379,6 +431,30 @@ Then</p>
 <p>Look up <a class="reference external" href="http://www.lel.ed.ac.uk/~gpullum/loopsnoop.html">this setting of the proof</a> by Geoffrey Pullum in the spirit of Dr. Seuss.</p>
 </div>
 </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="corollaries">
+<h1>Corollaries<a class="headerlink" href="#corollaries" title="Permalink to this headline">¶</a></h1>
+<p>There are a number of corollaries to the basic undecidability result.</p>
+<div class="proof corollary admonition" id="corollary-1">
+<p class="admonition-title"><span class="caption-number">Corollary 1 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>The set of programs which halt when run on all empty registers is undecidable.</p>
+</div>
+</div><div class="proof corollary admonition" id="corollary-2">
+<p class="admonition-title"><span class="caption-number">Corollary 2 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>The set of programs which halt when run on themselves is undecidable.</p>
+</div>
+</div></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="improvement-for-one-register-programs">
+<h1>Improvement for one-register programs<a class="headerlink" href="#improvement-for-one-register-programs" title="Permalink to this headline">¶</a></h1>
+<p>There is also an improved version of the basic result.</p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the set of programs which are tidy and which only use one register.</p>
+<div class="proof corollary admonition" id="corollary-3">
+<p class="admonition-title"><span class="caption-number">Corollary 3 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>The halting problem is undecidable even for programs in <span class="math notranslate nohighlight">\(A\)</span> when run on all emtpy registers.</p>
+</div>
+</div></div>
 
     <script type="text/x-thebe-config">
     {
@@ -412,10 +488,10 @@ Then</p>
             <p class="prev-next-title">The T predicate</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../self_writing.html" title="next page">
+    <a class='right-next' id="next-link" href="busyBeaver.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Self-Replicating Programs</p>
+        <p class="prev-next-title">The Busy Beaver Problem</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

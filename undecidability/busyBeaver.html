@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tidy programs &#8212; Invitation to Computabitlity</title>
+    <title>The Busy Beaver Problem &#8212; Invitation to Computabitlity</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tools to help write programs" href="../sanity.html" />
-    <link rel="prev" title="Functions defined by programs" href="functions.html" />
+    <link rel="next" title="Self-Replicating Programs" href="../self_writing.html" />
+    <link rel="prev" title="The halting problem" href="haltingProblem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,9 +108,9 @@
   Text Register Machine Programs
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="getting_started.html">
+  <a class="reference internal" href="../introOneSharp/getting_started.html">
    Getting started with
    <span class="math notranslate nohighlight">
     \(\one\hash\)
@@ -118,22 +118,22 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="move_copy_write.html">
+  <a class="reference internal" href="../introOneSharp/move_copy_write.html">
    Simple programs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="haltDef.html">
+  <a class="reference internal" href="../introOneSharp/haltDef.html">
    When does a program halt?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
+  <a class="reference internal" href="../introOneSharp/functions.html">
    Functions defined by programs
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introOneSharp/tidy.html">
    Tidy programs
   </a>
  </li>
@@ -187,14 +187,14 @@
   Undecidability
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../undecidability/haltingProblem.html">
+  <a class="reference internal" href="haltingProblem.html">
    The halting problem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../undecidability/busyBeaver.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    The Busy Beaver Problem
   </a>
  </li>
@@ -251,7 +251,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/introOneSharp/tidy.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/undecidability/busyBeaver.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -271,7 +271,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2FintroOneSharp/tidy.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fundecidability/busyBeaver.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -292,7 +292,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/introOneSharp/tidy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/undecidability/busyBeaver.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -309,24 +309,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tidy programs
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strong-equivalence-to-tidy-programs">
-   Strong equivalence to tidy programs
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -334,108 +316,61 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tidy programs</h1>
+                <h1>The Busy Beaver Problem</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tidy programs
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strong-equivalence-to-tidy-programs">
-   Strong equivalence to tidy programs
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/introOneSharp/tidy.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="tidy-programs">
-<h1>Tidy programs<a class="headerlink" href="#tidy-programs" title="Permalink to this headline">¶</a></h1>
-<p>We next come to an important definition concerning programs.
-When a program is executed, each line either transers control to another line, or to some “line” outside the program.  If line k is an instruction of the form <code class="docutils literal notranslate"><span class="pre">1^k#</span></code> or <code class="docutils literal notranslate"><span class="pre">1^k##</span></code>, then after line k is executed we go to line k + 1.  Of course, both of these statements assume that there is a line k + 1.  If line k is the last line of the program, then “line k+1” does not exist.  But in this case, we say that the program has <em>halted</em>.</p>
-<p>A similar statement holds for the transfer instructions.
-If line k is <code class="docutils literal notranslate"><span class="pre">1^m</span> <span class="pre">###</span></code>, then after line k is executed we go to line k + m, provided there is such a line in the program.  If the program has N lines and k + m = N+1, then after line k is executed, the program has <em>halted</em>.  If k + m &gt; N+1, then the program has not halted; it is <em>stuck</em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m pip install -U setuptools
-!python -m pip install -U git+https://github.com/lmoss/onesharp.git@main
-from onesharp.interpreter.interpreter import *
-</pre></div>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/undecidability/busyBeaver.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-busy-beaver-problem">
+<h1>The Busy Beaver Problem<a class="headerlink" href="#the-busy-beaver-problem" title="Permalink to this headline">¶</a></h1>
+<p>Let <span class="math notranslate nohighlight">\(BB(n)\)</span> be the  largest number of <span class="math notranslate nohighlight">\(\one\)</span>s produced by
+any <span class="math notranslate nohighlight">\(\one\hash\)</span>-program with <span class="math notranslate nohighlight">\(\leq n\)</span>
+instructions
+which halts properly.</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>There is no program <span class="math notranslate nohighlight">\(\mathtt{beaver}\)</span> such that
+for all <span class="math notranslate nohighlight">\(n\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{lcl}
+\phi^2_{\mathtt{beaver}}(\one^n) &amp; = &amp; \one^{BB(n)}
+\end{array}
+\]</div>
 </div>
-</div>
-</div>
-<p>Here are some examples of what we are after.  if the last line of a program <span class="math notranslate nohighlight">\(p\)</span> is <code class="docutils literal notranslate"><span class="pre">1#</span></code>, then that line transfers control outside of <span class="math notranslate nohighlight">\(p\)</span>, but only one line below the end. On the other hand, if a program <span class="math notranslate nohighlight">\(q\)</span> has exactly <span class="math notranslate nohighlight">\(10\)</span> lines, then we do not want line <span class="math notranslate nohighlight">\(8\)</span> to be <code class="docutils literal notranslate"><span class="pre">1111###</span></code>, since executing this line would take us to “line 12”.  So a run of <span class="math notranslate nohighlight">\(q\)</span> which reached line <span class="math notranslate nohighlight">\(8\)</span> would not halt.
-We would prefer to rewrite <span class="math notranslate nohighlight">\(q\)</span> to point to an infinite loop inside of the program.
-(There are reasons that we prefer programs to have explicit infinite loops instead of pointing to unwanted places.  One such reason appears in <span class="xref std std-ref">on-tidiness</span> below.  Other reasons for this preference will be revealed in due course.)</p>
-<p>Informally, we say that a program <span class="math notranslate nohighlight">\(p\)</span> is <em>tidy</em> if no instruction can possibly take us outside the program, except for going “one instruction below the end” of <span class="math notranslate nohighlight">\(p\)</span>.<br />
-What we are after here is a formal definition of tidiness.</p>
-<div class="attention admonition">
-<p class="admonition-title">Definition</p>
-<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is a program with <span class="math notranslate nohighlight">\(N\)</span> lines.  Here are the requirements for <span class="math notranslate nohighlight">\(p\)</span> to be tidy:</p>
-<p>(a) If line <span class="math notranslate nohighlight">\(i\)</span> is a forward transfer instruction
-<code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">###</span></code>, then <span class="math notranslate nohighlight">\(i +k \leq N+1\)</span>.</p>
-<p>(b) If line <span class="math notranslate nohighlight">\(i\)</span> is a backward transfer instruction <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">####</span></code>, then <span class="math notranslate nohighlight">\(i-k \geq 1\)</span>.</p>
-<p>(c) If line <span class="math notranslate nohighlight">\(i\)</span> is a case instruction <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, then <span class="math notranslate nohighlight">\(k+2 \leq N\)</span>.</p>
-</div>
-<p>Here is a comment on condition (c).
-Suppose that <span class="math notranslate nohighlight">\(p\)</span> had <span class="math notranslate nohighlight">\(N\)</span> lines, and line <span class="math notranslate nohighlight">\(N\)</span> were a case instruction
-<code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>. If Rk stared with a <code class="docutils literal notranslate"><span class="pre">#</span></code>, then executing <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code> would take us to line <span class="math notranslate nohighlight">\(N+3\)</span>, and there is no such line.
-For the same reason, lines <span class="math notranslate nohighlight">\(N-1\)</span> and <span class="math notranslate nohighlight">\(N-2\)</span> cannot be case instructions.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="strong-equivalence-to-tidy-programs">
-<h1>Strong equivalence to tidy programs<a class="headerlink" href="#strong-equivalence-to-tidy-programs" title="Permalink to this headline">¶</a></h1>
-<div class="proof proposition admonition" id="proposition-0">
-<p class="admonition-title"><span class="caption-number">Proposition 1 </span></p>
-<div class="proposition-content section" id="proof-content">
-<p>Every program is strongly equivalent to a tidy program.</p>
-</div>
-</div><div class="exercise admonition" id="introOneSharp/tidy-exercise-1">
-
-<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
-<div class="section" id="exercise-content">
-<p>Prove this proposition. (Alternatively, write a program in either Python or 1# which found a tidy version of an input program.)</p>
-</div>
-</div>
-<div class="exercise admonition" id="tidiness">
-
-<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
-<div class="section" id="exercise-content">
-<p>If <span class="math notranslate nohighlight">\(p\)</span> is tidy, show that <span class="math notranslate nohighlight">\(p\)</span> is strongly equivalent to any program of the form</p>
-<p><code class="docutils literal notranslate"><span class="pre">1###</span></code> <code class="docutils literal notranslate"><span class="pre">1###</span></code> <span class="math notranslate nohighlight">\(\cdots\)</span> <code class="docutils literal notranslate"><span class="pre">1###</span></code> <code class="docutils literal notranslate"><span class="pre">p</span></code> <code class="docutils literal notranslate"><span class="pre">1###</span></code> <code class="docutils literal notranslate"><span class="pre">1###</span> </code><span class="math notranslate nohighlight">\(\cdots\)</span> <code class="docutils literal notranslate"><span class="pre">1###</span></code></p>
-<p>Show that all three parts of the definition of tidiness are needed in order to show this fact.</p>
-</div>
-</div>
-<div class="exercise admonition" id="back-transfer">
-
-<p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
-<div class="section" id="exercise-content">
-<p>Let <span class="math notranslate nohighlight">\(p\)</span> be a tidy program.  Show that there is a program <span class="math notranslate nohighlight">\(q\)</span> with the following properties:</p>
-<p>(a) <span class="math notranslate nohighlight">\(q\)</span> is strongly equivalent to <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>(b) In <span class="math notranslate nohighlight">\(q\)</span>, every backward-transfer instruction points to the top of the program.  That is, if line <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(q\)</span> is <span class="math notranslate nohighlight">\(\one^k \hash^4\)</span>, then <span class="math notranslate nohighlight">\(k = i-1\)</span>.</p>
-</div>
-</div>
-<div class="exercise admonition" id="introOneSharp/tidy-exercise-4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
-<div class="section" id="exercise-content">
-<p>Show that the union of two computably enumerable sets is computably enumerable.</p>
-<p>[Hint: use <a class="reference internal" href="#back-transfer"><span class="std std-numref">Exercise 21</span></a>.]</p>
-</div>
+</div><p>This is the statement for unary encoding of numbers,
+but the same result works for other encodings.</p>
+<div class="proof admonition" id="proof">
+<p>Proof. Suppose that the <span class="math notranslate nohighlight">\(\one\hash\)</span> program
+<span class="math notranslate nohighlight">\(\mathtt{beaver}\)</span> computed <span class="math notranslate nohighlight">\(BB\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathtt{square}\)</span> be a <span class="math notranslate nohighlight">\(\one\hash\)</span> program  to
+compute <span class="math notranslate nohighlight">\(n \to n^2\)</span>, using unary notation.</p>
+<p>Consider the programs  <span class="math notranslate nohighlight">\(p_{n}\)</span> for <span class="math notranslate nohighlight">\(n\in N\)</span>, given by</p>
+<div class="math notranslate nohighlight">
+\[
+p_n \quadeq (\one\hash)^{n} + \mathtt{square} + 
+\mathtt{beaver} + \one\hash
+\]</div>
+<p>Then <span class="math notranslate nohighlight">\(\phifn_{p_{n}}(\ )\)</span> halts and outputs <span class="math notranslate nohighlight">\(BB(n^2) + 1\)</span> ones.</p>
+<p>Notice that the number of instructions in <span class="math notranslate nohighlight">\(p_n\)</span> is <em>linear in <span class="math notranslate nohighlight">\(n\)</span></em>.</p>
+<p>Let <span class="math notranslate nohighlight">\(N\)</span> be large enough so that
+<span class="math notranslate nohighlight">\(N^2\)</span> is larger than the number of instructions in <span class="math notranslate nohighlight">\(p_N\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lclclcl}
+BB(N^2) &amp; \geq  &amp; \phifn_{p_N}(\ ) &amp; = &amp; BB(N^2) + 1 \\
+\end{array}
+\end{split}\]</div>
+<p>Contradiction!</p>
 </div>
 </div>
 
@@ -452,7 +387,7 @@ For the same reason, lines <span class="math notranslate nohighlight">\(N-1\)</s
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./introOneSharp"
+            path: "./undecidability"
         },
         predefinedOutput: true
     }
@@ -464,17 +399,17 @@ For the same reason, lines <span class="math notranslate nohighlight">\(N-1\)</s
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="functions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="haltingProblem.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Functions defined by programs</p>
+            <p class="prev-next-title">The halting problem</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../sanity.html" title="next page">
+    <a class='right-next' id="next-link" href="../self_writing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tools to help write programs</p>
+        <p class="prev-next-title">Self-Replicating Programs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
