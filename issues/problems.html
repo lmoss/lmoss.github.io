@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The halting problem &#8212; Invitation to Computability</title>
+    <title>Post’s correspondence problem &#8212; Invitation to Computability</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The busy beaver problem" href="busyBeaver.html" />
-    <link rel="prev" title="The T predicate" href="../t_predicate.html" />
+    <link rel="next" title="Tools to help write programs" href="../sanity.html" />
+    <link rel="prev" title="Tidy programs" href="../introOneSharp/tidy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -140,9 +140,9 @@
   Issues
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../issues/problems.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Post’s correspondence problem
   </a>
  </li>
@@ -203,24 +203,24 @@
   Undecidability
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../undecidability/haltingProblem.html">
    The halting problem
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="busyBeaver.html">
+  <a class="reference internal" href="../undecidability/busyBeaver.html">
    The busy beaver problem
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tiling.html">
+  <a class="reference internal" href="../undecidability/tiling.html">
    Tiling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="post.html">
+  <a class="reference internal" href="../undecidability/post.html">
    Post’s Correspondence Problem
   </a>
  </li>
@@ -277,7 +277,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/undecidability/haltingProblem.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/issues/problems.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -297,7 +297,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fundecidability/haltingProblem.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fissues/problems.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -318,7 +318,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/undecidability/haltingProblem.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/issues/problems.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -335,29 +335,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   The halting problem
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#corollaries">
-   Corollaries
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#improvement-for-one-register-programs">
-   Improvement for one-register programs
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -365,131 +342,155 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The halting problem</h1>
+                <h1>Post’s correspondence problem</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   The halting problem
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#corollaries">
-   Corollaries
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#improvement-for-one-register-programs">
-   Improvement for one-register programs
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/undecidability/haltingProblem.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="the-halting-problem">
-<h1>The halting problem<a class="headerlink" href="#the-halting-problem" title="Permalink to this headline">¶</a></h1>
-<p>We come to one of the most famous and most basic results in computability theory.</p>
-<div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>There is no program <span class="math notranslate nohighlight">\(p\)</span> such that
-for all words <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>,</p>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/issues/problems.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="post-s-correspondence-problem">
+<h1>Post’s correspondence problem<a class="headerlink" href="#post-s-correspondence-problem" title="Permalink to this headline">¶</a></h1>
+<p>An <em>alphabet</em> is just a set <span class="math notranslate nohighlight">\(A\)</span> of symbols.</p>
+<p>Given an alphabet <span class="math notranslate nohighlight">\(A\)</span>, we define</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{lcl}
-\phifn^2_p(x,y) &amp; = &amp; \left\{
-\begin{array}{ll}
-\one &amp; \mbox{if $\phifn_x(y)\dar$}\\
-\hash &amp;  \mbox{if $\phifn_x(y)\uparrow$}
-\end{array}
-\right.
+A^+ &amp; = &amp; \set{a_1 a_2 \cdots a_n : n \in N,  n\geq 0, \mbox{ and } a_i\in A \mbox{ for all $i$}}\\
+A^* &amp; = &amp; A^+ \cup\set{\epsilon}\\
 \end{array}
 \end{split}\]</div>
+<p>So <span class="math notranslate nohighlight">\(A^+\)</span> is the set of <em>non-empty</em> words on <span class="math notranslate nohighlight">\(A\)</span>.
+And <span class="math notranslate nohighlight">\(A^*\)</span> adds in the <em>empty word</em> <span class="math notranslate nohighlight">\(\eps\)</span>.</p>
+<p>We are given   a finite set of dominoes,
+each of which has two non-empty words on it,
+a word <em>on the top</em> and a word <em>on the bottom</em>.</p>
+<p>\begin{flushleft}
+\begin{tikzpicture}[scale=.8]
+\foreach \x in {0,2.5,5,7.5,10,12.5}
+\foreach \y in {0}
+{
+\draw (\x, \y)    rectangle ++(2,2);
+};
+\draw  (11,1.5) node{abab};  %% north
+\draw  (11,.5) node{ababaa};  %% south</p>
+<p>\draw  (3.5,1.5) node{aaabbb};  %% north
+\draw  (3.5,.5) node{bb};  %% south</p>
+<p>\draw  (6,1.5) node{aab};  %% north
+\draw  (6,.5) node{baab};  %% south</p>
+<p>\draw  (8.5,1.5) node{ba};  %% north
+\draw  (8.5,.5) node{baa};  %% south</p>
+<p>\draw  (1,1.5) node{ab};  %% north
+\draw (1,.5) node{ba}; %% east</p>
+<p>\draw  (13.5,1.5) node{aa};  %% north
+\draw  (13.5,.5) node{a};  %% south
+\end{tikzpicture}
+\end{flushleft}
+We have an unlimited supply of all of these dominoes.</p>
+<div class="danger admonition">
+<p class="admonition-title">Problem</p>
+<p>Can we place a  finite row of dominoes
+in such a way that the words on the top
+<em>concatenate to</em> the same thing as the words on the bottom?</p>
+<p>Let’s call this a <em>Post sequence</em>.</p>
 </div>
-</div><p>Here is the proof.
-Suppose toward a contradiction that we had such a program <span class="math notranslate nohighlight">\(p\)</span>.
-Modifying <span class="math notranslate nohighlight">\(p\)</span>, we get a program <span class="math notranslate nohighlight">\(q\)</span> so that for all <span class="math notranslate nohighlight">\(a\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{lcl}
-\phifn^1_q(a) &amp; = &amp; \left\{
-\begin{array}{ll}
-\uparrow &amp; \mbox{if $\phifn_a(a)\dar$}\\
-\downarrow&amp;  \mbox{if $\phifn_a(a)\uparrow$}
-\end{array}
-\right.
-\end{array}
-\end{split}\]</div>
-<p>Here’s how this would be done.
-Assume that <span class="math notranslate nohighlight">\(p\)</span> preserves its input.
-Let <span class="math notranslate nohighlight">\(p\)</span> have <span class="math notranslate nohighlight">\(k\)</span> instructions.
-Let</p>
-<div class="math notranslate nohighlight">
-\[
-q \quadeq \copyprog_{1,2,3} + p +
-\one^3\hash^5
- + \one^2 \hash^3  
- + \one^{k + 2} \hash^4 
-\]</div>
-<p>Then <span class="math notranslate nohighlight">\(q\)</span> has the property that we want.
-But now, take <span class="math notranslate nohighlight">\(a\)</span> to be <span class="math notranslate nohighlight">\(q\)</span>.
-Then</p>
-<div class="math notranslate nohighlight">
-\[
-\phifn_q(q)\dar   \quadiff \phifn_q(q)\uparrow.
-\]</div>
-<p>Contradiction!</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Look up <a class="reference external" href="http://www.lel.ed.ac.uk/~gpullum/loopsnoop.html">this setting of the proof</a> by Geoffrey Pullum in the spirit of Dr. Seuss.</p>
+<p>For this particular set of dominoes, the answer is <em>Yes</em>:</p>
+<p>\begin{flushleft}
+\begin{tikzpicture}[scale=.7]
+\foreach \x in {0,2.5,5,7.5,10,12.5,15}
+\foreach \y in {0}
+{
+\draw (\x, \y)    rectangle ++(2,2);
+};</p>
+<p>\draw  (3.5,1.5) node{aaabbb};  %% north
+\draw  (3.5,.5) node{bb};  %% south</p>
+<p>\draw  (6,1.5) node{aab};  %% north
+\draw  (6,.5) node{baab};  %% south</p>
+<p>\draw  (8.5,1.5) node{ba};  %% north
+\draw  (8.5,.5) node{baa};  %% south</p>
+<p>\draw  (1,1.5) node{abab};  %% north
+\draw  (1,.5) node{ababaa};  %% south</p>
+<p>\draw  (11,1.5) node{ab};  %% north
+\draw (11,.5) node{ba}; %% east</p>
+<p>\draw  (13.5,1.5) node{ab};  %% north
+\draw  (13.5,.5) node{ba};  %% south</p>
+<p>\draw  (16,1.5) node{aa};  %% north
+\draw  (16,.5) node{a};  %% south</p>
+<p>\end{tikzpicture}
+\end{flushleft}
+The common word is <span class="math notranslate nohighlight">\(ababaaabbbaabbaababaa\)</span>.</p>
+<p>\begin{flushleft}
+\begin{tikzpicture}
+\foreach \x in {0,2.5}
+\foreach \y in {0}
+{
+\draw (\x, \y)    rectangle ++(2,2);
+};</p>
+<p>\draw  (1,1.5) node{a};  %% north
+\draw  (1,.5) node{ab};  %% south
+\draw  (3.5,1.5) node{baa};  %% north
+\draw  (3.5,.5) node{aab};  %% south
+\ \end{tikzpicture}
+\end{flushleft}</p>
+<p>This one has no  Post sequence.    Can you see why?</p>
+<p>But if we add the additional domino
+\begin{flushleft}
+\begin{tikzpicture}
+\foreach \x in {0}
+\foreach \y in {0}
+{
+\draw (\x, \y)    rectangle ++(2,2);
+};</p>
+<p>\draw  (1,1.5) node{bba};  %% north
+\draw  (1,.5) node{ba};  %% south</p>
+<p>\ \end{tikzpicture}
+\end{flushleft}
+We get a set of three dominoes which does have a Post sequence.<br />
+Can you find it?</p>
+<p>\begin{flushleft}
+\begin{tikzpicture}
+\foreach \x in {0,2.5,5}
+\foreach \y in {0}
+{
+\draw (\x, \y)    rectangle ++(2,2);
+};</p>
+<p>\draw  (1,1.5) node{abb};  %% north
+\draw  (1,.5) node{a};  %% south
+\draw  (3.5,1.5) node{b};  %% north
+\draw  (3.5,.5) node{abb};  %% south
+\draw  (5.5,1.5) node{a};  %% north
+\draw  (5.5,.5) node{b};  %% south
+\ \end{tikzpicture}
+\end{flushleft}</p>
+<p>The two shortest Post sequences are of length 75.</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Post, 1946)</p>
+<div class="theorem-content section" id="proof-content">
+<p>There is no algorithm which,
+when given <em>any</em> finite set of dominoes with two words on each,
+tells <em>in finite time</em>
+whether or not one can find a Post sequence for the given domino set.</p>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="corollaries">
-<h1>Corollaries<a class="headerlink" href="#corollaries" title="Permalink to this headline">¶</a></h1>
-<p>There are a number of corollaries to the basic undecidability result.</p>
-<div class="proof corollary admonition" id="corollary-1">
-<p class="admonition-title"><span class="caption-number">Corollary 1 </span></p>
-<div class="corollary-content section" id="proof-content">
-<p>The set of programs which halt when run on all empty registers is undecidable.</p>
-</div>
-</div><div class="proof corollary admonition" id="corollary-2">
-<p class="admonition-title"><span class="caption-number">Corollary 2 </span></p>
-<div class="corollary-content section" id="proof-content">
-<p>The set of programs which halt when run on themselves is undecidable.</p>
-</div>
-</div></div>
-<div class="tex2jax_ignore mathjax_ignore section" id="improvement-for-one-register-programs">
-<h1>Improvement for one-register programs<a class="headerlink" href="#improvement-for-one-register-programs" title="Permalink to this headline">¶</a></h1>
-<p>There is also an improved version of the basic result.</p>
-<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the set of programs which are tidy and which only use one register.</p>
-<div class="proof corollary admonition" id="corollary-3">
-<p class="admonition-title"><span class="caption-number">Corollary 3 </span></p>
-<div class="corollary-content section" id="proof-content">
-<p>The halting problem is undecidable even for programs in <span class="math notranslate nohighlight">\(A\)</span> when run on all emtpy registers.</p>
-</div>
-</div><div class="exercise admonition" id="undecidability/haltingProblem-exercise-4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
-<div class="section" id="exercise-content">
-<p>The language <span class="math notranslate nohighlight">\(\one\hash\)</span> has infinitely many instructions: the instructions are the words <span class="math notranslate nohighlight">\(\one^k \hash^{\ell}\)</span>, where <span class="math notranslate nohighlight">\(k\in \N\)</span> and <span class="math notranslate nohighlight">\(1\leq \ell\leq 5\)</span>.</p>
-<p>For each finite set <span class="math notranslate nohighlight">\(F\)</span> of <span class="math notranslate nohighlight">\(\one\hash\)</span> instructions, we can consider <span class="math notranslate nohighlight">\(H_F\)</span>, the set of programs <span class="math notranslate nohighlight">\(p\)</span> built using the instructions of <span class="math notranslate nohighlight">\(F\)</span> (and no others) such that <span class="math notranslate nohighlight">\(\phifn_p(\ )\dar\)</span>.</p>
-<p>For example, if <span class="math notranslate nohighlight">\(F = \set{\one\hash, \one\hash\hash}\)</span>, then <span class="math notranslate nohighlight">\(H_F\)</span> is decidable.  This is because every program built from these two instructions halts.</p>
-<p>Find a finite set <span class="math notranslate nohighlight">\(F\)</span> such that <span class="math notranslate nohighlight">\(H_F\)</span> is undecidable.</p>
-</div>
-</div>
+</div><p>We are going to see a proof of this result.
+It is very important to understand the statement of
+this kind of result,
+since frequently people get it wrong.
+It does <em>not</em> say that that for each particular domino set
+we cannot tell if there is a Post sequence or not.</p>
+<p>It also doesn’t say that there is no “fact of the matter” whether
+a given domino set has or doesn’t have a Post sequence.</p>
+<p><em>PCP</em> is the set of finite domino sets which have a Post sequence.
+To say <em>PCP is decidable</em> means that <em>there is</em>
+a
+computable function <span class="math notranslate nohighlight">\(f\)</span>
+which inputs a domino set <span class="math notranslate nohighlight">\(\DD\)</span> and says Yes or No as to whether
+<span class="math notranslate nohighlight">\(\DD\)</span> has a Post sequence.
+To say <em>PCP is undecidable</em> means that   <em>there is no</em>
+computable function <span class="math notranslate nohighlight">\(f\)</span> like this.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -505,7 +506,7 @@ Then</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./undecidability"
+            path: "./issues"
         },
         predefinedOutput: true
     }
@@ -517,17 +518,17 @@ Then</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../t_predicate.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../introOneSharp/tidy.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The T predicate</p>
+            <p class="prev-next-title">Tidy programs</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="busyBeaver.html" title="next page">
+    <a class='right-next' id="next-link" href="../sanity.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The busy beaver problem</p>
+        <p class="prev-next-title">Tools to help write programs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
