@@ -1,6 +1,6 @@
  % pdftocairo  -x 50 -y 50  -H 270 -f 1 -l 1 -png pictures.pdf 
- % pdftocairo  -x 50 -y 50  -H 600 -f 2 -l 2 -png pictures.pdf 
-
+ % pdftocairo  -x 50 -y 50  -H 570 -f 2 -l 2 -png pictures.pdf 
+ % pdftocairo  -x 50 -y 50  -H 610 -f 3 -l 3 -png pictures.pdf 
 
 \documentclass[12pt]{article}
 
@@ -153,8 +153,9 @@ $\begin{array}{lllll}
 \begin{tikzpicture}[scale=1.3]  
 \filldraw[fill=blue](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
 \filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
-\filldraw[fill=lime] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=magenta] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
 \filldraw[fill=olive] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);
+%\filldraw[fill=green] (\a+\inc,\b+\inc) -- (\a+\side-\inc, \b+\inc) -- (\a+\side-\inc,\b+\side-\inc) -- (\a+\inc,\b+\side-\inc) --  (\a+\inc,\b+\inc);
 \tikzmath{
   \a = -1.5;
   \b = -3;
