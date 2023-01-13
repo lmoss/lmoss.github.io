@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The busy beaver problem &#8212; Invitation to Computability</title>
+    <title>Logic &#8212; Invitation to Computability</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -47,8 +47,6 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"quadiff": ["\\quad\\mbox{iff}\\quad"], "quadeq": ["\\quad =\\quad"], "dar": ["\\downarrow"], "uar": ["\\uparrow"], "eps": ["\\varepsilon"], "id": ["id"], "o": ["\\circ"], "N": "\\mathbb{N}", "set": ["\\left\\{#1\\right\\}", 1], "one": ["\\mathtt{1}"], "hash": ["\\mathtt{\\#}"], "diag": ["\\mathtt{diag}"], "self": ["\\mathtt{self}"], "copyprog": ["\\mathtt{copy}"], "clearprog": ["\\mathtt{clear}"], "writeprog": ["\\mathtt{write}"], "writetotwo": ["\\mathtt{write}_2"], "semantics": ["[\\![#1]\\!]", 1], "semanticsalt": ["\\langle\\!\\langle #1\\rangle\\!\\rangle", 1], "moveprog": ["\\mathtt{move}"], "moveprogtwoone": ["\\mathtt{move}_{2,1}"], "phifn": ["\\varphi"], "Tile": ["\\mathit{Tile}"], "TT": ["\\mathcal{T}"], "Rone": ["R1"], "Rtwo": ["R2"], "words": ["\\mbox{words}"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -58,8 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tiling" href="tiling.html" />
-    <link rel="prev" title="The halting problem" href="haltingProblem.html" />
+    <link rel="next" title="Self-Replicating Programs" href="../self_writing.html" />
+    <link rel="prev" title="Post’s Correspondence Problem" href="post.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -224,8 +222,8 @@
    The halting problem
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="busyBeaver.html">
    The busy beaver problem
   </a>
  </li>
@@ -239,8 +237,8 @@
    Post’s Correspondence Problem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="church.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Logic
   </a>
  </li>
@@ -297,7 +295,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/undecidability/busyBeaver.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/undecidability/church.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -317,7 +315,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fundecidability/busyBeaver.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lmoss/onesharp/issues/new?title=Issue%20on%20page%20%2Fundecidability/church.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -338,7 +336,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/undecidability/busyBeaver.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lmoss/onesharp/main?urlpath=tree/docs/undecidability/church.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -362,7 +360,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The busy beaver problem</h1>
+                <h1>Logic</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -373,67 +371,10 @@
             
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/undecidability/busyBeaver.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="the-busy-beaver-problem">
-<h1>The busy beaver problem<a class="headerlink" href="#the-busy-beaver-problem" title="Permalink to this headline">¶</a></h1>
-<p>Let <span class="math notranslate nohighlight">\(BB(n)\)</span> be the  largest number of <span class="math notranslate nohighlight">\(\one\)</span>s produced by
-any <span class="math notranslate nohighlight">\(\one\hash\)</span>-program with <span class="math notranslate nohighlight">\(\leq n\)</span>
-instructions
-which halts properly.</p>
-<div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>There is no program <span class="math notranslate nohighlight">\(\mathtt{beaver}\)</span> such that
-for all <span class="math notranslate nohighlight">\(n\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-\begin{array}{lcl}
-\phifn_{\mathtt{beaver}}(\one^n) &amp; = &amp; \one^{BB(n)}
-\end{array}
-\]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Suppose that the <span class="math notranslate nohighlight">\(\one\hash\)</span> program
-<span class="math notranslate nohighlight">\(\mathtt{beaver}\)</span> computed <span class="math notranslate nohighlight">\(BB\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(\mathtt{square}\)</span> be a <span class="math notranslate nohighlight">\(\one\hash\)</span> program  to
-compute <span class="math notranslate nohighlight">\(n \to n^2\)</span>, using unary notation.</p>
-<p>Consider the programs  <span class="math notranslate nohighlight">\(p_{n}\)</span> for <span class="math notranslate nohighlight">\(n\in N\)</span>, given by</p>
-<div class="math notranslate nohighlight">
-\[
-p_n \quadeq (\one\hash)^{n} + \mathtt{square} + 
-\mathtt{beaver} + \one\hash
-\]</div>
-<p>Then</p>
-<p><span class="math notranslate nohighlight">\(\phifn_{p_{n}}(\ )\simeq \one^K\)</span>, where <span class="math notranslate nohighlight">\(K = BB(n^2) + 1\)</span>.</p>
-<p>Notice that the number of instructions in <span class="math notranslate nohighlight">\(p_n\)</span> is <em>linear in <span class="math notranslate nohighlight">\(n\)</span></em>.
-In fact, it is <span class="math notranslate nohighlight">\(n + m\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is the total number of instructions
-in <span class="math notranslate nohighlight">\(\mathtt{square}\)</span> and <span class="math notranslate nohighlight">\(\mathtt{beaver}\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(N\)</span> be large enough so that
-<span class="math notranslate nohighlight">\(N^2 &gt; N+m\)</span>.
-Then</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{lclclcl}
-BB(N^2) &amp; \geq  &amp; \phifn_{p_N}(\ ) &amp; = &amp; BB(N^2) + 1 \\
-\end{array}
-\end{split}\]</div>
-<p>Contradiction!</p>
-</div>
-<div class="exercise admonition" id="undecidability/busyBeaver-exercise-1">
-
-<p class="admonition-title"><span class="caption-number">Exercise 41 </span></p>
-<div class="section" id="exercise-content">
-<p>Show that there is no total computable function <span class="math notranslate nohighlight">\(f\colon\N\to\N\)</span> such that for all <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(f(m) \geq BB(m)\)</span>.</p>
-</div>
-</div>
-<div class="exercise admonition" id="undecidability/busyBeaver-exercise-2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 42 </span></p>
-<div class="section" id="exercise-content">
-<p>A common estimate for the number of atoms in the universe is <span class="math notranslate nohighlight">\(M = 10^{82}\)</span>.
-Show that <span class="math notranslate nohighlight">\(BB(50) &gt; M\)</span>.</p>
-</div>
-</div>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/undecidability/church.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="logic">
+<h1>Logic<a class="headerlink" href="#logic" title="Permalink to this headline">¶</a></h1>
+<p>This section is going to contain a proof of Church’s Theorem that satisfyability of first-order logic is undecidable.   This will be a corollary of the undecidability of tiling.  It also will be a place to connect to the Incompleteness Theorem (though this might deserve a section on its own) and to philosophical matters.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -461,17 +402,17 @@ Show that <span class="math notranslate nohighlight">\(BB(50) &gt; M\)</span>.</
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="haltingProblem.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="post.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The halting problem</p>
+            <p class="prev-next-title">Post’s Correspondence Problem</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="tiling.html" title="next page">
+    <a class='right-next' id="next-link" href="../self_writing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tiling</p>
+        <p class="prev-next-title">Self-Replicating Programs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
