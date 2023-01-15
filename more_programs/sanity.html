@@ -364,6 +364,13 @@
   <a class="reference internal nav-link" href="#">
    Tools to help write programs
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workflow">
+     Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-inputs-to-sanity">
@@ -376,13 +383,13 @@
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#examples-of-segments-that-the-tool-can-handle">
-     Examples of segments that the tool can handle:
+    <a class="reference internal nav-link" href="#examples-of-segments">
+     Examples of segments:
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#two-more-examples-of-programs-constructed-using-sanity">
-     Two more examples of programs constructed using Sanity
+    <a class="reference internal nav-link" href="#further-programs-and-exercises">
+     Further programs and exercises
     </a>
    </li>
   </ul>
@@ -411,6 +418,13 @@
   <a class="reference internal nav-link" href="#">
    Tools to help write programs
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workflow">
+     Workflow
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-inputs-to-sanity">
@@ -423,13 +437,13 @@
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#examples-of-segments-that-the-tool-can-handle">
-     Examples of segments that the tool can handle:
+    <a class="reference internal nav-link" href="#examples-of-segments">
+     Examples of segments:
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#two-more-examples-of-programs-constructed-using-sanity">
-     Two more examples of programs constructed using Sanity
+    <a class="reference internal nav-link" href="#further-programs-and-exercises">
+     Further programs and exercises
     </a>
    </li>
   </ul>
@@ -443,7 +457,7 @@
             
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/sanity.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/more_programs/sanity.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="tools-to-help-write-programs">
 <h1>Tools to help write programs<a class="headerlink" href="#tools-to-help-write-programs" title="Permalink to this headline">¶</a></h1>
 <p>The main tool here is a Python program called Sanity.
@@ -476,10 +490,17 @@ This tool makes it easier for someone to organize 1# programs and to write them 
 <p>As a way to show what the tool does, we’ll go through an example.  Let’s write a program that takes a word</p>
 <div class="math notranslate nohighlight">
 \[ w = w_1 w_2 \cdots w_n \]</div>
-<p>in R1 and reverses it.  Our program will work as follows.   It processes the letters in <span class="math notranslate nohighlight">\(w\)</span> in order, using a loop. At the end of the <span class="math notranslate nohighlight">\(i\)</span>th iteration, we’ll have <span class="math notranslate nohighlight">\(w_{i+1}\cdots w_n\)</span> in R1, and its prefix will be in R2 <em>backwards</em>: <span class="math notranslate nohighlight">\(w_{i}\cdots w_2 w_1\)</span>.</p>
-<p>The <span class="math notranslate nohighlight">\(i\)</span>th step itself copies <span class="math notranslate nohighlight">\(w_i\)</span> into R3, and then, in order to put that symbol on the <em>front</em> of <span class="math notranslate nohighlight">\(w_{i}\cdots w_2 w_1\)</span>, moves R2 on the end of R3, and then R3 back to R2.
-Once we have gone through the original <span class="math notranslate nohighlight">\(w\)</span> in this fashion, R1 will be empty, and R2 will contain its reversal.  So we close by moving R2 back to the now-empty R1.</p>
-<p>With this in mind, have a look at the following array ‘reverse_idea’, itself containing 8 arrays.</p>
+<p>in R1 and reverses it.<br />
+Here is a <em>flowchart</em> for the program which we’ll write:
+<img src="https://github.com/lmoss/onesharp/blob/main/more_programs/reverse_idea.jpg?raw=1" width="100%" height="100%">
+Our program will work as follows.   It processes the letters in <span class="math notranslate nohighlight">\(w\)</span> in order, using the loop shown in the top part of the flowchart.</p>
+<p>At the end of the <span class="math notranslate nohighlight">\(i\)</span>th iteration, we’ll have <span class="math notranslate nohighlight">\(w_{i+1}\cdots w_n\)</span> in R1, and its prefix will be in R2 <em>backwards</em>: <span class="math notranslate nohighlight">\(w_{i}\cdots w_2 w_1\)</span>.<br />
+Let’s now consider what happens when we run the <span class="math notranslate nohighlight">\((i+1)\)</span>-st iteration of the loop.  We have cases on the first symbol of R1, and we know that this is <span class="math notranslate nohighlight">\(w_{i+1}\)</span>.   If that first symbol is a <span class="math notranslate nohighlight">\(\one\)</span>, we write it into R3, and then we move R2 onto the end of R3
+(emptying out R2) and then R3 is moved back go R2.  On the assumption that R2 had  <span class="math notranslate nohighlight">\(w_{i}\cdots w_2 w_1\)</span> before this iteration,
+it now has  <span class="math notranslate nohighlight">\(w_{i+1} w_{i}\cdots w_2 w_1\)</span>.   The same thing happens if the first symbol in R1 was <span class="math notranslate nohighlight">\(\hash\)</span>.  Finally, if R1 was empty,
+we would go to the bottom of the flowchart.  In this case,
+R2 would have <span class="math notranslate nohighlight">\(w_{n}\cdots w_2 w_1\)</span>.  (This is what we want; it is the original input reversed.) And the flowchart indicates that we should move R2 back into R1.  So we are done.</p>
+<p>With this in mind, have a look at the following Python list called  ‘reverse_idea’.  It is a list of 8 arrays, and each of them is of a special form.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reverse_idea</span> <span class="o">=</span> <span class="p">[</span>
@@ -496,12 +517,21 @@ Once we have gone through the original <span class="math notranslate nohighlight
 </div>
 </div>
 </div>
-<p>We have 8 <em>segments</em>. But a segments is not the same what we called a <em>line</em> of a <span class="math notranslate nohighlight">\(\one\hash\)</span> program.  As the name suggests, a segment corresponds to a sequence of lines.
+<p>We have here 8 <em>segments</em>.   A segment is not the same what we called a <em>line</em> of a <span class="math notranslate nohighlight">\(\one\hash\)</span> program.  As the name suggests, a segment corresponds to a sequence of lines.
 For example, segments 6 and 8 each contain <code class="docutils literal notranslate"><span class="pre">move</span></code> programs that are bigger than a single instruction.  Segments 2, 4 5, and 6 each begin with a <em>label</em>.  Labels are strings that other parts of the program could point to.  For example, the first segment is a case statement <span class="math notranslate nohighlight">\(\one\hash^5\)</span>, and it also contains the information that if R1 is empty, we should go to whichever segmet has the label “move_phase”. (That would be the segment named ‘move_stuff_around’.) The first segment also tells us that if R1 begins with <span class="math notranslate nohighlight">\(\one\)</span> we should (delete is and) go to the segment containing ‘first-is_one’.   Note also that ‘goto’ is not a label.</p>
-<p>Here is how these lines are used:</p>
+<p>Also, note that a segment is not quite the samething as an item in the flowchart.   But this is pretty close.</p>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>The workflow in this notebook is that you will need to</p>
+<p>(a) think about things deeply enough to make a correct flowchart</p>
+<p>(b) draw that flowchart, either with pencil and paper or with some tool (as I did here)</p>
+<p>(c) call a Python program called <code class="docutils literal notranslate"><span class="pre">sanity</span></code> on <code class="docutils literal notranslate"><span class="pre">reverse_idea</span></code> to get a <span class="math notranslate nohighlight">\(\one\hash\)</span> program which you can then run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rev</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">reverse_idea</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example</span>
+
+<span class="n">rev</span> <span class="o">=</span> <span class="n">sanity</span><span class="p">(</span><span class="n">reverse_idea</span><span class="p">)</span>
+
 <span class="c1"># This run &#39;sanity&#39; on &#39;reverse_idea&#39;, calling the result &#39;rev&#39;.</span>
 <span class="c1"># We can refer to it in the rest of this notebook by &#39;rev&#39;.</span>
 <span class="c1"># For example we can display our new program</span>
@@ -543,6 +573,7 @@ For example, segments 6 and 8 each contain <code class="docutils literal notrans
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1#####111###111###111###111###11111####111111####&#39;
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -602,8 +633,8 @@ A use of ‘goto’ must be followed either by a label or the word ‘end’.</p
 </div>
 </div>
 </div>
-<div class="section" id="examples-of-segments-that-the-tool-can-handle">
-<h2>Examples of segments that the tool can handle:<a class="headerlink" href="#examples-of-segments-that-the-tool-can-handle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="examples-of-segments">
+<h2>Examples of segments:<a class="headerlink" href="#examples-of-segments" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;top&#39;,&#39;cases&#39;,1,&#39;empty&#39;, &#39;one_found&#39;,&#39;hash_found&#39;],
 [&#39;empty&#39;, &#39;goto&#39;, &#39;moveback&#39;],
 [&#39;one_found&#39;, &#39;add1&#39;, 2],
@@ -616,8 +647,8 @@ A use of ‘goto’ must be followed either by a label or the word ‘end’.</p
 </pre></div>
 </div>
 </div>
-<div class="section" id="two-more-examples-of-programs-constructed-using-sanity">
-<h2>Two more examples of programs constructed using Sanity<a class="headerlink" href="#two-more-examples-of-programs-constructed-using-sanity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="further-programs-and-exercises">
+<h2>Further programs and exercises<a class="headerlink" href="#further-programs-and-exercises" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code cell contains a Sane program which multiplies the contents of</span>
