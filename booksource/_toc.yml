@@ -1,10 +1,10 @@
-format: jb-book
+format: jb-book 
 root: index.md 
 parts:
 - caption: Text Register Machine Programs
-  maxdepth: 1
+#maxdepth: 1
   chapters:
-  - file: introOneSharp/getting_started
+  - file: introOneSharp/instructions
   - file: introOneSharp/move_copy_write
   - file: introOneSharp/haltDef
   - file: introOneSharp/functions
@@ -23,22 +23,24 @@ parts:
   - file: more_programs/arithmetic
   - file: more_programs/primitive_recursion
 
-- caption: Universal Programs
-  chapters:
-#   - flle: universal/twoByTwo
-   - file: universal/universal
+#- caption: Universal Programs
+#  chapters:
+#   - flle: universal/twoByTwo ### skip this one
+#   - file: universal/universal
 
-- caption: The Enumeration Theorem
-  chapters:
-  - file: coding
-  - file: t_predicate
-- caption: Undecidability
-  chapters:
-  - file: undecidability/haltingProblem
-  - file: undecidability/busyBeaver
-  - file: undecidability/tiling
-  - file: undecidability/post
-  - file: undecidability/church
+#- caption: The Enumeration Theorem
+#  chapters:
+#  - file: coding
+#  - file: t_predicate
+
+#- caption: Undecidability
+#  chapters:
+#  - file: undecidability/haltingProblem
+#  - file: undecidability/busyBeaver
+#  - file: undecidability/tiling
+#  - file: undecidability/post
+#  - file: undecidability/church
+
 - caption: Self-Writing Programs and the Recursion Theorem
   chapters:
   - file: self_writing

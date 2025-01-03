@@ -2,6 +2,7 @@ jupyter-book
 jupytext
 matplotlib
 numpy
+pandas
 ghp-import
 Sphinx==4.4.0
 sphinx-book-theme==0.1.10
