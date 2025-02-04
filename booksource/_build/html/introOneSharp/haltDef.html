@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>When does a program halt? &#8212; Invitation to Computability</title>
+    <title>Halting &#8212; Invitation to Computability</title>
   
   
   
@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Functions defined by programs" href="functions.html" />
-    <link rel="prev" title="Simple programs" href="move_copy_write.html" />
+    <link rel="prev" title="Basic programs" href="move_copy_write.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,11 +178,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="move_copy_write.html">Simple programs</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">When does a program halt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="move_copy_write.html">Basic programs</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Halting</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions defined by programs</a></li>
+
 
 
 
@@ -193,34 +195,60 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Issues</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../issues/issues.html">Computability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/issues.html">Computability: several notions</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="../issues/problems.html">Algorithmic problems</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../issues/coding.html">What is coding?</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../issues/coding.html">Computatble functions on encoded structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/reduction.html">Reduction of one problem to another</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">More Programs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../more_programs/sanity.html">Tools to help write programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_programs/sanity.html">A tool to help write programs</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../more_programs/arithmetic.html">Programs for Arithmetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_programs/arithmetic.html">Programs for arithmetic</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../more_programs/primitive_recursion.html">Primitive Recursion</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../more_programs/primitive_recursion.html">Primitive recursion</a></li>
 
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self-Writing Programs and the Recursion Theorem</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Recursion Theorem</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../self_writing.html">Self-Replicating Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../self_writing.html">Self-replicating programs</a></li>
 
 
 
 
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Universal Programs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../universal/twoByTwo.html">Two-by-Two Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universal/universal.html">Universal Programs</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Undecidability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/haltingProblem.html">The halting problem</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/busyBeaver.html">The busy beaver problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/tiling.html">Tiling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/post.html">Post’s Correspondence Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/church.html">Logic</a></li>
 </ul>
 
     </div>
@@ -406,7 +434,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>When does a program halt?</h1>
+    <h1>Halting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,7 +444,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">When does a program halt?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definitions">Halting: the formal definitions</a></li>
 </ul>
 
@@ -431,24 +459,24 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/introOneSharp/haltDef.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="when-does-a-program-halt">
-<h1>When does a program halt?<a class="headerlink" href="#when-does-a-program-halt" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\one\hash\)</span> has programs which contain <em>infinite loops</em> such as</p>
-<p>1###1####</p>
+<div class="section" id="halting">
+<h1>Halting<a class="headerlink" href="#halting" title="Permalink to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">1#</span></code> has programs which contain <em>infinite loops</em> such as</p>
+<p><code class="docutils literal notranslate"><span class="pre">111###111####</span></code></p>
 <p>This program never finishes. If you run this in an interpreter, you will need to figure out how to stop the execution.    Most of the time, we are interested in programs which do finish. Actually, we are interested in programs which finish in a special way.</p>
 <p>This last example had nothing to do with the words in the input registers before we ran the program.  But usually the input registers make a difference to whether the program halts or not.</p>
 <div class="tip admonition">
 <p class="admonition-title">Definition</p>
-<p>We (informally) say that a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em> on some inputs if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span> on the inputs, the control transfers to right below the last instruction of <span class="math notranslate nohighlight">\(p\)</span>. In more detail, suppose that <span class="math notranslate nohighlight">\(p\)</span> has n instructions. The formal definition is given below, after we discuss the remaining types of instructions.</p>
+<p>We (informally) say that a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em> on some inputs if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span> on those inputs, the control transfers to right below the last instruction of <span class="math notranslate nohighlight">\(p\)</span>. In more detail, suppose that <span class="math notranslate nohighlight">\(p\)</span> has n instructions. The formal definition is given below, after we discuss the remaining types of instructions.</p>
 <p>In contrast, we say that p <em>halts improperly</em> if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span>, the control tranfers either to a point before the beginning of <span class="math notranslate nohighlight">\(p\)</span> or to points more than one instruction beyond the last instruction of <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
 <p>To see the difference, consider the following two programs:
-<span class="math notranslate nohighlight">\(\one\one\hash\hash\hash\)</span> and <span class="math notranslate nohighlight">\(\one\hash\)</span>.  Suppose we run them with some fixed but arbitrary word <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
-<p>The first says “Go forward 2,” and the second “Add <span class="math notranslate nohighlight">\(\one\)</span> to R1.”</p>
+<code class="docutils literal notranslate"><span class="pre">11###1#</span></code> and <code class="docutils literal notranslate"><span class="pre">1#11###</span></code>.  Suppose we run them with some fixed but arbitrary word <span class="math notranslate nohighlight">\(x\)</span> in R1.</p>
+<p>The first says “Go forward 2,” and the second “Add <code class="docutils literal notranslate"><span class="pre">1</span></code> to R1, and then advance two instructions.”</p>
 <p>The first halts, while the second halts improperly.</p>
 <div class="exercise admonition" id="on-halting">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
 <div class="section" id="exercise-content">
 <p>Which of the following programs halt when run on all empty registers? Which stop improperly? Why?</p>
 <ol class="arabic simple">
@@ -462,9 +490,9 @@ document.write(`
 </div>
 <div class="exercise admonition" id="introOneSharp/haltDef-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <div class="section" id="exercise-content">
-<p><a class="reference internal" href="#on-halting"><span class="std std-numref">Exercise 12</span></a> was concerned with programs run on all empty registers.  Find a program <span class="math notranslate nohighlight">\(p\)</span> and words <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span>, and <span class="math notranslate nohighlight">\(w_3\)</span> so that</p>
+<p><a class="reference internal" href="#on-halting"><span class="std std-numref">Exercise 14</span></a> was concerned with programs run on all empty registers.  Find a program <span class="math notranslate nohighlight">\(p\)</span> and words <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span>, and <span class="math notranslate nohighlight">\(w_3\)</span> so that</p>
 <p>(a) When started with <span class="math notranslate nohighlight">\(w_1\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> halts improperly.</p>
 <p>(b) When started with <span class="math notranslate nohighlight">\(w_2\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> halts improperly.</p>
 <p>(c) When started with <span class="math notranslate nohighlight">\(w_3\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> goes into an infinite loop inside <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -478,8 +506,8 @@ document.write(`
 <li><p>Instruction <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the last instruction) is of the form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">##</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this last instruction.</p></li>
 <li><p>Some instruction of <span class="math notranslate nohighlight">\(p\)</span>, say instruction number <span class="math notranslate nohighlight">\(i\)</span>, is of the form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">###</span></code>; and also <span class="math notranslate nohighlight">\(i + k = n + 1\)</span>; and finally that at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach instruction <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 <li><p>Instruction <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this last instruction with Rk empty.</p></li>
-<li><p>Instruction <span class="math notranslate nohighlight">\(n-1\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the next-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <span class="math notranslate nohighlight">\(\one\)</span>.</p></li>
-<li><p>Instruction <span class="math notranslate nohighlight">\(n-2\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the second-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <span class="math notranslate nohighlight">\(\hash\)</span>.</p></li>
+<li><p>Instruction <span class="math notranslate nohighlight">\(n-1\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the next-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>Instruction <span class="math notranslate nohighlight">\(n-2\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the second-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
 </ol>
 <p>Again, these are the formal conditions.  Most of the time it is enough to work with the informal conditions that we started with:
 a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em> on some inputs if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span> on the inputs, the control transfers to right below the last instruction of <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -521,7 +549,7 @@ a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Simple programs</p>
+        <p class="prev-next-title">Basic programs</p>
       </div>
     </a>
     <a class="right-next"
@@ -548,7 +576,7 @@ a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">When does a program halt?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definitions">Halting: the formal definitions</a></li>
 </ul>
 

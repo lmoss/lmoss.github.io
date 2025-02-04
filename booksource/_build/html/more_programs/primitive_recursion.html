@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Primitive Recursion &#8212; Invitation to Computability</title>
+    <title>Primitive recursion &#8212; Invitation to Computability</title>
   
   
   
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'more_programs/primitive_recursion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Self-Replicating Programs" href="../self_writing.html" />
-    <link rel="prev" title="Programs for Arithmetic" href="arithmetic.html" />
+    <link rel="next" title="Self-replicating programs" href="../self_writing.html" />
+    <link rel="prev" title="Programs for arithmetic" href="arithmetic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,11 +178,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../introOneSharp/move_copy_write.html">Simple programs</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../introOneSharp/haltDef.html">When does a program halt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introOneSharp/move_copy_write.html">Basic programs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../introOneSharp/haltDef.html">Halting</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../introOneSharp/functions.html">Functions defined by programs</a></li>
+
 
 
 
@@ -193,34 +195,60 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Issues</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../issues/issues.html">Computability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/issues.html">Computability: several notions</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="../issues/problems.html">Algorithmic problems</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../issues/coding.html">What is coding?</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../issues/coding.html">Computatble functions on encoded structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/reduction.html">Reduction of one problem to another</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">More Programs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="sanity.html">Tools to help write programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sanity.html">A tool to help write programs</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="arithmetic.html">Programs for Arithmetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetic.html">Programs for arithmetic</a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Primitive Recursion</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Primitive recursion</a></li>
 
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self-Writing Programs and the Recursion Theorem</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Recursion Theorem</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../self_writing.html">Self-Replicating Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../self_writing.html">Self-replicating programs</a></li>
 
 
 
 
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Universal Programs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../universal/twoByTwo.html">Two-by-Two Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universal/universal.html">Universal Programs</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Undecidability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/haltingProblem.html">The halting problem</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/busyBeaver.html">The busy beaver problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/tiling.html">Tiling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/post.html">Post’s Correspondence Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/church.html">Logic</a></li>
 </ul>
 
     </div>
@@ -406,7 +434,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Primitive Recursion</h1>
+    <h1>Primitive recursion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,7 +444,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Primitive Recursion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Primitive recursion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-recursive-terms-and-the-functions-which-they-denote">Primitive recursive terms, and the functions which they denote</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-primitive-recursive-terms-and-functions">Examples of primitive recursive terms and functions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions-in-this-notebook">Basic functions in this notebook</a><ul class="nav section-nav flex-column">
@@ -451,11 +479,12 @@ document.write(`
                   
   <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/primitive_recursion.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="primitive-recursion">
-<h1>Primitive Recursion<a class="headerlink" href="#primitive-recursion" title="Permalink to this heading">#</a></h1>
-<p>This notebook enables one to enter primitive recursive definitions and convert them to 1#.</p>
+<h1>Primitive recursion<a class="headerlink" href="#primitive-recursion" title="Permalink to this heading">#</a></h1>
+<p>This section discusses <em>primitive recursion</em>.</p>
+<p>After the general mathematical treatment, we exhibit some Python tools to enter primitive recursive definitions and convert them to <code class="docutils literal notranslate"><span class="pre">1#</span></code> programs.</p>
 <p>It is mainly under development, but one could play with it now.  In addition, you can find your homework problems solved at the bottom of this notebook.</p>
-<p>What I have here works: entering a primitive recursive term in the correct syntax, we can translate that term to a 1# program.   I did this for all the terms in the homework.  However, the work here is sub-optimal in the sense that the 1# program associated to a term uses way more registers than what seems to be necessary.  For example the program to determine whether or not an input number is prime uses 57 registers.</p>
-<p>I also wonder what it slowing down the run of the 1# programs.  My guess is that one or two optimizations to the Python algorithms should produce better 1# code.  But I don’t really know this.</p>
+<p>What I have here works: entering a primitive recursive term in the correct syntax, we can translate that term to a <code class="docutils literal notranslate"><span class="pre">1#</span></code> program.   I did this for all the terms in the homework.  However, the work here is sub-optimal in the sense that the 1# program associated to a term uses way more registers than what seems to be necessary.  For example the program to determine whether or not an input number is prime uses 57 registers.</p>
+<p>I also wonder what it slowing down the run of the <code class="docutils literal notranslate"><span class="pre">1#</span></code> programs.  My guess is that one or two optimizations to the Python algorithms should produce better <code class="docutils literal notranslate"><span class="pre">1#</span></code> code.  But I don’t really know this.</p>
 <p>To start, enter the next few code cells below and then look at the definitions below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1263,7 +1292,7 @@ q &gt; 1 and m q = p.   That is, I have changed h a litte so that it incorporate
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Programs for Arithmetic</p>
+        <p class="prev-next-title">Programs for arithmetic</p>
       </div>
     </a>
     <a class="right-next"
@@ -1271,7 +1300,7 @@ q &gt; 1 and m q = p.   That is, I have changed h a litte so that it incorporate
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Self-Replicating Programs</p>
+        <p class="prev-next-title">Self-replicating programs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1290,7 +1319,7 @@ q &gt; 1 and m q = p.   That is, I have changed h a litte so that it incorporate
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Primitive Recursion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Primitive recursion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-recursive-terms-and-the-functions-which-they-denote">Primitive recursive terms, and the functions which they denote</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-primitive-recursive-terms-and-functions">Examples of primitive recursive terms and functions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions-in-this-notebook">Basic functions in this notebook</a><ul class="nav section-nav flex-column">

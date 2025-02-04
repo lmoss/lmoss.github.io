@@ -6,6 +6,15 @@
   % pdftocairo  -x 50 -y 50  -H 140 -f 6 -l 6 -png pictures.pdf  % PCP instance
  %  pdftocairo  -x 50 -y 50  -H 140 -f 7 -l 7 -png pictures.pdf 
   
+ %  pdftocairo  -x 50 -y 50  -H 140 -f 7 -l 7 -png pictures.pdf trial
+ %% this gives a file called   	trial-07.png
+ 
+ %% pdftocairo  -x 50 -y 50  -H 680 -f 54 -l 54 -png pictures.pdf pictures 
+ %% above is the big graph with 11 nodes
+ 
+  % pdftocairo  -x 50 -y 50  -H 580 -f 55 -l 55 -png pictures.pdf 
+  
+%  pdftocairo  -x 50 -y 50  -H 570 -f 56 -l 56 -png pictures.pdf 
   
 \documentclass[12pt]{article}
 
@@ -699,23 +708,23 @@ $\begin{array}{l}
 {
 \draw (\x, \y)    rectangle ++(2,2);
 };
-\draw  (1,1.5) node{ab};  %% north
-\draw (1,.5) node{ba}; %% east
+\draw  (1,1.5) node{$ab$};  %% north
+\draw (1,.5) node{$ba$}; %% east
 
-\draw  (3.5,1.5) node{aaabbb};  %% north
-\draw  (3.5,.5) node{bb};  %% south
- \draw  (6,1.5) node{aab};  %% north
-\draw  (6,.5) node{baab};  %% south
+\draw  (3.5,1.5) node{$aaabbb$};  %% north
+\draw  (3.5,.5) node{$abb$};  %% south
+ \draw  (6,1.5) node{$aab$};  %% north
+\draw  (6,.5) node{$baab$};  %% south
 
-\draw  (8.5,1.5) node{ba};  %% north
-\draw  (8.5,.5) node{baa};  %% south
+\draw  (8.5,1.5) node{$ba$};  %% north
+\draw  (8.5,.5) node{$baa$};  %% south
 
 
-\draw  (11,1.5) node{abab};  %% north
-\draw  (11,.5) node{ababaa};  %% south
+\draw  (11,1.5) node{$abab$};  %% north
+\draw  (11,.5) node{$ababaa$};  %% south
 
-\draw  (13.5,1.5) node{aa};  %% north
-\draw  (13.5,.5) node{a};  %% south
+\draw  (13.5,1.5) node{$aa$};  %% north
+\draw  (13.5,.5) node{$a$};  %% south
  \end{tikzpicture}
 \end{array}$ 
 \end{flushleft}
@@ -732,14 +741,14 @@ $\begin{array}{l}
 };
 %%%
 %
-\draw  (3.5,1.5) node{aaabbb};  %% north
-\draw  (3.5,.5) node{bb};  %% south
+\draw  (3.5,1.5) node{$aaabbb$};  %% north
+\draw  (3.5,.5) node{$abb$};  %% south
  %
- \draw  (6,1.5) node{aab};  %% north
-\draw  (6,.5) node{baab};  %% south
+ \draw  (6,1.5) node{$aab$};  %% north
+\draw  (6,.5) node{$baab$};  %% south
 %
-\draw  (8.5,1.5) node{ba};  %% north
-\draw  (8.5,.5) node{baa};  %% south
+\draw  (8.5,1.5) node{$ba$};  %% north
+\draw  (8.5,.5) node{$baa$};  %% south
 % \draw  (6,1.7) node{$\one$};  %% north
 %draw (6.7,1) node{$\addone$}; %% east
 %\draw  (6,.3) node{$\one$};  %% south
@@ -750,17 +759,17 @@ $\begin{array}{l}
 %\draw  (8.5,.3) node{$\one$};  %% south
  %\draw  (7.8,1) node{$\addhash$};   %% west
  %
- \draw  (1,1.5) node{abab};  %% north
-\draw  (1,.5) node{ababaa};  %% south
+ \draw  (1,1.5) node{$abab$};  %% north
+\draw  (1,.5) node{$ababaa$};  %% south
 
- \draw  (11,1.5) node{ab};  %% north
-\draw (11,.5) node{ba}; %% east
+ \draw  (11,1.5) node{$ab$};  %% north
+\draw (11,.5) node{$ba$}; %% east
 
-\draw  (13.5,1.5) node{ab};  %% north
-\draw  (13.5,.5) node{ba};  %% south
+\draw  (13.5,1.5) node{$ab$};  %% north
+\draw  (13.5,.5) node{$ba$};  %% south
 
-\draw  (16,1.5) node{aa};  %% north
-\draw  (16,.5) node{a};  %% south
+\draw  (16,1.5) node{$aa$};  %% north
+\draw  (16,.5) node{$a$};  %% south
  \end{tikzpicture}
  \end{array}$ 
 \end{flushleft}
@@ -881,12 +890,12 @@ then $f(I)$ would be the $PCP$ instance
 };
 %%%
 %
- \draw  (1,1.5) node{a *};  %% north
-\draw  (1,.5) node{*a*b};  %% south
-\draw  (3.5,1.5) node{b*a*a*};  %% north
-\draw  (3.5,.5) node{*a*a*b};  %% south
- \draw  (6,1.5) node{*a*};  %% north
-\draw  (6,.5) node{*a*b};  %% south
+ \draw  (1,1.5) node{$a^*$};  %% north
+\draw  (1,.5) node{${}^*a{}^*b$};  %% south
+\draw  (3.5,1.5) node{$b^*a^*a^*$};  %% north
+\draw  (3.5,.5) node{${}^*a^*a^*b$};  %% south
+ \draw  (6,1.5) node{${}^*a^*$};  %% north
+\draw  (6,.5) node{${}^*a^*b^*$};  %% south
 \draw  (8.5,1.5) node{\$};  %% north
 \draw  (8.5,.5) node{*\$};  %% southf
 \end{tikzpicture}
@@ -2179,18 +2188,448 @@ $\begin{array}{l}
 
 \vfil\eject
 
-\end{document}
+\usetikzlibrary {arrows.meta}
 
-\begin{flushleft}
-$\begin{array}l}
+\newlength{\R}\setlength{\R}{3.5cm}
+%\draw [-{Stealth[scale=2]}]
+\[
+\begin{tikzpicture}[bullet/.style={circle, fill, minimum size=2pt,
+              inner sep=2pt, outer sep=0pt},nodes=bullet,    every edge/.style = {draw,->},scale=1.4]
+            
 
-\end{array}$
-\end{flushleft}
+\node (circ1) at (32.73:\R) [bullet,label=right:$1$] {};
+
+\node (circ2) at (65.45:\R) [bullet,label=above:$2$] {};
+
+\node (circ3) at (98.18:\R) [bullet,label=left:$3$] {};
+
+\node (circ4) at (130.9:\R) [bullet,label=left:$4$] {};
+
+\node (circ5) at (163.6:\R) [bullet,label=left:$5$] {};
+
+\node (circ6) at (196.4:\R) [bullet,label=left:$6$] {};
+
+\node (circ7) at (229.09:\R) [bullet,label=left:$7$] {};
+
+\node (circ8) at (261.81:\R) [bullet,label=right:$8$] {};
+
+\node (circ9) at (294.55:\R) [bullet,label=right:$9$] {};
+
+\node (circ10) at (327.27:\R) [bullet,label=right:$10$] {};
+
+\node (circ11) at (360:\R) [bullet,label=right:$11$] {};
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]   (circ1) -- (circ5);
+
+%\path [->, thick] (circ1)  edge  (circ5);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ2)  --  (circ3);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  -- (circ1);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  --  (circ6);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  -- (circ7);
+
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)   --   (circ9);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ3)   --   (circ8);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ4)   --   (circ8);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)   -- (circ11);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ11)   --   (circ10);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ6)  --   (circ2);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ8)   --   (circ7);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ10)   --  (circ6);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ10)   --   (circ1);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ9)   --   (circ2);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ9)   --  (circ10);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ7)   --   (circ5);
+
+% \draw [thick] (circ1) to (circ2) to (circ3)  to (circ4) to (circ5) to (circ6) to (circ7)to (circ8) to (circ1)to (circ3) to (circ5) to (circ7) to (circ1) to (circ4) to(circ7) to(circ2) to (circ5) to(circ8) to (circ3) to (circ6);
+
+
+	
+%\draw [->] edge (circ1) (circ5);
+
+
+
+
+\end{tikzpicture} 
+\]
 
 \vfil\eject
 
+\begin{flushleft}
+$
+\begin{array}{l}
+\begin{tikzpicture}[scale=1.3]
+\draw[help lines, color=gray!50, dashed] (-3,-3) grid (4,4);
+\draw[->,ultra thick] (-3,-3)--(4,-3);
+\draw[->,ultra thick] (-3,-3)--(-3,4);
+\tikzmath{
+  \a = -3;
+  \b = -3;
+  \side = 1;
+  \inc = .13; %% was .2
+  }
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -3;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -3;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+%%
+\tikzmath{
+  \a = -3;
+  \b = 0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -3;
+  \b = 1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -3;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+%%
+\tikzmath{
+  \a = -2;
+  \b = -3;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -1;
+  \b = -3;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+%
+\tikzmath{
+  \a = 0;
+  \b = -3;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = -3;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 2;
+  \b = -3;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = -2;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -1;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+%
+\tikzmath{
+  \a =0;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 2;
+  \b = -2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -2;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+%%
+\tikzmath{
+  \a = -1;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a =0;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 2;
+  \b = -1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -2;
+  \b =0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -1;
+  \b =0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a =0;
+  \b = 0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = 0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =2;
+  \b = 0;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -2;
+  \b =1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\tikzmath{
+  \a = -1;
+  \b =1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);   
+\tikzmath{
+  \a =0;
+  \b = 1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = 1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =2;
+  \b = 1;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =-2;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =-1;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =0;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a = 1;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+\tikzmath{
+  \a =2;
+  \b = 2;
+ } 
+\filldraw[fill=lightgray](\a+\side,\b+\side) --(\a+\side-\inc,\b+\side -\inc) --(\a+\inc, \b+\side-\inc)--(\a, \b+\side) --(\a+\side,\b+\side);
+\filldraw[fill=lightgray] (\a+\side,\b) -- (\a+\side-\inc,\b+\inc) -- (\a+\side-\inc,\b+\side -\inc) -- (\a+\side,\b+\side) --(\a+\side,\b) ;  
+\filldraw[fill=lightgray] (\a,\b) -- (\a+\inc,\b+\inc) -- (\a+\side-\inc,\b+\inc)--(\a+\side,\b) --(\a,\b);
+\filldraw[fill=lightgray] (\a,\b+\side)--(\a+\inc,\b-\inc+\side)--(\a+\inc,\b+\inc)--(\a,\b)--(\a,\b+\side);  
+
+\end{tikzpicture}
+\end{array}$
+\end{flushleft}
 
 
+
+
+\vfil\eject
+
+\begin{flushleft}
+\begin{tikzpicture}[scale=1.3]
+ \def\radius{1.4cm}
+  \pgfmathsetseed{1040}
+  \draw
+    plot[
+       %smooth cycle,
+       samples=500,
+       domain=0:360*1.4,
+       variable=\t,
+    ]
+      (\t + rand*5:{\radius*(1 + rand*.125)})
+  ;
+\coordinate (O) at (0,0);
+\coordinate (1) at (0,.5);
+\coordinate (2) at (0,1);
+
+\draw (2) circle  (3.5);
+\draw[color=red]  (1) circle (2.5);
+%\draw (O) circle (1.5);
+
+\node at (0,3.75) {\small Not-even-in-principle};
+\node at (0,3.25) {\small Computable};
+
+
+\node at (0,2.25) {\small In Principle};
+\node at (0,1.75) {\small Computable};
+
+\node at (0,0.35) {\small In Practice};
+\node at (0, -.15) {\small Computable};
+\node at (0,-.55) {\small As of Now};
+\end{tikzpicture}
+\end{flushleft}
+
+\end{document}
 
 \begin{flushleft}
 $\begin{array}l}

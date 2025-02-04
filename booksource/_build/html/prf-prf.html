@@ -181,11 +181,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="introOneSharp/move_copy_write.html">Simple programs</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="introOneSharp/haltDef.html">When does a program halt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introOneSharp/move_copy_write.html">Basic programs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="introOneSharp/haltDef.html">Halting</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="introOneSharp/functions.html">Functions defined by programs</a></li>
+
 
 
 
@@ -196,34 +198,60 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Issues</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="issues/issues.html">Computability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues/issues.html">Computability: several notions</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="issues/problems.html">Algorithmic problems</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="issues/coding.html">What is coding?</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="issues/coding.html">Computatble functions on encoded structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="issues/reduction.html">Reduction of one problem to another</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">More Programs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="more_programs/sanity.html">Tools to help write programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_programs/sanity.html">A tool to help write programs</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="more_programs/arithmetic.html">Programs for Arithmetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_programs/arithmetic.html">Programs for arithmetic</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="more_programs/primitive_recursion.html">Primitive Recursion</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="more_programs/primitive_recursion.html">Primitive recursion</a></li>
 
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Self-Writing Programs and the Recursion Theorem</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Universal Programs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="self_writing.html">Self-Replicating Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="universal/twoByTwo.html">Two-by-Two Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="universal/universal.html">Universal Programs</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Recursion Theorem</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="self_writing.html">Self-replicating programs</a></li>
 
 
 
 
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Undecidability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="undecidability/haltingProblem.html">The halting problem</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="undecidability/busyBeaver.html">The busy beaver problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="undecidability/tiling.html">Tiling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="undecidability/post.html">Post’s Correspondence Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="undecidability/church.html">Logic</a></li>
 </ul>
 
     </div>
@@ -377,30 +405,98 @@ document.write(`
    <h1>Proof Index</h1>
 
    <div class="modindex-jumpbox">
-   <a href="#cap-definition-11"><strong>definition-11</strong></a> | 
-   <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
+   <a href="#cap-coding"><strong>coding</strong></a> | 
+   <a href="#cap-coding_what_for"><strong>coding_what_for</strong></a> | 
+   <a href="#cap-corollary-1"><strong>corollary-1</strong></a> | 
+   <a href="#cap-corollary-2"><strong>corollary-2</strong></a> | 
+   <a href="#cap-corollary-3"><strong>corollary-3</strong></a> | 
+   <a href="#cap-definition-1"><strong>definition-1</strong></a> | 
+   <a href="#cap-definition-15"><strong>definition-15</strong></a> | 
+   <a href="#cap-definition-2"><strong>definition-2</strong></a> | 
+   <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
    <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
+   <a href="#cap-definition-8"><strong>definition-8</strong></a> | 
+   <a href="#cap-definition-9"><strong>definition-9</strong></a> | 
    <a href="#cap-phi-notation"><strong>phi-notation</strong></a> | 
    <a href="#cap-proposition-0"><strong>proposition-0</strong></a> | 
+   <a href="#cap-proposition_finite_computable"><strong>proposition_finite_computable</strong></a> | 
+   <a href="#cap-structure"><strong>structure</strong></a> | 
+   <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
    <a href="#cap-theorem-2"><strong>theorem-2</strong></a>
    </div>
 
    <table class="indextable modindextable">
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-11"><td></td><td>
-       <strong>definition-11</strong></td><td></td></tr>
+     <tr class="cap" id="cap-coding"><td></td><td>
+       <strong>coding</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="introOneSharp/functions.html#definition-11"><code class="xref">definition-11</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <a href="issues/coding.html#coding"><code class="xref">coding</code></a> <em>(issues/coding)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-4"><td></td><td>
-       <strong>definition-4</strong></td><td></td></tr>
+     <tr class="cap" id="cap-coding_what_for"><td></td><td>
+       <strong>coding_what_for</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="introOneSharp/functions.html#definition-4"><code class="xref">definition-4</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <a href="issues/coding.html#coding_what_for"><code class="xref">coding_what_for</code></a> <em>(issues/coding)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-1"><td></td><td>
+       <strong>corollary-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#corollary-1"><code class="xref">corollary-1</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-2"><td></td><td>
+       <strong>corollary-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#corollary-2"><code class="xref">corollary-2</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-3"><td></td><td>
+       <strong>corollary-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#corollary-3"><code class="xref">corollary-3</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-1"><td></td><td>
+       <strong>definition-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#definition-1"><code class="xref">definition-1</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-15"><td></td><td>
+       <strong>definition-15</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#definition-15"><code class="xref">definition-15</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-2"><td></td><td>
+       <strong>definition-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#definition-2"><code class="xref">definition-2</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-5"><td></td><td>
+       <strong>definition-5</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#definition-5"><code class="xref">definition-5</code></a> <em>(introOneSharp/functions)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-6"><td></td><td>
@@ -409,6 +505,22 @@ document.write(`
        <td></td>
        <td>
        <a href="introOneSharp/move_copy_write.html#definition-6"><code class="xref">definition-6</code></a> <em>(introOneSharp/move_copy_write)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-8"><td></td><td>
+       <strong>definition-8</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#definition-8"><code class="xref">definition-8</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-9"><td></td><td>
+       <strong>definition-9</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#definition-9"><code class="xref">definition-9</code></a> <em>(introOneSharp/functions)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-phi-notation"><td></td><td>
@@ -424,8 +536,32 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="introOneSharp/tidy.html#proposition-0"><code class="xref">proposition-0</code></a> <em>(introOneSharp/tidy)</em></td><td>
+       <a href="issues/issues.html#proposition-0"><code class="xref">proposition-0</code></a> <em>(issues/issues)</em></td><td>
        <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-proposition_finite_computable"><td></td><td>
+       <strong>proposition_finite_computable</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="introOneSharp/functions.html#proposition_finite_computable"><code class="xref">proposition_finite_computable</code></a> <em>(introOneSharp/functions)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-structure"><td></td><td>
+       <strong>structure</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="issues/coding.html#structure"><code class="xref">structure</code></a> <em>(issues/coding)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-0"><td></td><td>
+       <strong>theorem-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#theorem-0"><code class="xref">theorem-0</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-2"><td></td><td>
        <strong>theorem-2</strong></td><td></td></tr>
