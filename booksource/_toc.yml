@@ -29,13 +29,19 @@ parts:
   
 
 - caption: Universal Programs
+  chapters:  
+  - file: universal/twoByTwo 
+  - file: universal/universal
+
+- caption: Computable Functions of Numbers
   chapters:
-   - file: universal/twoByTwo 
-   - file: universal/universal
+   - file: mu/T_predicate
+   - file: mu/mu
 
 - caption: The Recursion Theorem
   chapters:
-  - file: self_writing
+  - file: recThm/self_writing
+  - file: recThm/recursion_theorem
   
   
 #- caption: The Enumeration Theorem

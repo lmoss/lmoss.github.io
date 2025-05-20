@@ -186,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="issues/coding.html">Computatble functions on encoded structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues/coding.html">Computable functions on encoded structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="issues/reduction.html">Reduction of one problem to another</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Text Register Machine Programs</span></p>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="more_programs/smn.html">The s-m-n Theorem</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Universal Programs</span></p>
@@ -231,17 +232,23 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computable Functions of Numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mu/T_predicate.html">The T predicate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu/mu.html">Mu-recursive functions</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">The Recursion Theorem</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="self_writing.html">Self-replicating programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recThm/self_writing.html">Self-writing programs</a></li>
 
 
 
-
+<li class="toctree-l1"><a class="reference internal" href="recThm/recursion_theorem.html">The Recursion Theorem</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Undecidability</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="undecidability/haltingProblem.html">The halting problem</a></li>
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="undecidability/busyBeaver.html">The busy beaver problem</a></li>
@@ -405,11 +412,28 @@ document.write(`
    <h1>Proof Index</h1>
 
    <div class="modindex-jumpbox">
+   <a href="#cap-Churchs-theorem"><strong>Churchs-theorem</strong></a> | 
+   <a href="#cap-Konig"><strong>Konig</strong></a> | 
+   <a href="#cap-PCP_undecidability"><strong>PCP_undecidability</strong></a> | 
+   <a href="#cap-Rices-theorem"><strong>Rices-theorem</strong></a> | 
+   <a href="#cap-Turings-theorem"><strong>Turings-theorem</strong></a> | 
    <a href="#cap-coding"><strong>coding</strong></a> | 
    <a href="#cap-coding_what_for"><strong>coding_what_for</strong></a> | 
    <a href="#cap-corollary-1"><strong>corollary-1</strong></a> | 
    <a href="#cap-corollary-2"><strong>corollary-2</strong></a> | 
    <a href="#cap-corollary-3"><strong>corollary-3</strong></a> | 
+   <a href="#cap-corollary-5"><strong>corollary-5</strong></a> | 
+   <a href="#cap-corollary-8"><strong>corollary-8</strong></a> | 
+   <a href="#cap-corollary-T-numbers"><strong>corollary-T-numbers</strong></a> | 
+   <a href="#cap-def-T"><strong>def-T</strong></a> | 
+   <a href="#cap-def-encode-sequences"><strong>def-encode-sequences</strong></a> | 
+   <a href="#cap-def-follows"><strong>def-follows</strong></a> | 
+   <a href="#cap-def-halting-snapshot"><strong>def-halting-snapshot</strong></a> | 
+   <a href="#cap-def-snapshot"><strong>def-snapshot</strong></a> | 
+   <a href="#cap-def-snapshot-seq"><strong>def-snapshot-seq</strong></a> | 
+   <a href="#cap-def-starting-snapshot"><strong>def-starting-snapshot</strong></a> | 
+   <a href="#cap-def-suitable"><strong>def-suitable</strong></a> | 
+   <a href="#cap-def-upshot"><strong>def-upshot</strong></a> | 
    <a href="#cap-definition-15"><strong>definition-15</strong></a> | 
    <a href="#cap-definition-2"><strong>definition-2</strong></a> | 
    <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
@@ -417,22 +441,76 @@ document.write(`
    <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
    <a href="#cap-definition-8"><strong>definition-8</strong></a> | 
    <a href="#cap-definition-9"><strong>definition-9</strong></a> | 
+   <a href="#cap-domino_contruction_works"><strong>domino_contruction_works</strong></a> | 
+   <a href="#cap-example-3"><strong>example-3</strong></a> | 
+   <a href="#cap-example-formal-tiling"><strong>example-formal-tiling</strong></a> | 
+   <a href="#cap-example-modified-trace"><strong>example-modified-trace</strong></a> | 
+   <a href="#cap-lemma-2"><strong>lemma-2</strong></a> | 
+   <a href="#cap-lemma-7"><strong>lemma-7</strong></a> | 
+   <a href="#cap-lemma-in-Churchs-theorem"><strong>lemma-in-Churchs-theorem</strong></a> | 
+   <a href="#cap-one-more-register-halting"><strong>one-more-register-halting</strong></a> | 
+   <a href="#cap-one-register-halting"><strong>one-register-halting</strong></a> | 
    <a href="#cap-phi-notation"><strong>phi-notation</strong></a> | 
    <a href="#cap-proposition-0"><strong>proposition-0</strong></a> | 
-   <a href="#cap-proposition-3"><strong>proposition-3</strong></a> | 
-   <a href="#cap-proposition-5"><strong>proposition-5</strong></a> | 
-   <a href="#cap-proposition-6"><strong>proposition-6</strong></a> | 
    <a href="#cap-proposition_finite_computable"><strong>proposition_finite_computable</strong></a> | 
+   <a href="#cap-recursion_theorem"><strong>recursion_theorem</strong></a> | 
+   <a href="#cap-recursion_theorem_2"><strong>recursion_theorem_2</strong></a> | 
    <a href="#cap-remark-1"><strong>remark-1</strong></a> | 
    <a href="#cap-smn"><strong>smn</strong></a> | 
    <a href="#cap-smn2"><strong>smn2</strong></a> | 
    <a href="#cap-structure"><strong>structure</strong></a> | 
    <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
    <a href="#cap-theorem-1"><strong>theorem-1</strong></a> | 
-   <a href="#cap-theorem-2"><strong>theorem-2</strong></a>
+   <a href="#cap-theorem-2"><strong>theorem-2</strong></a> | 
+   <a href="#cap-theorem-3"><strong>theorem-3</strong></a> | 
+   <a href="#cap-theorem-T"><strong>theorem-T</strong></a> | 
+   <a href="#cap-theorem-T-numbers"><strong>theorem-T-numbers</strong></a> | 
+   <a href="#cap-tiling_undecidability"><strong>tiling_undecidability</strong></a> | 
+   <a href="#cap-tiling_undecidability_converse"><strong>tiling_undecidability_converse</strong></a> | 
+   <a href="#cap-tiling_works"><strong>tiling_works</strong></a>
    </div>
 
    <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-Churchs-theorem"><td></td><td>
+       <strong>Churchs-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/church.html#Churchs-theorem"><code class="xref">Churchs-theorem</code></a> <em>(undecidability/church)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-Konig"><td></td><td>
+       <strong>Konig</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#Konig"><code class="xref">Konig</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-PCP_undecidability"><td></td><td>
+       <strong>PCP_undecidability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/post.html#PCP_undecidability"><code class="xref">PCP_undecidability</code></a> <em>(undecidability/post)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-Rices-theorem"><td></td><td>
+       <strong>Rices-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#Rices-theorem"><code class="xref">Rices-theorem</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-Turings-theorem"><td></td><td>
+       <strong>Turings-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#Turings-theorem"><code class="xref">Turings-theorem</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-coding"><td></td><td>
        <strong>coding</strong></td><td></td></tr>
@@ -473,6 +551,102 @@ document.write(`
        <td>
        <a href="undecidability/haltingProblem.html#corollary-3"><code class="xref">corollary-3</code></a> <em>(undecidability/haltingProblem)</em></td><td>
        <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-5"><td></td><td>
+       <strong>corollary-5</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#corollary-5"><code class="xref">corollary-5</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-8"><td></td><td>
+       <strong>corollary-8</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/haltingProblem.html#corollary-8"><code class="xref">corollary-8</code></a> <em>(undecidability/haltingProblem)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-T-numbers"><td></td><td>
+       <strong>corollary-T-numbers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/mu.html#corollary-T-numbers"><code class="xref">corollary-T-numbers</code></a> <em>(mu/mu)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-T"><td></td><td>
+       <strong>def-T</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-T"><code class="xref">def-T</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-encode-sequences"><td></td><td>
+       <strong>def-encode-sequences</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-encode-sequences"><code class="xref">def-encode-sequences</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-follows"><td></td><td>
+       <strong>def-follows</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-follows"><code class="xref">def-follows</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-halting-snapshot"><td></td><td>
+       <strong>def-halting-snapshot</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-halting-snapshot"><code class="xref">def-halting-snapshot</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-snapshot"><td></td><td>
+       <strong>def-snapshot</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-snapshot"><code class="xref">def-snapshot</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-snapshot-seq"><td></td><td>
+       <strong>def-snapshot-seq</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-snapshot-seq"><code class="xref">def-snapshot-seq</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-starting-snapshot"><td></td><td>
+       <strong>def-starting-snapshot</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-starting-snapshot"><code class="xref">def-starting-snapshot</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-suitable"><td></td><td>
+       <strong>def-suitable</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-suitable"><code class="xref">def-suitable</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-upshot"><td></td><td>
+       <strong>def-upshot</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#def-upshot"><code class="xref">def-upshot</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-15"><td></td><td>
        <strong>definition-15</strong></td><td></td></tr>
@@ -530,6 +704,78 @@ document.write(`
        <a href="introOneSharp/functions.html#definition-9"><code class="xref">definition-9</code></a> <em>(introOneSharp/functions)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-domino_contruction_works"><td></td><td>
+       <strong>domino_contruction_works</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/post.html#domino_contruction_works"><code class="xref">domino_contruction_works</code></a> <em>(undecidability/post)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-3"><td></td><td>
+       <strong>example-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#example-3"><code class="xref">example-3</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-formal-tiling"><td></td><td>
+       <strong>example-formal-tiling</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#example-formal-tiling"><code class="xref">example-formal-tiling</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-modified-trace"><td></td><td>
+       <strong>example-modified-trace</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/post.html#example-modified-trace"><code class="xref">example-modified-trace</code></a> <em>(undecidability/post)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-2"><td></td><td>
+       <strong>lemma-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/church.html#lemma-2"><code class="xref">lemma-2</code></a> <em>(undecidability/church)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-7"><td></td><td>
+       <strong>lemma-7</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#lemma-7"><code class="xref">lemma-7</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-in-Churchs-theorem"><td></td><td>
+       <strong>lemma-in-Churchs-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/church.html#lemma-in-Churchs-theorem"><code class="xref">lemma-in-Churchs-theorem</code></a> <em>(undecidability/church)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-one-more-register-halting"><td></td><td>
+       <strong>one-more-register-halting</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="universal/universal.html#one-more-register-halting"><code class="xref">one-more-register-halting</code></a> <em>(universal/universal)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-one-register-halting"><td></td><td>
+       <strong>one-register-halting</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="universal/universal.html#one-register-halting"><code class="xref">one-register-halting</code></a> <em>(universal/universal)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-phi-notation"><td></td><td>
        <strong>phi-notation</strong></td><td></td></tr>
      <tr>
@@ -543,31 +789,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="undecidability/tiling.html#proposition-0"><code class="xref">proposition-0</code></a> <em>(undecidability/tiling)</em></td><td>
-       <em>proposition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-proposition-3"><td></td><td>
-       <strong>proposition-3</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="undecidability/tiling.html#proposition-3"><code class="xref">proposition-3</code></a> <em>(undecidability/tiling)</em></td><td>
-       <em>proposition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-proposition-5"><td></td><td>
-       <strong>proposition-5</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="universal/universal.html#proposition-5"><code class="xref">proposition-5</code></a> <em>(universal/universal)</em></td><td>
-       <em>proposition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-proposition-6"><td></td><td>
-       <strong>proposition-6</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="universal/universal.html#proposition-6"><code class="xref">proposition-6</code></a> <em>(universal/universal)</em></td><td>
+       <a href="issues/issues.html#proposition-0"><code class="xref">proposition-0</code></a> <em>(issues/issues)</em></td><td>
        <em>proposition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-proposition_finite_computable"><td></td><td>
@@ -577,6 +799,22 @@ document.write(`
        <td>
        <a href="introOneSharp/functions.html#proposition_finite_computable"><code class="xref">proposition_finite_computable</code></a> <em>(introOneSharp/functions)</em></td><td>
        <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-recursion_theorem"><td></td><td>
+       <strong>recursion_theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="recThm/recursion_theorem.html#recursion_theorem"><code class="xref">recursion_theorem</code></a> <em>(recThm/recursion_theorem)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-recursion_theorem_2"><td></td><td>
+       <strong>recursion_theorem_2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="recThm/recursion_theorem.html#recursion_theorem_2"><code class="xref">recursion_theorem_2</code></a> <em>(recThm/recursion_theorem)</em></td><td>
+       <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-1"><td></td><td>
        <strong>remark-1</strong></td><td></td></tr>
@@ -623,7 +861,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="undecidability/tiling.html#theorem-1"><code class="xref">theorem-1</code></a> <em>(undecidability/tiling)</em></td><td>
+       <a href="more_programs/primitive_recursion.html#theorem-1"><code class="xref">theorem-1</code></a> <em>(more_programs/primitive_recursion)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-2"><td></td><td>
@@ -633,6 +871,54 @@ document.write(`
        <td>
        <a href="issues/problems.html#theorem-2"><code class="xref">theorem-2</code></a> <em>(issues/problems)</em></td><td>
        <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-3"><td></td><td>
+       <strong>theorem-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="more_programs/primitive_recursion.html#theorem-3"><code class="xref">theorem-3</code></a> <em>(more_programs/primitive_recursion)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-T"><td></td><td>
+       <strong>theorem-T</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/T_predicate.html#theorem-T"><code class="xref">theorem-T</code></a> <em>(mu/T_predicate)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-T-numbers"><td></td><td>
+       <strong>theorem-T-numbers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="mu/mu.html#theorem-T-numbers"><code class="xref">theorem-T-numbers</code></a> <em>(mu/mu)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-tiling_undecidability"><td></td><td>
+       <strong>tiling_undecidability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#tiling_undecidability"><code class="xref">tiling_undecidability</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-tiling_undecidability_converse"><td></td><td>
+       <strong>tiling_undecidability_converse</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#tiling_undecidability_converse"><code class="xref">tiling_undecidability_converse</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-tiling_works"><td></td><td>
+       <strong>tiling_works</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="undecidability/tiling.html#tiling_works"><code class="xref">tiling_works</code></a> <em>(undecidability/tiling)</em></td><td>
+       <em>lemma</em></td></tr>
    </table>
 
 

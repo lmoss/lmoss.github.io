@@ -9,12 +9,25 @@
  %  pdftocairo  -x 50 -y 50  -H 140 -f 7 -l 7 -png pictures.pdf trial
  %% this gives a file called   	trial-07.png
  
+ %pdftocairo  -x 50 -y 50  -H 140 -f 10 -l 10 -png pictures.pdf 
+ %pdftocairo  -x 50 -y 50  -H 140 -f 11 -l 11 -png pictures.pdf 
+  %pdftocairo  -x 50 -y 50  -H 140 -f 12 -l 12 -png pictures.pdf 
+   %pdftocairo  -x 50 -y 50  -H 140 -f 13 -l 13 -png pictures.pdf 
+   %pdftocairo  -x 50 -y 50  -H 140 -f 13 -l 13 -png pictures.pdf 
+   
+%   pdftocairo  -x 50 -y 50  -H 640 -f 16 -l 16 -png pictures.pdf
+        
+%   pdftocairo  -x 50 -y 50  -H 640 -f 21 -l 21 -png pictures.pdf
+  
  %% pdftocairo  -x 50 -y 50  -H 680 -f 54 -l 54 -png pictures.pdf pictures 
- %% above is the big graph with 11 nodes
+ %% above is the big graph with 11 nodes but going counterclockwise
  
   % pdftocairo  -x 50 -y 50  -H 580 -f 55 -l 55 -png pictures.pdf 
   
 %  pdftocairo  -x 50 -y 50  -H 570 -f 56 -l 56 -png pictures.pdf 
+  
+ %% pdftocairo  -x 50 -y 50  -H 680 -f 57 -l 57 -png pictures.pdf pictures 
+ %% above is the big graph with 11 nodes  
   
 \documentclass[12pt]{article}
 
@@ -911,6 +924,8 @@ $
 \dominothin{\one}{\one}
 \quad
 \dominothin{\hash}{\hash}
+\quad
+\domino{K+1\ \mbox{halt}}{\mbox{halt}}
 \end{array}
 $
 \end{flushleft}
@@ -1091,14 +1106,14 @@ $
 \vfil\eject
 
 
-
+\rem{
 \begin{flushleft}
 $\begin{array}{l}
 \one\hash\hash | \one \hash^5  | \one^3\hash^3 |  \one^2 \hash^4  |  \one^3 \hash^4
 \end{array}$
 \end{flushleft}
+}
 
-asdf
 
 
 \begin{flushleft}
@@ -1138,18 +1153,18 @@ $
  %
 \end{tikzpicture}
 \\
-\domino{3}{4}
-\quad 
-\domino{3\, \quad  \one}{5}
-\quad 
-\domino{3\, \quad  \hash}{6}
-\\
 \domino{4}{7} 
 \quad
 \domino{5}{3} 
 \quad
 \domino{6}{3} 
 \quad
+\\
+\domino{3}{4}
+\quad 
+\domino{3\, \quad  \one}{5}
+\quad 
+\domino{3\, \quad  \hash}{6}
 \end{array}
 $
 \end{flushleft}
@@ -2628,6 +2643,93 @@ $
 \node at (0,-.55) {\small As of Now};
 \end{tikzpicture}
 \end{flushleft}
+
+\vfil\eject
+
+\usetikzlibrary {arrows.meta}
+
+%\newlength{\R}\setlength{\R}{3.5cm}
+%\draw [-{Stealth[scale=2]}]
+\[
+\begin{tikzpicture}[bullet/.style={circle, fill, minimum size=2pt,
+              inner sep=2pt, outer sep=0pt},nodes=bullet,    every edge/.style = {draw,->},scale=1.4]
+            
+
+\node (circ1) at (32.73:\R) [bullet,label=right:$3$] {};
+
+\node (circ2) at (65.45:\R) [bullet,label=above:$2$] {};
+
+\node (circ3) at (98.18:\R) [bullet,label=left:$1$] {};
+
+\node (circ4) at (130.9:\R) [bullet,label=left:$11$] {};
+
+\node (circ5) at (163.6:\R) [bullet,label=left:$10$] {};
+
+\node (circ6) at (196.4:\R) [bullet,label=left:$9$] {};
+
+\node (circ7) at (229.09:\R) [bullet,label=left:$8$] {};
+
+\node (circ8) at (261.81:\R) [bullet,label=right:$7$] {};
+
+\node (circ9) at (294.55:\R) [bullet,label=right:$6$] {};
+
+\node (circ10) at (327.27:\R) [bullet,label=right:$5$] {};
+
+\node (circ11) at (360:\R) [bullet,label=right:$4$] {};
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]   (circ1) -- (circ5);
+
+%\path [->, thick] (circ1)  edge  (circ5);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ2)  --  (circ3);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  -- (circ1);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  --  (circ6);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)  -- (circ7);
+
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)   --   (circ9);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ3)   --   (circ8);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ4)   --   (circ8);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ4)   -- (circ11);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ11)   --   (circ10);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ6)  --   (circ2);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ8)   --   (circ7);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ10)   --  (circ6);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ10)   --   (circ1);
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}] (circ9)   --   (circ2);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ9)   --  (circ10);
+
+
+\draw[arrows = {-Stealth[length=10pt, inset=5pt]}]  (circ7)   --   (circ5);
+
+% \draw [thick] (circ1) to (circ2) to (circ3)  to (circ4) to (circ5) to (circ6) to (circ7)to (circ8) to (circ1)to (circ3) to (circ5) to (circ7) to (circ1) to (circ4) to(circ7) to(circ2) to (circ5) to(circ8) to (circ3) to (circ6);
+
+
+	
+%\draw [->] edge (circ1) (circ5);
+
+
+
+
+\end{tikzpicture} 
+\]
+
 
 \end{document}
 
