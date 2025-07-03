@@ -185,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="../issues/coding.html">Computable functions on encoded structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/reduction.html">Reduction of one problem to another</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Text Register Machine Programs</span></p>
 <ul class="current nav bd-sidenav">
@@ -193,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="move_copy_write.html">Basic programs</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Halting</a></li>
+
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions defined by programs</a></li>
 
@@ -233,8 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../mu/T_predicate.html">The T predicate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mu/mu.html">Mu-recursive functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mu/ackermann.html">Ackermann’s function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mu/turing.html">Turing computability</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">The Recursion Theorem</span></p>
 <ul class="nav bd-sidenav">
@@ -265,6 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="../undecidability/post.html">Post’s Correspondence Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../undecidability/matrixMortality.html">Matrix mortality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../undecidability/church.html">Satisfiability and validity in first-order logic</a></li>
 </ul>
 
@@ -461,8 +467,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definitions">Halting: the formal definitions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-informally">Halting: informally</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definition">Halting: the formal definition</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#up-arrow-and-down-arrow-notation">Up-arrow and down-arrow notation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-halting-problem">The halting problem</a></li>
 </ul>
 
             </nav>
@@ -476,12 +489,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a href="https://colab.research.google.com/github/lmoss/onesharp/blob/main/introOneSharp/haltDef.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="halting">
+<div class="tex2jax_ignore mathjax_ignore section" id="halting">
 <h1>Halting<a class="headerlink" href="#halting" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">1#</span></code> has programs which contain <em>infinite loops</em> such as</p>
 <p><code class="docutils literal notranslate"><span class="pre">111###111####</span></code></p>
 <p>This program never finishes. If you run this in an interpreter, you will need to figure out how to stop the execution.    Most of the time, we are interested in programs which do finish. Actually, we are interested in programs which finish in a special way.</p>
 <p>This last example had nothing to do with the words in the input registers before we ran the program.  But usually the input registers make a difference to whether the program halts or not.</p>
+<div class="section" id="halting-informally">
+<h2>Halting: informally<a class="headerlink" href="#halting-informally" title="Permalink to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Definition</p>
 <p>We (informally) say that a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em> on some inputs if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span> on those inputs, the control transfers to right below the last instruction of <span class="math notranslate nohighlight">\(p\)</span>. In more detail, suppose that <span class="math notranslate nohighlight">\(p\)</span> has n instructions. The formal definition is given below, after we discuss the remaining types of instructions.</p>
@@ -493,7 +508,7 @@ document.write(`
 <p>The first halts, while the second halts improperly.</p>
 <div class="exercise admonition" id="on-halting">
 
-<p class="admonition-title"><span class="caption-number">Exercise 33 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 35 </span></p>
 <div class="section" id="exercise-content">
 <p>Which of the following programs halt when run on all empty registers? Which stop improperly? Why?</p>
 <ol class="arabic simple">
@@ -507,17 +522,20 @@ document.write(`
 </div>
 <div class="exercise admonition" id="introOneSharp/haltDef-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 36 </span></p>
 <div class="section" id="exercise-content">
-<p><a class="reference internal" href="#on-halting"><span class="std std-numref">Exercise 33</span></a> was concerned with programs run on all empty registers.  Find a program <span class="math notranslate nohighlight">\(p\)</span> and words <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span>, and <span class="math notranslate nohighlight">\(w_3\)</span> so that</p>
+<p><a class="reference internal" href="#on-halting"><span class="std std-numref">Exercise 35</span></a> was concerned with programs run on all empty registers.  Find a program <span class="math notranslate nohighlight">\(p\)</span> and words <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span>, and <span class="math notranslate nohighlight">\(w_3\)</span> so that</p>
 <p>(a) When started with <span class="math notranslate nohighlight">\(w_1\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> halts improperly.</p>
 <p>(b) When started with <span class="math notranslate nohighlight">\(w_2\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> halts improperly.</p>
 <p>(c) When started with <span class="math notranslate nohighlight">\(w_3\)</span> in R1, <span class="math notranslate nohighlight">\(p\)</span> goes into an infinite loop inside <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="section" id="halting-the-formal-definitions">
-<h1>Halting: the formal definitions<a class="headerlink" href="#halting-the-formal-definitions" title="Permalink to this heading">#</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="halting-the-formal-definition">
+<h1>Halting: the formal definition<a class="headerlink" href="#halting-the-formal-definition" title="Permalink to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Definition</p>
 <p>There are five ways that the run of a program <span class="math notranslate nohighlight">\(p\)</span> on some register contents could halt.</p>
 <ol class="arabic simple">
 <li><p>Instruction <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the last instruction) is of the form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">##</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this last instruction.</p></li>
@@ -526,8 +544,54 @@ document.write(`
 <li><p>Instruction <span class="math notranslate nohighlight">\(n-1\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the next-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 <li><p>Instruction <span class="math notranslate nohighlight">\(n-2\)</span> of <span class="math notranslate nohighlight">\(p\)</span> (the second-to-last instruction) is of the form form <code class="docutils literal notranslate"><span class="pre">1</span></code><sup><span class="math notranslate nohighlight">\(k\)</span></sup><code class="docutils literal notranslate"><span class="pre">#####</span></code>, and at some point in the run of <span class="math notranslate nohighlight">\(p\)</span>, we reach this instruction with Rk containing a word beginning with <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
 </ol>
+</div>
 <p>Again, these are the formal conditions.  Most of the time it is enough to work with the informal conditions that we started with:
 a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em> on some inputs if at some point during the execution of <span class="math notranslate nohighlight">\(p\)</span> on the inputs, the control transfers to right below the last instruction of <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="section" id="up-arrow-and-down-arrow-notation">
+<h2>Up-arrow and down-arrow notation<a class="headerlink" href="#up-arrow-and-down-arrow-notation" title="Permalink to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Definition</p>
+<p>We write <span class="math notranslate nohighlight">\([\![p]\!](\ )\!\!\downarrow\)</span> to mean that <span class="math notranslate nohighlight">\(p\)</span> is a program, and running <span class="math notranslate nohighlight">\(p\)</span> on all empty registers eventually halts.</p>
+<p>We write <span class="math notranslate nohighlight">\([\![p]\!](\ )\uparrow\)</span> to mean that <span class="math notranslate nohighlight">\(p\)</span> is a program, and running <span class="math notranslate nohighlight">\(p\)</span> on all empty registers does not eventually halt: the computation either goes on forever or comes to an improper halt.</p>
+<hr class="docutils" />
+<p>We write <span class="math notranslate nohighlight">\([\![p]\!](x)\!\!\downarrow\)</span> to mean that <span class="math notranslate nohighlight">\(p\)</span> is a program, and running <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(x\)</span> in R1 and all other registers empty eventually halts.</p>
+<p>We write <span class="math notranslate nohighlight">\([\![p]\!](x)\uparrow\)</span> to mean that <span class="math notranslate nohighlight">\(p\)</span> is a program, and running <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(x\)</span> in R1 and all other registers empty does not eventually halt (as above).</p>
+<hr class="docutils" />
+<p>The definitions of <span class="math notranslate nohighlight">\([\![p]\!](x_1, \ldots, x_n)\!\!\downarrow\)</span>  and  <span class="math notranslate nohighlight">\([\![p]\!](x_1, \ldots, x_n)\!\!\uparrow\)</span> are similar.</p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-halting-problem">
+<h1>The halting problem<a class="headerlink" href="#the-halting-problem" title="Permalink to this heading">#</a></h1>
+<p>We now can state one of the key foundational points in computability theory.  This is that the <em>halting problem</em> is unsolvable.  It is a result due to Alan Turing in his seminal paper of 1936.  Although his original paper dealt with what we now call <em>Turing machines</em> (indeed, they were originated in this same paper), the discussion carries over to register machines.</p>
+<p>We begin by thinking about <code class="docutils literal notranslate"><span class="pre">1#</span></code> programs <span class="math notranslate nohighlight">\(x\)</span> and asking whether they halt or not.  As we know, it makes a difference whether we run <span class="math notranslate nohighlight">\(x\)</span> on all empty registers or with some non-empty words in the registers.  Let us for a moment just consider <span class="math notranslate nohighlight">\(x\)</span> on all empty registers.  It might be nice to know if <span class="math notranslate nohighlight">\(x\)</span> halts or not.   Of course we mean “halting” according to our formal definition.    In computability theory, we always ask if</p>
+<div class="danger admonition">
+<p class="admonition-title">Halting Problem</p>
+<p>Is there a program <span class="math notranslate nohighlight">\(p\)</span> such that for all programs <span class="math notranslate nohighlight">\(x\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\![p]\!](x) = \left\{
+\begin{array}{ll}
+\one &amp; \mbox{if $[\![x]\!](\ )\!\!\downarrow$} \\
+\hash &amp; \mbox{if $[\![x]\!](\ )\!\!\uparrow$} \\
+\end{array}
+\right.   
+\end{split}\]</div>
+</div>
+<p>So the problem here is the set of programs which halt on empty registers.   Turing showed that this problem is unsolvable.  That is, there is no program <span class="math notranslate nohighlight">\(p\)</span> as described.</p>
+<p>For programs with an input, the statement of the problem is similar.  We need to fix a number of arguments.   Let’s fix this to be <span class="math notranslate nohighlight">\(1\)</span>.   We are considering programs <span class="math notranslate nohighlight">\(x\)</span> and their run on one word.    Then we would be asking if there is a program <span class="math notranslate nohighlight">\(p\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}
+[\![p]\!](x,y) &amp; = &amp; \left\{
+\begin{array}{ll}
+\one &amp; \mbox{if $[\![x]\!](y)\dar$}\\
+\hash &amp;  \mbox{if $[\![x]\!](y)\uparrow$}
+\end{array}
+\right.
+\end{array}
+\end{split}\]</div>
+<p>Although it appears much later in this book, you could read <a class="reference internal" href="../undecidability/haltingProblem.html#Turings-theorem">Theorem 11</a> right now.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -593,8 +657,15 @@ a program <span class="math notranslate nohighlight">\(p\)</span> <em>halts</em>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definitions">Halting: the formal definitions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Halting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-informally">Halting: informally</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#halting-the-formal-definition">Halting: the formal definition</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#up-arrow-and-down-arrow-notation">Up-arrow and down-arrow notation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-halting-problem">The halting problem</a></li>
 </ul>
 
   </nav></div>
