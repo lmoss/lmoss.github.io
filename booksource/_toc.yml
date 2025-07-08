@@ -2,12 +2,13 @@ format: jb-book
 root: index.md 
 parts:
 
-- caption: Issues
+- caption: Themes
   chapters:
   - file: issues/issues
   - file: issues/problems
   - file: issues/coding
   - file: issues/reduction
+  - file: issues/recursion
 
 
 - caption: Text Register Machine Programs
@@ -30,8 +31,9 @@ parts:
 
 - caption: Universal Programs
   chapters:  
-  - file: universal/twoByTwo 
+# - file: universal/twoByTwo 
   - file: universal/universal
+  - file: universal/universalMore
 
 - caption: Computable Functions of Numbers
   chapters:
@@ -46,7 +48,7 @@ parts:
   - file: recThm/self_writing
   - file: recThm/recursion_theorem
   
-- caption: Computably Enumerable Sets
+- caption: Computably Enumerable Sets And Beyond
   chapters:
   - file: cesets/computablyEnumerable  
   
@@ -60,11 +62,14 @@ parts:
   - file: undecidability/haltingProblem
   - file: undecidability/busyBeaver
   - file: undecidability/tiling
-  - file: undecidability/church
   - file: undecidability/post
   - file: undecidability/matrixMortality
 
 
+- caption: Applications in Logic
+  chapters:
+  - file: logic/church_turing
+  - file: logic/CT_via_matrices
 
 
 
