@@ -38,13 +38,19 @@ sphinx:
              "N": "\\mathbb{N}"
              "set": ["\\left\\{#1\\right\\}", 1]
              "one": ["\\mathtt{1}"]
+             "onett": ["\\mathtt{1}"]
              "hash": ["\\mathtt{\\#}"]
+             "onesharp": ["\\mathtt{1\\#}"]
              "diag": ["\\mathtt{diag}"]
              "self": ["\\mathtt{self}"]
+             "diagprog": ["\\mathtt{diag}"]
+             "selfprog": ["\\mathtt{self}"]
              "copyprog": ["\\mathtt{copy}"]
+             "uprog": ["\\mathtt{u}"]
              "clearprog": ["\\mathtt{clear}"]
              "writeprog": ["\\mathtt{write}"]
              "writetotwo": ["\\mathtt{write}_2"]
+             "tradeprog": ["\\mathtt{trade}"]
              "semantics": ["[\\![#1]\\!]", 1]
              "semanticsalt": ["\\langle\\!\\langle #1\\rangle\\!\\rangle", 1]
              "moveprog": ["\\mathtt{move}"]
@@ -56,6 +62,11 @@ sphinx:
              "Rone": ["R1"]
              "Rtwo": ["R2"]
              "words": ["\\mbox{words}"]
+             "Words": ["\\textit{words}"]
+             "Rings": ["\\mathsf{Rings}"]
+             "iif": ["\\rightarrow"]
+             "andd": ["\\wedge"]
+             "proves": ["\\vdash"]
   extra_extensions:
     - sphinx_exercise
     - sphinx_proof
