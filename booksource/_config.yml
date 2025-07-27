@@ -39,6 +39,8 @@ sphinx:
              "set": ["\\left\\{#1\\right\\}", 1]
              "one": ["\\mathtt{1}"]
              "hash": ["\\mathtt{\\#}"]
+             "onesharp": ["\\mathtt{1\\mathtt{\\#}}"]
+             "onehash": ["\\mathtt{1\\mathtt{\\#}}"]
              "diag": ["\\mathtt{diag}"]
              "self": ["\\mathtt{self}"]
              "copyprog": ["\\mathtt{copy}"]
