@@ -7,7 +7,7 @@
 
 #######################################################################################
 # Book settings
-title                       : Invitation to Computability  # The title of the book. Will be placed in the left navbar.
+title                       : Invitation to Computability and Recursion # The title of the book. Will be placed in the left navbar.
 author                      : Lawrence S. Moss  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : ourboros1.jpg
@@ -40,6 +40,7 @@ sphinx:
              "one": ["\\mathtt{1}"]
              "onett": ["\\mathtt{1}"]
              "hash": ["\\mathtt{\\#}"]
+             "onehash": ["\\onett\\hash"]
              "onesharp": ["\\mathtt{1\\#}"]
              "diag": ["\\mathtt{diag}"]
              "self": ["\\mathtt{self}"]
@@ -48,9 +49,11 @@ sphinx:
              "copyprog": ["\\mathtt{copy}"]
              "uprog": ["\\mathtt{u}"]
              "clearprog": ["\\mathtt{clear}"]
+             "reverseprog": ["\\mathtt{reverse}"]
              "writeprog": ["\\mathtt{write}"]
              "writetotwo": ["\\mathtt{write}_2"]
              "tradeprog": ["\\mathtt{trade}"]
+             "tidyprog": ["\\mathtt{tidy}"]
              "semantics": ["[\\![#1]\\!]", 1]
              "semanticsalt": ["\\langle\\!\\langle #1\\rangle\\!\\rangle", 1]
              "moveprog": ["\\mathtt{move}"]
@@ -67,6 +70,10 @@ sphinx:
              "iif": ["\\rightarrow"]
              "andd": ["\\wedge"]
              "proves": ["\\vdash"]
+             "eps": ["\\varepsilon"]
+             "xbar": ["\\overline{x}"]
+             "ybar": ["\\overline{y}"]
+             "Ronesharp":  ["R\\onesharp"]
   extra_extensions:
     - sphinx_exercise
     - sphinx_proof
